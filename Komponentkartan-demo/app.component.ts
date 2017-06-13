@@ -2,7 +2,7 @@
 
 @Component({
     selector: "komponentkartan-demo",
-    template:`<vgr-text-button>Klicka här</vgr-text-button>`
+    templateUrl: "./app.component.html"
 })
 
 export class KomponentkartanApplicationComponent {
