@@ -182,8 +182,8 @@ tools/**
 build/
 
 # Demo-jsfiler
-komponentkartan-demo/**/*.js
-komponentkartan-demo/**/*.js.map
+komponentkartan-demo/app/*.js
+komponentkartan-demo/app/*.js.map
 
 
 fonts/*.*

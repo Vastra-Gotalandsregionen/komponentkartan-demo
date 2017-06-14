@@ -1,9 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { ISelectableItem } from "./node_modules/vgr-komponentkartan/component-package/models/selectableItem.model";
+import { ISelectableItem } from "../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model";
 
 @Component({
     selector: "komponentkartan-demo",
-    templateUrl: "./app.component.html"
+    templateUrl: "/app/app.component.html"
 })
 
 export class KomponentkartanApplicationComponent {

@@ -16,7 +16,7 @@
     "systemjs": "0.19.47",
     "rxjs": "~5.4.0",
     "zone.js": "~0.8.12",
-    "vgr-komponentkartan": "0.0.18"
+    "vgr-komponentkartan": "^0.0.21"
   },
   "devDependencies": {
     "typescript": "~2.1.6"

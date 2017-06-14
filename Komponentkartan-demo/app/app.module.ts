@@ -3,7 +3,7 @@ import { BrowserModule, Title } from "@angular/platform-browser"
 import { FormsModule } from "@angular/forms";
 
 import { KomponentkartanApplicationComponent } from "./app.component"
-import { KomponentkartanModule } from "./node_modules/vgr-komponentkartan/component-package/komponentkartan.module";
+import { KomponentkartanModule } from "../node_modules/vgr-komponentkartan/component-package/komponentkartan.module";
 
 
 @NgModule({
