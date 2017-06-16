@@ -1,24 +1,29 @@
 {
-  "name": "komponentkartan-demo",
-  "version": "0.0.0",
-  "scripts": {
-    "_compile-typescript": "tsc",
-    "_watch-typescript": "tsc -w"
-  },
-  "dependencies": {
-    "@angular/common": "~4.1.3",
-    "@angular/compiler": "~4.1.3",
-    "@angular/core": "~4.1.3",
-    "@angular/platform-browser": "~4.1.3",
-    "@angular/platform-browser-dynamic": "~4.1.3",
-    "@angular/forms": "~4.1.3",
-    "core-js": "~2.4.1",
-    "systemjs": "0.19.47",
-    "rxjs": "~5.4.0",
-    "zone.js": "~0.8.12",
-    "vgr-komponentkartan": "^0.0.21"
-  },
-  "devDependencies": {
-    "typescript": "~2.1.6"
-  }
+    "name": "komponentkartan-demo",
+    "version": "0.0.0",
+    "scripts": {
+        "[start-app]": "concurrent \"npm run _watch-typescript\" \"npm run _local-webserver\" ",
+        "_compile-typescript": "tsc",
+        "_watch-typescript": "tsc -w",
+        "_local-webserver": "lite-server"
+
+    },
+    "dependencies": {
+        "@angular/common": "~4.1.3",
+        "@angular/compiler": "~4.1.3",
+        "@angular/core": "~4.1.3",
+        "@angular/platform-browser": "~4.1.3",
+        "@angular/platform-browser-dynamic": "~4.1.3",
+        "@angular/forms": "~4.1.3",
+        "core-js": "~2.4.1",
+        "systemjs": "0.19.47",
+        "rxjs": "~5.4.0",
+        "zone.js": "~0.8.12",
+        "vgr-komponentkartan": "~0.0.25"
+    },
+    "devDependencies": {
+        "typescript": "~2.1.6",
+        "lite-server": "^2.2.2",
+        "concurrently": "~3.3.0"
+    }
 }
