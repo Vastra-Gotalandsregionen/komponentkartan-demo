@@ -13,10 +13,7 @@ export class KomponentkartanApplicationComponent {
     selectedRadioOption: ISelectableItem;
     lockMessage: string;
     saveCancelMessage: string;
-    dropDownItems25: IDropdownItem[];
-    dropDownItems9: IDropdownItem[];
-    dropDownItems8: IDropdownItem[];
-    dropDownItems25All: IDropdownItem[];
+    dropDownItemsAll: IDropdownItem[];
 
     constructor() {
         this.buttonDisabled = true;
@@ -25,12 +22,10 @@ export class KomponentkartanApplicationComponent {
         this.lockMessage = "Ingen";
         this.saveCancelMessage = "Ingen";
 
-        this.dropDownItems25 = this.getDemoItems(25);
-        this.dropDownItems25All = this.getDemoItems(25);
-        this.dropDownItems8 = this.getDemoItems(8);
-        this.dropDownItems9 = this.getDemoItems(9);
+
+        this.dropDownItemsAll = this.getDemoItems(7);
     }
-    
+
     onSelectedRadioOptionChanged(option: ISelectableItem) {
         this.selectedRadioOption = option;
     }
