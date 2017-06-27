@@ -1,4 +1,4 @@
-(function (global) {
+(function(global) {
     System.config({
         paths: {
             // paths serve as alias
@@ -21,6 +21,7 @@
 
             // other libraries
             'rxjs': 'npm:rxjs',
+            'ngx-perfect-scrollbar': "npm:ngx-perfect-scrollbar/bundles/ngx-perfect-scrollbar.umd.js",
 
             'vgr-komponentkartan': 'npm:vgr-komponentkartan'
         },
