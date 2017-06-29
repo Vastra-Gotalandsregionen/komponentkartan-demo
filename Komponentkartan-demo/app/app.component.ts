@@ -1,6 +1,6 @@
-﻿import { Component } from "@angular/core";
-import { ISelectableItem } from "../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model";
-import { IDropdownItem } from "../node_modules/vgr-komponentkartan/component-package/models/dropdownItem.model";
+﻿import { Component, ViewChild } from "@angular/core";
+import { IMenu, IMenuGroup, IMenuItem } from "../node_modules/vgr-komponentkartan/component-package/models/menu.model";
+
 
 @Component({
     selector: "komponentkartan-demo",
@@ -8,34 +8,24 @@ import { IDropdownItem } from "../node_modules/vgr-komponentkartan/component-pac
 })
 
 export class KomponentkartanApplicationComponent {
-    buttonDisabled: boolean;
-    buttonSecondaryDisabled: boolean;
-    selectedRadioOption: ISelectableItem;
-    lockMessage: string;
-    saveCancelMessage: string;
-    dropDownItemsAll: IDropdownItem[];
+    menus: IMenu[];
+
 
     constructor() {
-        this.buttonDisabled = true;
-        this.buttonSecondaryDisabled = true;
-        this.selectedRadioOption = { displayName: "Inget" } as ISelectableItem;
-        this.lockMessage = "Ingen";
-        this.saveCancelMessage = "Ingen";
-
-
-        this.dropDownItemsAll = this.getDemoItems(7);
-    }
-
-    onSelectedRadioOptionChanged(option: ISelectableItem) {
-        this.selectedRadioOption = option;
-    }
-
-    private getDemoItems(numberOfItems: number): IDropdownItem[] {
-        var items: IDropdownItem[] = [];
-        for (var i = 1; i <= numberOfItems; i++) {
-            items.push({ id: i.toString(), displayName: `Långt namn ${i}`, displayNameWhenSelected: `Alt ${i}` } as IDropdownItem);
-        }
-        return items;
+        this.menus = [{
+            title: "Innehåll",
+            groups: [
+                {
+                    order: "0",
+                    menuItems: [
+                        { title: "Meny 1", url: "/meny1" } as IMenuItem,
+                        { title: "Meny 2", url: "/meny2" } as IMenuItem,
+                        { title: "Meny 3", url: "/meny3" } as IMenuItem,
+                    ] as IMenuItem[]
+                } as IMenuGroup
+            ] as IMenuGroup[]
+        } as IMenu,
+        ] as IMenu[];
     }
 }
 
