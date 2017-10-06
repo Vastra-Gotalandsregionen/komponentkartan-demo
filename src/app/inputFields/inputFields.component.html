@@ -1,12 +1,5 @@
 <div class="main-content">
-  <vgr-page-header [title]="'Inputfält'" [expanded]="headerExpanded">
-    <div class="page-header__control">
-      <h2>Åtgärder</h2>
-      <vgr-text-button (buttonClick)="headerExpanded = !headerExpanded">Öppna</vgr-text-button>
-    </div>
-    <div class="page-header__action-panel">
-      <h1>Some content</h1>
-    </div>
+  <vgr-page-header [title]="'Inputfält'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
     <vgr-radio-group [options]="[{id:'1', displayName:'Stor', selected:true},{id:'2', displayName:'Liten'}]" (selectedChanged)="toggleInputType($event)">
@@ -78,11 +71,11 @@
       </div>
       <div class="one-third">
         <h2>Validering med service</h2>
-        <!--       <div> -->
-        <!--         Ange en storstad i USA -->
-        <!--         <vgr-input [customValidator]="validateCityName.bind(this)" [value]="cityName" (valueChanged)="cityName = $event" [small]="isSmall"></vgr-input> -->
-        <!--         <span>Din stad: {{cityName}}</span> -->
-        <!--       </div> -->
+        <div>
+          Ange en storstad i USA
+          <vgr-input [customValidator]="validateCityName.bind(this)" [value]="cityName" (valueChanged)="cityName = $event" [small]="isSmall"></vgr-input>
+          <span>Din stad: {{cityName}}</span>
+        </div>
         <div>
           E-postadress
           <vgr-input [customValidator]="validateEmail.bind(this)" [small]="isSmall"></vgr-input>
@@ -176,14 +169,14 @@
             </td>
             <td>[type]="'amount'"</td>
           </tr>
-          <!--   <tr>
+          <tr>
             <td>[customValidator]</td>
             <td>En egendefinierad funktion som returnerar validering baserat på innehållet. Anropas när fokus lämnar fältet.
               Funktionen tar in en sträng och returnerar ett IValidationResult med resultat samt meddelande. Se "Validering
               med service" ovan. Notera anropet med [funktion].bind(this).
             </td>
             <td>[customValidator]="validateCityName.bind(this)"</td>
-          </tr> -->
+          </tr>
         </table>
       </div>
     </div>

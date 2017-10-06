@@ -30,7 +30,7 @@ export class KomponentkartanApplicationComponent {
                            { title: 'Komponenter', url: '/komponentkartan' } as IMenuItem,
                            */
 
-              { title: 'Inputfält', url: '/inputFields' } as IMenuItem
+              { title: 'Inputfält', url: '/inputfields' } as IMenuItem
             ] as IMenuItem[]
           } as IMenuGroup
         ] as IMenuGroup[]

@@ -12,6 +12,7 @@ import { KomponentkartanApplicationComponent } from './app.component';
 
 import { appRoutes } from './routes';
 import { InputfieldsComponent } from './inputfields/inputfields.component';
+import { Cityservice } from './inputfields/cityservice';
 import { CalendarsComponent } from './calendars/calendars.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColoursComponent } from './colours/colours.component';
@@ -26,8 +27,6 @@ import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
 import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
-//import { Cityservice } from './inputFields/cityService';
-
 
 @NgModule({
   imports: [
@@ -55,7 +54,7 @@ import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
     TextbuttonsComponent
   ],
   providers: [
-    //Cityservice,
+    Cityservice,
     { provide: LOCALE_ID, useValue: 'sv-SE' }
   ],
 
