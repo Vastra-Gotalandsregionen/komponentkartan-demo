@@ -9,16 +9,25 @@ import { KomponentkartanModule } from 'vgr-komponentkartan/component-package/kom
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
-import { KomponentkartaComponent } from './komponentkarta/komponentkarta.component'
-import { FormatmallComponent } from './formatmall/formatmall.component'
-import { FargkartaComponent } from './fargkarta/fargkarta.component'
-import { MenuSelectorComponent } from './menuSelector/menuSelector.component'
-import { ListsComponent } from './lists/lists.component';
-import { CalendarsComponent } from './calendars/calendars.component';
-import { InputFieldsComponent } from './inputFields/inputFields.component'
-import { CityService } from './inputFields/cityService';
 
 import { appRoutes } from './routes';
+import { InputfieldsComponent } from './inputfields/inputfields.component';
+import { CalendarsComponent } from './calendars/calendars.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { ColoursComponent } from './colours/colours.component';
+import { DropdownmultiselectComponent } from './dropdownmultiselect/dropdownmultiselect.component';
+import { DropdownsComponent } from './dropdowns/dropdowns.component';
+import { FormattemplateComponent } from './formattemplate/formattemplate.component';
+import { HeadersComponent } from './headers/headers.component';
+import { ListsComponent } from './lists/lists.component';
+import { LoaderComponent } from './loader/loader.component';
+import { LockbuttonComponent } from './lockbutton/lockbutton.component';
+import { ModaldialogComponent } from './modaldialog/modaldialog.component';
+import { PanelsComponent } from './panels/panels.component';
+import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
+import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
+//import { Cityservice } from './inputFields/cityService';
+
 
 @NgModule({
   imports: [
@@ -29,16 +38,25 @@ import { appRoutes } from './routes';
   ],
   declarations: [
     KomponentkartanApplicationComponent,
-    KomponentkartaComponent,
-    FormatmallComponent,
-    FargkartaComponent,
-    MenuSelectorComponent,
-    ListsComponent,
+    InputfieldsComponent,
     CalendarsComponent,
-    InputFieldsComponent
+    CheckboxComponent,
+    ColoursComponent,
+    DropdownmultiselectComponent,
+    DropdownsComponent,
+    FormattemplateComponent,
+    HeadersComponent,
+    ListsComponent,
+    LoaderComponent,
+    LockbuttonComponent,
+    ModaldialogComponent,
+    PanelsComponent,
+    RadiobuttonsComponent,
+    TextbuttonsComponent
   ],
   providers: [
-    CityService, { provide: LOCALE_ID, useValue: 'sv-SE' }
+    //Cityservice,
+    { provide: LOCALE_ID, useValue: 'sv-SE' }
   ],
 
   bootstrap: [KomponentkartanApplicationComponent]
