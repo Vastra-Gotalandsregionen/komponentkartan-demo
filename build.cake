@@ -40,6 +40,7 @@ Task("Restore-NpmPackages")
 	});
 
 Task("Build-Frontend")
+.IsDependentOn("Restore-NpmPackages")
 		.Does(() => {
       NpmRunScript(new NpmRunScriptSettings
     {
