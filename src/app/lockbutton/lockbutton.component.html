@@ -2,5 +2,44 @@
   <vgr-page-header [title]="'Lock button'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
+    <span>Låsknappen är en "toggle-knapp", som kan vara låst eller upplåst.
+
+          </span>
+    <div>
+      <vgr-lock-button (onLocked)="lockMessage='Lås 1 låst'" (onUnlocked)="lockMessage='Lås 1 upplåst'"></vgr-lock-button>
+      <vgr-lock-button [unlocked]="true" (onLocked)="lockMessage='Lås 2 låst'" (onUnlocked)="lockMessage='Lås 2 upplåst'"></vgr-lock-button>
+      <vgr-lock-button [disabled]="true"></vgr-lock-button>
+      <vgr-lock-button [disabled]="true" [unlocked]="true"></vgr-lock-button>
+      <br><br>
+      <span>Senaste händelse:&nbsp;<strong>{{lockMessage}}</strong></span>
+    </div>
+
+    <div class="row-layout">
+      <div class="full">
+        <h2>Konfiguration</h2>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>unlocked</td>
+            <td>Om knappen ska vara upplåst. True/false, default är false.</td>
+            <td>[unlocked]="true"</td>
+          </tr>
+          <tr>
+            <td>onUnlocked</td>
+            <td>Event som triggas när knappen låses upp</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>onLocked</td>
+            <td>Event som triggas när knappen låses</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

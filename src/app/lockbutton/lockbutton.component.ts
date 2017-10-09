@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lockbutton.component.scss']
 })
 export class LockbuttonComponent implements OnInit {
-
+  lockMessage: string;
   constructor() { }
 
   ngOnInit() {
