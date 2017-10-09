@@ -34,7 +34,7 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Header', url: '/headers', child: true } as IMenuItem,
                   { title: 'Inputfält', url: '/inputFields', child: true } as IMenuItem,
                   { title: 'Lista', url: '/lists', child: true } as IMenuItem,
-                  { title: 'Loader', url: '/loader' } as IMenuItem,
+                  { title: 'Spinner', url: '/spinner' } as IMenuItem,
                   { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
                   { title: 'Modal', url: '/modaldialog', child: true } as IMenuItem,
                   { title: 'Month picker', url: '/monthpicker', child: true } as IMenuItem,

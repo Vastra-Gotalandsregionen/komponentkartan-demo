@@ -22,7 +22,6 @@ import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
-import { LoaderComponent } from './loader/loader.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
@@ -30,6 +29,7 @@ import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
     imports: [
@@ -52,12 +52,12 @@ import { BacktotopComponent } from './backtotop/backtotop.component';
         FormattemplateComponent,
         HeadersComponent,
         ListsComponent,
-        LoaderComponent,
         LockbuttonComponent,
         ModaldialogComponent,
         PanelsComponent,
         RadiobuttonsComponent,
-        TextbuttonsComponent
+        TextbuttonsComponent,
+        SpinnerComponent
     ],
     providers: [
         Cityservice,

@@ -8,7 +8,7 @@ import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
-import { LoaderComponent } from './loader/loader.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
@@ -30,7 +30,7 @@ export const appRoutes: Routes = [
     { path: 'monthpicker', component: MonthpickerComponent },
     { path: 'formattemplate', component: FormattemplateComponent },
     { path: 'headers', component: HeadersComponent },
-    { path: 'loader', component: LoaderComponent },
+    { path: 'spinner', component: SpinnerComponent },
     { path: 'lists', component: ListsComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
@@ -38,5 +38,4 @@ export const appRoutes: Routes = [
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
     { path: '**', component: FormattemplateComponent }
-
 ];
