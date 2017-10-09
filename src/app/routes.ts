@@ -36,7 +36,7 @@ export const appRoutes: Routes = [
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
-    { path: 'backtotop', component: SavecancelComponent },
+    { path: 'backtotop', component: BacktotopComponent },
     { path: '**', component: FormattemplateComponent }
 
 ];

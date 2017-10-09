@@ -2,5 +2,73 @@
   <vgr-page-header [title]="'Dropdown'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
+    <p>
+      En dropdown innehåller en lista över valbara alternativ. Kompletteras med filter vid över 20 items. Kompletteras med scroll
+      vid över 8 items. För att inkludera en "Visa alla", ange <i>selectAllItemText</i>.
+    </p>
+    <div class="row-layout">
+      <div>
+        <p>200 items</p>
+        <vgr-dropdown [items]="dropDownItems200" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+      </div>
+      <div>
+        <p>8 items</p>
+        <vgr-dropdown [items]="dropDownItems8" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+      </div>
+      <div>
+        <p>9 items</p>
+        <vgr-dropdown [items]="dropDownItems9" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+      </div>
+      <div>
+        <p>25 items och Visa alla</p>
+        <vgr-dropdown [items]="dropDownItems25All" [selectAllItemText]="'Visa alla alternativ'" [selectAllSelectedText]="'Alla'"
+          (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+      </div>
+    </div>
+    <div>
+      <span>Senaste val:</span>
+      <span>{{lastSingleSelection}}</span>
+    </div>
+    <div class="row-layout">
+      <div class="full">
+        <h2>Konfiguration</h2>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Lista av IDropdownItem att fylla dropdown med</td>
+            <td>[items]="countryList"</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>true/false, default är false</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>selectAllItemText</td>
+            <td>Text som visas för att ta bort eventuell filtrering. Om ingen text anges så saknas item för att rensa filtrering.</td>
+            <td>[selectAllItemText]="'Visa alla enheter'"</td>
+          </tr>
+          <tr>
+            <td>selectAllSelectedText</td>
+            <td><i>Tveksam property, föremål för borttag</i></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>selectedItemChanged</td>
+            <td>Event som triggas när ett nytt element väljs. Event innehåller det valda elementet (IDropdownItem)</td>
+            <td>(selectedItemChanged)="onSelectedItemChanged($event)"</td>
+          </tr>
+
+
+
+
+        </table>
+      </div>
+    </div>
   </div>
 </div>
