@@ -2,5 +2,44 @@
   <vgr-page-header [title]="'Header'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
+    <p>
+      Headerfärg beror på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller flera system. Om
+      bara ett system finns, är det den färgen som gäller. Headern innehåller en transparent bild som gör att man bara behöver
+      sätta headerns bakgrundsfärg genom rätt klassnamn på headern eller på ett föräldraelement.
+    </p>
+
+    <h2>Header utan user och meny (Standard)</h2>
+    <vgr-header class="header--inline"></vgr-header>
+
+    <h2>Header utan user och meny (Blå)</h2>
+    <vgr-header class="header--inline theme--blue"></vgr-header>
+
+    <h2>Header med user utan meny (Röd)</h2>
+    <vgr-header class="header--inline theme--red" [userName]="'Någon Återkommande'"></vgr-header>
+
+    <h2>Header med user och meny (Grön)</h2>
+    <vgr-header class="header--inline theme--green" [userName]="'Någon Återkommande'" [headerMenu]="headerMenu"></vgr-header>
+
+    <div class="row-layout">
+      <div class="full">
+        <h2>Konfiguration</h2>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>headerMenu</td>
+            <td>Meny med items att visa (IHeaderMenu)</td>
+            <td>[headerMenu]="contextMenu"</td>
+          </tr>
+          <tr>
+            <td>userName</td>
+            <td>Inloggad användares namn</td>
+            <td>[userName]="signedInUser"</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
