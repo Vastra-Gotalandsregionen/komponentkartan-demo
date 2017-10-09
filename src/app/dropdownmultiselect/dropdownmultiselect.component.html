@@ -2,5 +2,71 @@
   <vgr-page-header [title]="'Dropdown multiselect'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
+    <p>
+      En dropdown där man kan välja flera alternativ. Kompletteras med filter vid över 20 items. Kompletteras med scroll vid över
+      8 items. Det är möjligt att byta namn på "Välj alla", "Visa alla" samt text då alla är valda. Dropdown stängs inte
+      när man väljer alternativ, förutom vid val av "alla".
+    </p>
+    <div class="row-layout">
+      <div>
+        <p>8 items</p>
+        <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+      </div>
+      <div>
+        <p>9 items</p>
+        <vgr-dropdown-multiselect [items]="dropDownItems9" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+      </div>
+      <div>
+        <p>25 items</p>
+        <vgr-dropdown-multiselect [items]="dropDownItems25All" [selectAllItemText]="'Välj alla alternativ'" [selectAllSelectedText]="'Alla'"
+          [displayAllItemsText]="'Visa alla alternativ'" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+      </div>
+    </div>
+    <div>
+      <span>Senaste val:</span>
+      <span>{{lastMultipleSelection}}</span>
+    </div>
+    <div class="row-layout">
+      <div class="full">
+        <h2>Konfiguration</h2>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Lista av IDropdownItem att fylla dropdown med</td>
+            <td>[items]="countryList"</td>
+          </tr>
+          <tr>
+            <td>displayAllItemsText</td>
+            <td>Text som visas för att ta bort eventuell filtrering. Om ingen text anges så saknas item för att rensa filtrering.</td>
+            <td>[selectAllItemText]="'Visa alla enheter'"</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>true/false, default är false</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>selectAllItemText</td>
+            <td>Text som visas för "välj alla" alternativet. Om ingen text anges så saknas item för att välja alla.</td>
+            <td>[selectAllItemText]="'Markera alla'"</td>
+          </tr>
+          <tr>
+            <td>selectAllSelectedText</td>
+            <td>Text som visas då man har valt alla</td>
+            <td>[selectAllSelectedText]="'Alla'"</td>
+          </tr>
+          <tr>
+            <td>selectionChanged</td>
+            <td>Event som triggas när ett element väljs eller väljs bort. Event innehåller alla valda element (IDropdownItem)</td>
+            <td>(selectionChanged)="onSelectionItemChanged($event)"</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
