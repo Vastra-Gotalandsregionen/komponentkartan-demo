@@ -1,6 +1,52 @@
 <div class="main-content">
-  <vgr-page-header [title]="'Checkbox'">
-  </vgr-page-header>
-  <div class="komponentkarta-components column-layout">
-  </div>
+    <vgr-page-header [title]="'Checkbox'">
+    </vgr-page-header>
+    <div class="komponentkarta-components column-layout">
+        <p>
+            Checkbox har properties för <strong>checked</strong> och <strong>disabled</strong>.<br> Eventet <i>checkedChange</i> triggas vid förändring och innehåller aktuellt tillstånd.<br> Komponenten har stöd för tangentbordsinteraktion, med
+            <i>space</i> och <i>enter</i>
+
+        </p>
+        <div class="column-layout">
+            <vgr-checkbox [text]="'Med ledtext'"></vgr-checkbox>
+            <vgr-checkbox [disabled]="true" [text]="'Inaktiverad'"></vgr-checkbox>
+            <vgr-checkbox [checked]="true" [text]="'Vald'"></vgr-checkbox>
+            <vgr-checkbox [checked]="true" [disabled]="true" [text]="'Inaktiverad vald'"></vgr-checkbox>
+        </div>
+
+        <br>
+        <div class="row-layout">
+            <div class="full">
+                <h2>Konfiguration</h2>
+                <table class="property-table">
+                    <tr>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Exempel</th>
+                    </tr>
+                    <tr>
+                        <td>text</td>
+                        <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+                        <td>[text]="'Inaktiverad'"</td>
+                    </tr>
+                    <tr>
+                        <td>checked</td>
+                        <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
+                        <td>[checked]=True</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+                        <td>[disabled]=True</td>
+                    </tr>
+                    <tr>
+                        <td>checkedChanged</td>
+                        <td>Event som triggas när man checkar i eller ur checkboxen</td>
+                        <td>(checkedChanged)="onCheckedChanged($event)"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
 </div>
