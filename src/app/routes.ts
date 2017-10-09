@@ -18,10 +18,7 @@ import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
 import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
-<<<<<<< HEAD
 
-    { path: 'inputfields', component: InputfieldsComponent }
-=======
     { path: 'inputFields', component: InputfieldsComponent },
     { path: 'textButtons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
@@ -41,6 +38,5 @@ export const appRoutes: Routes = [
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: SavecancelComponent },
     { path: '**', component: FormattemplateComponent }
->>>>>>> Förberett meny med samtliga komponentalternativ
 
 ];

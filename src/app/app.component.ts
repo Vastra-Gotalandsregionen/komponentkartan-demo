@@ -12,10 +12,9 @@ import { IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan/component-pack
 export class KomponentkartanApplicationComponent {
   menus: IMenu[];
   headerMenu: IHeaderMenu;
-  @ViewChild(SidebarMenuComponent) sidebarMenu: SidebarMenuComponent;
-  private largeMenu: IMenu[];
   private singleMenu: IMenu[];
   constructor() {
+
     this.singleMenu = [
       {
         title: 'Innehåll',
@@ -23,14 +22,31 @@ export class KomponentkartanApplicationComponent {
           {
             order: '0',
             menuItems: [
-              /*              { title: 'Formatmall', url: '/formatmall' } as IMenuItem,
-                           { title: 'Färgkarta', url: '/fargkarta' } as IMenuItem,
-                           { title: 'Listor', url: '/lists' } as IMenuItem,
-                           { title: 'Kalender', url: '/calendars' } as IMenuItem,
-                           { title: 'Komponenter', url: '/komponentkartan' } as IMenuItem,
-                           */
+              { title: 'Formatmall', url: '/formatmall' } as IMenuItem,
+              { title: 'Färgkarta', url: '/fargkarta' } as IMenuItem,
+              {
+                title: 'Komponenter', menuItems: [
+                  { title: 'Back to top', url: '/backtotop', child: true } as IMenuItem,
+                  { title: 'Checkbox', url: '/checkbox', child: true } as IMenuItem,
+                  { title: 'Date picker', url: '/datepicker', child: true } as IMenuItem,
+                  { title: 'Dropdown', url: '/dropdowns', child: true } as IMenuItem,
+                  { title: 'Dropdown multiselect', url: '/dropdownmultiselect', child: true } as IMenuItem,
+                  { title: 'Header', url: '/headers', child: true } as IMenuItem,
+                  { title: 'Inputfält', url: '/inputFields', child: true } as IMenuItem,
+                  { title: 'Lista', url: '/lists', child: true } as IMenuItem,
+                  { title: 'Loader', url: '/loader' } as IMenuItem,
+                  { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
+                  { title: 'Modal', url: '/modaldialog', child: true } as IMenuItem,
+                  { title: 'Month picker', url: '/monthpicker', child: true } as IMenuItem,
+                  { title: 'Panel', url: '/panels', child: true } as IMenuItem,
+                  { title: 'Spara/Abryt', url: '/savecancel', child: true } as IMenuItem,
+                  { title: 'Knappar', url: '/textbuttons', child: true } as IMenuItem
 
-              { title: 'Inputfält', url: '/inputfields' } as IMenuItem
+                ] as IMenuItem[]
+              } as IMenuItem,
+
+
+
             ] as IMenuItem[]
           } as IMenuGroup
         ] as IMenuGroup[]
@@ -89,19 +105,6 @@ export class KomponentkartanApplicationComponent {
       ] as IHeaderMenuItem[]
     } as IHeaderMenu;
   }
-
-  // onSelectedMenuChanged(newMenu: string) {
-  //   console.log(newMenu);
-  // }
-
-  // setSelectedMenu(menuSize: number) {
-  //   if (menuSize > 1) {
-  //     this.menus = this.largeMenu;
-  //   } else { this.menus = this.singleMenu; }
-
-  //   this.sidebarMenu.ngAfterViewInit();
-
-  // }
 
 }
 
