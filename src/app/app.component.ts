@@ -40,7 +40,8 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Month picker', url: '/monthpicker', child: true } as IMenuItem,
                   { title: 'Panel', url: '/panels', child: true } as IMenuItem,
                   { title: 'Spara/Abryt', url: '/savecancel', child: true } as IMenuItem,
-                  { title: 'Knappar', url: '/textbuttons', child: true } as IMenuItem
+                  { title: 'Knappar', url: '/textbuttons', child: true } as IMenuItem,
+                  { title: 'Radioknappar', url: '/radioButtons', child: true } as IMenuItem
 
                 ] as IMenuItem[]
               } as IMenuItem,
