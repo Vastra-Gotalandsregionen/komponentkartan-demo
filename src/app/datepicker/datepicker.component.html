@@ -45,16 +45,51 @@
       </div>
   
       <div>
-        <br/>
-        <h2>Användning</h2>
-        <div>
-          Ange följande i din @NgModule för att ställa in svenskt språk providers
-  
-          <div class="markup-example">
-            [ {{'{ provide: LOCALE_ID, useValue: "sv-SE" }'}}
-          </div>
+          <br/>
+          <h2>Konfiguration</h2>
+          <table class="property-table">
+            <tr>
+                <th>Property</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+            </tr>
+            <tr>
+                <td>@Input minDate: Date</td>
+                <td>sätter minimum datum för kalendern</td>
+                <td>minDate: Date = new Date(2016, 0, 15);</td>
+            </tr>
+            <tr>
+                <td>@Input maxDate: Date</td>
+                <td>sätter maximum datum för kalendern</td>
+                <td>maxDate: Date =  new Date(2018, 11, 27);</td>
+            </tr>
+            <tr>
+                <td>@Output selectedDateChanged:  EventEmitter&lt;Date&gt;</td>
+                <td>callback för datumvärdet som valts  </td>
+                <td>(selectedDateChanged)="datepicker_selectedDate=$event" </td>
+            </tr>
+            <tr>
+                <td>@Input selectedDate: Date</td>
+                <td>sätter förvalt datum, t.ex. ett sparat datum, om inget är satt är värdet null</td>
+                <td>selectedDate: Date =  new Date(2017, 10, 09);</td>
+            </tr>
+            <tr>
+                <td>selectedDateFormat: String</td>
+                <td>sätter datumformatet som visas i fältet</td>
+                <td>selectedDateFormat: String =  'yyy-MM-dd';</td>
+            </tr>
+            <tr>
+                <td>tooltipDateFormat: String</td>
+                <td>sätter datumformatet som visas i tooltiptext</td>
+                <td>tooltipDateFormat: String =  'yyy-MM-dd';</td>
+            </tr>
+            <tr>
+                <td>disabled: booolean</td>
+                <td>stänger av/på date picker</td>
+                <td>disabled: boolean =  false / true;</td>
+            </tr>
+          </table>
         </div>
-      </div>
     </div>
   
   </div>
