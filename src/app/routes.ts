@@ -20,7 +20,7 @@ import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
-    { path: 'textButtons', component: TextbuttonsComponent },
+    { path: 'textbuttons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
     { path: 'checkbox', component: CheckboxComponent },
     { path: 'colours', component: ColoursComponent },

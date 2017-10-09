@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./textbuttons.component.scss']
 })
 export class TextbuttonsComponent implements OnInit {
-
-  constructor() { }
+  lastButtonPressed: string;
+  constructor() {
+    this.lastButtonPressed = '';
+  }
 
   ngOnInit() {
   }

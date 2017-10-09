@@ -2,5 +2,48 @@
   <vgr-page-header [title]="'Knappar'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
+    <h2>Primärknappar</h2>
+    <div>
+      <vgr-text-button (buttonClick)="lastButtonPressed = 'Klicka här - primär'">Klicka här</vgr-text-button>
+      <vgr-text-button (buttonClick)="lastButtonPressed = 'OK - primär'">OK</vgr-text-button>
+      <vgr-text-button (buttonClick)="buttonDisabled=!buttonDisabled;">{{buttonDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-text-button>
+      <vgr-text-button [disabled]="buttonDisabled">{{buttonDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-text-button>
+    </div>
+    <h2>Sekundärknappar</h2>
+    <div>
+      <vgr-text-button [secondary]="true" (buttonClick)="lastButtonPressed = 'Klicka här - sekundär'">Klicka här</vgr-text-button>
+      <vgr-text-button [secondary]="true" (buttonClick)="lastButtonPressed = 'OK - sekundär'">OK</vgr-text-button>
+      <vgr-text-button [secondary]="true" (buttonClick)="buttonSecondaryDisabled=!buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-text-button>
+      <vgr-text-button [secondary]="true" [disabled]="buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-text-button>
+    </div>
+    <div>Senaste knapptryck: {{lastButtonPressed}}</div>
+
+    <div class="row-layout">
+      <div class="full">
+        <h2>Konfiguration</h2>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>secondary</td>
+            <td>Visa sekundärt utseende. Default är false.</td>
+            <td>[secondary]="true"</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Inaktivera knapp</td>
+            <td>[disabled]="true"</td>
+          </tr>
+          <tr>
+            <td>buttonClick</td>
+            <td>Event när knapp trycks ner</td>
+            <td>(buttonClick)="onButtonClick()"</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
