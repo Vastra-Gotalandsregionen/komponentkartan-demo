@@ -30,6 +30,8 @@ import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { StartComponent } from './start/start.component';
+import { ThemingComponent } from './theming/theming.component';
 
 @NgModule({
     imports: [
@@ -57,7 +59,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
         PanelsComponent,
         RadiobuttonsComponent,
         TextbuttonsComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        StartComponent,
+        ThemingComponent
     ],
     providers: [
         Cityservice,

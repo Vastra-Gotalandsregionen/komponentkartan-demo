@@ -1,0 +1,7 @@
+@import '../../../node_modules/vgr-komponentkartan/Content/partials/_settings.colors.scss';
+@import '../../../node_modules/vgr-komponentkartan/Content/partials/_settings.sizes.scss';
+$primary-color--green:#334455;
+.first-input {
+  background-color: $primary-color--green;
+  margin-left: $margin--fat;
+}

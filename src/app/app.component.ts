@@ -22,8 +22,10 @@ export class KomponentkartanApplicationComponent {
           {
             order: '0',
             menuItems: [
+              { title: 'Start', url: '/start' } as IMenuItem,
               { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
               { title: 'Färgkarta', url: '/colours' } as IMenuItem,
+              { title: 'Temahantering', url: '/theming', child: true } as IMenuItem,
               {
                 title: 'Komponenter', menuItems: [
                   { title: 'Back to top', url: '/backtotop', child: true } as IMenuItem,
@@ -42,12 +44,8 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Spara/Abryt', url: '/savecancel', child: true } as IMenuItem,
                   { title: 'Knappar', url: '/textbuttons', child: true } as IMenuItem,
                   { title: 'Radioknappar', url: '/radioButtons', child: true } as IMenuItem
-
                 ] as IMenuItem[]
               } as IMenuItem,
-
-
-
             ] as IMenuItem[]
           } as IMenuGroup
         ] as IMenuGroup[]
