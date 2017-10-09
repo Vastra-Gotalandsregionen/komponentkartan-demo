@@ -22,8 +22,8 @@ export class KomponentkartanApplicationComponent {
           {
             order: '0',
             menuItems: [
-              { title: 'Formatmall', url: '/formatmall' } as IMenuItem,
-              { title: 'Färgkarta', url: '/fargkarta' } as IMenuItem,
+              { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
+              { title: 'Färgkarta', url: '/colours' } as IMenuItem,
               {
                 title: 'Komponenter', menuItems: [
                   { title: 'Back to top', url: '/backtotop', child: true } as IMenuItem,
