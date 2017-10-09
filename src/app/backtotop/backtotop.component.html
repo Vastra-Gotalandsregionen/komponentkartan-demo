@@ -2,12 +2,13 @@
   <vgr-page-header [title]="'Back to top'">
   </vgr-page-header>
   <div class="komponentkarta-components column-layout">
-    <span>Knapp som vid klick för användaren tillbaka till toppen på sidan
-          För att aktivera funktionen måste ett script inkluderas, enligt markup nedan.
-          </span>
+    <span>Knapp som vid klick för användaren tillbaka till toppen på sidan. När man scrollar neråt visas back-to-top komponenten och ger en genväg till toppen av sidan.
+      För att aktivera funktionen måste ett script inkluderas via index.html eller angular-cli.json.</span>
 
-    <div class="markup-example">&lt;script src="node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js" type="text/javascript"&gt;&lt;/script&gt;</div>
 
+    <div class="markup-example">index.html==> &lt;script src="node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js" type="text/javascript"&gt;&lt;/script&gt;</div>
+
+    <div class="markup-example">angular-cli.json==> "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js"]</div>
     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut tristique libero. Proin non aliquet ligula. Etiam ante diam, volutpat at tempor quis, pulvinar eget leo. Vestibulum ac nisi sed odio commodo lacinia. Etiam pulvinar convallis diam, quis convallis dui fermentum a. Donec nunc massa, pharetra ac vulputate vel, bibendum a dolor. Nam interdum, ex vel varius feugiat, nisl urna faucibus nulla, quis mattis lacus mi at mauris. Fusce interdum a ligula sit amet scelerisque. Sed nec metus vitae ipsum luctus mollis eget eu libero. Proin lacinia vehicula felis ut mollis. Mauris aliquet ante ac mauris imperdiet imperdiet.
 
         Duis nec ullamcorper lorem. Morbi id sem velit. Nunc tortor sem, fermentum et mauris gravida, sagittis tempor metus. Cras ut nisl vestibulum, iaculis risus quis, condimentum tellus. Nunc eu nisl pretium, euismod mauris pretium, pretium dui. Nulla feugiat lacus lectus, at mollis metus ornare ac. Mauris nec eleifend neque. Nullam malesuada lacus elit, et rutrum leo tristique porta. Donec velit tellus, lacinia ut dictum nec, bibendum a magna.
