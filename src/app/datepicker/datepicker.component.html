@@ -5,45 +5,30 @@
   <div class="komponentkarta-components">
     <div class="komponentkarta-component row-layout row-layout--padded">
       <div>
-        <p>Default formatering</p>
+        <p>Standard formattering (yyyy-MM-dd)</p>
         <vgr-datepicker (selectedDateChanged)="datepicker_selectedDateNew=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"></vgr-datepicker>
       </div>
       <div>
-        <span>Valt datum default: </span>
-        <p>{{datepicker_selectedDateNew | date : 'yyyy MM dd'}}</p>
+        <span>Valt datum: </span>
+        <p>{{datepicker_selectedDateNew | date : 'yyyy-MM-dd'}}</p>
       </div>
     </div>
     <div class="komponentkarta-component row-layout row-layout--padded">
       <div>
-        <p>Format yyyy MMM dd</p>
+        <p>Format dd MMMM yyyy på tooltip</p>
         <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"
-          [selectedDate]="datepicker_selectedDate" [selectedDateFormat]="'yyyy MMM dd'"></vgr-datepicker>
+          [selectedDate]="datepicker_selectedDate" [tooltipDateFormat]="'dd MMMM yyyy'"></vgr-datepicker>
       </div>
-      <div>
-        <span>Valt datum: </span>
-        <p>{{datepicker_selectedDate | date : 'dd MMMM yyyy'}}</p>
-      </div>
-    </div>
-    <div class="komponentkarta-component row-layout row-layout--padded">
-      <div>
-        <p>Format yyyy på tooltip</p>
-        <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"
-          [selectedDate]="datepicker_selectedDate" [tooltipDateFormat]="'yyyy'"></vgr-datepicker>
-      </div>
-      <div>
-        <span>Valt datum: </span>
-        <p>{{datepicker_selectedDate | date : 'dd MMM yyyy'}}</p>
-      </div>
+
     </div>
 
     <div class="komponentkarta-component row-layout row-layout--padded">
       <div>
-        <p>Avstängd datepicker</p>
+        <p>Inaktiv datepicker</p>
         <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"
           [selectedDate]="datepicker_selectedDate" [disabled]="true"></vgr-datepicker>
       </div>
     </div>
-
     <div>
       <br/>
       <h2>Konfiguration</h2>
