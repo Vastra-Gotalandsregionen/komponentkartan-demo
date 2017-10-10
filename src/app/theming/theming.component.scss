@@ -1,5 +1,3 @@
-@import '../../../node_modules/vgr-komponentkartan/Content/partials/_settings.colors.scss';
-@import '../../../node_modules/vgr-komponentkartan/Content/partials/_base.themes.scss';
 .example-div-1 {
   background-color: #f0f0f0;
   border-right-style: solid;
@@ -15,12 +13,6 @@
   width: 200px;
 }
 
-.example-div-3 {
-  @extend .background-color--primary;
-  height: 50px;
-  width: 200px;
-}
-
 h2 {
   margin-top: 20px;
 }
@@ -32,4 +24,8 @@ h2 {
   color: #000000;
   height: 12px;
   margin-left: 10px;
+}
+
+li {
+  margin-bottom: 10px;
 }

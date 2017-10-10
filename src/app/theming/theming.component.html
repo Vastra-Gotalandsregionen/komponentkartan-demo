@@ -4,15 +4,12 @@
   <div class="komponentkarta-components">
     <h2>Välj nuvarande tema</h2>
     <div class="row-layout">
-      <vgr-text-button class="theme--default" (buttonClick)="setTheme('default')">Standard</vgr-text-button>
-      <vgr-text-button class="theme--blue" (buttonClick)="setTheme('blue')">Blått</vgr-text-button>
-      <vgr-text-button class="theme--green" (buttonClick)="setTheme('green')">Grönt</vgr-text-button>
-      <vgr-text-button class="theme--red" (buttonClick)="setTheme('red')">Rött</vgr-text-button>
+      <vgr-radio-group [options]="themes" (selectedChanged)="themeChanged($event)"></vgr-radio-group>
     </div>
     <h2>Använda tema från Komponentkartan</h2>
-    <span>För att återanvända stilar och teman från komponentkartan används primärt komponentkartans CSS / SASS filer.
-Importera dem i index.html eller angular-cli.json.
-</span>
+    <p>För att återanvända stilar och teman från komponentkartan används primärt komponentkartans CSS / SASS filer. Importera
+      dem i index.html eller angular-cli.json.
+    </p>
     <div class="markup-example">index.html==> &lt;link rel="stylesheet" type="text/css" href="node_modules/vgr-komponentkartan/Content/komponentkartan.css"
       &gt;
     </div>
@@ -21,25 +18,26 @@ Importera dem i index.html eller angular-cli.json.
     </div>
 
     <h2>Temadefinierande klasser</h2>
-    <span>För att välja tema för applikationen används klasserna <i>.theme--default</i>,<i>.theme--blue</i>, <i>.theme--green</i> och <i>.theme--red</i>.
-    Sätt temat så långt "ut" i applikationen som möjligt för att slå igenom på samtliga sidor och komponenter. </span>
+    <p>För att välja tema för applikationen används klasserna <i>.theme--neutral</i>,<i>.theme--blue</i>, <i>.theme--green</i>      och <i>.theme--red</i>. Sätt temat så högt upp i hierarkin som möjligt (t.ex body, applikation) för att slå igenom
+      på samtliga sidor och komponenter. </p>
 
     <h2>Klasser som använder tema</h2>
-    <span>För att temafärgerna skall få effekt finns en rad klasser i komponentkartan som sätter den valda temafärgen på ett element.
-      Dessa följer standarden <i>[css-egenskap]</i>.<i>[primär/sekundärfärg]</i>. Se exempel nedan.
-    </span>
+    <p>För att temafärgerna skall få effekt finns en rad klasser i komponentkartan som sätter den valda temafärgen på ett element.
+      Dessa följer standarden <i>[css-egenskap]</i>--<i>[primär/sekundärfärg]</i>. Se exempel nedan.
+    </p>
+    <br>
     <ul>
-      <li><span>Höger kant i primärfärg</span><span class="css-classes">border-right-color--primary</span>
+      <li><span>Högerkant i primärfärg</span><span class="css-classes">.border-right-color--primary</span>
         <div class="example-div-1 border-right-color--primary"></div>
       </li>
-      <li><span>Överkant i primärfärg, bakgrund i sekundärfärg</span><span class="css-classes">border-top-color--primary background-color--secondary</span>
+      <li><span>Överkant i primärfärg, bakgrund i sekundärfärg</span><span class="css-classes">.border-top-color--primary .background-color--secondary</span>
         <div class="example-div-2 border-top-color--primary background-color--secondary"></div>
       </li>
     </ul>
     <h2>Använda SASS från komponentkartan</h2>
-    <span>Det är också möjligt att använda komponentkartans SASS-filer i applikationen. Man kan då få tillgång till standardfärger, storlekar mm som komponentkartan använder.
-    </span>
-    <br>
-    <span>Ärver en av komponentkartans SASS-klasser för att åstadkomma temabaserad bakgrundfärg</span>
-    <div class="example-div-3"></div>
+    <p>Det är också möjligt att använda komponentkartans SASS-filer i applikationen. Man kan då få tillgång till standardfärger,
+      storlekar mm som komponentkartan använder. <strong>OBS!</strong> Vid import av SASS-filer till egendefinierade SASS/CSS
+      filer så kompileras innehållet utanför komponentkartan. Detta kan medföra sidoeffekter så som att temat åsidosätts.
+      Användning av klasser är att föredra.
+    </p>
   </div>
