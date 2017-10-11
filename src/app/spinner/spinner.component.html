@@ -1,12 +1,42 @@
-<div class="main-content lists-component">
-  <vgr-page-header [title]="'Demo-lista'"></vgr-page-header>
+<div class="main-content">
+  <vgr-page-header [title]="'Loader'"></vgr-page-header>
   <div class="komponentkarta-components">
+    <p>Loader används för att visa att en åtgärd pågår. Loader går alltid fulla varv innan stopp.</p>
+    <br>
+    <div class="row-layout row-layout--padded">
+      <div class="column-layout">
+        <span>Liten storlek</span>
+        <vgr-loader [spinning]="actionInProgress" [small]="true"></vgr-loader>
+      </div>
+      <div class="column-layout">
+        <span>Stor storlek</span>
+        <vgr-loader [spinning]="actionInProgress"></vgr-loader>
+      </div>
+    </div>
+    <br>
+    <div style="height:50px">
+      <vgr-text-button (buttonClick)="actionInProgress=!actionInProgress">{{buttonText}}</vgr-text-button>
+    </div>
     <div>
-     Under utveckling
-      <!-- <vgr-spinner [spinning]="actionInProgress"></vgr-spinner>
-      <vgr-spinner [spinning]="actionInProgress" [size]="'small'"></vgr-spinner>
-      <vgr-spinner [spinning]="actionInProgress" [size]="'large'"></vgr-spinner>
-      <input type="button" (click)="actionInProgress=!actionInProgress" [value]="buttonText" size="20"/> -->
+      <br/>
+      <h2>Konfiguration</h2>
+      <table class="property-table">
+        <tr>
+          <th>Namn</th>
+          <th>Beskrivning</th>
+          <th>Exempel</th>
+        </tr>
+        <tr>
+          <td>spinning</td>
+          <td>Anger om loader snurrar eller ej. True/false, default false.</td>
+          <td>[spinning]="true"</td>
+        </tr>
+        <tr>
+          <td>small</td>
+          <td>Visa liten loader</td>
+          <td>[small]="true"</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  </div>  
 </div>

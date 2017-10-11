@@ -37,12 +37,12 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Inputfält', url: '/inputFields', child: true } as IMenuItem,
                   { title: 'Knappar', url: '/textbuttons', child: true } as IMenuItem,
                   { title: 'Lista', url: '/lists', child: true } as IMenuItem,
+                  { title: 'Loader', url: '/loader' } as IMenuItem,
                   { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
                   { title: 'Modal', url: '/modaldialog', child: true } as IMenuItem,
                   { title: 'Monthpicker', url: '/monthpicker', child: true } as IMenuItem,
                   { title: 'Panel', url: '/panels', child: true } as IMenuItem,
                   { title: 'Spara/Abryt', url: '/savecancel', child: true } as IMenuItem,
-                  { title: 'Spinner', url: '/spinner' } as IMenuItem,
                   { title: 'Radioknappar', url: '/radioButtons', child: true } as IMenuItem
                 ] as IMenuItem[]
               } as IMenuItem,

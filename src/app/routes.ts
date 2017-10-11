@@ -32,7 +32,7 @@ export const appRoutes: Routes = [
     { path: 'monthpicker', component: MonthpickerComponent },
     { path: 'formattemplate', component: FormattemplateComponent },
     { path: 'headers', component: HeadersComponent },
-    { path: 'spinner', component: SpinnerComponent },
+    { path: 'loader', component: SpinnerComponent },
     { path: 'lists', component: ListsComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
