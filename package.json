@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "install-latest": "npm install vgr-komponentkartan@latest --save",
+    "install-demo": "npm install vgr-komponentkartan@demo --save"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +27,7 @@
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
     "rxjs": "^5.4.2",
-    "vgr-komponentkartan": "0.0.84",
+    "vgr-komponentkartan": "^0.2.0-rc1",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.14"
   },
