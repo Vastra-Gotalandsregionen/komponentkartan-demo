@@ -27,11 +27,28 @@
   td:first-child {
     width: 200px;
   }
+  tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .03);
+  }
   td:last-child,
   th:last-child {
     border-right: none;
   }
   th {
     font-weight: bold;
+  }
+}
+
+code {
+  font-family: Roboto Mono, monospace;
+  background: rgba(0, 0, 0, .03);
+  padding: 3px;
+  font-size: 90%;
+}
+
+.content-overview {
+  ul {
+    list-style-type: circle;
+    padding-left: 17px;
   }
 }

@@ -1,52 +1,116 @@
-<div class="main-content">
-    <vgr-page-header [title]="'Checkbox'">
-    </vgr-page-header>
-    <div class="komponentkarta-components column-layout">
-        <p>
-            Checkbox har properties för <strong>checked</strong> och <strong>disabled</strong>.<br> Eventet <i>checkedChange</i> triggas vid förändring och innehåller aktuellt tillstånd.<br> Komponenten har stöd för tangentbordsinteraktion, med
-            <i>space</i> och <i>enter</i>
+<div class="main-content lists-component test">
+  <vgr-page-header [title]="'Checkbox'">
+  </vgr-page-header>
+  <div class="komponentkarta-components column-layout">
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h2>Översikt</h2>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-checkbox&gt; </code> är enkelt beskrivet en div-container vars innehåll består av:</p>
+          <ul>
+            <li>div som visar en bild (ikryssad, ej ikryssad)</li>
+            <li>label</li>
+          </ul>
+          <br>
+          <p>Ska ej förväxlas med &lt;input type="checkbox"&gt; förutom att beteendet är detsamma.</p>
+          <br>
 
-        </p>
-        <div class="column-layout">
-            <vgr-checkbox [text]="'Med ledtext'"></vgr-checkbox>
-            <vgr-checkbox [disabled]="true" [text]="'Inaktiverad'"></vgr-checkbox>
-            <vgr-checkbox [checked]="true" [text]="'Vald'"></vgr-checkbox>
-            <vgr-checkbox [checked]="true" [disabled]="true" [text]="'Inaktiverad vald'"></vgr-checkbox>
+          <vgr-checkbox [text]="'Klicka på mig!'"></vgr-checkbox>
+          <br>
+          <h3>Temahantering</h3>
+          <br>
+          <p>Checkboxen är ej temad.</p>
+          <br>
+          <h3>Web Content Accessibility Guidelines (WCAG)</h3>
+          <br>
+          <p>
+            <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
+            attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning
+            till interna label i
+            <code>&lt;vgr-checkbox&gt;</code>)
+          </p>
         </div>
+      </div>
+    </vgr-expandable-container>
 
-        <br>
-        <div class="row-layout">
-            <div class="full">
-                <h2>Konfiguration</h2>
-                <table class="property-table">
-                    <tr>
-                        <th>Namn</th>
-                        <th>Beskrivning</th>
-                        <th>Exempel</th>
-                    </tr>
-                    <tr>
-                        <td>text</td>
-                        <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
-                        <td>[text]="'Inaktiverad'"</td>
-                    </tr>
-                    <tr>
-                        <td>checked</td>
-                        <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-                        <td>[checked]=True</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-                        <td>[disabled]=True</td>
-                    </tr>
-                    <tr>
-                        <td>checkedChanged</td>
-                        <td>Event som triggas när man checkar i eller ur checkboxen</td>
-                        <td>(checkedChanged)="onCheckedChanged($event)"</td>
-                    </tr>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h2>API</h2>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout ">
+          <div class="full ">
+            <div class="row-layout ">
+              <div class="full ">
+                <h2>Egenskaper</h2>
+                <br>
+                <table class="property-table ">
+                  <tr>
+                    <th>Namn</th>
+                    <th>Beskrivning</th>
+                    <th>Exempel</th>
+                  </tr>
+                  <tr>
+                    <td>@Input()
+                      <br>label
+                      <br>string </td>
+                    <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+                    <td>
+                      [label]=" 'Inaktiverad' "
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> @Input()
+                      <br> checked
+                      <br> boolean
+                    </td>
+                    <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
+                    <td>[checked]=True</td>
+                  </tr>
+                  <tr>
+                    <td> @Input()
+                      <br> disabled
+                      <br> booean
+                    </td>
+                    <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+                    <td>[disabled]=True</td>
+                  </tr>
+                  <tr>
+                    <td>@output
+                      <br>checkedChanged
+                      <br>EventEmitter&lt;boolean&gt;
+                    </td>
+                    <td>Event som triggas när man checkar i eller ur checkboxen</td>
+                    <td>(checkedChanged)="onCheckedChanged($event) "</td>
+                  </tr>
+
                 </table>
+              </div>
             </div>
+          </div>
         </div>
-
-    </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h2>Exempel</h2>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout ">
+          <div class="full ">
+            <div class="column-layout ">
+              <vgr-checkbox [text]=" 'Med ledtext' "></vgr-checkbox>
+              <vgr-checkbox [disabled]="true " [text]=" 'Inaktiverad' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [text]=" 'Vald' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [disabled]="true " [text]=" 'Inaktiverad vald' "></vgr-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </vgr-expandable-container>
+  </div>
 </div>
