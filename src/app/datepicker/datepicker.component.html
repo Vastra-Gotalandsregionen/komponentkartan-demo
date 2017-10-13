@@ -1,80 +1,112 @@
-<div class="main-content">
+<div class="main-content lists-component test">
   <vgr-page-header [title]="'Datepicker'">
   </vgr-page-header>
-
-  <div class="komponentkarta-components">
-    <div class="komponentkarta-component row-layout row-layout--padded">
-      <div>
-        <p>Standard formattering (yyyy-MM-dd)</p>
-        <vgr-datepicker (selectedDateChanged)="datepicker_selectedDateNew=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"></vgr-datepicker>
-      </div>
-      <div>
-        <span>Valt datum: </span>
-        <p>{{datepicker_selectedDateNew | date : 'yyyy-MM-dd'}}</p>
-      </div>
-    </div>
-    <div class="komponentkarta-component row-layout row-layout--padded">
-      <div>
-        <p>Format dd MMMM yyyy på tooltip</p>
-        <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"
-          [selectedDate]="datepicker_selectedDate" [tooltipDateFormat]="'dd MMMM yyyy'"></vgr-datepicker>
-      </div>
-
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för Datepicker</h2>
     </div>
 
-    <div class="komponentkarta-component row-layout row-layout--padded">
-      <div>
-        <p>Inaktiv datepicker</p>
-        <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event" [minDate]="datepicker_Min" [maxDate]="datepicker_Max"
-          [selectedDate]="datepicker_selectedDate" [disabled]="true"></vgr-datepicker>
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
       </div>
-    </div>
-    <div>
-      <br/>
-      <h2>Konfiguration</h2>
-      <table class="property-table">
-        <tr>
-          <th>Namn</th>
-          <th>Beskrivning</th>
-          <th>Exempel</th>
-        </tr>
-        <tr>
-          <td>minDate: Date</td>
-          <td>sätter minimum datum för kalendern</td>
-          <td>minDate: Date = new Date(2016, 0, 15);</td>
-        </tr>
-        <tr>
-          <td>maxDate: Date</td>
-          <td>sätter maximum datum för kalendern</td>
-          <td>maxDate: Date = new Date(2018, 11, 27);</td>
-        </tr>
-        <tr>
-          <td>selectedDate: Date</td>
-          <td>sätter förvalt datum, t.ex. ett sparat datum, om inget är satt är värdet null</td>
-          <td>selectedDate: Date = new Date(2017, 10, 09);</td>
-        </tr>
-        <tr>
-          <td>selectedDateFormat: String</td>
-          <td>sätter datumformatet som visas i fältet</td>
-          <td>selectedDateFormat: String = 'yyy-MM-dd';</td>
-        </tr>
-        <tr>
-          <td>tooltipDateFormat: String</td>
-          <td>sätter datumformatet som visas i tooltiptext</td>
-          <td>tooltipDateFormat: String = 'yyy-MM-dd';</td>
-        </tr>
-        <tr>
-          <td>disabled: booolean</td>
-          <td>stänger av/på date picker</td>
-          <td>disabled: boolean = false / true;</td>
-        </tr>
-        <tr>
-          <td>selectedDateChanged: EventEmitter&lt;Date&gt;</td>
-          <td>callback för datumvärdet som valts </td>
-          <td>(selectedDateChanged)="datepicker_selectedDate=$event" </td>
-        </tr>
-      </table>
-    </div>
-  </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-datepicker&gt; </code> är en kalender där användaren kan välja ett datum. I kalendern visas valt datum
+            (satt av användaren eller av systemet) och dagens datum.
+            <br>
 
+          </p>
+          <br>
+          <vgr-datepicker></vgr-datepicker>
+
+          <br>
+          <p>Förändras med tema:
+            <strong>ja</strong>
+          </p>
+
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout ">
+          <div class="full ">
+            <div class="column-layout ">
+              <vgr-checkbox [text]=" 'Med ledtext' "></vgr-checkbox>
+              <vgr-checkbox [disabled]="true " [text]=" 'Inaktiverad' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [text]=" 'Vald' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [disabled]="true " [text]=" 'Inaktiverad vald' "></vgr-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>@Input()
+              <br>label
+              <br>string </td>
+            <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+            <td>
+              [label]=" 'Inaktiverad' "
+            </td>
+          </tr>
+          <tr>
+            <td> @Input()
+              <br> checked
+              <br> boolean
+            </td>
+            <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
+            <td>[checked]=True</td>
+          </tr>
+          <tr>
+            <td> @Input()
+              <br> disabled
+              <br> booean
+            </td>
+            <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+            <td>[disabled]=True</td>
+          </tr>
+          <tr>
+            <td>@output
+              <br>checkedChanged
+              <br>EventEmitter&lt;boolean&gt;
+            </td>
+            <td>Event som triggas när man checkar i eller ur checkboxen</td>
+            <td>(checkedChanged)="onCheckedChanged($event) "</td>
+          </tr>
+
+        </table>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Web Content Accessibility Guidelines (WCAG)</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <p>
+          <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
+          attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning till
+          interna label i
+          <code>&lt;vgr-checkbox&gt;</code>)
+        </p>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
