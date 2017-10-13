@@ -1,10 +1,14 @@
 <div class="main-content lists-component test">
   <vgr-page-header [title]="'Checkbox'">
   </vgr-page-header>
-  <div class="komponentkarta-components column-layout">
+  <vgr-expandable-container-list>
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för checkbox</h2>
+    </div>
+
     <vgr-expandable-container [expanded]="true">
       <div class="expandable-container__header">
-        <h2>Översikt</h2>
+        <h4>Översikt</h4>
       </div>
       <div class="expandable-container__content">
         <div class="content-overview">
@@ -21,83 +25,68 @@
 
           <vgr-checkbox [text]="'Klicka på mig!'"></vgr-checkbox>
           <br>
-          <h3>Temahantering</h3>
-          <br>
-          <p>Checkboxen är ej temad.</p>
-          <br>
-          <h3>Web Content Accessibility Guidelines (WCAG)</h3>
-          <br>
-          <p>
-            <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
-            attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning
-            till interna label i
-            <code>&lt;vgr-checkbox&gt;</code>)
+          <p>Förändras med tema:
+            <strong>nej</strong>
           </p>
+
         </div>
       </div>
     </vgr-expandable-container>
-
-    <vgr-expandable-container [expanded]="false ">
+    <vgr-expandable-container [expanded]="true ">
       <div class="expandable-container__header ">
-        <h2>API</h2>
+        <h4>API</h4>
       </div>
       <div class="expandable-container__content ">
-        <div class="row-layout ">
-          <div class="full ">
-            <div class="row-layout ">
-              <div class="full ">
-                <h2>Egenskaper</h2>
-                <br>
-                <table class="property-table ">
-                  <tr>
-                    <th>Namn</th>
-                    <th>Beskrivning</th>
-                    <th>Exempel</th>
-                  </tr>
-                  <tr>
-                    <td>@Input()
-                      <br>label
-                      <br>string </td>
-                    <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
-                    <td>
-                      [label]=" 'Inaktiverad' "
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> @Input()
-                      <br> checked
-                      <br> boolean
-                    </td>
-                    <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-                    <td>[checked]=True</td>
-                  </tr>
-                  <tr>
-                    <td> @Input()
-                      <br> disabled
-                      <br> booean
-                    </td>
-                    <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-                    <td>[disabled]=True</td>
-                  </tr>
-                  <tr>
-                    <td>@output
-                      <br>checkedChanged
-                      <br>EventEmitter&lt;boolean&gt;
-                    </td>
-                    <td>Event som triggas när man checkar i eller ur checkboxen</td>
-                    <td>(checkedChanged)="onCheckedChanged($event) "</td>
-                  </tr>
 
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
+        <table class="property-table ">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>@Input()
+              <br>label
+              <br>string </td>
+            <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+            <td>
+              [label]=" 'Inaktiverad' "
+            </td>
+          </tr>
+          <tr>
+            <td> @Input()
+              <br> checked
+              <br> boolean
+            </td>
+            <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
+            <td>[checked]=True</td>
+          </tr>
+          <tr>
+            <td> @Input()
+              <br> disabled
+              <br> booean
+            </td>
+            <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+            <td>[disabled]=True</td>
+          </tr>
+          <tr>
+            <td>@output
+              <br>checkedChanged
+              <br>EventEmitter&lt;boolean&gt;
+            </td>
+            <td>Event som triggas när man checkar i eller ur checkboxen</td>
+            <td>(checkedChanged)="onCheckedChanged($event) "</td>
+          </tr>
+
+        </table>
+
       </div>
     </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
+    <vgr-expandable-container [expanded]="true">
       <div class="expandable-container__header ">
-        <h2>Exempel</h2>
+        <h4>Exempel</h4>
       </div>
       <div class="expandable-container__content ">
         <div class="row-layout ">
@@ -112,5 +101,18 @@
         </div>
       </div>
     </vgr-expandable-container>
-  </div>
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header ">
+        <h4>Web Content Accessibility Guidelines (WCAG)</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <p>
+          <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
+          attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning till
+          interna label i
+          <code>&lt;vgr-checkbox&gt;</code>)
+        </p>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
