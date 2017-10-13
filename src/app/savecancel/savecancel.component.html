@@ -1,4 +1,4 @@
-<!-- <div class="main-content">
+<div class="main-content">
   <vgr-page-header [title]="'Spara/Abryt'">
   </vgr-page-header>
   <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
@@ -38,7 +38,7 @@
       </div>
       <div class="expandable-container__content ">
         <div>
-          <vgr-save-cancel (save)="saveCancelMessage='Sparade!'" (cancel)="saveCancelMessage='Avbröt.'"></vgr-save-cancel>
+          <vgr-save-cancel (save)="saveCancelMessage='Sparade!'" (cancel)="saveCancelMessage='Avbröt.'" (unlock)="saveCancelMessage='Låste upp'"></vgr-save-cancel>
           <br>
           <span>Senaste händelse:&nbsp;
             <strong>{{saveCancelMessage}}</strong>
@@ -114,4 +114,4 @@
       </div>
     </vgr-expandable-container>
   </vgr-expandable-container-list>
-</div> -->
+</div>
