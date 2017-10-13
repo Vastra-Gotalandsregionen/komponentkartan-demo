@@ -14,15 +14,8 @@
         <div class="content-overview">
           <p>
             <code>
-              &lt;vgr-checkbox&gt; </code> är enkelt beskrivet en div-container vars innehåll består av:</p>
-          <ul>
-            <li>div som visar en bild (ikryssad, ej ikryssad)</li>
-            <li>label</li>
-          </ul>
+              &lt;vgr-checkbox&gt; </code> har samma beteende som en kryssruta.</p>
           <br>
-          <p>Ska ej förväxlas med &lt;input type="checkbox"&gt; förutom att beteendet är detsamma.</p>
-          <br>
-
           <vgr-checkbox [text]="'Klicka på mig!'"></vgr-checkbox>
           <br>
           <p>Förändras med tema:
@@ -32,15 +25,29 @@
         </div>
       </div>
     </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="true ">
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout ">
+          <div class="full ">
+            <div class="column-layout ">
+              <vgr-checkbox [text]=" 'Med ledtext' "></vgr-checkbox>
+              <vgr-checkbox [disabled]="true " [text]=" 'Inaktiverad' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [text]=" 'Vald' "></vgr-checkbox>
+              <vgr-checkbox [checked]="true " [disabled]="true " [text]=" 'Inaktiverad vald' "></vgr-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
       <div class="expandable-container__header ">
         <h4>API</h4>
       </div>
       <div class="expandable-container__content ">
-
-
-
-        <table class="property-table ">
+        <table class="property-table">
           <tr>
             <th>Namn</th>
             <th>Beskrivning</th>
@@ -81,27 +88,9 @@
           </tr>
 
         </table>
-
       </div>
     </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="true">
-      <div class="expandable-container__header ">
-        <h4>Exempel</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <div class="row-layout ">
-          <div class="full ">
-            <div class="column-layout ">
-              <vgr-checkbox [text]=" 'Med ledtext' "></vgr-checkbox>
-              <vgr-checkbox [disabled]="true " [text]=" 'Inaktiverad' "></vgr-checkbox>
-              <vgr-checkbox [checked]="true " [text]=" 'Vald' "></vgr-checkbox>
-              <vgr-checkbox [checked]="true " [disabled]="true " [text]=" 'Inaktiverad vald' "></vgr-checkbox>
-            </div>
-          </div>
-        </div>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="true">
+    <vgr-expandable-container [expanded]="false">
       <div class="expandable-container__header ">
         <h4>Web Content Accessibility Guidelines (WCAG)</h4>
       </div>
