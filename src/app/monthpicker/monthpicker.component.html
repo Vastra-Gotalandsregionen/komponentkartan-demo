@@ -1,81 +1,83 @@
-<div class="main-content">
+<!-- <div class="main-content">
     <vgr-page-header [title]="'Monthpicker'">
     </vgr-page-header>
     <div class="komponentkarta-components">
         <div class="komponentkarta-component row-layout row-layout--padded">
-            <!-- <div class="komponentkarta-component row-layout row-layout--padded"> -->
-            <div>
-                <p>Default formatering</p>
-                <vgr-monthpicker (selectedDateChanged)="selectedDate=$event" style="margin-top: 20px"></vgr-monthpicker>
-            </div>
-            <div>
-                <p>MM yyyy formatering</p>
-                <vgr-monthpicker style="margin-top: 20px" [selectedDateFormat]="'MM yyyy'" [preselectedDate]="preselectedDate"></vgr-monthpicker>
-            </div>
-
-            <div>
-                <p>Disabled</p>
-                <vgr-monthpicker style="margin-top: 20px" [disabled]="true" [preselectedDate]="preselectedDate"></vgr-monthpicker>
-            </div>
-        </div>
-        <div>
-            <span>Senast valt datum: </span>
-            <span>{{selectedDate | date : 'yyyy MMM'}}</span>
-        </div>
-
-        <br/>
-        <h2>Användning</h2>
-        <div>
-            Ange följande i din @NgModule för att ställa in svenskt språk providers
-
-            <div class="markup-example">
-                [ {{'{ provide: LOCALE_ID, useValue: "sv-SE" }'}}
-            </div>
-        </div>
-
-        <br>
-        <div class="row-layout">
-            <div class="full">
-                <h2>Konfiguration</h2>
-                <table class="property-table">
-                    <tr>
-                        <th>Namn</th>
-                        <th>Beskrivning</th>
-                        <th>Exempel</th>
-                    </tr>
-                    <tr>
-                        <td>selectedDateFormat</td>
-                        <td>defaultvärde: 'MMM yyyy', här kan man sätta hur datumet skall presenteras i dropdownen</td>
-                        <td>[selectedDateFormat]="'MM yyyy'"</td>
-                    </tr>
-                    <tr>
-                        <td>minDate</td>
-                        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts minDate till det förvalda året. Om man satt ett förvalt datum som är efter dagens år så sätts dagens år till minDate</td>
-                        <td>[minDate]="minDate"</td>
-                    </tr>
-                    <tr>
-                        <td>maxDate</td>
-                        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts maxDate till det innevarande året. Om man satt ett förvalt datum som är efter dagens år så sätts det förvalda året till maxDate.</td>
-                        <td>[maxDate]="maxDate"</td>
-                    </tr>
-                    <tr>
-                        <td>preselectedDate</td>
-                        <td>Property för att kunna skicka in ett förvalt datum till komponenten</td>
-                        <td>[preselectedDate]="forvaltDatum"</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
-                        <td>[disabled]=true</td>
-                    </tr>
-                    <tr>
-                        <td>selectedDateChanged</td>
-                        <td>Event som triggas när man väljer ett nytt datum</td>
-                        <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
+            <!-- <div class="komponentkarta-component row-layout row-layout--padded">
+<div>
+  <p>Default formatering</p>
+  <vgr-monthpicker (selectedDateChanged)="selectedDate=$event" style="margin-top: 20px"></vgr-monthpicker>
 </div>
+<div>
+  <p>MM yyyy formatering</p>
+  <vgr-monthpicker style="margin-top: 20px" [selectedDateFormat]="'MM yyyy'" [preselectedDate]="preselectedDate"></vgr-monthpicker>
+</div>
+
+<div>
+  <p>Disabled</p>
+  <vgr-monthpicker style="margin-top: 20px" [disabled]="true" [preselectedDate]="preselectedDate"></vgr-monthpicker>
+</div>
+</div>
+<div>
+  <span>Senast valt datum: </span>
+  <span>{{selectedDate | date : 'yyyy MMM'}}</span>
+</div>
+
+<br/>
+<h2>Användning</h2>
+<div>
+  Ange följande i din @NgModule för att ställa in svenskt språk providers
+
+  <div class="markup-example">
+    [ {{'{ provide: LOCALE_ID, useValue: "sv-SE" }'}}
+  </div>
+</div>
+
+<br>
+<div class="row-layout">
+  <div class="full">
+    <h2>Konfiguration</h2>
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>selectedDateFormat</td>
+        <td>defaultvärde: 'MMM yyyy', här kan man sätta hur datumet skall presenteras i dropdownen</td>
+        <td>[selectedDateFormat]="'MM yyyy'"</td>
+      </tr>
+      <tr>
+        <td>minDate</td>
+        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts minDate till det förvalda året.
+          Om man satt ett förvalt datum som är efter dagens år så sätts dagens år till minDate</td>
+        <td>[minDate]="minDate"</td>
+      </tr>
+      <tr>
+        <td>maxDate</td>
+        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts maxDate till det innevarande året.
+          Om man satt ett förvalt datum som är efter dagens år så sätts det förvalda året till maxDate.</td>
+        <td>[maxDate]="maxDate"</td>
+      </tr>
+      <tr>
+        <td>preselectedDate</td>
+        <td>Property för att kunna skicka in ett förvalt datum till komponenten</td>
+        <td>[preselectedDate]="forvaltDatum"</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
+        <td>[disabled]=true</td>
+      </tr>
+      <tr>
+        <td>selectedDateChanged</td>
+        <td>Event som triggas när man väljer ett nytt datum</td>
+        <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+</div>-->

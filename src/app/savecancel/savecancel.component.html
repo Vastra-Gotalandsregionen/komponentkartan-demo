@@ -1,56 +1,117 @@
-<div class="main-content">
-    <vgr-page-header [title]="'Spara/avbryt'">
-    </vgr-page-header>
-    <div class="komponentkarta-components column-layout">
-
-        <span>En panel som innehåller spara, avbryt samt låsknapp.
-      Spara och avbryt är inaktiverade i låst läge. De kan aktiveras genom att låsa upp.
-      När användaren sparar triggas eventet <strong>onSave</strong>, vid avbryt triggas <strong>onCancel</strong>.
-      Om man låser upp och sedan <strong>låser</strong> är det <strong>samma som att spara</strong>.
-      </span>
-        <div>
-            <vgr-save-cancel (onSave)="saveCancelMessage='Sparade!'" (onCancel)="saveCancelMessage='Avbröt.'"></vgr-save-cancel>
-            <br>
-            <span>Senaste händelse:&nbsp;<strong>{{saveCancelMessage}}</strong></span>
-        </div>
-
-        <br>
-        <div class="row-layout">
-            <div class="full">
-                <h2>Konfiguration</h2>
-                <table class="property-table">
-                    <tr>
-                        <th>Namn</th>
-                        <th>Beskrivning</th>
-                        <th>Exempel</th>
-                    </tr>
-                    <tr>
-                        <td>enabled</td>
-                        <td>Tveksam property</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>secondary</td>
-                        <td>true/false, defaultvärde false. Sätter om knapparna skall ha secondary utseende eller inte.</td>
-                        <td>[checked]=True</td>
-                    </tr>
-                    <tr>
-                        <td>onCancel</td>
-                        <td>Event som triggas när man trycker på avbryt</td>
-                        <td>(onCancel)="onCancel()"</td>
-                    </tr>
-                    <tr>
-                        <td>onSave</td>
-                        <td>Event som triggas när man trycker på spara</td>
-                        <td>(onSave)="onSave()"</td>
-                    </tr>
-                    <tr>
-                        <td>onUlock</td>
-                        <td>Event som triggas när man trycker på låset</td>
-                        <td>(onUlock)="onUlock()"</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+<!-- <div class="main-content">
+  <vgr-page-header [title]="'Spara/Abryt'">
+  </vgr-page-header>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för spara/avbryt</h2>
     </div>
-</div>
+
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-save-cancel&gt; </code>
+          </p>
+          <br>
+          <p>En panel som innehåller spara, avbryt samt låsknapp. Spara och avbryt är inaktiverade i låst läge. De kan aktiveras
+            genom att låsa upp. När spara eller avbryt sedan trycks ned, låses panelen igen. Att låsa panelen i upplåst läge
+            innebär att spara.
+          </p>
+          <br>
+          <div>
+            <vgr-save-cancel (save)="saveCancelMessage='Sparade!'" (cancel)="saveCancelMessage='Avbröt.'"></vgr-save-cancel>
+          </div>
+          <br>
+          <p> Förändras med tema:
+            <strong>Ja</strong>
+          </p>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div>
+          <vgr-save-cancel (save)="saveCancelMessage='Sparade!'" (cancel)="saveCancelMessage='Avbröt.'"></vgr-save-cancel>
+          <br>
+          <span>Senaste händelse:&nbsp;
+            <strong>{{saveCancelMessage}}</strong>
+          </span>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>
+              @Input()
+              <br>unlocked
+              <br>boolean
+            </td>
+            <td>True = låset upplåst, spara och abryt är aktiva. False = låset är låst, spara och avbryt är inaktiva.</td>
+            <td>[unlocked]="true"</td>
+          </tr>
+          <tr>
+            <td>
+              @Input()
+              <br>secondary
+              <br>boolean
+            </td>
+            <td>Om knappar ska vara sekundärknappar eller ej</td>
+            <td>[secondary]="true"</td>
+          </tr>
+          <tr>
+            <td>
+              @Output()
+              <br>cancel
+              <br>EventEmitter
+            </td>
+            <td>Triggas då användaren klickar på avbryt</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              @Output()
+              <br>save
+              <br>EventEmitter
+            </td>
+            <td>Triggas då användaren klickar på spara</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              @Output()
+              <br>unlock
+              <br>EventEmitter
+            </td>
+            <td>Triggas då användaren låser upp låset</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
+</div> -->
