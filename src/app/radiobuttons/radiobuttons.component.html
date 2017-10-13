@@ -1,23 +1,55 @@
 <div class="main-content">
   <vgr-page-header [title]="'Radioknappar'">
   </vgr-page-header>
-
-  <div class="komponentkarta-components">
-    <div class="komponentkarta-component column-layout">
-      <p>En radiogroup innehåller flera radioknappar, där bara ett alternativ är valt åt gången, val kan vara förvalda och/eller
-        inaktiva. Vid val av alternativ triggas eventet <i>selectedChanged</i>. Valbara items är av typen <i>ISelectableItem</i>.
-        Det är genom att sätta properties på dessa objekt som man styr beteendet.</p>
-      <div>
-        <vgr-radio-group [options]="[{id:'1', displayName:'Ett'},{id:'2', displayName:'Två'},{id:'3', displayName:'Tre'},
-              {id:'4', displayName:'Fyra', disabled:true}]" (selectedChanged)="onSelectedRadioOptionChanged($event)">
-        </vgr-radio-group>
-        <div>Du har valt alternativ: {{selectedRadioOption.displayName}}</div>
-      </div>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för radioknappar</h2>
     </div>
-    <br>
-    <div class="row-layout">
-      <div class="full">
-        <h2>Konfiguration</h2>
+
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-radio-group&gt; </code>
+          </p>
+          <br>
+          <p>En radiogroup innehåller flera radioknappar, där bara ett alternativ är valt åt gången, val kan vara förvalda och/eller
+            inaktiva. Vid val av alternativ triggas eventet
+            <code>selectedChanged</code>. Valbara items är av typen
+            <code>ISelectableItem</code>. Det är genom att sätta properties på dessa objekt som man styr beteendet.
+            <br>
+            <vgr-radio-group [options]="[{id:'1', displayName:'Alternativ 1', selected:true},{id:'2', displayName:'Alternativ 2'}]">
+            </vgr-radio-group>
+          </p>
+          <br>
+          <p> Förändras med tema:
+            <strong>Nej</strong>
+          </p>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div>
+          <vgr-radio-group [options]="[{id:'1', displayName:'Förvald', selected:true},{id:'2', displayName:'Ej förvald'}, {id:'3', displayName:'Inaktiv', disabled:true}]"
+            (selectedChanged)="onSelectedRadioOptionChanged($event)">
+          </vgr-radio-group>
+          <div>Du har valt alternativ: {{selectedRadioOption.displayName}}</div>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
         <table class="property-table">
           <tr>
             <th>Namn</th>
@@ -25,28 +57,52 @@
             <th>Exempel</th>
           </tr>
           <tr>
-            <td>options</td>
+            <td>
+              @Input()
+              <br> options
+              <br> ISelectableItem[]
+            </td>
             <td>Är en array av ISelectableItem. Den innehåller i sin tur id, displayName, selected och disabled properties</td>
-            <td>[options]=[item1, item2, ...]</td>
+            <td>[options]="[item1, item2, ...]"</td>
           </tr>
           <tr>
-            <td>disabled</td>
-            <td>true/false, defaultvärde false. Sätter hela gruppen till disabled</td>
-            <td>[disabled]=True</td>
+            <td>
+              @Input()
+              <br> disabled
+              <br> boolean
+            </td>
+            <td>Defaultvärde false. Sätter hela gruppen till disabled</td>
+            <td>[disabled]="true"</td>
           </tr>
           <tr>
-            <td>noSelection</td>
-            <td>true/false, defaultvärde false. Om man inte väljer någon som förvald så sätts den första i listan som vald. Sätter
-              man däremot <i>noSelection</i> till true så kommer ingen i gruppen bli förvald. </td>
-            <td>[noSelection]=True</td>
+            <td>
+              @Input()
+              <br> noSelection
+              <br> boolean
+            </td>
+            <td>Påverkar vad som händer om
+              <strong>inget</strong> alternativ i options har selected: true. False innebär att första alternativet väljs. True innebär
+              att inget alternativ väljs.
+            </td>
+            <td>[noSelection]="true"</td>
           </tr>
           <tr>
-            <td>selectedChanged</td>
+            <td>@Output()
+              <br>selectedChanged
+              <br>EventEmitter&lt;ISelectableItem[]&gt;</td>
             <td>Event som triggas när man väljer ett nytt alternativ i radiogruppen</td>
             <td>(selectedChanged)="onSelectedRadioOptionChanged($event)"</td>
           </tr>
         </table>
       </div>
-    </div>
-  </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
