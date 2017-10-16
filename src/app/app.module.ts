@@ -29,7 +29,7 @@ import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { LoaderComponent } from './loader/loader.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 
@@ -59,7 +59,7 @@ import { ThemingComponent } from './theming/theming.component';
         PanelsComponent,
         RadiobuttonsComponent,
         TextbuttonsComponent,
-        SpinnerComponent,
+        LoaderComponent,
         StartComponent,
         ThemingComponent
     ],

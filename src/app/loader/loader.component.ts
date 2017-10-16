@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'vgr-laddningssnurra',
-  templateUrl: 'spinner.component.html'
+  templateUrl: 'loader.component.html'
 })
-export class SpinnerComponent {
+export class LoaderComponent {
   title = 'app';
   actionInProgress = false;
 

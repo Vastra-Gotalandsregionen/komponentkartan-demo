@@ -1,0 +1,87 @@
+<div class="main-content">
+    <vgr-page-header [title]="'Loader'">
+    </vgr-page-header>
+    <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+        <div class="expandable-container-list__header">
+            <h2>Dokumentation för Loader</h2>
+        </div>
+
+        <vgr-expandable-container [expanded]="true">
+            <div class="expandable-container__header">
+                <h4>Översikt</h4>
+            </div>
+            <div class="expandable-container__content">
+                <div class="content-overview">
+                    <p>
+                        <code>
+              &lt;vgr-loader&gt; </code> används för att visa att en åtgärd pågår. Loader går alltid fulla varv innan stopp. Den finns i två olika storlekar, den sätts av via <code>small</code> och är default false.
+
+                        <br>
+                        <br>
+                        <vgr-loader ></vgr-loader>
+                    </p>
+<br>
+                    <p> Förändras med tema:
+                        <strong>Nej</strong>
+                    </p>
+                </div>
+            </div>
+        </vgr-expandable-container>
+        <vgr-expandable-container [expanded]="false ">
+            <div class="expandable-container__header ">
+                <h4>Exempel</h4>
+            </div>
+            <div class="expandable-container__content ">
+                <div class="row-layout">
+                               <div style="align-self:middle">
+                    <span>Stor storlek</span>
+                    <vgr-loader [spinning]="actionInProgress"></vgr-loader>
+                  </div>   
+                  <div style="align-self:middle">
+                    <span>Liten storlek</span>
+                    <vgr-loader [spinning]="actionInProgress" [small]="true"></vgr-loader>
+                  </div>
+                </div>
+                
+                <br>
+                <div style="height:50px">
+                  <vgr-button (click)="actionInProgress=!actionInProgress">{{buttonText}}</vgr-button>
+                </div>
+               
+            </div>
+        </vgr-expandable-container>
+        <vgr-expandable-container [expanded]="false ">
+            <div class="expandable-container__header ">
+                <h4>API</h4>
+            </div>
+            <div class="expandable-container__content ">
+                <table class="property-table ">
+                    <tr>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Exempel</th>
+                    </tr>
+                    <tr>
+                        <td>spinning : boolean</td>
+                        <td>Anger om loader snurrar eller ej.Default false.</td>
+                        <td>[spinning]="true"</td>
+                      </tr>
+                      <tr>
+                        <td>small : boolean</td>
+                        <td>Visar loadern i liten storlek</td>
+                        <td>[small]="true"</td>
+                      </tr>
+                   
+                </table>
+            </div>
+        </vgr-expandable-container>
+        <vgr-expandable-container [expanded]="false ">
+            <div class="expandable-container__header ">
+                <h4>Tillgänglighet</h4>
+            </div>
+            <div class="expandable-container__content ">
+                <i>Under utveckling</i>
+            </div>
+        </vgr-expandable-container>
+    </vgr-expandable-container-list>
+</div>
