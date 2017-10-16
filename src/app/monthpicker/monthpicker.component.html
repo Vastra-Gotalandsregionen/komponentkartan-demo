@@ -1,83 +1,147 @@
-<!-- <div class="main-content">
-    <vgr-page-header [title]="'Monthpicker'">
-    </vgr-page-header>
-    <div class="komponentkarta-components">
-        <div class="komponentkarta-component row-layout row-layout--padded">
-            <!-- <div class="komponentkarta-component row-layout row-layout--padded">
-<div>
-  <p>Default formatering</p>
-  <vgr-monthpicker (selectedDateChanged)="selectedDate=$event" style="margin-top: 20px"></vgr-monthpicker>
-</div>
-<div>
-  <p>MM yyyy formatering</p>
-  <vgr-monthpicker style="margin-top: 20px" [selectedDateFormat]="'MM yyyy'" [preselectedDate]="preselectedDate"></vgr-monthpicker>
-</div>
+<div class="main-content">
+  <vgr-page-header [title]="'Monthpicker'">
+  </vgr-page-header>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för Monthpicker</h2>
+    </div>
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-monthpicker&gt; </code>
+          </p>
+          <br>
+          <p>Ger möjlighet att välja år och månad. Ställs in med min/maxdatum som kan vara hela eller del av år.
+          </p>
+          <div>
+            <vgr-monthpicker></vgr-monthpicker>
+          </div>
+          <br>
+          <p> Förändras med tema:
+            <strong>Ja</strong> (Knapp, header samt markering av månad)
+          </p>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>Default formaterad</p>
+              <p></p>
+              <vgr-monthpicker (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+            </div>
+            <p style="align-self:flex-end">Med defaultinställningar sätts min- och maxdatum till innevarande år.
+            </p>
+          </div>
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>MMMM formatering</p>
+              <vgr-monthpicker [selectedDateFormat]="'MMM yyyy'" [selectedDate]="preselectedDate" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+            </div>
+            <p style="align-self:flex-end">Här är
+              <code>selectedDate</code> från 2015.
+              <code>minDate</code> blir då default 2015,
+              <code>maxDate</code> blir innevarande år.</p>
+          </div>
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>Med max- och mindatum satt</p>
+              <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2016" [maxDate]="lastOfMarch2019" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+            </div>
+            <p style="align-self:flex-end">Här är
+              <code>minDate</code> satt till 2016-05-01 och
+              <code>maxDate</code> är 2019-03-31. 2016 visas med samtliga månader, men januari - april är ej valbara. Hela 2017
+              och 2018 är valbara. 2019 visas med januari - mars valbara. </p>
+          </div>
 
-<div>
-  <p>Disabled</p>
-  <vgr-monthpicker style="margin-top: 20px" [disabled]="true" [preselectedDate]="preselectedDate"></vgr-monthpicker>
-</div>
-</div>
-<div>
-  <span>Senast valt datum: </span>
-  <span>{{selectedDate | date : 'yyyy MMM'}}</span>
-</div>
+          <div>
+            <p>Disabled</p>
+            <vgr-monthpicker style="margin-top: 20px" [disabled]="true" [selectedDate]="preselectedDate"></vgr-monthpicker>
+          </div>
+        </div>
+        <div style="margin-top:20px">
+          <span>Senast valt datum: </span>
+          <span>{{lastSelectedDate | date : 'yyyy MMM'}}</span>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content">
 
-<br/>
-<h2>Användning</h2>
-<div>
-  Ange följande i din @NgModule för att ställa in svenskt språk providers
-
-  <div class="markup-example">
-    [ {{'{ provide: LOCALE_ID, useValue: "sv-SE" }'}}
-  </div>
+        <table class="property-table" style="margin-bottom: 20px">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>selectedDateFormat</td>
+            <td>defaultvärde: 'MMM yyyy', här kan man sätta hur datumet skall presenteras i dropdownen</td>
+            <td>[selectedDateFormat]="'MM yyyy'"</td>
+          </tr>
+          <tr>
+            <td>toolTipDateFormat</td>
+            <td>defaultvärde: 'MMMM yyyy', här kan man sätta hur datumet skall presenteras när man hovrar över det</td>
+            <td>[toolTipDateFormat]="'MMMM'"</td>
+          </tr>
+          <tr>
+            <td>minDate</td>
+            <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts minDate till det förvalda
+              året. Om man satt ett förvalt datum som är efter dagens år så sätts dagens år till minDate</td>
+            <td>[minDate]="minDate"</td>
+          </tr>
+          <tr>
+            <td>maxDate</td>
+            <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts maxDate till det innevarande
+              året. Om man satt ett förvalt datum som är efter dagens år så sätts det förvalda året till maxDate.</td>
+            <td>[maxDate]="maxDate"</td>
+          </tr>
+          <tr>
+            <td>selectedDate</td>
+            <td>Property för att kunna skicka in ett förvalt datum till komponenten</td>
+            <td>[selectedDate]="forvaltDatum"</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
+            <td>[disabled]=true</td>
+          </tr>
+          <tr>
+            <td>selectedDateChanged</td>
+            <td>Event som triggas när man väljer ett nytt datum</td>
+            <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
+          </tr>
+        </table>
+        <div>
+          <strong>Notera</strong>
+          <br> Ange följande i din @NgModule för att ställa in language provider till Svenska:
+          <br>
+          <code>
+            [ {{'{ provide: LOCALE_ID, useValue:"sv-SE" }'}}
+          </code>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
-
-<br>
-<div class="row-layout">
-  <div class="full">
-    <h2>Konfiguration</h2>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>selectedDateFormat</td>
-        <td>defaultvärde: 'MMM yyyy', här kan man sätta hur datumet skall presenteras i dropdownen</td>
-        <td>[selectedDateFormat]="'MM yyyy'"</td>
-      </tr>
-      <tr>
-        <td>minDate</td>
-        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts minDate till det förvalda året.
-          Om man satt ett förvalt datum som är efter dagens år så sätts dagens år till minDate</td>
-        <td>[minDate]="minDate"</td>
-      </tr>
-      <tr>
-        <td>maxDate</td>
-        <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts maxDate till det innevarande året.
-          Om man satt ett förvalt datum som är efter dagens år så sätts det förvalda året till maxDate.</td>
-        <td>[maxDate]="maxDate"</td>
-      </tr>
-      <tr>
-        <td>preselectedDate</td>
-        <td>Property för att kunna skicka in ett förvalt datum till komponenten</td>
-        <td>[preselectedDate]="forvaltDatum"</td>
-      </tr>
-      <tr>
-        <td>disabled</td>
-        <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
-        <td>[disabled]=true</td>
-      </tr>
-      <tr>
-        <td>selectedDateChanged</td>
-        <td>Event som triggas när man väljer ett nytt datum</td>
-        <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
-      </tr>
-    </table>
-  </div>
-</div>
-</div>
-
-</div>-->
