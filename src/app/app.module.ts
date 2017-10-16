@@ -32,6 +32,7 @@ import { BacktotopComponent } from './backtotop/backtotop.component';
 import { LoaderComponent } from './loader/loader.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
+import { ListexampleComponent } from './listexample/listexample.component';
 
 @NgModule({
     imports: [
@@ -61,7 +62,8 @@ import { ThemingComponent } from './theming/theming.component';
         TextbuttonsComponent,
         LoaderComponent,
         StartComponent,
-        ThemingComponent
+        ThemingComponent,
+        ListexampleComponent
     ],
     providers: [
         Cityservice,
