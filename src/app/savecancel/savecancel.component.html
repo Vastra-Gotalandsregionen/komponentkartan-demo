@@ -59,45 +59,35 @@
           </tr>
           <tr>
             <td>
-              @Input()
-              <br>unlocked
-              <br>boolean
+              unlocked : boolean
             </td>
             <td>True = låset upplåst, spara och abryt är aktiva. False = låset är låst, spara och avbryt är inaktiva.</td>
             <td>[unlocked]="true"</td>
           </tr>
           <tr>
             <td>
-              @Input()
-              <br>secondary
-              <br>boolean
+              secondary : boolean
             </td>
             <td>Om knappar ska vara sekundärknappar eller ej</td>
             <td>[secondary]="true"</td>
           </tr>
           <tr>
             <td>
-              @Output()
-              <br>cancel
-              <br>EventEmitter
+              cancel : EventEmitter
             </td>
             <td>Triggas då användaren klickar på avbryt</td>
             <td></td>
           </tr>
           <tr>
             <td>
-              @Output()
-              <br>save
-              <br>EventEmitter
+              save : EventEmitter
             </td>
             <td>Triggas då användaren klickar på spara</td>
             <td></td>
           </tr>
           <tr>
             <td>
-              @Output()
-              <br>unlock
-              <br>EventEmitter
+              unlock : EventEmitter
             </td>
             <td>Triggas då användaren låser upp låset</td>
             <td></td>
