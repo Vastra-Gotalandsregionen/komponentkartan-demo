@@ -76,7 +76,11 @@
               <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
               <code>NotificationType.ShowOnRemove</code>
             </td>
-            <td>[expanded]="false"</td>
+            <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
+              <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property.
+              T.ex:
+              <code>notificationTypes = NotificationType</code>
+            </td>
           </tr>
           <tr>
             <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
