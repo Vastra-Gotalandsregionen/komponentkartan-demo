@@ -18,8 +18,8 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "app",
     "styles": [
-      "styles.scss",
-      "../node_modules/vgr-komponentkartan/Content/komponentkartan.scss"
+      "../node_modules/vgr-komponentkartan/Content/komponentkartan.scss",
+      "styles.scss"
     ],
     "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js"],
     "environmentSource": "environments/environment.ts",
