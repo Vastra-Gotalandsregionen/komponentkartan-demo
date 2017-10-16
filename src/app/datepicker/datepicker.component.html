@@ -1,12 +1,12 @@
 <div class="main-content lists-component ">
   <vgr-page-header [title]="'Datepicker'">
   </vgr-page-header>
-  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="false">
     <div class="expandable-container-list__header">
       <h2>Dokumentation för Datepicker</h2>
     </div>
 
-    <vgr-expandable-container [expanded]="true">
+    <vgr-expandable-container [expanded]="false">
       <div class="expandable-container__header">
         <h4>Översikt</h4>
       </div>
@@ -83,12 +83,12 @@
         </div>
       </div>
     </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
         <h4>API</h4>
       </div>
 
-      <div class="expandable-container__content ">
+      <div class="expandable-container__content">
         <table class="property-table">
           <tr>
             <th>Namn</th>
@@ -98,71 +98,73 @@
           <tr>
 
             <td>minDate: Date</td>
-            <td>Beskrivning</td>
+            <td>Sätter vilket datum kalendern börjar på. Sätts inget datum är standard första dagen i januari månad för innevarande
+              år.
+            </td>
             <td>
-              [propp]=" 'value' ", default
+              [minDate]=someDate
             </td>
           </tr>
           <tr>
             <td>maxDate: Date</td>
-            <td>Beskrivning</td>
+            <td>Sätter vilket datum kalendern slutar på. Sätts inget datum är standard sista dagen i december månad för innevarande
+              år.
+            </td>
             <td>
-              [propp]=" 'value' "
+              [maxDate]=someDate
             </td>
           </tr>
 
           <tr>
-            <td>selectedDate?: Date</td>
-            <td>Beskrivning</td>
+            <td>selectedDate: Date</td>
+            <td> Valt datum som visas i kalendern. När kalendern instansieras och man öppnar den första gången så positioneras
+              man på den månaden selectedDate är valt. Om inget datum är valt så positioneras man på dagens datum.</td>
             <td>
-              [propp]=" 'value' "
+              [selectedDate] = someDate
             </td>
           </tr>
 
           <tr>
             <td>disabled: boolean</td>
-            <td>Beskrivning</td>
+            <td>Inaktiverar kalendern.</td>
             <td>
-              [propp]=" 'value' "
+              [disabled]=true/false
             </td>
           </tr>
 
           <tr>
             <td>selectedDateFormat: string</td>
-            <td>Beskrivning, default yyyy-MM-dd</td>
+            <td>Datumformatet på valt datum i dropdownen.</td>
             <td>
-              [propp]=" 'value' "
+              [selectedDateFormat]=dateFormat
             </td>
           </tr>
 
           <tr>
             <td>tooltipDateFormat: string</td>
-            <td>Beskrivning, default yyyy-MM-dd</td>
+            <td>Datumformatet på valt datum i dropdownens tooltip.</td>
             <td>
-              [propp]=" 'value' "
+              [selectedDateFormat]=dateFormat
             </td>
           </tr>
           <tr>
-            <td>selectedDateChanged = new EventEmitter
+            <td>selectedDateChanged = EventEmitter&lt;date&gt;
             </td>
-            <td>Beskrivning</td>
+            <td>Event som trigas när man väljer ett datum i kalendern.</td>
             <td>
-              [propp]=" 'value' "
+              (selectedDateChanged)="someDateProperty=$event"
             </td>
           </tr>
         </table>
       </div>
     </vgr-expandable-container>
     <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header ">
+      <div class="expandable-container__header">
         <h4>Tillgänglighet</h4>
       </div>
-      <div class="expandable-container__content ">
+      <div class="expandable-container__content">
         <p>
-          <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
-          attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning till
-          interna label i
-          <code>&lt;vgr-checkbox&gt;</code>)
+          Stöds ej.
         </p>
       </div>
     </vgr-expandable-container>
