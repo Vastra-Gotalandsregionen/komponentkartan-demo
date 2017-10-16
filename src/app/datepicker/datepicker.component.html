@@ -1,4 +1,4 @@
-<div class="main-content lists-component test">
+<div class="main-content lists-component ">
   <vgr-page-header [title]="'Datepicker'">
   </vgr-page-header>
   <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
@@ -20,7 +20,10 @@
 
           </p>
           <br>
-          <vgr-datepicker></vgr-datepicker>
+          <!--row-layout row-layout--padded -->
+          <div class="row-layout">
+            <vgr-datepicker></vgr-datepicker>
+          </div>
 
           <br>
           <p>Förändras med tema:
@@ -38,7 +41,43 @@
         <div class="row-layout ">
           <div class="full ">
             <div class="column-layout ">
+              <div class="row-layout">
+                <div>
+                  <p>Default formatering</p>
+                  <vgr-datepicker [selectedDate]="datepicker_selectedDate1" (selectedDateChanged)="datepicker_selectedDate1=$event"></vgr-datepicker>
+                </div>
+                <div>
+                  <span>Valt datum default: </span>
+                  <p>{{datepicker_selectedDate1 | date : 'yyyy MM dd'}}</p>
+                </div>
+              </div>
+              <div class="row-layout">
+                <div>
+                  <p>Format yyyy MMM dd</p>
+                  <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate2=$event" [selectedDate]="datepicker_selectedDate2" [selectedDateFormat]="'yyyy MMM dd'"></vgr-datepicker>
+                </div>
+                <div>
+                  <span>Valt datum: </span>
+                  <p>{{datepicker_selectedDate2 | date : 'dd MMMM yyyy'}}</p>
+                </div>
+              </div>
+              <div class="row-layout">
+                <div>
+                  <p>Format yyyy på tooltip</p>
+                  <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate3=$event" [selectedDate]="datepicker_selectedDate3" [tooltipDateFormat]="'yyyy'"></vgr-datepicker>
+                </div>
+                <div>
+                  <span>Valt datum: </span>
+                  <p>{{datepicker_selectedDate3 | date : 'dd MMM yyyy'}}</p>
+                </div>
 
+              </div>
+              <div class="row-layout">
+                <div>
+                  <p>Avstängd datepicker</p>
+                  <vgr-datepicker [disabled]="true" [selectedDate]="datepicker_selectedDate4"></vgr-datepicker>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -48,6 +87,7 @@
       <div class="expandable-container__header ">
         <h4>API</h4>
       </div>
+
       <div class="expandable-container__content ">
         <table class="property-table">
           <tr>
@@ -56,39 +96,60 @@
             <th>Exempel</th>
           </tr>
           <tr>
-            <td>@Input()
-              <br>label
-              <br>string </td>
-            <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+
+            <td>minDate: Date</td>
+            <td>Beskrivning</td>
             <td>
-              [label]=" 'Inaktiverad' "
+              [propp]=" 'value' ", default
             </td>
           </tr>
           <tr>
-            <td> @Input()
-              <br> checked
-              <br> boolean
+            <td>maxDate: Date</td>
+            <td>Beskrivning</td>
+            <td>
+              [propp]=" 'value' "
             </td>
-            <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-            <td>[checked]=True</td>
-          </tr>
-          <tr>
-            <td> @Input()
-              <br> disabled
-              <br> booean
-            </td>
-            <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-            <td>[disabled]=True</td>
-          </tr>
-          <tr>
-            <td>@output
-              <br>checkedChanged
-              <br>EventEmitter&lt;boolean&gt;
-            </td>
-            <td>Event som triggas när man checkar i eller ur checkboxen</td>
-            <td>(checkedChanged)="onCheckedChanged($event) "</td>
           </tr>
 
+          <tr>
+            <td>selectedDate?: Date</td>
+            <td>Beskrivning</td>
+            <td>
+              [propp]=" 'value' "
+            </td>
+          </tr>
+
+          <tr>
+            <td>disabled: boolean</td>
+            <td>Beskrivning</td>
+            <td>
+              [propp]=" 'value' "
+            </td>
+          </tr>
+
+          <tr>
+            <td>selectedDateFormat: string</td>
+            <td>Beskrivning, default yyyy-MM-dd</td>
+            <td>
+              [propp]=" 'value' "
+            </td>
+          </tr>
+
+          <tr>
+            <td>tooltipDateFormat: string</td>
+            <td>Beskrivning, default yyyy-MM-dd</td>
+            <td>
+              [propp]=" 'value' "
+            </td>
+          </tr>
+          <tr>
+            <td>selectedDateChanged = new EventEmitter
+            </td>
+            <td>Beskrivning</td>
+            <td>
+              [propp]=" 'value' "
+            </td>
+          </tr>
         </table>
       </div>
     </vgr-expandable-container>
