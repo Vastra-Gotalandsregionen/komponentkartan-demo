@@ -88,39 +88,40 @@
             <th>Exempel</th>
           </tr>
           <tr>
-            <td>selectedDateFormat</td>
+            <td>selectedDateFormat : string</td>
             <td>defaultvärde: 'MMM yyyy', här kan man sätta hur datumet skall presenteras i dropdownen</td>
             <td>[selectedDateFormat]="'MM yyyy'"</td>
           </tr>
           <tr>
-            <td>toolTipDateFormat</td>
+            <td>toolTipDateFormat : string</td>
             <td>defaultvärde: 'MMMM yyyy', här kan man sätta hur datumet skall presenteras när man hovrar över det</td>
             <td>[toolTipDateFormat]="'MMMM'"</td>
           </tr>
           <tr>
-            <td>minDate</td>
+            <td>minDate : Date</td>
             <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts minDate till det förvalda
               året. Om man satt ett förvalt datum som är efter dagens år så sätts dagens år till minDate</td>
             <td>[minDate]="minDate"</td>
           </tr>
           <tr>
-            <td>maxDate</td>
+            <td>maxDate : Date</td>
             <td>Defaultvärdet är innevarande år. Om man förvalt ett datum innan dagens år så sätts maxDate till det innevarande
               året. Om man satt ett förvalt datum som är efter dagens år så sätts det förvalda året till maxDate.</td>
             <td>[maxDate]="maxDate"</td>
           </tr>
           <tr>
-            <td>selectedDate</td>
+            <td>selectedDate : Date</td>
             <td>Property för att kunna skicka in ett förvalt datum till komponenten</td>
             <td>[selectedDate]="forvaltDatum"</td>
           </tr>
           <tr>
-            <td>disabled</td>
+            <td>disabled : boolean</td>
             <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
             <td>[disabled]=true</td>
           </tr>
           <tr>
-            <td>selectedDateChanged</td>
+            <td>selectedDateChanged : EventEmitter&lt;Date&gt;
+            </td>
             <td>Event som triggas när man väljer ett nytt datum</td>
             <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
           </tr>

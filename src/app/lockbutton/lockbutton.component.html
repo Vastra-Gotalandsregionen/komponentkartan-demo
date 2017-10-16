@@ -1,22 +1,57 @@
 <div class="main-content">
-  <vgr-page-header [title]="'Lock button'">
+  <vgr-page-header [title]="'Radioknappar'">
   </vgr-page-header>
-  <div class="komponentkarta-components column-layout">
-    <span>Låsknappen är en "toggle-knapp", som kan vara låst eller upplåst.
-
-          </span>
-    <div>
-      <vgr-lock-button (onLocked)="lockMessage='Lås 1 låst'" (onUnlocked)="lockMessage='Lås 1 upplåst'"></vgr-lock-button>
-      <vgr-lock-button [unlocked]="true" (onLocked)="lockMessage='Lås 2 låst'" (onUnlocked)="lockMessage='Lås 2 upplåst'"></vgr-lock-button>
-      <vgr-lock-button [disabled]="true"></vgr-lock-button>
-      <vgr-lock-button [disabled]="true" [unlocked]="true"></vgr-lock-button>
-      <br><br>
-      <span>Senaste händelse:&nbsp;<strong>{{lockMessage}}</strong></span>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för radioknappar</h2>
     </div>
 
-    <div class="row-layout">
-      <div class="full">
-        <h2>Konfiguration</h2>
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-lock-button&gt; </code>
+          </p>
+          <br>
+          <p>Låsknappen är en "toggle-knapp", som kan vara låst eller upplåst.
+
+          </p>
+          <div style="height:35px; margin-top:20px; margin-bottom:20px">
+            <vgr-lock-button></vgr-lock-button>
+          </div>
+          <p> Förändras med tema:
+            <strong>Ja</strong> (bakgrundsfärg)
+          </p>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div>
+          <vgr-lock-button (lockChanged)="lockMessage='Lås 1 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
+          <vgr-lock-button [unlocked]="true" (lockChanged)="lockMessage='Lås 2 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
+          <vgr-lock-button [disabled]="true"></vgr-lock-button>
+          <vgr-lock-button [disabled]="true" [unlocked]="true"></vgr-lock-button>
+          <br>
+          <br>
+          <span>Senaste händelse:&nbsp;
+            <strong>{{lockMessage}}</strong>
+          </span>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
         <table class="property-table">
           <tr>
             <th>Namn</th>
@@ -24,22 +59,32 @@
             <th>Exempel</th>
           </tr>
           <tr>
-            <td>unlocked</td>
+            <td>unlocked : boolean</td>
             <td>Om knappen ska vara upplåst. True/false, default är false.</td>
             <td>[unlocked]="true"</td>
           </tr>
           <tr>
-            <td>onUnlocked</td>
-            <td>Event som triggas när knappen låses upp</td>
-            <td></td>
+            <td>disabled : boolean</td>
+            <td>Om knappen ska vara inaktiverad.</td>
+            <td>[disabled]="true"</td>
           </tr>
           <tr>
-            <td>onLocked</td>
-            <td>Event som triggas när knappen låses</td>
+            <td>onLockChanged : EventEmitter&lt;boolean&gt;</td>
+            <td>Event som triggas när knappen låses eller låses upp.
+              <code>True</code> innebär låst,
+              <code>false</code> upplåst.</td>
             <td></td>
           </tr>
         </table>
       </div>
-    </div>
-  </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false">
+      <div class="expandable-container__header ">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
