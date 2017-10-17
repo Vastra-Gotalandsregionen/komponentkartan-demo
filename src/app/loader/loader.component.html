@@ -20,7 +20,7 @@
 
             <br>
             <br>
-            <vgr-loader></vgr-loader>
+            <vgr-loader [active]="true"></vgr-loader>
           </p>
           <br>
           <p> Förändras med tema:
@@ -37,11 +37,11 @@
         <div class="row-layout">
           <div style="align-self:middle">
             <span>Stor storlek</span>
-            <vgr-loader [spinning]="actionInProgress"></vgr-loader>
+            <vgr-loader [active]="actionInProgress"></vgr-loader>
           </div>
           <div style="align-self:middle">
             <span>Liten storlek</span>
-            <vgr-loader [spinning]="actionInProgress" [small]="true"></vgr-loader>
+            <vgr-loader [active]="actionInProgress" [small]="true"></vgr-loader>
           </div>
         </div>
 
@@ -64,9 +64,9 @@
             <th>Exempel</th>
           </tr>
           <tr>
-            <td>spinning : boolean</td>
-            <td>Anger om loader snurrar eller ej. Default false</td>
-            <td>[spinning]="true"</td>
+            <td>active : boolean</td>
+            <td>Anger om loader snurrar eller ej. Minsta tid som loader visas är 1 sekund. Inaktivering kan därför fördröjas.</td>
+            <td>[active]="true"</td>
           </tr>
           <tr>
             <td>small : boolean</td>
