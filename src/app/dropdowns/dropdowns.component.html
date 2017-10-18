@@ -1,126 +1,131 @@
 <div class="main-content">
-    <vgr-page-header [title]="'Dropdown'">
-    </vgr-page-header>
-    <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
-        <div class="expandable-container-list__header">
-            <h2>Dokumentation för dropdown</h2>
+  <vgr-page-header [title]="'Dropdown'">
+  </vgr-page-header>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för dropdown</h2>
+    </div>
+
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-dropdown&gt; </code> innehåller en lista över valbara alternativ.
+            <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items.
+            <br>- Kompletteras med scroll vid över 8 items.
+            <br>Vid val av alternativ triggas eventet
+            <code>selectedItemChanged</code>. Valbara items är av typen
+            <code>IDropdownItem</code>.
+            <br>
+            <br>
+            <vgr-dropdown [items]="dropDownItems8"></vgr-dropdown>
+          </p>
+
+          <p> Förändras med tema:
+            <strong>Ja</strong>
+          </p>
         </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout">
+          <div>
+            <p>8 items (ett alternativ förvalt)</p>
+            <vgr-dropdown [items]="dropDownItems8AndSelected" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+          </div>
+          <div>
+            <p>9 items</p>
+            <vgr-dropdown [items]="dropDownItems9" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+          </div>
+          <div>
+            <p>25 items</p>
+            <vgr-dropdown [items]="dropDownItems25All" [noItemSelectedLabel]="'Välj alternativ'" [showAllItemText]="'Visa alla alternativ'"
+              (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+          </div>
+          <div>
+            <p>200 items</p>
+            <vgr-dropdown [items]="dropDownItems200" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+          </div>
+        </div>
+        <div>
+          <br>
+          <span>Senaste val:</span>
+          <span>{{lastSingleSelection}}</span>
+        </div>
+        <br>
+        <div>
+          <p>Disabled</p>
+          <vgr-dropdown [items]="dropDownItems8AndSelected" [disabled]="true" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <table class="property-table ">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>
 
-        <vgr-expandable-container [expanded]="true">
-            <div class="expandable-container__header">
-                <h4>Översikt</h4>
-            </div>
-            <div class="expandable-container__content">
-                <div class="content-overview">
-                    <p>
-                        <code>
-              &lt;vgr-dropdown&gt; </code> innehåller en lista över valbara alternativ. <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items. <br>- Kompletteras med scroll vid över 8 items. Vid val av alternativ triggas
-                        eventet
+              items : IDropdownItem[]
+            </td>
+            <td>Samling av
+              <code>IDropdownItem</code> som utgör valbara alternativ</td>
+            <td>[items]="[item1, item2, ...] "</td>
+          </tr>
+          <tr>
+            <td>
+              disabled : boolean
+            </td>
+            <td>Defaultvärde false</td>
+            <td>[disabled]="true "</td>
+          </tr>
+          <tr>
+            <td>
+              showAllItemText : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå på raden för att ta bort filtrering och visa alla. Defaultvärde
+              "Visa alla"</td>
+            <td>[showAllItemText]="Visa alla alternativ"</td>
+          </tr>
+          <tr>
+            <td>
 
-                        <code>selectedItemChanged</code>. Valbara items är av typen
-                        <code>IDropdownItem</code>.
-                        <br>
-                        <br>
-                        <vgr-dropdown [items]="dropDownItems8"></vgr-dropdown>
-                    </p>
-
-                    <p> Förändras med tema:
-                        <strong>Ja</strong>
-                    </p>
-                </div>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>Exempel</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <div class="row-layout">
-                   
-                    <div>
-                        <p>8 items</p>
-                        <vgr-dropdown [items]="dropDownItems8" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
-                    </div>
-                    <div>
-                        <p>9 items</p>
-                        <vgr-dropdown [items]="dropDownItems9" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
-                    </div>
-                    <div>
-                        <p>25 items</p>
-                        <vgr-dropdown [items]="dropDownItems25All" [noItemSelectedLabel]="'Välj alternativ'" [showAllItemText]="'Visa alla alternativ'" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
-                    </div>
-                    <div>
-                        <p>200 items</p>
-                        <vgr-dropdown [items]="dropDownItems200" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
-                    </div>
-
-
-                </div>
-                <div>
-                    <br>
-                    <span>Senaste val:</span>
-                    <span>{{lastSingleSelection}}</span>
-                </div>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>API</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <table class="property-table ">
-                    <tr>
-                        <th>Namn</th>
-                        <th>Beskrivning</th>
-                        <th>Exempel</th>
-                    </tr>
-                    <tr>
-                        <td>
-
-                            items : IDropdownItem[]
-                        </td>
-                        <td>Samling av
-                            <code>IDropdownItem</code> som utgör valbara alternativ</td>
-                        <td>[items]="[item1, item2, ...] "</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            disabled : boolean
-                        </td>
-                        <td>Defaultvärde false</td>
-                        <td>[disabled]="true "</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            showAllItemText : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå på raden för att ta bort filtrering och visa alla. Defaultvärde "Visa alla"</td>
-                        <td>[showAllItemText]="Visa alla alternativ"</td>
-                    </tr>
-                    <tr>
-                        <td>
-
-                            noItemSelectedLabel : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde
-                        </td>
-                        <td>[noItemSelectedLabel]="Välj alternativ"</td>
-                    </tr>
-                    <tr>
-                        <td> selectedItemChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
-                        <td>Event som triggas när man väljer ett nytt alternativ i dropdownen</td>
-                        <td>(selectedItemChanged)="onselectedItemChanged($event) "</td>
-                    </tr>
-                </table>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>Tillgänglighet</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <i>Under utveckling</i>
-            </div>
-        </vgr-expandable-container>
-    </vgr-expandable-container-list>
+              noItemSelectedLabel : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde
+            </td>
+            <td>[noItemSelectedLabel]="Välj alternativ"</td>
+          </tr>
+          <tr>
+            <td> selectedItemChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
+            <td>Event som triggas när man väljer ett nytt alternativ i dropdownen</td>
+            <td>(selectedItemChanged)="onselectedItemChanged($event) "</td>
+          </tr>
+        </table>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
