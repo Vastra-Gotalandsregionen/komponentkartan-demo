@@ -7,15 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatepickerComponent implements OnInit {
 
-  datepicker_selectedDate1: Date;
-  datepicker_selectedDate2: Date;
-  datepicker_selectedDate3: Date;
-  datepicker_selectedDate4: Date;
-  datepicker_selectedDateNew: Date;
+  datepicker_minDate20160515: Date;
+  datepicker_maxDate20170326: Date;
+  selectedDateTodaysDatePlusOneDay: Date = new Date();
+  datepicker_selectedDate: Date;
 
-  constructor() { }
 
-  ngOnInit() {
-    this.datepicker_selectedDate4 = new Date();
+  constructor() {
+    this.datepicker_selectedDate = new Date();
+    this.datepicker_minDate20160515 = new Date(2016, 4, 15);
+    this.datepicker_maxDate20170326 = new Date(2017, 2, 25);
+    this.selectedDateTodaysDatePlusOneDay.setDate(this.selectedDateTodaysDatePlusOneDay.getDate() + 1);
   }
+
+  ngOnInit() { }
 }

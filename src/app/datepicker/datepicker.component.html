@@ -34,52 +34,52 @@
       </div>
     </vgr-expandable-container>
     <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header ">
+      <div class="expandable-container__header">
         <h4>Exempel</h4>
       </div>
-      <div class="expandable-container__content ">
-        <div class="row-layout ">
-          <div class="full ">
-            <div class="column-layout ">
-              <div class="row-layout">
-                <div>
-                  <p>Default formatering</p>
-                  <vgr-datepicker [selectedDate]="datepicker_selectedDate1" (selectedDateChanged)="datepicker_selectedDate1=$event"></vgr-datepicker>
-                </div>
-                <div>
-                  <span>Valt datum default: </span>
-                  <p>{{datepicker_selectedDate1 | date : 'yyyy MM dd'}}</p>
-                </div>
-              </div>
-              <div class="row-layout">
-                <div>
-                  <p>Format yyyy MMM dd</p>
-                  <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate2=$event" [selectedDate]="datepicker_selectedDate2" [selectedDateFormat]="'yyyy MMM dd'"></vgr-datepicker>
-                </div>
-                <div>
-                  <span>Valt datum: </span>
-                  <p>{{datepicker_selectedDate2 | date : 'dd MMMM yyyy'}}</p>
-                </div>
-              </div>
-              <div class="row-layout">
-                <div>
-                  <p>Format yyyy på tooltip</p>
-                  <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate3=$event" [selectedDate]="datepicker_selectedDate3" [tooltipDateFormat]="'yyyy'"></vgr-datepicker>
-                </div>
-                <div>
-                  <span>Valt datum: </span>
-                  <p>{{datepicker_selectedDate3 | date : 'dd MMM yyyy'}}</p>
-                </div>
-
-              </div>
-              <div class="row-layout">
-                <div>
-                  <p>Avstängd datepicker</p>
-                  <vgr-datepicker [disabled]="true" [selectedDate]="datepicker_selectedDate4"></vgr-datepicker>
-                </div>
-              </div>
+      <div class="expandable-container__content">
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>Default formaterad</p>
+              <p></p>
+              <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
             </div>
+            <p style="align-self:flex-end">Med defaultinställningar sätts min- och maxdatum till innevarande år.
+            </p>
           </div>
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>yyyy MM dd</p>
+              <vgr-datepicker [selectedDateFormat]="'yyyy MM dd'" [selectedDate]="selectedDateTodaysDatePlusOneDay" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <p style="align-self:flex-end">Här är
+              <code>selectedDate</code> dagens datum + 1 dag.
+              <code>minDate</code> och
+              <code>maxDate</code> är ej satta, perioden blir då samma som exemplet ovan.</p>
+          </div>
+          <div class="row-layout">
+            <div style="width:250px">
+              <p>Med max- och mindatum satt</p>
+              <vgr-datepicker [selectedDateFormat]="'yyyy MMM dd'" [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326"
+                (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <p style="align-self:flex-end">Här är
+              <code>minDate</code> satt till 2016-05-15 och
+              <code>maxDate</code> är 2017-03-25. Det går endast att nagivera mellan maj 2016 och mars 2017. Notera att hela maj
+              visas för 2016 och hela mars för 2017. Det går bara att välja de dagar som ingår i perioden mellan min och
+              max.
+
+          </div>
+
+          <div>
+            <p>Disabled</p>
+            <vgr-datepicker [disabled]="true" [selectedDate]="selectedDate"></vgr-datepicker>
+          </div>
+        </div>
+        <div style="margin-top:20px">
+          <span>Senast valt datum: </span>
+          <span>{{datepicker_selectedDate | date : 'yyyy MMM dd'}}</span>
         </div>
       </div>
     </vgr-expandable-container>
@@ -96,7 +96,20 @@
             <th>Exempel</th>
           </tr>
           <tr>
-
+            <td>selectedDateFormat: string</td>
+            <td>Datumformatet på valt datum i dropdownen.</td>
+            <td>
+              [selectedDateFormat]=yyyymmDD
+            </td>
+          </tr>
+          <tr>
+            <td>tooltipDateFormat: string</td>
+            <td>Datumformatet på valt datum i dropdownens tooltip.</td>
+            <td>
+              [selectedDateFormat]=yyyymmDD
+            </td>
+          </tr>
+          <tr>
             <td>minDate: Date</td>
             <td>Sätter vilket datum kalendern börjar på. Sätts inget datum är standard första dagen i januari månad för innevarande
               år.
@@ -114,16 +127,14 @@
               [maxDate]=someDate
             </td>
           </tr>
-
           <tr>
             <td>selectedDate: Date</td>
             <td> Valt datum som visas i kalendern. När kalendern instansieras och man öppnar den första gången så positioneras
-              man på den månaden selectedDate är valt. Om inget datum är valt så positioneras man på dagens datum.</td>
+              man på den valda månaden. Om inget datum är valt så positioneras man på dagens datum.</td>
             <td>
               [selectedDate] = someDate
             </td>
           </tr>
-
           <tr>
             <td>disabled: boolean</td>
             <td>Inaktiverar kalendern.</td>
@@ -131,31 +142,24 @@
               [disabled]=true/false
             </td>
           </tr>
-
-          <tr>
-            <td>selectedDateFormat: string</td>
-            <td>Datumformatet på valt datum i dropdownen.</td>
-            <td>
-              [selectedDateFormat]=dateFormat
-            </td>
-          </tr>
-
-          <tr>
-            <td>tooltipDateFormat: string</td>
-            <td>Datumformatet på valt datum i dropdownens tooltip.</td>
-            <td>
-              [selectedDateFormat]=dateFormat
-            </td>
-          </tr>
           <tr>
             <td>selectedDateChanged = EventEmitter&lt;date&gt;
             </td>
             <td>Event som trigas när man väljer ett datum i kalendern.</td>
             <td>
-              (selectedDateChanged)="someDateProperty=$event"
+              (selectedDateChanged)="selectedDate=$event"
             </td>
           </tr>
         </table>
+        <div>
+          <strong>Notera</strong>
+          <br> Ange följande i din @NgModule för att ställa in language provider till Svenska:
+          <br>
+          <code>
+            [ {{'{ provide: LOCALE_ID, useValue:"sv-SE" }'}}
+          </code>
+        </div>
+
       </div>
     </vgr-expandable-container>
     <vgr-expandable-container [expanded]="false">
