@@ -210,6 +210,15 @@
             <td>[placeholder]="'yyyymmdd-nnnn'"</td>
           </tr>
           <tr>
+            <td>
+              validate() : IValidationResult
+            </td>
+            <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller
+              ej. ValidationResult.errorMessage ger eventuellt fel.
+            </td>
+            <td>const result = component.validate()</td>
+          </tr>
+          <tr>
             <td>valueChanged: EventEmitter&lt;string&gt;</td>
             <td>Event när värdet ändras. Triggas när fokus lämnar fältet. Värdet är parameter.</td>
             <td>(valueChanged)="person.lastName = $event"</td>

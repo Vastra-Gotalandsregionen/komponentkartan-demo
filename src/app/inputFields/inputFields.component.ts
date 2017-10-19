@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/component-package/models/validated.model';
+import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/component-package/models/validation.model';
 
 import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model';
 import { Cityservice } from './cityservice';

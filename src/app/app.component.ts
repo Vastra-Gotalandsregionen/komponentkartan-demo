@@ -55,8 +55,6 @@ export class KomponentkartanApplicationComponent {
     ] as IMenu[];
 
     this.menus = this.singleMenu;
-
-
   }
 
 }

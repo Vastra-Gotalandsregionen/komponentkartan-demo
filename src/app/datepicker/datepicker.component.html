@@ -57,18 +57,19 @@
               <code>selectedDate</code> dagens datum + 1 dag.
               <code>minDate</code> och
               <code>maxDate</code> är ej satta, perioden blir då samma som exemplet ovan.</p>
+
           </div>
           <div class="row-layout">
             <div style="width:250px">
-              <p>Med max- och mindatum satt</p>
-              <vgr-datepicker [selectedDateFormat]="'yyyy MMM dd'" [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326"
-                (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+              <p>Med min- och maxdatum, obligatoriskt</p>
+              <vgr-datepicker [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326" [required]="true" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
             </div>
             <p style="align-self:flex-end">Här är
               <code>minDate</code> satt till 2016-05-15 och
               <code>maxDate</code> är 2017-03-25. Det går endast att nagivera mellan maj 2016 och mars 2017. Notera att hela maj
               visas för 2016 och hela mars för 2017. Det går bara att välja de dagar som ingår i perioden mellan min och
-              max.
+              max. Fältet är
+              <code>required</code> och därför ges valideringsfel om inget värde väljs.</p>
 
           </div>
 
@@ -141,6 +142,26 @@
             <td>
               [disabled]=true/false
             </td>
+          </tr>
+          <tr>
+            <td>
+              required : boolean
+            </td>
+            <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus
+              ges ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
+              För att trigga validering utifrån använd
+              <code>validate()</code>.
+            </td>
+            <td>[required]="true"</td>
+          </tr>
+          <tr>
+            <td>
+              validate() : IValidationResult
+            </td>
+            <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller
+              ej. ValidationResult.errorMessage ger eventuellt fel.
+            </td>
+            <td>const result = component.validate()</td>
           </tr>
           <tr>
             <td>selectedDateChanged = EventEmitter&lt;date&gt;

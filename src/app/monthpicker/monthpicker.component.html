@@ -51,17 +51,22 @@
             <p style="align-self:flex-end">Här är
               <code>selectedDate</code> från 2015.
               <code>minDate</code> blir då default 2015,
-              <code>maxDate</code> blir innevarande år.</p>
+              <code>maxDate</code> blir innevarande år.
+            </p>
           </div>
           <div class="row-layout">
             <div style="width:250px">
-              <p>Med max- och mindatum satt</p>
-              <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2016" [maxDate]="lastOfMarch2019" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+              <p>Med min- och maxdatum, obligatoriskt</p>
+              <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2016" [maxDate]="lastOfMarch2019" [required]="true"
+                (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
             </div>
             <p style="align-self:flex-end">Här är
               <code>minDate</code> satt till 2016-05-01 och
               <code>maxDate</code> är 2019-03-31. 2016 visas med samtliga månader, men januari - april är ej valbara. Hela 2017
-              och 2018 är valbara. 2019 visas med januari - mars valbara. </p>
+              och 2018 är valbara. 2019 visas med januari - mars valbara. Fältet är
+              <code>required</code> och därför ges valideringsfel om inget värde väljs.
+            </p>
+
           </div>
 
           <div>
@@ -118,6 +123,26 @@
             <td>disabled : boolean</td>
             <td>true/false, defaultvärde: false. Möjlighet att sätta disabled på månadskalendern</td>
             <td>[disabled]=true</td>
+          </tr>
+          <tr>
+            <td>
+              required : boolean
+            </td>
+            <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus
+              ges ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
+              För att trigga validering utifrån använd
+              <code>validate()</code>.
+            </td>
+            <td>[required]="true"</td>
+          </tr>
+          <tr>
+            <td>
+              validate() : IValidationResult
+            </td>
+            <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller
+              ej. ValidationResult.errorMessage ger eventuellt fel.
+            </td>
+            <td>const result = component.validate()</td>
           </tr>
           <tr>
             <td>selectedDateChanged : EventEmitter&lt;Date&gt;

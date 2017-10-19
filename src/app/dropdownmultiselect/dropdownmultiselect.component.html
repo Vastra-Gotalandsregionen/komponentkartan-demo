@@ -1,147 +1,161 @@
 <div class="main-content">
-    <vgr-page-header [title]="'Dropdown multiselect'">
-    </vgr-page-header>
-    <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
-        <div class="expandable-container-list__header">
-            <h2>Dokumentation för dropdown multiselect</h2>
+  <vgr-page-header [title]="'Dropdown multiselect'">
+  </vgr-page-header>
+  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
+    <div class="expandable-container-list__header">
+      <h2>Dokumentation för dropdown multiselect</h2>
+    </div>
+
+    <vgr-expandable-container [expanded]="true">
+      <div class="expandable-container__header">
+        <h4>Översikt</h4>
+      </div>
+      <div class="expandable-container__content">
+        <div class="content-overview">
+          <p>
+            <code>
+              &lt;vgr-dropdown-multiselect&gt; </code> innehåller en lista där man kan välja flera alternativ.
+            <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items.
+            <br>- Kompletteras med scroll vid över 8 items. Dropdown stängs inte när man väljer alternativ, förutom vid val av
+            "Välja alla". Vid val av alternativ triggas eventet
+
+            <code>selectionChanged</code>. Valbara items är av typen
+            <code>IDropdownItem</code>.
+            <br>
+            <br>
+            <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+          </p>
+
+          <p> Förändras med tema:
+            <strong>Ja</strong>
+          </p>
         </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>Exempel</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <div class="row-layout">
 
-        <vgr-expandable-container [expanded]="true">
-            <div class="expandable-container__header">
-                <h4>Översikt</h4>
-            </div>
-            <div class="expandable-container__content">
-                <div class="content-overview">
-                    <p>
-                        <code>
-              &lt;vgr-dropdown-multiselect&gt; </code> innehåller en lista där man kan välja flera alternativ. <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items. <br>- Kompletteras med scroll vid över 8 items. 
-              
-             Dropdown stängs inte när man väljer alternativ, förutom vid val av "Välja alla".
+          <div>
+            <p>8 items</p>
+            <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+          </div>
+          <div>
+            <p>9 items</p>
+            <vgr-dropdown-multiselect [items]="dropDownItems9" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+          </div>
+          <div>
+            <p>25 items - obligatoriskt</p>
+            <vgr-dropdown-multiselect [items]="dropDownItems25All" [selectAllItemText]="'Välj alla alternativ'" [allItemsSelectedLabel]="'Alla'"
+              [showAllItemText]="'Visa alla alternativ'" (selectionChanged)="onMultipleSelectionChanged($event)" [required]="true"></vgr-dropdown-multiselect>
+          </div>
 
-              Vid val av alternativ triggas
-                        eventet
+        </div>
+        <div>
+          <br>
+          <span>Senaste val:</span>
+          <span>{{lastMultipleSelection}}</span>
+        </div>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>API</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <table class="property-table ">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>
+              items : IDropdownItem[]
+            </td>
+            <td>Samling av
+              <code>IDropdownItem</code> som utgör valbara alternativ</td>
+            <td>[items]="[item1, item2, ...] "</td>
+          </tr>
+          <tr>
+            <td>
+              disabled : boolean
+            </td>
+            <td>Defaultvärde false</td>
+            <td>[disabled]="true "</td>
+          </tr>
+          <tr>
+            <td>
+              showAllItemText : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå på raden för att ta bort filtrering och visa alla. Defaultvärde
+              "Visa alla"</td>
+            <td>[showAllItemText]="Visa alla alternativ"</td>
+          </tr>
+          <tr>
+            <td>
 
-                        <code>selectionChanged</code>. Valbara items är av typen
-                        <code>IDropdownItem</code>.
-                        <br>
-                        <br>
-                        <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
-                    </p>
+              noItemSelectedLabel : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde. Defaultvärde "Välj"
+            </td>
+            <td>[noItemSelectedLabel]="Välj alternativ"</td>
+          </tr>
+          <tr>
+            <td>
 
-                    <p> Förändras med tema:
-                        <strong>Ja</strong>
-                    </p>
-                </div>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>Exempel</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <div class="row-layout">
-                   
-                    <div>
-                        <p>8 items</p>
-                        <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
-                      </div>
-                      <div>
-                        <p>9 items</p>
-                        <vgr-dropdown-multiselect [items]="dropDownItems9" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
-                      </div>
-                      <div>
-                        <p>25 items</p>
-                        <vgr-dropdown-multiselect [items]="dropDownItems25All" 
-                          [selectAllItemText]="'Välj alla alternativ'" 
-                          [allItemsSelectedLabel]="'Alla'"
-                          [showAllItemText]="'Visa alla alternativ'" 
-                          (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
-                      </div>
-
-                </div>
-                <div>
-                    <br>
-                    <span>Senaste val:</span>
-                    <span>{{lastSingleSelection}}</span>
-                </div>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>API</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <table class="property-table ">
-                    <tr>
-                        <th>Namn</th>
-                        <th>Beskrivning</th>
-                        <th>Exempel</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            items : IDropdownItem[]
-                        </td>
-                        <td>Samling av
-                            <code>IDropdownItem</code> som utgör valbara alternativ</td>
-                        <td>[items]="[item1, item2, ...] "</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            disabled : boolean
-                        </td>
-                        <td>Defaultvärde false</td>
-                        <td>[disabled]="true "</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            showAllItemText : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå på raden för att ta bort filtrering och visa alla. Defaultvärde "Visa alla"</td>
-                        <td>[showAllItemText]="Visa alla alternativ"</td>
-                    </tr>
-                    <tr>
-                        <td>
-
-                            noItemSelectedLabel : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde. Defaultvärde "Välj"
-                        </td>
-                        <td>[noItemSelectedLabel]="Välj alternativ"</td>
-                    </tr>
-                    <tr>
-                        <td>
-
-                            allItemsSelectedLabel : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå i dropwnen då man valt alla. Defaultvärde "Alla"
-                        </td>
-                        <td>[allItemsSelectedLabel]="Alla alternativ valda"</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            selectAllItemText : string
-                        </td>
-                        <td>Värde för att sätta vilken text det skall stå på alternativet för att välja alla. Defaultvärde "Välj alla"
-                        </td>
-                        <td>[selectAllItemText]="Välj alla alternativ"</td>
-                    </tr>
-                    <tr>
-                        <td> selectionChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
-                        <td>Event som triggas när man väljer ett alternativ i dropdownen</td>
-                        <td>(selectionChanged)="onMultipleSelectionChanged($event) "</td>
-                    </tr>
-                </table>
-            </div>
-        </vgr-expandable-container>
-        <vgr-expandable-container [expanded]="false ">
-            <div class="expandable-container__header ">
-                <h4>Tillgänglighet</h4>
-            </div>
-            <div class="expandable-container__content ">
-                <i>Under utveckling</i>
-            </div>
-        </vgr-expandable-container>
-    </vgr-expandable-container-list>
+              allItemsSelectedLabel : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå i dropwnen då man valt alla. Defaultvärde "Alla"
+            </td>
+            <td>[allItemsSelectedLabel]="Alla alternativ valda"</td>
+          </tr>
+          <tr>
+            <td>
+              selectAllItemText : string
+            </td>
+            <td>Värde för att sätta vilken text det skall stå på alternativet för att välja alla. Defaultvärde "Välj alla"
+            </td>
+            <td>[selectAllItemText]="Välj alla alternativ"</td>
+          </tr>
+          <tr>
+            <td>
+              required : boolean
+            </td>
+            <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus
+              ges ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
+              För att trigga validering utifrån använd
+              <code>validate()</code>.
+            </td>
+            <td>[required]="true"</td>
+          </tr>
+          <tr>
+            <td>
+              validate() : IValidationResult
+            </td>
+            <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller
+              ej. ValidationResult.errorMessage ger eventuellt fel.
+            </td>
+            <td>const result = component.validate()</td>
+          </tr>
+          <tr>
+            <td> selectionChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
+            <td>Event som triggas när man väljer ett alternativ i dropdownen</td>
+            <td>(selectionChanged)="onMultipleSelectionChanged($event) "</td>
+          </tr>
+        </table>
+      </div>
+    </vgr-expandable-container>
+    <vgr-expandable-container [expanded]="false ">
+      <div class="expandable-container__header ">
+        <h4>Tillgänglighet</h4>
+      </div>
+      <div class="expandable-container__content ">
+        <i>Under utveckling</i>
+      </div>
+    </vgr-expandable-container>
+  </vgr-expandable-container-list>
 </div>
-
-
