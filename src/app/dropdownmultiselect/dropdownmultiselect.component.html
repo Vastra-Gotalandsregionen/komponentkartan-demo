@@ -16,11 +16,10 @@
             <code>
               &lt;vgr-dropdown-multiselect&gt; </code> innehåller en lista där man kan välja flera alternativ.
             <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items.
-            <br>- Kompletteras med scroll vid över 8 items. Dropdown stängs inte när man väljer alternativ, förutom vid val av
-            "Välja alla". Vid val av alternativ triggas eventet
+            <br>- Kompletteras med scroll vid över 8 items.
+            <br> Dropdown stängs inte när man väljer alternativ, förutom vid val av "Välja alla".
 
-            <code>selectionChanged</code>. Valbara items är av typen
-            <code>IDropdownItem</code>.
+
             <br>
             <br>
             <vgr-dropdown-multiselect [items]="dropDownItems8" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
@@ -48,11 +47,14 @@
             <vgr-dropdown-multiselect [items]="dropDownItems9" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
           </div>
           <div>
-            <p>25 items - obligatoriskt</p>
+            <p>25 items</p>
             <vgr-dropdown-multiselect [items]="dropDownItems25All" [selectAllItemText]="'Välj alla alternativ'" [allItemsSelectedLabel]="'Alla'"
-              [showAllItemText]="'Visa alla alternativ'" (selectionChanged)="onMultipleSelectionChanged($event)" [required]="true"></vgr-dropdown-multiselect>
+              [showAllItemText]="'Visa alla alternativ'" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
           </div>
-
+          <div>
+            <p>200 items</p>
+            <vgr-dropdown-multiselect [items]="dropDownItems200" (selectedItemChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+          </div>
         </div>
         <div>
           <br>
@@ -97,7 +99,6 @@
           </tr>
           <tr>
             <td>
-
               noItemSelectedLabel : string
             </td>
             <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde. Defaultvärde "Välj"

@@ -35,7 +35,6 @@ export class DropdownmultiselectComponent implements OnInit {
     return items;
   }
 
-
   onMultipleSelectionChanged(selectedItems: IDropdownItem[]) {
     this.lastMultipleSelection = selectedItems.map(x => x.displayName).join(',');
   }
