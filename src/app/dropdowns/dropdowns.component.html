@@ -17,10 +17,6 @@
               &lt;vgr-dropdown&gt; </code> innehåller en lista över valbara alternativ.
             <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items.
             <br>- Kompletteras med scroll vid över 8 items.
-            <br>Vid val av alternativ triggas eventet
-            <code>selectedItemChanged</code>. Valbara items är av typen
-            <code>IDropdownItem</code>.
-            <br>
             <br>
             <vgr-dropdown [items]="dropDownItems8"></vgr-dropdown>
           </p>
@@ -38,7 +34,7 @@
       <div class="expandable-container__content ">
         <div class="row-layout">
           <div>
-            <p>8 items (ett alternativ förvalt)</p>
+            <p>8 items (förvald)</p>
             <vgr-dropdown [items]="dropDownItems8AndSelected" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
           </div>
           <div>
@@ -102,7 +98,7 @@
             <td>
               noItemSelectedLabel : string
             </td>
-            <td>Värde för att sätta vilken text det skall stå i dropwnen då man inte valt något värde
+            <td>Värde för att sätta vilken text det skall stå i dropdownen då man inte valt något värde
             </td>
             <td>[noItemSelectedLabel]="Välj alternativ"</td>
           </tr>

@@ -36,7 +36,6 @@ export class DropdownsComponent implements OnInit {
 
   private getDemoItemsWithOneSelected(numberOfItems: number, selectedIndex: number): IDropdownItem[] {
     const list = this.getDemoItems(numberOfItems);
-
     list.forEach((dpItem, index) => {
       if (dpItem != null) {
         if (index === selectedIndex) {
@@ -44,7 +43,6 @@ export class DropdownsComponent implements OnInit {
         }
       }
     });
-    console.log(list);
     return list;
   }
 
