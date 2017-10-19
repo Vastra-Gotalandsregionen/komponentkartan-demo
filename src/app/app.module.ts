@@ -33,7 +33,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { ListexampleComponent } from './listexample/listexample.component';
-import { ValidationComponent } from './validation/validation.component';
+import { DemoValidationComponent } from './validation/demovalidation.component';
 
 @NgModule({
     imports: [
@@ -65,7 +65,7 @@ import { ValidationComponent } from './validation/validation.component';
         StartComponent,
         ThemingComponent,
         ListexampleComponent,
-        ValidationComponent
+        DemoValidationComponent
     ],
     providers: [
         Cityservice,

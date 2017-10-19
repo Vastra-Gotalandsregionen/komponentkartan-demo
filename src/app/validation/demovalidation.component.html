@@ -2,11 +2,25 @@
   <vgr-page-header [title]="'Validering av komponenter'">
   </vgr-page-header>
   <div class="komponentkarta-components">
-
+    <p>
+      Flera av komponenterna har stöd för validering av obligatoriskt värde. Dessa validerar när användaren lämnar fältet. Man
+      kan även trigga en validering utifrån, exempelvis från en spara-knapp. För att implementera validering på en sida,
+      som triggas av en knapp, se exempel nedan.
+    </p>
+    <br>
+    <h2>I .ts-filen</h2>
+    <span> Deklarera
+      <code>@ViewChildren(ValidationComponent) validatedComponents: QueryList&lt;ValidationComponent&gt;</code>
+    </span>
+    <p>
+      Använd sedan
+      <code>validatedComponents.forEach(vc =&gt; vc.validate());</code> för att validera samtliga komponenter. Använd resultatet
+      från respektive validering för att agera.
+    </p>
+    <br>
+    <br>
+    <h2>Exempel</h2>
     <div class="title-value-layout" style="width:50%">
-      <vgr-title-value [title]="'Skriv något'">
-        <vgr-input [required]="true"></vgr-input>
-      </vgr-title-value>
       <vgr-title-value [title]="'Startmånad'">
         <vgr-monthpicker [required]="true"></vgr-monthpicker>
       </vgr-title-value>
