@@ -25,6 +25,7 @@ export class KomponentkartanApplicationComponent {
               { title: 'Start', url: '/start' } as IMenuItem,
               { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
               { title: 'Färgkarta', url: '/colours' } as IMenuItem,
+              { title: 'Validering', url: '/validation', child: true } as IMenuItem,
               { title: 'Temahantering', url: '/theming', child: true } as IMenuItem,
               {
                 title: 'Komponenter', menuItems: [

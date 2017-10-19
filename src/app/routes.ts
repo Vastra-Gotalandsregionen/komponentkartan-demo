@@ -17,6 +17,7 @@ import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
+import { ValidationComponent } from './validation/validation.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { Routes } from '@angular/router';
@@ -41,6 +42,7 @@ export const appRoutes: Routes = [
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
+    { path: 'validation', component: ValidationComponent },
     { path: 'start', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
     { path: '**', redirectTo: '/start' }
