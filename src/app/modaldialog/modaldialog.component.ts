@@ -19,7 +19,11 @@ export class ModaldialogComponent implements OnInit {
       new ModalButtonConfiguration('OK', () => this.lastModalAnswer = 'OK')
     );
   }
-
+  showOneButtonModalOverview() {
+    this.modalService.openDialog('Detta är en dialog med en knapp', 'Här kan du bara välja ett alternativ',
+      new ModalButtonConfiguration('OK', () => null)
+    );
+  }
 
   showTwoButtonModal() {
     this.modalService.openDialog('Acceptera villkor',

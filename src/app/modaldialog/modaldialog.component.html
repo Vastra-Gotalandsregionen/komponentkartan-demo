@@ -17,7 +17,7 @@
           </p>
 
           <div style="margin-top: 20px;height:35px;">
-            <vgr-button (click)="showOneButtonModal()">Visa dialog!</vgr-button>
+            <vgr-button (click)="showOneButtonModalOverview()">Visa dialog!</vgr-button>
           </div>
           <br>
           <p> Förändras med tema:
@@ -53,7 +53,7 @@
     </vgr-expandable-container>
     <vgr-expandable-container [expanded]="false">
       <div class="expandable-container__header">
-        <h4>API</h4>
+        <h4>API ModalService</h4>
       </div>
       <div class="expandable-container__content">
         Modal består av två delar. En komponent som läggs ytterst i DOM, med
@@ -62,7 +62,6 @@
         <code>modalService</code> som injectas i de komponenter som vill visa en dialog. För att visa en dialog, använd
         <code>modalService.openDialog()</code> eller någon av de andra metoderna. Se nedan.
         <br>
-        <h4>API för ModalService</h4>
         <table class="property-table" style="margin-bottom: 20px">
           <tr>
             <th>Namn</th>
