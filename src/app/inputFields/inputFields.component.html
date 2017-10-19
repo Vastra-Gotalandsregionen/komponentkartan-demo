@@ -13,7 +13,12 @@
         <div class="content-overview">
           <p>
             <code>
-              &lt;vgr-input&gt; </code> är ett fält för inmatning utav värden i t.ex. ett formulär.</p>
+              &lt;vgr-input&gt; </code> är ett fält för inmatning utav värden i t.ex. ett formulär. Sen har den även följande
+            funktioner implementerade:
+            <br> - Validering på regex, antal tecken, numeriska värden m.m.
+            <br> - Två olika fasta storlekar på fältet (liten och stor).
+            <br> - Visar suffix.
+          </p>
           <br>
           <vgr-input></vgr-input>
           <br>
@@ -194,8 +199,8 @@
           <tr>
             <td>customValidator: function</td>
             <td>En egendefinierad funktion som returnerar validering baserat på innehållet. Anropas när fokus lämnar fältet.
-              Funktionen tar in en sträng och returnerar ett IValidationResult med resultat samt meddelande. Se "Validering
-              med service" ovan. Notera anropet med [funktion].bind(this).
+              Funktionen tar in en sträng och returnerar ett IValidationResult med resultat samt meddelande. Se i exemplet
+              "Validering med service" ovan. Notera anropet med [funktion].bind(this).
             </td>
             <td>[customValidator]="validateCityName.bind(this)"</td>
           </tr>
