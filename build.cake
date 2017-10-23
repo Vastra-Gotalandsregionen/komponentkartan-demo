@@ -27,6 +27,15 @@ Task("Validate-Arguments")
 		Verbose("Environment: {0}", environment);
 });
 
+Task("Install-Latest-KomponentkartanPackage")
+   .Does(() =>
+	{
+		 NpmRunScript(new NpmRunScriptSettings
+    	{
+			ScriptName = "install-demo",
+			WorkingDirectory = "./"
+		});
+	});
 
 
 Task("Restore-NpmPackages")
@@ -40,15 +49,16 @@ Task("Restore-NpmPackages")
 	});
 
 Task("Build-Frontend")
+.IsDependentOn("Install-Latest-KomponentkartanPackage")
 .IsDependentOn("Restore-NpmPackages")
-		.Does(() => {
+.Does(() => {
       NpmRunScript(new NpmRunScriptSettings
     {
         ScriptName = "build",
         WorkingDirectory = "./"
     });
 
-    });
+	});
 
 Task("Deploy-Frontend")
 	.IsDependentOn("Validate-Arguments")
