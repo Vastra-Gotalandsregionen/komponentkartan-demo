@@ -1,44 +1,42 @@
-<div class="main-content">
-  <vgr-page-header [title]="'Back to top'">
-  </vgr-page-header>
-  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
-    <div class="expandable-container-list__header">
-      <h2>Dokumentation för back to top</h2>
-    </div>
-
-    <vgr-expandable-container [expanded]="true">
-      <div class="expandable-container__header">
-        <h4>Översikt</h4>
-      </div>
-      <div class="expandable-container__content">
-        <div class="content-overview">
-          <p>Knapp som vid klick för användaren tillbaka till toppen på sidan. När man scrollar neråt visas back-to-top komponenten
-            och ger en genväg till toppen av sidan. Back to top aktiveras om en sida använder komponenten
-            <a href="/lists">
-              <code> &lt;vgr-expandable-container-list&gt; </code>
-            </a>
-          </p>
-          <br>
-          <div class="back-to-top back-to-top--inline"></div>
-          <br>
-          <p> Förändras med tema:
-            <strong>Nej</strong>
-          </p>
+<vgr-page>
+    <vgr-page-header [title]="'Back to top'">
+    </vgr-page-header>
+    <vgr-list class="page-block" [allowMultipleExpandedItems]="true">
+        <div class="list__header">
+            <h2>Dokumentation för back to top</h2>
         </div>
-      </div>
 
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
-        <h4>Exempel</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <p> Här visas en lång text för att aktivera komponenten back to top. I själv exemplet så visas knappen på höger sida,
-          detta eftersom alla sidor under
-          <strong>Komponenter</strong> använder sig utav
-          <code> &lt;vgr-expandable-container-list&gt; </code> för att strukturera upp innehållet.</p>
-        <br>
-        <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut tristique libero. Proin non aliquet ligula. Etiam
+        <vgr-list-item [expanded]="true">
+            <div class="list-item__header">
+                <h4>Översikt</h4>
+            </div>
+            <div class="list-item__content">
+                <div class="content-overview">
+                    <p>Knapp som vid klick för användaren tillbaka till toppen på sidan. När man scrollar neråt visas back-to-top komponenten och ger en genväg till toppen av sidan. Back to top aktiveras om en sida använder komponenten
+                        <a href="/lists">
+                            <code> &lt;vgr-list&gt; </code>
+                        </a>
+                    </p>
+                    <br>
+                    <div class="back-to-top back-to-top--inline"></div>
+                    <br>
+                    <p> Förändras med tema:
+                        <strong>Nej</strong>
+                    </p>
+                </div>
+            </div>
+
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+            <div class="list-item__header ">
+                <h4>Exempel</h4>
+            </div>
+            <div class="list-item__content ">
+                <p> Här visas en lång text för att aktivera komponenten back to top. I själv exemplet så visas knappen på höger sida, detta eftersom alla sidor under
+                    <strong>Komponenter</strong> använder sig utav
+                    <code> &lt;vgr-list&gt; </code> för att strukturera upp innehållet.</p>
+                <br>
+                <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut tristique libero. Proin non aliquet ligula. Etiam
           ante diam, volutpat at tempor quis, pulvinar eget leo. Vestibulum ac nisi sed odio commodo lacinia. Etiam pulvinar
           convallis diam, quis convallis dui fermentum a. Donec nunc massa, pharetra ac vulputate vel, bibendum a dolor.
           Nam interdum, ex vel varius feugiat, nisl urna faucibus nulla, quis mattis lacus mi at mauris. Fusce interdum a
@@ -81,28 +79,28 @@
           risus congue odio, eget ornare massa dolor id quam. Mauris tincidunt eros sed sollicitudin vestibulum. Sed elit
           sem, congue nec lorem non, gravida tempor elit. Vestibulum at accumsan lectus, nec gravida neque. Vivamus ornare
           a lacus a elementum.</i>
-      </div>
+            </div>
 
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
-        <h4>API</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <p> För att aktivera funktionen måste ett script inkluderas via index.html eller angular-cli.json:</p>
-        <code>angular-cli.json => "scripts ": ["../node_modules/jquery/dist/jquery.min.js ", "../node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+            <div class="list-item__header ">
+                <h4>API</h4>
+            </div>
+            <div class="list-item__content ">
+                <p> För att aktivera funktionen måste ett script inkluderas via index.html eller angular-cli.json:</p>
+                <code>angular-cli.json => "scripts ": ["../node_modules/jquery/dist/jquery.min.js ", "../node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js
           "]
         </code>
 
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
-        <h4>Tillgänglighet</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <i>Ej aktuellt, då detta enbart är javascript</i>
-      </div>
-    </vgr-expandable-container>
-  </vgr-expandable-container-list>
-</div>
+            </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+            <div class="list-item__header ">
+                <h4>Tillgänglighet</h4>
+            </div>
+            <div class="list-item__content ">
+                <i>Ej aktuellt, då detta enbart är javascript</i>
+            </div>
+        </vgr-list-item>
+    </vgr-list>
+</vgr-page>
