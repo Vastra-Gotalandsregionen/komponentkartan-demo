@@ -1,121 +1,125 @@
-<div class="main-content">
-  <vgr-page-header [title]="'Modal dialog'">
-  </vgr-page-header>
-  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
-    <div class="expandable-container-list__header">
-      <h2>Dokumentation för modal dialog</h2>
-    </div>
-    <vgr-expandable-container [expanded]="true">
-      <div class="expandable-container__header">
-        <h4>Översikt</h4>
-      </div>
-      <div class="expandable-container__content">
-        <div class="content-overview">
-          <code>&lt;vgr-modal&gt;</code>
-          <p>En modal dialog visar ett meddelande för användaren och inväntar svar / kvittering. Under tiden som meddelandet
-            visas är resten av applikationen inaktiverad.
-          </p>
+<vgr-page>
 
-          <div style="margin-top: 20px;height:35px;">
-            <vgr-button (click)="showOneButtonModalOverview()">Visa dialog!</vgr-button>
-          </div>
-          <br>
-          <p> Förändras med tema:
-            <strong>Ja</strong> (Knappar)
-          </p>
-        </div>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header">
-        <h4>Exempel</h4>
-      </div>
-      <div class="expandable-container__content">
-        <div class="row-layout">
-          <div>
-            <vgr-button (click)="showOneButtonModal()">En knapp</vgr-button>
-          </div>
-          <div>
-            <vgr-button (click)="showTwoButtonModal()">Två knappar med lång text</vgr-button>
-          </div>
-          <div>
-            <vgr-button (click)="showThreeButtonModal()">Tre knappar</vgr-button>
-          </div>
-          <div>
-            <vgr-button (click)="showSaveDontSaveCancelModal()">Spara-SparaInte-Avbryt</vgr-button>
-          </div>
-        </div>
-        <div style="margin-top: 20px">
-          <span>Du svarade:</span>
-          <span>{{lastModalAnswer}}</span>
-        </div>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header">
-        <h4>API ModalService</h4>
-      </div>
-      <div class="expandable-container__content">
-        Modal består av två delar. En komponent som läggs ytterst i DOM, med
-        <code>&lt;vgr-modal&gt;</code>. Detta är en placeholder för det innehåll som sedan visas över applikationen. Den andra
-        delen är en
-        <code>modalService</code> som injectas i de komponenter som vill visa en dialog. För att visa en dialog, använd
-        <code>modalService.openDialog()</code> eller någon av de andra metoderna. Se nedan.
-        <br>
-        <table class="property-table" style="margin-bottom: 20px">
-          <tr>
-            <th>Namn</th>
-            <th>Beskrivning</th>
-            <th>Exempel</th>
-          </tr>
-          <tr>
-            <td>openDialog()</td>
-            <td>Öppnar en modal dialog med en rubrik -
-              <code>title</code>, en text -
-              <code>message</code> och knappar -
-              <code>button1Config</code>,
-              <code>button2Config</code>,
-              <code>button3Config</code>.
-            </td>
-            <td>
-              <code>ButtonConfiguration</code>
-              innehåller text och
-              <code>callback</code> för knappen.
-            </td>
-          </tr>
-          <tr>
-            <td>openOneButtonDialog()</td>
-            <td>Öppnar en modal dialog med en rubrik -
-              <code>title</code>, en text -
-              <code>message</code> och EN knapp, med text -
-              <code>buttonText</code> och funktion som anropas vid knapptryck -
-              <code>callback</code>.</td>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <td>openSaveDontSaveCancelDialog()</td>
-            <td>Öppnar en modal dialog som är förkonfigurerad med Spara, Spara inte och Avbryt.
-              <code>title</code>,
-              <code>message</code> och händelser för respektive åtgärd -
-              <code>saveCallback</code>,
-              <code>dontSaveCallback</code>,
-              <code>cancelCallback</code> är konfigurerbara.
-            </td>
+    <vgr-page-header [title]="'Modal dialog'">
+    </vgr-page-header>
+    <vgr-page-body>
+        <vgr-page-block>
+            <vgr-list [allowMultipleExpandedItems]="true">
+                <div class="list__header">
+                    <h2>Dokumentation för modal dialog</h2>
+                </div>
+                <vgr-list-item [expanded]="true">
+                    <div class="list-item__header">
+                        <h4>Översikt</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <div class="content-overview">
+                            <code>&lt;vgr-modal&gt;</code>
+                            <p>En modal dialog visar ett meddelande för användaren och inväntar svar / kvittering. Under tiden som meddelandet visas är resten av applikationen inaktiverad.
+                            </p>
 
-            <td>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header">
-        <h4>Tillgänglighet</h4>
-      </div>
-      <div class="expandable-container__content">
-        <i>Under utveckling</i>
-      </div>
-    </vgr-expandable-container>
-  </vgr-expandable-container-list>
-</div>
+                            <div style="margin-top: 20px;height:35px;">
+                                <vgr-button (click)="showOneButtonModalOverview()">Visa dialog!</vgr-button>
+                            </div>
+                            <br>
+                            <p> Förändras med tema:
+                                <strong>Ja</strong> (Knappar)
+                            </p>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header">
+                        <h4>Exempel</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <div class="row-layout">
+                            <div>
+                                <vgr-button (click)="showOneButtonModal()">En knapp</vgr-button>
+                            </div>
+                            <div>
+                                <vgr-button (click)="showTwoButtonModal()">Två knappar med lång text</vgr-button>
+                            </div>
+                            <div>
+                                <vgr-button (click)="showThreeButtonModal()">Tre knappar</vgr-button>
+                            </div>
+                            <div>
+                                <vgr-button (click)="showSaveDontSaveCancelModal()">Spara-SparaInte-Avbryt</vgr-button>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <span>Du svarade:</span>
+                            <span>{{lastModalAnswer}}</span>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header">
+                        <h4>API ModalService</h4>
+                    </div>
+                    <div class="list-item__content">
+                        Modal består av två delar. En komponent som läggs ytterst i DOM, med
+                        <code>&lt;vgr-modal&gt;</code>. Detta är en placeholder för det innehåll som sedan visas över applikationen. Den andra delen är en
+                        <code>modalService</code> som injectas i de komponenter som vill visa en dialog. För att visa en dialog, använd
+                        <code>modalService.openDialog()</code> eller någon av de andra metoderna. Se nedan.
+                        <br>
+                        <table class="property-table" style="margin-bottom: 20px">
+                            <tr>
+                                <th>Namn</th>
+                                <th>Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>openDialog()</td>
+                                <td>Öppnar en modal dialog med en rubrik -
+                                    <code>title</code>, en text -
+                                    <code>message</code> och knappar -
+                                    <code>button1Config</code>,
+                                    <code>button2Config</code>,
+                                    <code>button3Config</code>.
+                                </td>
+                                <td>
+                                    <code>ButtonConfiguration</code> innehåller text och
+                                    <code>callback</code> för knappen.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>openOneButtonDialog()</td>
+                                <td>Öppnar en modal dialog med en rubrik -
+                                    <code>title</code>, en text -
+                                    <code>message</code> och EN knapp, med text -
+                                    <code>buttonText</code> och funktion som anropas vid knapptryck -
+                                    <code>callback</code>.</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>openSaveDontSaveCancelDialog()</td>
+                                <td>Öppnar en modal dialog som är förkonfigurerad med Spara, Spara inte och Avbryt.
+                                    <code>title</code>,
+                                    <code>message</code> och händelser för respektive åtgärd -
+                                    <code>saveCallback</code>,
+                                    <code>dontSaveCallback</code>,
+                                    <code>cancelCallback</code> är konfigurerbara.
+                                </td>
+
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header">
+                        <h4>Tillgänglighet</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <i>Under utveckling</i>
+                    </div>
+                </vgr-list-item>
+            </vgr-list>
+
+        </vgr-page-block>
+    </vgr-page-body>
+
+</vgr-page>

@@ -19,7 +19,6 @@
                             <p>
                                 <code>&lt;vgr-list&gt;</code> är en lista bestående av
                                 <code>vgr-list-item</code>. En lista med header och expanderbara rader, som används till ex. listor av kort. Rubrikraden är fast positionerad och kan inte scrollas bort.
-                                <a href="/backtotop">Back to top</a> används för att navigera användaren tillbaka till toppen av listan.
                             </p>
                             <p> Förändras med tema:
                                 <strong>Nej</strong>
@@ -37,7 +36,7 @@
                 </vgr-list-item>
                 <vgr-list-item [expanded]="false ">
                     <div class="list-item__header ">
-                        <h4>API - ExpandableContainerList</h4>
+                        <h4>API - vgr-list</h4>
                     </div>
                     <div class="list-item__content ">
                         <table class="property-table">
@@ -51,12 +50,17 @@
                                 <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
                                 <td>[allowMultipleExpandedChildren]="true"</td>
                             </tr>
+                            <tr>
+                                <td>flexibleHeader : boolean</td>
+                                <td>Kan man sätta om headern skall följa med i scrollningen, default är false.</td>
+                                <td>[flexibleHeader]="true"</td>
+                            </tr>
                         </table>
                     </div>
                 </vgr-list-item>
                 <vgr-list-item [expanded]="false ">
                     <div class="list-item__header ">
-                        <h4>API - ExpandableContainer</h4>
+                        <h4>API - vgr-list-item</h4>
                     </div>
                     <div class="list-item__content ">
                         <table class="property-table">
