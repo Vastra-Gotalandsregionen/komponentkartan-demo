@@ -69,8 +69,10 @@ import { DemoValidationComponent } from './validation/demovalidation.component';
     ],
     providers: [
         Cityservice,
+
         { provide: LOCALE_ID, useValue: 'sv-SE' }
     ],
+    schemas: [NO_ERRORS_SCHEMA],
 
     bootstrap: [KomponentkartanApplicationComponent]
 })

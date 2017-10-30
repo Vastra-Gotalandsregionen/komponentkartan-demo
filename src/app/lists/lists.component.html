@@ -1,107 +1,110 @@
-<div class="main-content">
-  <vgr-page-header [title]="'List'">
-  </vgr-page-header>
-  <vgr-expandable-container-list [allowMultipleExpandedChildren]="true">
-    <div class="expandable-container-list__header">
-      <h2>Dokumentation för list</h2>
-    </div>
+<vgr-page>
+    <vgr-page-header [title]="'List'">
+    </vgr-page-header>
+    <vgr-page-body>
+        <vgr-page-block>
 
-    <vgr-expandable-container [expanded]="true">
-      <div class="expandable-container__header">
-        <h4>Översikt</h4>
-      </div>
-      <div class="expandable-container__content">
-        <div class="content-overview">
-          <p>
-            <code>&lt;vgr-expandable-container-list&gt;</code> är en lista bestående av
-            <code>vgr-expandable-container</code>. En lista med header och expanderbara rader, som används till ex. listor av kort.
-            Rubrikraden är fast positionerad och kan inte scrollas bort.
-            <a href="/backtotop">Back to top</a> används för att navigera användaren tillbaka till toppen av listan.
-          </p>
-          <p> Förändras med tema:
-            <strong>Nej</strong>
-          </p>
-        </div>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header ">
-        <h4>Exempel</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <a href="/listexample">Se exempel</a> (på egen sida)
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
-        <h4>API - ExpandableContainerList</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <table class="property-table">
-          <tr>
-            <th>Namn</th>
-            <th>Beskrivning</th>
-            <th>Exempel</th>
-          </tr>
-          <tr>
-            <td>allowMultipleExpandedChildren : boolean</td>
-            <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
-            <td>[allowMultipleExpandedChildren]="true"</td>
-          </tr>
-        </table>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false ">
-      <div class="expandable-container__header ">
-        <h4>API - ExpandableContainer</h4>
-      </div>
-      <div class="expandable-container__content ">
-        <table class="property-table">
-          <tr>
-            <th>Namn</th>
-            <th style="width:600px">Beskrivning</th>
-            <th>Exempel</th>
-          </tr>
-          <tr>
-            <td>expanded : boolean</td>
-            <td>Anger om raden skall vara expanderad eller inte.</td>
-            <td>[expanded]="false"</td>
-          </tr>
-          <tr>
-            <td>notification : RowNotification</td>
-            <td>Ger möjligheten att lägga en notifiering på raden. En
-              <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela
-              tiden -
-              <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
-              <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
-              <code>NotificationType.ShowOnRemove</code>
-            </td>
-            <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
-              <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property.
-              T.ex:
-              <code>notificationTypes = NotificationType</code>
-            </td>
-          </tr>
-          <tr>
-            <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
-            <td>Event som triggas när raden expanderar</td>
-            <td>(expandedChanged)="onExpandedChanged($event)"</td>
-          </tr>
-          <tr>
-            <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
-            <td>Event som triggas när notifiering ändras</td>
-            <td>(notificationChanged)="onNotificationChanged($event)"</td>
-          </tr>
-        </table>
-      </div>
-    </vgr-expandable-container>
-    <vgr-expandable-container [expanded]="false">
-      <div class="expandable-container__header ">
-        <h4>Tillgänglighet</h4>
-      </div>
-      <div class="expandable-container__content">
-        <i>Under utveckling</i>
-      </div>
-    </vgr-expandable-container>
-  </vgr-expandable-container-list>
-</div>
+
+            <vgr-list [allowMultipleExpandedItems]="true">
+                <div class="list__header">
+                    <h2>Dokumentation för list</h2>
+                </div>
+
+                <vgr-list-item [expanded]="true">
+                    <div class="list-item__header">
+                        <h4>Översikt</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <div class="content-overview">
+                            <p>
+                                <code>&lt;vgr-list&gt;</code> är en lista bestående av
+                                <code>vgr-list-item</code>. En lista med header och expanderbara rader, som används till ex. listor av kort. Rubrikraden är fast positionerad och kan inte scrollas bort.
+                                <a href="/backtotop">Back to top</a> används för att navigera användaren tillbaka till toppen av listan.
+                            </p>
+                            <p> Förändras med tema:
+                                <strong>Nej</strong>
+                            </p>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Exempel</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <a href="/listexample">Se exempel</a> (på egen sida)
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - ExpandableContainerList</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th>Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>allowMultipleExpandedChildren : boolean</td>
+                                <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
+                                <td>[allowMultipleExpandedChildren]="true"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - ExpandableContainer</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>expanded : boolean</td>
+                                <td>Anger om raden skall vara expanderad eller inte.</td>
+                                <td>[expanded]="false"</td>
+                            </tr>
+                            <tr>
+                                <td>notification : RowNotification</td>
+                                <td>Ger möjligheten att lägga en notifiering på raden. En
+                                    <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela tiden -
+                                    <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
+                                    <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
+                                    <code>NotificationType.ShowOnRemove</code>
+                                </td>
+                                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
+                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property. T.ex:
+                                    <code>notificationTypes = NotificationType</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
+                                <td>Event som triggas när raden expanderar</td>
+                                <td>(expandedChanged)="onExpandedChanged($event)"</td>
+                            </tr>
+                            <tr>
+                                <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
+                                <td>Event som triggas när notifiering ändras</td>
+                                <td>(notificationChanged)="onNotificationChanged($event)"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Tillgänglighet</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <i>Under utveckling</i>
+                    </div>
+                </vgr-list-item>
+            </vgr-list>
+        </vgr-page-block>
+    </vgr-page-body>
+</vgr-page>
