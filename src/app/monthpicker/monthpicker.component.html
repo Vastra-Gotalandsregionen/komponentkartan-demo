@@ -33,33 +33,58 @@
         <h4>Exempel</h4>
       </div>
       <div class="expandable-container__content">
-        <div>
-          <p>Med defaultinställningar sätts min- och maxdatum till innevarande år.
-            <br> Datumformat: Default
-          </p>
-          <vgr-monthpicker (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>Default datumformat</p>
+
+              <vgr-datepicker [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326" [required]="true" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <div>
+              <p>Med defaultinställningar sätts min- och maxdatum till innevarande år.
+              </p>
+            </div>
+          </div>
         </div>
         <br>
-        <div>
-          <p>Här är
-            <code>selectedDate</code> från 2015.
-            <code>minDate</code> blir då default 2015,
-            <code>maxDate</code> blir innevarande år.
-            <br> DatumFormat: MMMM
-          </p>
-          <vgr-monthpicker [selectedDateFormat]="'MMM yyyy'" [selectedDate]="preselectedDate" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>MMMM</p>
+
+              <vgr-monthpicker [selectedDateFormat]="'MMMM'" [selectedDate]="preselectedDate" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+            </div>
+            <div>
+              <p>Här är
+                <code>selectedDate</code> från 2015.
+                <code>minDate</code> blir då default 2015,
+                <code>maxDate</code> blir innevarande år.
+                <br> DatumFormat: MMMM
+              </p>
+            </div>
+          </div>
         </div>
         <br>
-        <div>
-          <p>Med min- och maxdatum, obligatoriskt. Här är
-            <code>minDate</code> satt till 2015-05-01 och
-            <code>maxDate</code> är 2016-03-31. Från 2015 och fram till nuvarande år så visas samtliga månader, men endast månaderna
-            mellan maj 2015 - mars 2016 är valbara. . Fältet är
-            <code>required</code> och därför ges valideringsfel om inget värde väljs.
-          </p>
-          <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" [required]="true"
-            (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>Med min- och maxdatum, obligatoriskt</p>
+
+              <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" [required]="true"
+                (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+            </div>
+            <div>
+              <p>Här är
+                <code>minDate</code> satt till 2015-05-01 och
+                <code>maxDate</code> är 2016-03-31. Från 2015 och fram till nuvarande år så visas samtliga månader, men endast
+                månaderna mellan maj 2015 - mars 2016 är valbara. . Fältet är
+                <code>required</code> och därför ges valideringsfel om inget värde väljs.
+              </p>
+            </div>
+          </div>
         </div>
+
+
         <br>
         <div>
           <p>Disabled</p>
