@@ -5,7 +5,6 @@
     <div class="expandable-container-list__header">
       <h2>Dokumentation för datepicker</h2>
     </div>
-
     <vgr-expandable-container [expanded]="false">
       <div class="expandable-container__header">
         <h4>Översikt</h4>
@@ -17,19 +16,16 @@
               &lt;vgr-datepicker&gt; </code> är en kalender där användaren kan välja ett datum. I kalendern visas valt datum
             (satt av användaren eller av systemet) och dagens datum.
             <br>
-
           </p>
           <br>
           <!--row-layout row-layout--padded -->
           <div class="row-layout">
             <vgr-datepicker></vgr-datepicker>
           </div>
-
           <br>
           <p>Förändras med tema:
             <strong>ja</strong>
           </p>
-
         </div>
       </div>
     </vgr-expandable-container>
@@ -38,38 +34,65 @@
         <h4>Exempel</h4>
       </div>
       <div class="expandable-container__content">
-        <div>
-          <p>Med defaultinställningar så sätts min- och maxdatum till innevarande år.
-            <br>Datumformat: default</p>
-          <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>Default formaterad</p>
+              <vgr-datepicker (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <div>
+              Med defaultinställningar sätts min- och maxdatum till innevarande år.
+            </div>
+          </div>
         </div>
         <br>
-        <div>
-          <p>här är
-            <code>selectedDate</code> dagens datum + 1 dag.
-            <code>minDate</code> och
-            <code>maxDate</code> är ej satta, perioden blir då samma som exemplet ovan.
-            <br> Datumformat: yyyy MM dd
-          </p>
-          <vgr-datepicker [selectedDateFormat]="'yyyy MM dd'" [selectedDate]="selectedDateTodaysDatePlusOneDay" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>yyyy MM dd</p>
+
+              <vgr-datepicker [selectedDateFormat]="'yyyy MM dd'" [selectedDate]="selectedDateTodaysDatePlusOneDay" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <div>
+              <p>Här är
+                <code>selectedDate</code> dagens datum + 1 dag.
+                <code>minDate</code> och
+                <code>maxDate</code> är ej satta, perioden blir då samma som exemplet ovan.
+                <br> Datumformat: yyyy MM dd
+              </p>
+            </div>
+          </div>
         </div>
         <br>
-        <div>
-          <p>Här är kalendern obligatorisk och
-            <code>minDate</code> satt till 2016-05-15 och
-            <code>maxDate</code> är 2017-03-25. Det går endast att nagivera mellan maj 2016 och fram till nuvarande år och månad.
-            Notera att hela maj visas för 2016 även fast mindatumet är satt 2016-05-15. Det går bara att välja de dagar som
-            ingår i perioden mellan min och max. Fältet är
-            <code>required</code> och därför ges valideringsfel om inget värde väljs.
-          </p>
-          <vgr-datepicker [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326" [required]="true" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>Med min- och maxdatum, obligatoriskt</p>
+
+              <vgr-datepicker [minDate]="datepicker_minDate20160515" [maxDate]="datepicker_maxDate20170326" [required]="true" (selectedDateChanged)="datepicker_selectedDate=$event"></vgr-datepicker>
+            </div>
+            <div>
+              <p>Här är kalendern obligatorisk och
+                <code>minDate</code> satt till 2016-05-15 och
+                <code>maxDate</code> är 2017-03-25. Det går endast att nagivera mellan maj 2016 och fram till nuvarande år och
+                månad. Notera att hela maj visas för 2016 även fast mindatumet är satt 2016-05-15. Det går bara att välja
+                de dagar som ingår i perioden mellan min och max. Fältet är
+                <code>required</code> och därför ges valideringsfel om inget värde väljs.
+              </p>
+            </div>
+          </div>
         </div>
         <br>
-        <div>
-          <p>Disabled</p>
-          <vgr-datepicker [disabled]="true" [selectedDate]="selectedDate"></vgr-datepicker>
+        <div class="column-layout">
+          <div class="row-layout">
+            <div style="width:200px">
+              <p>Disabled</p>
+
+              <vgr-datepicker [disabled]="true" [selectedDate]="selectedDate"></vgr-datepicker>
+            </div>
+          </div>
         </div>
-        <br>
+
         <div style="margin-top:20px">
           <span>Senast valt datum: </span>
           <span>{{datepicker_selectedDate | date : 'yyyy MMM dd'}}</span>
