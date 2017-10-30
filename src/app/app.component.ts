@@ -15,6 +15,8 @@ export class KomponentkartanApplicationComponent {
   private singleMenu: IMenu[];
   constructor() {
 
+
+
     this.singleMenu = [
       {
         title: 'Innehåll',

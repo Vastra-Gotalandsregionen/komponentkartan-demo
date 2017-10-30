@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent implements OnInit {
+  private currentVersion: string;
 
-  constructor() { }
+  constructor() {
+    const { dependencies: appVersion } = require('../../../package.json');
+    this.currentVersion = appVersion["vgr-komponentkartan"];
+    this.currentVersion = this.currentVersion.replace('^', '');
+  }
 
   ngOnInit() {
   }
