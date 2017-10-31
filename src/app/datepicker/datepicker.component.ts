@@ -11,6 +11,7 @@ export class DatepickerComponent implements OnInit {
   maxDate20170326: Date;
   tomorrow: Date = new Date();
   lastselectedDate: Date;
+  selectedDate: Date;
 
 
   constructor() {
@@ -18,6 +19,7 @@ export class DatepickerComponent implements OnInit {
     this.minDate20160515 = new Date(2016, 4, 15);
     this.maxDate20170326 = new Date(2017, 2, 25);
     this.tomorrow.setDate(today.getDate() + 1)
+    this.selectedDate = new Date(2017, 6, 25);
   }
 
   ngOnInit() { }

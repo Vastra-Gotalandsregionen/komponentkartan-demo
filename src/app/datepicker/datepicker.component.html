@@ -93,6 +93,18 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <div class="column-layout">
+                            <div class="row-layout">
+                                <div style="width:200px">
+                                    <p>Readonly</p>
+                                    <vgr-datepicker [selectedDate]="selectedDate" [readonly]="true"></vgr-datepicker>
+                                </div>
+                                <div>
+                                    <p>Här är kalendern satt i readonly-läge och <code>selected date</code> satt till  2017-07-25</p>
+                                </div>
+                            </div>
+                        </div>
 
                         <div style="margin-top:20px">
                             <span>Senast valt datum: </span>
@@ -180,6 +192,16 @@
                                 <td>Event som trigas när man väljer ett datum i kalendern.</td>
                                 <td>
                                     (selectedDateChanged)="selectedDate=$event"
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>readonly: boolean
+                                </td>
+                                <td>Om datepicker är satt som readonly så ska bara textfält med datum visas.
+                                     Om datum är förvalt så visas det som är satt i <code>selectedDate</code> annars visas ingenting.
+                                     Datumet är formaterat på <code>selectedDateFormat</code>.</td>
+                                <td>
+                                    [readonly]="true/false"
                                 </td>
                             </tr>
                         </table>
