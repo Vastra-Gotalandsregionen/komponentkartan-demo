@@ -70,16 +70,14 @@
                                             <span *ngIf="netAmount" class="flex-right" style="margin-right:30px">{{netAmount | currency:'SEK':true}}</span>
                                         </div>
                                     </vgr-title-value>
-                                    <vgr-title-value [title]="'Månad'">
+                                    <vgr-title-value [title]="'Datum'">
                                         <div class="row-layout">
-                                            <vgr-monthpicker [disabled]="!cardUnlocked" (selectedDateChanged)="selectedDate = $event"></vgr-monthpicker>
-                                            <span class="flex-right" style="margin-right: 30px">{{selectedDate | date:'MM yyyy'}}</span>
+                                            <vgr-datepicker [readonly]="!cardUnlocked" [selectedDate]="selectedDate" (selectedDateChanged)="selectedDate = $event"></vgr-datepicker>
                                         </div>
                                     </vgr-title-value>
-                                    <vgr-title-value [title]="'Månader'">
+                                    <vgr-title-value [title]="'Månad'">
                                         <div class="row-layout">
-                                            <vgr-monthpicker [disabled]="!cardUnlocked"></vgr-monthpicker>
-                                            <vgr-monthpicker [disabled]="!cardUnlocked"></vgr-monthpicker>
+                                            <vgr-monthpicker [readonly]="!cardUnlocked" [selectedDate]="selectedDate" [selectedDateFormat]="'MMMM'"></vgr-monthpicker>
                                         </div>
                                     </vgr-title-value>
 
@@ -100,8 +98,11 @@
                             <vgr-card-section [title]="'Övrig information'" [readonly]="!cardUnlocked" [subtitle]="'Kalles chokladfabrik Kalles chokladfabrik'" class="card__left">
                                 <div class="title-value-layout">
                                     <vgr-title-value [title]="'Kund som berörs av dessa belopp'">
-                                        <vgr-dropdown [disabled]="!cardUnlocked" [items]="[{id:'1', displayName:'Kalles chokladfabrik', selected:true},{id:'2', displayName:'Jonnas jordgubbar'}]"></vgr-dropdown>
+                                        <vgr-dropdown [readonly]="!cardUnlocked" [items]="[{id:'1', displayName:'Kalles chokladfabrik', displayNameWhenSelected: 'Kalles Choklad', selected:true},{id:'2', displayName:'Jonnas jordgubbar', displayNameWhenSelected: 'Jordgubbar'}]"></vgr-dropdown>
                                     </vgr-title-value>
+                                    <vgr-title-value [title]="'Kunder'">
+                                            <vgr-dropdown-multiselect [readonly]="!cardUnlocked" [items]="[{id:'1', displayName:'Kalles chokladfabrik', displayNameWhenSelected: 'Kalles Choklad', selected:true},{id:'2', displayName:'Jonnas jordgubbar', displayNameWhenSelected: 'Jordgubbar', selected:true}, {id:'3', displayName:'Destinys päron', displayNameWhenSelected: 'Päron', selected:false}]"></vgr-dropdown-multiselect>
+                                        </vgr-title-value>
                                     <vgr-title-value [title]="'Kostnadsställe'">
                                         <vgr-input [value]="'Kiosk & Godis'" [required]="true" [readonly]="!cardUnlocked"></vgr-input>
                                     </vgr-title-value>
@@ -112,7 +113,6 @@
                                         <br>
                                         <span>Sverige</span>
                                     </vgr-title-value>
-
                                 </div>
                             </vgr-card-section>
 

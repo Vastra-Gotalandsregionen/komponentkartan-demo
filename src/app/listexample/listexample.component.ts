@@ -37,7 +37,7 @@ export class ListexampleComponent {
 
     this.grossAmount = 15000;
     this.taxPercent = 32;
-
+    this.selectedDate = new Date(2017,9,10);
 
     this.peopleRows = examplePeople.map(x => new ExpandableRow<ExamplePerson>(x));
 
@@ -85,7 +85,7 @@ export class ListexampleComponent {
   }
 
   cardSaved() {
-    this.cardUnlocked = false;
+    this.cardUnlocked =  false;
     this.cardRow.notifyOnCollapse('Användaren sparades', NotificationIcon.OkGreen);
   }
 
