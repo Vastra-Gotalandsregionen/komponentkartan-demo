@@ -84,12 +84,23 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <br>
                         <div>
                             <p>Disabled</p>
                             <vgr-monthpicker style="margin-top: 20px" [disabled]="true" [selectedDate]="preselectedDate"></vgr-monthpicker>
+                        </div>
+                        <br>
+                        <div class="column-layout">
+                            <div class="row-layout">
+                                <div style="width:200px">
+                                    <p>Readonly</p>
+                                    <vgr-monthpicker [selectedDate]="preselectedDate" [readonly]="true" [selectedDateFormat]="'MMMM'"></vgr-monthpicker>
+                                </div>
+                                <div>
+                                    <p>Här är kalendern satt i readonly-läge och <code>selectedDate</code> satt till  2015-01-13.</p> 
+                                    <p>Datumformat MMMM </p>
+                                </div>
+                            </div>
                         </div>
                         <br>
                         <div style="margin-top:20px">
@@ -163,6 +174,16 @@
                                 </td>
                                 <td>Event som triggas när man väljer ett nytt datum</td>
                                 <td>(selectedDateChanged)=onselectedDateChanged($event)</td>
+                            </tr>
+                            <tr>
+                                <td>readonly: boolean
+                                </td>
+                                <td>Om monthpicker är satt som readonly så ska bara textfält med datum visas.
+                                     Om datum är förvalt så visas det som är satt i <code>selectedDate</code> annars visas ingenting.
+                                     Datumet är formaterat på <code>selectedDateFormat</code>.</td>
+                                <td>
+                                    [readonly]="true/false"
+                                </td>
                             </tr>
                         </table>
                         <div>

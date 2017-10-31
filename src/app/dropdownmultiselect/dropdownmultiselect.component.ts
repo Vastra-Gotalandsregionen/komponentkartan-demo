@@ -10,6 +10,7 @@ export class DropdownmultiselectComponent implements OnInit {
 
   dropDownItems8: IDropdownItem[];
   dropDownItems8AndSelected: IDropdownItem[];
+  dropDownItems8AndThreeSelected: IDropdownItem[];
   dropDownItems9: IDropdownItem[];
   dropDownItems25: IDropdownItem[];
   dropDownItems25All: IDropdownItem[];
@@ -20,7 +21,8 @@ export class DropdownmultiselectComponent implements OnInit {
   constructor() {
 
     this.dropDownItems8 = this.getDemoItems(8);
-    this.dropDownItems8AndSelected = this.getDemoItemsWithOneSelected(8, 1);
+    this.dropDownItems8AndSelected = this.getDemoItemsWithSelected(8, [1]);
+    this.dropDownItems8AndThreeSelected = this.getDemoItemsWithSelected(8, [0, 2, 5]);
     this.dropDownItems9 = this.getDemoItems(9);
     this.dropDownItems25All = this.getDemoItems(25);
     this.dropDownItems25 = this.getDemoItems(25);
@@ -38,11 +40,11 @@ export class DropdownmultiselectComponent implements OnInit {
     return items;
   }
 
-  private getDemoItemsWithOneSelected(numberOfItems: number, selectedIndex: number): IDropdownItem[] {
+  private getDemoItemsWithSelected(numberOfItems: number, selectedIndexes: Array<number>): IDropdownItem[] {
     const list = this.getDemoItems(numberOfItems);
     list.forEach((dpItem, index) => {
       if (dpItem != null) {
-        if (index === selectedIndex) {
+        if (selectedIndexes.indexOf(index) > -1) {
           dpItem.selected = true;
         }
       }

@@ -51,6 +51,10 @@
                                 <p>200 items</p>
                                 <vgr-dropdown [items]="dropDownItems200" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
                             </div>
+                            <div>
+                                <p>Readonly</p>
+                                <vgr-dropdown [items]="dropDownItems8AndSelected" [readonly]="true"></vgr-dropdown>
+                            </div>
                         </div>
                         <div>
                             <br>
@@ -124,6 +128,14 @@
                                 <td> selectedItemChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
                                 <td>Event som triggas när man väljer ett nytt alternativ i dropdownen</td>
                                 <td>(selectedItemChanged)="onselectedItemChanged($event)"</td>
+                            </tr>
+                            <tr>
+                                <td>readonly : boolean</td>
+                                <td>Om dropdownen är satt som readonly så ska bara textfält med valt värde visas.
+                                    Om inget värde är satt så visas ingenting.</td>
+                               <td>
+                                   [readonly]="true/false"
+                               </td>
                             </tr>
                         </table>
                     </div>
