@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-panels',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panels.component.scss']
 })
 export class PanelsComponent implements OnInit {
-
+  columnWidth = ColumnWidth;
   constructor() { }
 
   ngOnInit() {
