@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-backtotop',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./backtotop.component.scss']
 })
 export class BacktotopComponent implements OnInit {
-
+  columnWidth = ColumnWidth;
   constructor() { }
 
   ngOnInit() {
