@@ -4,16 +4,15 @@
   <vgr-page-body>
     <vgr-page-block>
       <vgr-list [allowMultipleExpandedItems]="false">
-        <div class="list__header">
-          <h2 class="flex-column-13">Förnamn</h2>
-          <h2 class="flex-column-15">Efternamn</h2>
-        </div>
+        <vgr-list-header>
+          <vgr-list-column-header [text]="'Förnamn'" [width]="columnWidth.m"></vgr-list-column-header>
+          <vgr-list-column-header [text]="'Efternamn'" [width]="columnWidth.m"></vgr-list-column-header>
+        </vgr-list-header>
 
         <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
           <div class="list-item__header">
-            <div class="flex-column-13">{{row.object.firstName}}</div>
-            <div class="flex-column-15">{{row.object.lastName}}</div>
-            <a *ngIf="row.object.canBeDeleted && !row.object.deleted" (click)="removeRowWithoutExpand(row, $event)">Ta bort</a>
+            <vgr-list-column [text]="row.object.firstName"></vgr-list-column>
+            <vgr-list-column [text]="row.object.lastName"></vgr-list-column>
           </div>
           <div class="list-item__content">
             <vgr-card>
@@ -45,8 +44,8 @@
         </vgr-list-item>
         <vgr-list-item [expanded]="true" [notification]="cardRow.notification">
           <div class="list-item__header">
-            <div class="flex-column-13">Kort</div>
-            <div class="flex-column-15">Med knappar</div>
+            <vgr-list-column [text]="'Kort'"></vgr-list-column>
+            <vgr-list-column [text]="'Med knappar'"></vgr-list-column>
           </div>
           <div class="list-item__content">
             <vgr-card>

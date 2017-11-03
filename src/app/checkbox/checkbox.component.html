@@ -1,106 +1,121 @@
+<app-component-docs [componentName]="'Checkbox'">
+  <div class="docs__overview">
+    <p>
+      <code>
+        &lt;vgr-checkbox&gt; </code> har samma beteende som en kryssruta.</p>
+    <br>
+    <vgr-checkbox [label]="'Klicka på mig!'"></vgr-checkbox>
+    <br>
+    <p>Förändras med tema:
+      <strong>nej</strong>
+    </p>
+
+  </div>
+  <div class="docs__examples">
+    <div class="row-layout ">
+      <div class="full ">
+        <div class="column-layout ">
+          <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
+          <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
+          <vgr-checkbox [checked]="true" [label]=" 'Vald' "></vgr-checkbox>
+          <vgr-checkbox [checked]="true" [disabled]="true" [label]=" 'Inaktiverad vald' "></vgr-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="docs__api">
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>
+          label : string </td>
+        <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
+        <td>
+          [label]=" 'Inaktiverad' "
+        </td>
+      </tr>
+      <tr>
+        <td>
+          checked : boolean
+        </td>
+        <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
+        <td>[checked]=True</td>
+      </tr>
+      <tr>
+        <td>
+          disabled : booean
+        </td>
+        <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+        <td>[disabled]=True</td>
+      </tr>
+      <tr>
+        <td>
+          checkedChanged : EventEmitter&lt;date&gt;
+        </td>
+        <td>Event som triggas när man checkar i eller ur checkboxen</td>
+        <td>(checkedChanged)="onCheckedChanged($event) "</td>
+      </tr>
+
+    </table>
+  </div>
+  <div class="docs__wcag">
+    <p>
+      <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen:
+      attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby (pekning till
+      interna label i
+      <code>&lt;vgr-checkbox&gt;</code>)
+    </p>
+  </div>
+</app-component-docs>
+<!--
+
 <vgr-page>
-    <vgr-page-header [title]="'Checkbox'">
-    </vgr-page-header>
-    <vgr-page-body>
-        <vgr-page-block>
-            <vgr-list [allowMultipleExpandedItems]="true">
-                <div class="list__header">
-                    <h2>Dokumentation för checkbox</h2>
-                </div>
+  <vgr-page-header [title]="'Checkbox'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <vgr-list [allowMultipleExpandedItems]="true">
+        <div class="list__header">
+          <h2>Dokumentation för checkbox</h2>
+        </div>
 
-                <vgr-list-item [expanded]="true">
-                    <div class="list-item__header">
-                        <h4>Översikt</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <div class="content-overview">
-                            <p>
-                                <code>
-              &lt;vgr-checkbox&gt; </code> har samma beteende som en kryssruta.</p>
-                            <br>
-                            <vgr-checkbox [label]="'Klicka på mig!'"></vgr-checkbox>
-                            <br>
-                            <p>Förändras med tema:
-                                <strong>nej</strong>
-                            </p>
+        <vgr-list-item [expanded]="true">
+          <div class="list-item__header">
+            <h4>Översikt</h4>
+          </div>
+          <div class="list-item__content">
 
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Exempel</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <div class="row-layout ">
-                            <div class="full ">
-                                <div class="column-layout ">
-                                    <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
-                                    <vgr-checkbox [disabled]="true " [label]=" 'Inaktiverad' "></vgr-checkbox>
-                                    <vgr-checkbox [checked]="true " [label]=" 'Vald' "></vgr-checkbox>
-                                    <vgr-checkbox [checked]="true " [disabled]="true " [label]=" 'Inaktiverad vald' "></vgr-checkbox>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>API</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <table class="property-table">
-                            <tr>
-                                <th>Namn</th>
-                                <th>Beskrivning</th>
-                                <th>Exempel</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    label : string </td>
-                                <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
-                                <td>
-                                    [label]=" 'Inaktiverad' "
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    checked : boolean
-                                </td>
-                                <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-                                <td>[checked]=True</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    disabled : booean
-                                </td>
-                                <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-                                <td>[disabled]=True</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    checkedChanged : EventEmitter&lt;date&gt;
-                                </td>
-                                <td>Event som triggas när man checkar i eller ur checkboxen</td>
-                                <td>(checkedChanged)="onCheckedChanged($event) "</td>
-                            </tr>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Exempel</h4>
+          </div>
+          <div class="list-item__content ">
 
-                        </table>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Tillgänglighet</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <p>
-                            <code>&lt;vgr-checkbox&gt;</code> har en intern div vars roll är satt till checkbox. Förutom rollen så används attributen: attr.aria-disabled (inaktiv/aktiv), attr.aria-checked (kryssad/ej ikryssad) och attr.aria-labelledby
-                            (pekning till interna label i
-                            <code>&lt;vgr-checkbox&gt;</code>)
-                        </p>
-                    </div>
-                </vgr-list-item>
-            </vgr-list>
-        </vgr-page-block>
-    </vgr-page-body>
-</vgr-page>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <div class="list-item__header ">
+            <h4>API</h4>
+          </div>
+          <div class="list-item__content ">
+
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Tillgänglighet</h4>
+          </div>
+          <div class="list-item__content ">
+
+          </div>
+        </vgr-list-item>
+      </vgr-list>
+    </vgr-page-block>
+  </vgr-page-body>
+</vgr-page> -->
