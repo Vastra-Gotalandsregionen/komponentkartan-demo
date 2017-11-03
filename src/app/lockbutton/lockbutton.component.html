@@ -1,97 +1,94 @@
-<vgr-page>
-    <vgr-page-header [title]="'Lock button'">
-    </vgr-page-header>
-    <vgr-page-body>
-        <vgr-page-block>
+<vgr-page class="no-sort">
+  <vgr-page-header [title]="'Lock button'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <vgr-list [allowMultipleExpandedItems]="true">
+        <vgr-list-header>
+          <vgr-list-column-header [text]="'Dokumentation för lock button'" [width]="columnWidth.xxl"></vgr-list-column-header>
+        </vgr-list-header>
+        <vgr-list-item [expanded]="true">
+          <div class="list-item__header">
+            <h4>Översikt</h4>
+          </div>
+          <div class="list-item__content">
+            <div class="content-overview">
+              <p>
+                <code>
+                  &lt;vgr-lock-button&gt; </code>
+              </p>
+              <br>
+              <p>Låsknappen är en "toggle-knapp", som kan vara låst eller upplåst.
 
-
-            <vgr-list [allowMultipleExpandedItems]="true">
-                <div class="list__header">
-                    <h2>Dokumentation för lock button</h2>
-                </div>
-
-                <vgr-list-item [expanded]="true">
-                    <div class="list-item__header">
-                        <h4>Översikt</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <div class="content-overview">
-                            <p>
-                                <code>
-              &lt;vgr-lock-button&gt; </code>
-                            </p>
-                            <br>
-                            <p>Låsknappen är en "toggle-knapp", som kan vara låst eller upplåst.
-
-                            </p>
-                            <div style="height:35px; margin-top:20px; margin-bottom:20px">
-                                <vgr-lock-button></vgr-lock-button>
-                            </div>
-                            <p> Förändras med tema:
-                                <strong>Ja</strong> (bakgrundsfärg)
-                            </p>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Exempel</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <div>
-                            <vgr-lock-button (lockChanged)="lockMessage='Lås 1 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
-                            <vgr-lock-button [unlocked]="true" (lockChanged)="lockMessage='Lås 2 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
-                            <vgr-lock-button [disabled]="true"></vgr-lock-button>
-                            <vgr-lock-button [disabled]="true" [unlocked]="true"></vgr-lock-button>
-                            <br>
-                            <br>
-                            <span>Senaste händelse:&nbsp;
-            <strong>{{lockMessage}}</strong>
-          </span>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>API</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <table class="property-table">
-                            <tr>
-                                <th>Namn</th>
-                                <th>Beskrivning</th>
-                                <th>Exempel</th>
-                            </tr>
-                            <tr>
-                                <td>unlocked : boolean</td>
-                                <td>Om knappen ska vara upplåst. True/false, default är false.</td>
-                                <td>[unlocked]="true"</td>
-                            </tr>
-                            <tr>
-                                <td>disabled : boolean</td>
-                                <td>Om knappen ska vara inaktiverad.</td>
-                                <td>[disabled]="true"</td>
-                            </tr>
-                            <tr>
-                                <td>onLockChanged : EventEmitter&lt;boolean&gt;</td>
-                                <td>Event som triggas när knappen låses eller låses upp.
-                                    <code>True</code> innebär låst,
-                                    <code>false</code> upplåst.</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Tillgänglighet</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <i>Under utveckling</i>
-                    </div>
-                </vgr-list-item>
-            </vgr-list>
-        </vgr-page-block>
-    </vgr-page-body>
+              </p>
+              <div style="height:35px; margin-top:20px; margin-bottom:20px">
+                <vgr-lock-button></vgr-lock-button>
+              </div>
+              <p> Förändras med tema:
+                <strong>Ja</strong> (bakgrundsfärg)
+              </p>
+            </div>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Exempel</h4>
+          </div>
+          <div class="list-item__content ">
+            <div>
+              <vgr-lock-button (lockChanged)="lockMessage='Lås 1 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
+              <vgr-lock-button [unlocked]="true" (lockChanged)="lockMessage='Lås 2 ' + ($event ? 'låst':'upplåst')"></vgr-lock-button>
+              <vgr-lock-button [disabled]="true"></vgr-lock-button>
+              <vgr-lock-button [disabled]="true" [unlocked]="true"></vgr-lock-button>
+              <br>
+              <br>
+              <span>Senaste händelse:&nbsp;
+                <strong>{{lockMessage}}</strong>
+              </span>
+            </div>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <div class="list-item__header ">
+            <h4>API</h4>
+          </div>
+          <div class="list-item__content ">
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+              <tr>
+                <td>unlocked : boolean</td>
+                <td>Om knappen ska vara upplåst. True/false, default är false.</td>
+                <td>[unlocked]="true"</td>
+              </tr>
+              <tr>
+                <td>disabled : boolean</td>
+                <td>Om knappen ska vara inaktiverad.</td>
+                <td>[disabled]="true"</td>
+              </tr>
+              <tr>
+                <td>onLockChanged : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas när knappen låses eller låses upp.
+                  <code>True</code> innebär låst,
+                  <code>false</code> upplåst.</td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Tillgänglighet</h4>
+          </div>
+          <div class="list-item__content">
+            <i>Under utveckling</i>
+          </div>
+        </vgr-list-item>
+      </vgr-list>
+    </vgr-page-block>
+  </vgr-page-body>
 
 </vgr-page>

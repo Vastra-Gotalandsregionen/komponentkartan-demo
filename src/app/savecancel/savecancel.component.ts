@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-savecancel',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./savecancel.component.scss']
 })
 export class SavecancelComponent implements OnInit {
-
+  columnWidth = ColumnWidth;
   constructor() { }
 
   ngOnInit() {

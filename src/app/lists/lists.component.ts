@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 
 @Component({
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lists.component.scss']
 })
 export class ListsComponent {
-
+  columnWidth = ColumnWidth;
 }
