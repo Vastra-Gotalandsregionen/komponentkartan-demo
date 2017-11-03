@@ -1,99 +1,69 @@
-<vgr-page class="no-sort">
-  <vgr-page-header [title]="'Button'">
-  </vgr-page-header>
-  <vgr-page-body>
-    <vgr-page-block>
-      <vgr-list [allowMultipleExpandedItems]="true">
-        <vgr-list-header>
-          <vgr-list-column-header [text]="'>Dokumentation för button'" [width]="columnWidth.xxl"></vgr-list-column-header>
-        </vgr-list-header>
-        <vgr-list-item [expanded]="true">
-          <div class="list-item__header">
-            <h4>Översikt</h4>
-          </div>
-          <div class="list-item__content">
-            <div class="content-overview">
-              <p>
-                <code>
-                  &lt;vgr-button&gt; </code> finns i två olika utföranden, primär och sekundär.
-                <br>
-                <br>
-                <vgr-button (buttonClick)="lastButtonPressed = 'Klicka här - primär'">Klicka här</vgr-button>
-                <vgr-button [secondary]="true" (buttonClick)="lastButtonPressed = 'Klicka här - sekundär'">Klicka här</vgr-button>
-              </p>
-              <p> Förändras med tema:
-                <strong>Ja</strong>
-              </p>
-            </div>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>Exempel</h4>
-          </div>
-          <div class="list-item__content ">
-            <div class="column-layout">
-              <h2>Primärknappar</h2>
-              <div>
+<app-component-docs [componentName]="'Button'">
 
-                <vgr-button (click)="lastButtonPressed = 'OK - primär'">OK</vgr-button>
+  <div class="docs__overview">
+    <p>
+      <code>
+        &lt;vgr-button&gt; </code> finns i två olika utföranden, primär och sekundär.
+      <br>
+      <br>
+      <vgr-button (buttonClick)="lastButtonPressed = 'Klicka här - primär'">Klicka här</vgr-button>
+      <vgr-button [secondary]="true" (buttonClick)="lastButtonPressed = 'Klicka här - sekundär'">Klicka här</vgr-button>
+    </p>
+    <p> Förändras med tema:
+      <strong>Ja</strong>
+    </p>
+  </div>
 
-                <vgr-button (click)="buttonDisabled=!buttonDisabled;">{{buttonDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-button>
-                <vgr-button [disabled]="buttonDisabled">{{buttonDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-button>
-              </div>
-              <h2>Sekundärknappar</h2>
-              <div>
+  <div class="docs__examples">
+    <div class="column-layout">
+      <h2>Primärknappar</h2>
+      <div>
 
-                <vgr-button [secondary]="true" (click)="lastButtonPressed = 'OK - sekundär'">OK</vgr-button>
-                <vgr-button [secondary]="true" (click)="buttonSecondaryDisabled=!buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-button>
-                <vgr-button [secondary]="true" [disabled]="buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-button>
-              </div>
-            </div>
-            <br>
-            <br>
-            <div>Senaste knapptryck: {{lastButtonPressed}}</div>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API</h4>
-          </div>
-          <div class="list-item__content ">
-            <table class="property-table ">
-              <tr>
-                <th>Namn</th>
-                <th>Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
-              <tr>
-                <td>secondary : boolean</td>
-                <td>Visa sekundärt utseende. Default är false.</td>
-                <td>[secondary]="true"</td>
-              </tr>
-              <tr>
-                <td>disabled : boolean</td>
-                <td>Inaktivera knapp</td>
-                <td>[disabled]="true"</td>
-              </tr>
-              <tr>
-                <td>click = new EventEmitter&lt;string&gt;</td>
-                <td>Event när knapp trycks ner</td>
-                <td>(click)="OnClick()"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>Tillgänglighet</h4>
-          </div>
-          <div class="list-item__content ">
-            <i>Under utveckling</i>
-          </div>
-        </vgr-list-item>
-      </vgr-list>
+        <vgr-button (click)="lastButtonPressed = 'OK - primär'">OK</vgr-button>
 
-    </vgr-page-block>
-  </vgr-page-body>
+        <vgr-button (click)="buttonDisabled=!buttonDisabled;">{{buttonDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-button>
+        <vgr-button [disabled]="buttonDisabled">{{buttonDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-button>
+      </div>
+      <h2>Sekundärknappar</h2>
+      <div>
 
-</vgr-page>
+        <vgr-button [secondary]="true" (click)="lastButtonPressed = 'OK - sekundär'">OK</vgr-button>
+        <vgr-button [secondary]="true" (click)="buttonSecondaryDisabled=!buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Aktivera' : 'Inaktivera'}}</vgr-button>
+        <vgr-button [secondary]="true" [disabled]="buttonSecondaryDisabled">{{buttonSecondaryDisabled ? 'Inaktiv' : 'Aktiv'}}</vgr-button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div>Senaste knapptryck: {{lastButtonPressed}}</div>
+  </div>
+
+  <div class="docs__api">
+    <table class="property-table ">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>secondary : boolean</td>
+        <td>Visa sekundärt utseende. Default är false.</td>
+        <td>[secondary]="true"</td>
+      </tr>
+      <tr>
+        <td>disabled : boolean</td>
+        <td>Inaktivera knapp</td>
+        <td>[disabled]="true"</td>
+      </tr>
+      <tr>
+        <td>click = new EventEmitter&lt;string&gt;</td>
+        <td>Event när knapp trycks ner</td>
+        <td>(click)="OnClick()"</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="docs__wcag">
+    <i>Under utveckling</i>
+  </div>
+
+</app-component-docs>
