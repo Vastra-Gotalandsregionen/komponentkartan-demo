@@ -100,6 +100,82 @@
             </table>
           </div>
         </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <div class="list-item__header ">
+            <h4>API - vgr-list-column-header</h4>
+          </div>
+          <div class="list-item__content ">
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th style="width:600px">Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+              <tr>
+                <td>text : string</td>
+                <td>Kolumnens rubrik</td>
+                <td>[text]="'Förnamn'"</td>
+              </tr>
+              <tr>
+                <td>sortDirection : SortDirection</td>
+                <td>Anger åt vilket håll kolumnen sorteras vid initiering
+                  <code>SortDirection.None</code>, default - ingen sortering
+                  <code>SortDirection.Ascending</code> sortera stigande
+                  <code>SortDirection.Descending</code> sortera fallande
+                </td>
+                <td>[sortDirection]="sortDirection.Ascending"
+                  <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en
+                  property. T.ex:
+                  <code>sortDirection = SortDirection</code>
+                </td>
+              </tr>
+              <tr>
+                <td>sortKey : string</td>
+                <td>Nyckel som används för att identifiera kolumnen vid sorteringsevent.</td>
+                <td>[sortKey]="'firstName'"</td>
+              </tr>
+              <tr>
+                <td>width : ColumnWidth</td>
+                <td>Kolumnens bredd (Anges med enum ColumnWidth med värde (xxs, xs, s, m, l, xl, xxl, xxxl)</td>
+                <td>[width]="columnWidth.m"
+                  <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en
+                  property. T.ex:
+                  <code>columnWidth = ColumnWidth</code>
+                  <strong>OBS!</strong> Width sätter bredd på kolumnen samt max antal tecken, t.ex ColumnWidth.m = max 10 tecken
+                  etc.
+                </td>
+              </tr>
+              <tr>
+                <td>sortChanged : EventEmitter&lt;SortDirection&gt;</td>
+                <td>Event som triggas när sortering sker i kolumnen</td>
+                <td>(sortChanged)="onSortChanged($event)"</td>
+              </tr>
+
+            </table>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <div class="list-item__header ">
+            <h4>API - vgr-list-header</h4>
+          </div>
+          <div class="list-item__content ">
+            Innehåller ett antal vgr-list-column-header element och utför vissa åtgärder på dem.
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th style="width:600px">Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+
+              <tr>
+                <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
+                <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
+                <td>(sortChanged)="onSortChanged($event)"</td>
+              </tr>
+
+            </table>
+          </div>
+        </vgr-list-item>
         <vgr-list-item [expanded]="false">
           <div class="list-item__header ">
             <h4>Tillgänglighet</h4>
