@@ -15,11 +15,11 @@ export class DropdownmultiselectComponent implements OnInit {
   dropDownItems25: IDropdownItem[];
   dropDownItems25All: IDropdownItem[];
   dropDownItems200: IDropdownItem[];
+  isReadonlyAndDisabled: boolean;
 
   lastMultipleSelection: string;
 
   constructor() {
-
     this.dropDownItems8 = this.getDemoItems(8);
     this.dropDownItems8AndSelected = this.getDemoItemsWithSelected(8, [1]);
     this.dropDownItems8AndThreeSelected = this.getDemoItemsWithSelected(8, [0, 2, 5]);
@@ -27,6 +27,7 @@ export class DropdownmultiselectComponent implements OnInit {
     this.dropDownItems25All = this.getDemoItems(25);
     this.dropDownItems25 = this.getDemoItems(25);
     this.dropDownItems200 = this.getDemoItems(200);
+    this.isReadonlyAndDisabled = true;
   }
 
   ngOnInit() {

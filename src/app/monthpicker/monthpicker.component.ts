@@ -13,11 +13,12 @@ export class MonthpickerComponent implements OnInit {
   lastOfMarch2016 = new Date(2016, 2, 31);
   minDate20160515: Date;
   maxDate20170326: Date;
+  isReadonlyAndDisabled: boolean;
 
   constructor() {
-
     this.minDate20160515 = new Date(2016, 4, 15);
     this.maxDate20170326 = new Date(2017, 2, 25);
+    this.isReadonlyAndDisabled = true;
   }
 
   ngOnInit() {

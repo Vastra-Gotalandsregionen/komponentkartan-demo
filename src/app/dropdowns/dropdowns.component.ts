@@ -14,6 +14,8 @@ export class DropdownsComponent implements OnInit {
   lastSingleSelection: string;
   dropDownItems25All: IDropdownItem[];
   dropDownItems8: IDropdownItem[];
+  isReadonlyAndDisabled: boolean;
+
   constructor() {
     this.dropDownItems25 = this.getDemoItems(25);
     this.dropDownItems200 = this.getDemoItems(200);
@@ -21,6 +23,7 @@ export class DropdownsComponent implements OnInit {
     this.dropDownItems8AndSelected = this.getDemoItemsWithOneSelected(8, 2);
     this.dropDownItems9 = this.getDemoItems(9);
     this.dropDownItems25All = this.getDemoItems(25);
+    this.isReadonlyAndDisabled = true;
   }
 
   ngOnInit() {

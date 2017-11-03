@@ -12,7 +12,7 @@ export class DatepickerComponent implements OnInit {
   tomorrow: Date = new Date();
   lastselectedDate: Date;
   selectedDate: Date;
-
+  isReadonlyAndDisabled: boolean;
 
   constructor() {
     const today = new Date();
@@ -20,6 +20,7 @@ export class DatepickerComponent implements OnInit {
     this.maxDate20170326 = new Date(2017, 2, 25);
     this.tomorrow.setDate(today.getDate() + 1)
     this.selectedDate = new Date(2017, 6, 25);
+    this.isReadonlyAndDisabled = true;
   }
 
   ngOnInit() { }
