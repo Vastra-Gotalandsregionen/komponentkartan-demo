@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-monthpicker',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monthpicker.component.scss']
 })
 export class MonthpickerComponent implements OnInit {
+  columnWidth = ColumnWidth;
   lastSelectedDate: Date;
   preselectedDate: Date = new Date(2015, 0, 13);
   maxDate: Date = new Date(2018, 7, 1);

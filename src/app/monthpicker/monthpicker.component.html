@@ -1,13 +1,13 @@
-<vgr-page>
+<vgr-page class="no-sort">
   <vgr-page-header [title]="'Monthpicker'">
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
 
       <vgr-list [allowMultipleExpandedItems]="true">
-        <div class="list__header">
-          <h2>Dokumentation för monthpicker</h2>
-        </div>
+        <vgr-list-header>
+          <vgr-list-column-header [text]="'Dokumentation för monthpicker'" [width]="columnWidth.xxl"></vgr-list-column-header>
+        </vgr-list-header>
         <vgr-list-item [expanded]="true">
           <div class="list-item__header">
             <h4>Översikt</h4>

@@ -1,92 +1,61 @@
-<vgr-page>
-    <vgr-page-header [title]="'Header'">
-    </vgr-page-header>
-    <vgr-page-body>
-        <vgr-page-block>
-            <vgr-list [allowMultipleExpandedItems]="true">
-                <div class="list__header">
-                    <h2>Dokumentation för header</h2>
-                </div>
+<app-component-docs [componentName]="'Header'">
+  <div class="docs__overview">
+    <p>
+      <code>
+        &lt;vgr-header&gt; </code> är en komponent som skall användas i huvudet på sidorna och ligga där fast när användaren
+      navigerar i systemet.
+      <br> Färgen kan sättas beroende på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller
+      flera system. Om bara ett system finns, är det den färgen som gäller. Headern innehåller en transparent bild som gör
+      att man bara behöver sätta headerns bakgrundsfärg genom rätt klassnamn på headern eller på ett föräldraelement. I det
+      "neutrala" läget skall inte den transparenta bilden synas. Headern kan visas i olika utföranden, man kan ha den med
+      eller utan användarinformation samt med eller utan meny och olika kombinationer av dessa. I exemplet kan man se de
+      olika vyerna.
+      <br>
+      <br>
+    </p>
+    <vgr-header class="header--inline"></vgr-header>
 
-                <vgr-list-item [expanded]="true">
-                    <div class="list-item__header">
-                        <h4>Översikt</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <div class="content-overview">
-                            <p>
-                                <code>
-              &lt;vgr-header&gt; </code> är en komponent som skall användas i huvudet på sidorna och ligga där fast när användaren navigerar i systemet.
-                                <br> Färgen kan sättas beroende på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller flera system. Om bara ett system finns, är det den färgen som gäller. Headern innehåller en transparent
-                                bild som gör att man bara behöver sätta headerns bakgrundsfärg genom rätt klassnamn på headern eller på ett föräldraelement. I det "neutrala" läget skall inte den transparenta bilden synas. Headern kan visas i olika utföranden,
-                                man kan ha den med eller utan användarinformation samt med eller utan meny och olika kombinationer av dessa. I exemplet kan man se de olika vyerna.
-                                <br>
-                                <br>
-                            </p>
-                            <vgr-header class="header--inline"></vgr-header>
+    <br>
+    <p> Förändras med tema:
+      <strong>Ja</strong>
+    </p>
+  </div>
+  <div class="docs__examples">
+    <div class="column-layout">
+      <h2>Header utan user och meny (Standard)</h2>
+      <vgr-header class="header--inline"></vgr-header>
 
-                            <br>
-                            <p> Förändras med tema:
-                                <strong>Ja</strong>
-                            </p>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>Exempel</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <div class="column-layout">
-                            <h2>Header utan user och meny (Standard)</h2>
-                            <vgr-header class="header--inline"></vgr-header>
+      <h2>Header utan user och meny (temad blå)</h2>
+      <vgr-header class="header--inline theme--blue"></vgr-header>
 
-                            <h2>Header utan user och meny (temad blå)</h2>
-                            <vgr-header class="header--inline theme--blue"></vgr-header>
+      <h2>Header med user utan meny (temad röd)</h2>
+      <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
 
-                            <h2>Header med user utan meny (temad röd)</h2>
-                            <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
+      <h2>Header med user och meny (temad grön)</h2>
+      <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="headerMenu"></vgr-header>
+    </div>
+  </div>
+  <div class="docs__api">
+    <table class="property-table ">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>headerMenu : IHeaderMenu</td>
+        <td>Menyn man vill visa (IHeaderMenu)</td>
+        <td>[headerMenu]="contextMenu"</td>
+      </tr>
+      <tr>
+        <td>userName : string</td>
+        <td>Sätter namnet på texten för den som är inloggad</td>
+        <td>[userName]="signedInUser"</td>
+      </tr>
+    </table>
+  </div>
 
-                            <h2>Header med user och meny (temad grön)</h2>
-                            <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="headerMenu"></vgr-header>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>API</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <table class="property-table ">
-                            <tr>
-                                <th>Namn</th>
-                                <th>Beskrivning</th>
-                                <th>Exempel</th>
-                            </tr>
-                            <tr>
-                                <td>headerMenu : IHeaderMenu</td>
-                                <td>Menyn man vill visa (IHeaderMenu)</td>
-                                <td>[headerMenu]="contextMenu"</td>
-                            </tr>
-                            <tr>
-                                <td>userName : string</td>
-                                <td>Sätter namnet på texten för den som är inloggad</td>
-                                <td>[userName]="signedInUser"</td>
-                            </tr>
-                        </table>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>Tillgänglighet</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <i>Under utveckling</i>
-                    </div>
-                </vgr-list-item>
-            </vgr-list>
-
-        </vgr-page-block>
-    </vgr-page-body>
-
-</vgr-page>
+  <div class="docs__wcag">
+    <i>Under utveckling</i>
+  </div>
+</app-component-docs>

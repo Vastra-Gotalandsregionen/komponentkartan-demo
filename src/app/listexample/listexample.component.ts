@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpandableRow } from '../../../node_modules/vgr-komponentkartan/component-package/models/expandableRow.model';
-import { NotificationIcon } from '../../../node_modules/vgr-komponentkartan/component-package/models/notificationIcon.model';
-import { RowNotification } from '../../../node_modules/vgr-komponentkartan/component-package/models/rowNotification.model';
-import { NotificationType } from '../../../node_modules/vgr-komponentkartan/component-package/models/notificationType.model';
-import { ModalService } from '../../../node_modules/vgr-komponentkartan/component-package/services/modalService';
-import { ModalButtonConfiguration } from '../../../node_modules/vgr-komponentkartan/component-package/services/modalService';
+import {
+  ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
+  ModalButtonConfiguration, ColumnWidth
+} from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-listexample',
@@ -12,7 +10,7 @@ import { ModalButtonConfiguration } from '../../../node_modules/vgr-komponentkar
   styleUrls: ['./listexample.component.scss']
 })
 export class ListexampleComponent {
-
+  columnWidth = ColumnWidth;
   public peopleRows: ExpandableRow<ExamplePerson>[];
   public cardUnlocked: boolean;
   public cardRow: ExpandableRow<string> = new ExpandableRow<string>('Foo');
@@ -37,7 +35,7 @@ export class ListexampleComponent {
 
     this.grossAmount = 15000;
     this.taxPercent = 32;
-    this.selectedDate = new Date(2017,9,10);
+    this.selectedDate = new Date(2017, 9, 10);
 
     this.peopleRows = examplePeople.map(x => new ExpandableRow<ExamplePerson>(x));
 
@@ -85,7 +83,7 @@ export class ListexampleComponent {
   }
 
   cardSaved() {
-    this.cardUnlocked =  false;
+    this.cardUnlocked = false;
     this.cardRow.notifyOnCollapse('Användaren sparades', NotificationIcon.OkGreen);
   }
 

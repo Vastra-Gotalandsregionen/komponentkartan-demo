@@ -1,107 +1,109 @@
-<vgr-page>
+<vgr-page class="no-sort">
 
-    <vgr-page-header [title]="'Radio group'">
-    </vgr-page-header>
-    <vgr-page-body>
-        <vgr-page-block>
-            <vgr-list [allowMultipleExpandedItems]="true">
-                <div class="list__header">
-                    <h2>Dokumentation för radio group</h2>
-                </div>
+  <vgr-page-header [title]="'Radio group'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <vgr-list [allowMultipleExpandedItems]="true">
+        <vgr-list-header>
+          <vgr-list-column-header [text]="'Dokumentation för radio group'" [width]="columnWidth.xxl"></vgr-list-column-header>
+        </vgr-list-header>
+        <vgr-list-item [expanded]="true">
+          <div class="list-item__header">
+            <h4>Översikt</h4>
+          </div>
+          <div class="list-item__content">
+            <div class="content-overview">
+              <p>
+                <code>
+                  &lt;vgr-radio-group&gt; </code>
+              </p>
+              <br>
+              <p>En radiogroup innehåller flera radioknappar, där bara ett alternativ är valt åt gången, val kan vara förvalda
+                och/eller inaktiva. Vid val av alternativ triggas eventet
+                <code>selectedChanged</code>. Valbara items är av typen
+                <code>ISelectableItem</code>. Det är genom att sätta properties på dessa objekt som man styr beteendet.
+                <br>
+                <vgr-radio-group [options]="[{id:'1', displayName:'Alternativ 1', selected:true},{id:'2', displayName:'Alternativ 2'}]">
+                </vgr-radio-group>
+              </p>
+              <br>
+              <p> Förändras med tema:
+                <strong>Nej</strong>
+              </p>
+            </div>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Exempel</h4>
+          </div>
+          <div class="list-item__content ">
+            <div>
+              <vgr-radio-group [options]="[{id:'1', displayName:'Förvald', selected:true},{id:'2', displayName:'Ej förvald'}, {id:'3', displayName:'Inaktiv', disabled:true}]"
+                (selectedChanged)="onSelectedRadioOptionChanged($event)">
+              </vgr-radio-group>
+              <div>Du har valt alternativ: {{selectedRadioOption.displayName}}</div>
+            </div>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <div class="list-item__header ">
+            <h4>API</h4>
+          </div>
+          <div class="list-item__content ">
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+              <tr>
+                <td>
 
-                <vgr-list-item [expanded]="true">
-                    <div class="list-item__header">
-                        <h4>Översikt</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <div class="content-overview">
-                            <p>
-                                <code>
-              &lt;vgr-radio-group&gt; </code>
-                            </p>
-                            <br>
-                            <p>En radiogroup innehåller flera radioknappar, där bara ett alternativ är valt åt gången, val kan vara förvalda och/eller inaktiva. Vid val av alternativ triggas eventet
-                                <code>selectedChanged</code>. Valbara items är av typen
-                                <code>ISelectableItem</code>. Det är genom att sätta properties på dessa objekt som man styr beteendet.
-                                <br>
-                                <vgr-radio-group [options]="[{id:'1', displayName:'Alternativ 1', selected:true},{id:'2', displayName:'Alternativ 2'}]">
-                                </vgr-radio-group>
-                            </p>
-                            <br>
-                            <p> Förändras med tema:
-                                <strong>Nej</strong>
-                            </p>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Exempel</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <div>
-                            <vgr-radio-group [options]="[{id:'1', displayName:'Förvald', selected:true},{id:'2', displayName:'Ej förvald'}, {id:'3', displayName:'Inaktiv', disabled:true}]" (selectedChanged)="onSelectedRadioOptionChanged($event)">
-                            </vgr-radio-group>
-                            <div>Du har valt alternativ: {{selectedRadioOption.displayName}}</div>
-                        </div>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false ">
-                    <div class="list-item__header ">
-                        <h4>API</h4>
-                    </div>
-                    <div class="list-item__content ">
-                        <table class="property-table">
-                            <tr>
-                                <th>Namn</th>
-                                <th>Beskrivning</th>
-                                <th>Exempel</th>
-                            </tr>
-                            <tr>
-                                <td>
+                  options : ISelectableItem[]
+                </td>
+                <td>Samling av
+                  <code>ISelectableItem</code> som utgör valbara alternativ</td>
+                <td>[options]="[item1, item2, ...]"</td>
+              </tr>
+              <tr>
+                <td>
+                  disabled : boolean
+                </td>
+                <td>Defaultvärde false. Sätter hela gruppen till disabled</td>
+                <td>[disabled]="true"</td>
+              </tr>
+              <tr>
+                <td>
 
-                                    options : ISelectableItem[]
-                                </td>
-                                <td>Samling av
-                                    <code>ISelectableItem</code> som utgör valbara alternativ</td>
-                                <td>[options]="[item1, item2, ...]"</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    disabled : boolean
-                                </td>
-                                <td>Defaultvärde false. Sätter hela gruppen till disabled</td>
-                                <td>[disabled]="true"</td>
-                            </tr>
-                            <tr>
-                                <td>
+                  noSelection : boolean
+                </td>
+                <td>Påverkar vad som händer om
+                  <strong>inget</strong> alternativ i options har selected: true. False innebär att första alternativet väljs. True
+                  innebär att inget alternativ väljs.
+                </td>
+                <td>[noSelection]="true"</td>
+              </tr>
+              <tr>
+                <td> selectedChanged : EventEmitter&lt;ISelectableItem[]&gt;</td>
+                <td>Event som triggas när man väljer ett nytt alternativ i radiogruppen</td>
+                <td>(selectedChanged)="onSelectedRadioOptionChanged($event)"</td>
+              </tr>
+            </table>
+          </div>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false">
+          <div class="list-item__header ">
+            <h4>Tillgänglighet</h4>
+          </div>
+          <div class="list-item__content">
+            <i>Under utveckling</i>
+          </div>
+        </vgr-list-item>
+      </vgr-list>
 
-                                    noSelection : boolean
-                                </td>
-                                <td>Påverkar vad som händer om
-                                    <strong>inget</strong> alternativ i options har selected: true. False innebär att första alternativet väljs. True innebär att inget alternativ väljs.
-                                </td>
-                                <td>[noSelection]="true"</td>
-                            </tr>
-                            <tr>
-                                <td> selectedChanged : EventEmitter&lt;ISelectableItem[]&gt;</td>
-                                <td>Event som triggas när man väljer ett nytt alternativ i radiogruppen</td>
-                                <td>(selectedChanged)="onSelectedRadioOptionChanged($event)"</td>
-                            </tr>
-                        </table>
-                    </div>
-                </vgr-list-item>
-                <vgr-list-item [expanded]="false">
-                    <div class="list-item__header ">
-                        <h4>Tillgänglighet</h4>
-                    </div>
-                    <div class="list-item__content">
-                        <i>Under utveckling</i>
-                    </div>
-                </vgr-list-item>
-            </vgr-list>
-
-        </vgr-page-block>
-    </vgr-page-body>
+    </vgr-page-block>
+  </vgr-page-body>
 
 </vgr-page>

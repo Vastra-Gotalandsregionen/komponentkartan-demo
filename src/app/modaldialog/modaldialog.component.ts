@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService, ModalButtonConfiguration } from '../../../node_modules/vgr-komponentkartan/component-package/services/modalService';
+import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-modaldialog',
@@ -7,6 +8,7 @@ import { ModalService, ModalButtonConfiguration } from '../../../node_modules/vg
   styleUrls: ['./modaldialog.component.scss']
 })
 export class ModaldialogComponent implements OnInit {
+  columnWidth = ColumnWidth;
 
   constructor(private modalService: ModalService) { }
   lastModalAnswer: string;
