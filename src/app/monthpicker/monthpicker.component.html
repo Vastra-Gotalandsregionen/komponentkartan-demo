@@ -87,9 +87,18 @@
               </div>
             </div>
             <br>
-            <div>
-              <p>Disabled</p>
-              <vgr-monthpicker style="margin-top: 20px" [disabled]="isReadonlyAndDisabled" [selectedDate]="preselectedDate"></vgr-monthpicker>
+            <div class="column-layout">
+              <div class="row-layout">
+                <div style="width:200px">
+                  <p>Disabled</p>
+                  <vgr-monthpicker style="margin-top: 20px" [disabled]="isReadonlyAndDisabled" [selectedDate]="preselectedDate"></vgr-monthpicker>
+                </div>
+                <div>
+                  <p>Här är kalendern satt i disable-läge och
+                    <code>selectedDate</code> satt till 2015-01-13.</p>
+                  <p>Datumformat MMMM </p>
+                </div>
+              </div>
             </div>
             <br>
             <div class="column-layout">
@@ -102,6 +111,30 @@
                   <p>Här är kalendern satt i readonly-läge och
                     <code>selectedDate</code> satt till 2015-01-13.</p>
                   <p>Datumformat MMMM </p>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="column-layout">
+              <div class="row-layout">
+                <div style="width:200px">
+                  <p>Disabled inget valt datum</p>
+                  <vgr-monthpicker style="margin-top: 20px" [disabled]="isReadonlyAndDisabled" [selectedDate]=""></vgr-monthpicker>
+                </div>
+                <div>
+                  <p>Här är kalendern satt i disable-läge och inget datum valt
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="column-layout">
+              <div class="row-layout">
+                <div style="width:200px">
+                  <p>Readonly</p>
+                  <vgr-monthpicker [selectedDate]="" [readonly]="isReadonlyAndDisabled" [selectedDateFormat]="'MMMM'"></vgr-monthpicker>
+                </div>
+                <div>
+                  <p>Här är kalendern satt i readonly-läge och inget datum valt
                 </div>
               </div>
             </div>

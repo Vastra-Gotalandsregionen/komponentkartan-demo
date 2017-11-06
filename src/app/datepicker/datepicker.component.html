@@ -69,7 +69,11 @@
       <div class="row-layout">
         <div style="width:200px">
           <p>Disabled</p>
-          <vgr-datepicker [disabled]="isReadonlyAndDisabled" [selectedDate]="tomorrow" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+          <vgr-datepicker [disabled]="isReadonlyAndDisabled" [selectedDate]="selectedDate" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+        </div>
+        <div>
+          <p>Här är kalendern satt i disable-läge och
+            <code>selectedDate</code> satt till 2017-07-25</p>
         </div>
       </div>
     </div>
@@ -83,6 +87,30 @@
         <div>
           <p>Här är kalendern satt i readonly-läge och
             <code>selectedDate</code> satt till 2017-07-25</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="column-layout">
+      <div class="row-layout">
+        <div style="width:200px">
+          <p>Disabled inget valt datum</p>
+          <vgr-datepicker [disabled]="isReadonlyAndDisabled" [selectedDate]="" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+        </div>
+        <div>
+          <p>Här är kalendern satt i disable-läge och inget datum valt</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="column-layout">
+      <div class="row-layout">
+        <div style="width:200px">
+          <p>Readonly inget valt datum</p>
+          <vgr-datepicker [selectedDate]="" [readonly]="isReadonlyAndDisabled" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+        </div>
+        <div>
+          <p>Här är kalendern satt i readonly-läge och inget datum valt</p>
         </div>
       </div>
     </div>
