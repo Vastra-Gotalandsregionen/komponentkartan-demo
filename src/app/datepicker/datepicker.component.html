@@ -49,16 +49,16 @@
     <div class="column-layout">
       <div class="row-layout">
         <div style="width:200px">
-          <p>Med min- och maxdatum, obligatoriskt</p>
+          <p>Med min- och maxdatum innan innevarande datum, obligatoriskt</p>
 
-          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20170326" [required]="true" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" [required]="true" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
         </div>
         <div>
           <p>Här är kalendern obligatorisk och
             <code>minDate</code> satt till 2016-05-15 och
-            <code>maxDate</code> är 2017-03-25. Det går endast att nagivera mellan maj 2016 och fram till nuvarande år och månad.
-            Notera att hela maj visas för 2016 även fast mindatumet är satt 2016-05-15. Det går bara att välja de dagar som
-            ingår i perioden mellan min och max. Fältet är
+            <code>maxDate</code> är 2016-12-25. Notera att min och maxdatum är satt innan innevarande datum. Det går endast att
+            nagivera mellan maj 2016 och fram till nuvarande år och månad. Hela maj visas för 2016 även fast mindatumet är
+            satt 2016-05-15. Det går bara att välja de dagar som ingår i perioden mellan min och max. Fältet är
             <code>required</code> och därför ges valideringsfel om inget värde väljs.
           </p>
         </div>
