@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
-  ModalButtonConfiguration, ColumnWidth
+  ModalButtonConfiguration, ColumnWidth, SortChangedArgs, ListHeaderComponent, SortDirection
 } from 'vgr-komponentkartan';
 
 @Component({
@@ -10,6 +10,7 @@ import {
   styleUrls: ['./listexample.component.scss']
 })
 export class ListexampleComponent {
+  sortDirections = SortDirection;
   columnWidth = ColumnWidth;
   public peopleRows: ExpandableRow<ExamplePerson>[];
   public cardUnlocked: boolean;
@@ -92,6 +93,12 @@ export class ListexampleComponent {
     this.cardRow.notifyOnCollapse('Åtgärden avbröts', NotificationIcon.Ok);
   }
 
+  onSortChanged(event: SortChangedArgs) {
+    this.peopleRows = this.peopleRows.sort((row1, row2) => {
+      return row1.object[event.key] > row2.object[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
+        row1.object[event.key] < row2.object[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+    });
+  }
 
 }
 
