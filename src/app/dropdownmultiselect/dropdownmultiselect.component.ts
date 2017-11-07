@@ -36,7 +36,7 @@ export class DropdownmultiselectComponent implements OnInit {
   private getDemoItems(numberOfItems: number): IDropdownItem[] {
     const items: IDropdownItem[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ id: i.toString(), displayName: `Långt namn ${i}`, displayNameWhenSelected: `Alt ${i}` } as IDropdownItem);
+      items.push({ id: i.toString(), displayName: `Långt namn ${i}` } as IDropdownItem);
     }
     return items;
   }
