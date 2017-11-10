@@ -8,10 +8,10 @@ import { IDropdownItem } from '../../../node_modules/vgr-komponentkartan/compone
 })
 export class DropdownmultiselectComponent implements OnInit {
 
-  dropDownItems8: IDropdownItem[];
-  dropDownItems8AndSelected: IDropdownItem[];
-  dropDownItems8AndThreeSelected: IDropdownItem[];
-  dropDownItems9: IDropdownItem[];
+  dropDownItems6: IDropdownItem[];
+  dropDownItems6AndSelected: IDropdownItem[];
+  dropDownItems6AndThreeSelected: IDropdownItem[];
+  dropDownItems7: IDropdownItem[];
   dropDownItems25: IDropdownItem[];
   dropDownItems25All: IDropdownItem[];
   dropDownItems200: IDropdownItem[];
@@ -20,10 +20,10 @@ export class DropdownmultiselectComponent implements OnInit {
   lastMultipleSelection: string;
 
   constructor() {
-    this.dropDownItems8 = this.getDemoItems(8);
-    this.dropDownItems8AndSelected = this.getDemoItemsWithSelected(8, [1]);
-    this.dropDownItems8AndThreeSelected = this.getDemoItemsWithSelected(8, [0, 2, 5]);
-    this.dropDownItems9 = this.getDemoItems(9);
+    this.dropDownItems6 = this.getDemoItems(6);
+    this.dropDownItems6AndSelected = this.getDemoItemsWithSelected(6, [1]);
+    this.dropDownItems6AndThreeSelected = this.getDemoItemsWithSelected(6, [0, 2, 5]);
+    this.dropDownItems7 = this.getDemoItems(7);
     this.dropDownItems25All = this.getDemoItems(25);
     this.dropDownItems25 = this.getDemoItems(25);
     this.dropDownItems200 = this.getDemoItems(200);
