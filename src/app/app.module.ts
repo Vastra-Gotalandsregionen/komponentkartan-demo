@@ -35,6 +35,7 @@ import { ThemingComponent } from './theming/theming.component';
 import { ListexampleComponent } from './listexample/listexample.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
+import { TitleValueComponent } from './title-value/title-value.component';
 
 @NgModule({
     imports: [
@@ -67,7 +68,8 @@ import { ComponentDocsComponent } from './component-docs/component-docs.componen
         ThemingComponent,
         ListexampleComponent,
         DemoValidationComponent,
-        ComponentDocsComponent
+        ComponentDocsComponent,
+        TitleValueComponent
     ],
     providers: [
         Cityservice,
