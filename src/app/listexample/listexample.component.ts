@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
-  ModalButtonConfiguration, ColumnWidth, SortChangedArgs, ListHeaderComponent, SortDirection
+  ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
 } from 'vgr-komponentkartan';
 
 @Component({
@@ -11,7 +11,6 @@ import {
 })
 export class ListexampleComponent {
   sortDirections = SortDirection;
-  columnWidth = ColumnWidth;
   public peopleRows: ExpandableRow<ExamplePerson>[];
   public cardUnlocked: boolean;
   public cardRow: ExpandableRow<string> = new ExpandableRow<string>('Foo');

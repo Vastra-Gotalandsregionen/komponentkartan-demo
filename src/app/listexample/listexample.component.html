@@ -5,8 +5,8 @@
         <vgr-page-block>
             <vgr-list [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
                 <vgr-list-header>
-                    <vgr-list-column-header [text]="'Förnamn'" [width]="columnWidth.m" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-                    <vgr-list-column-header [text]="'Efternamn'" [width]="columnWidth.m" [sortKey]="'lastName'"></vgr-list-column-header>
+                    <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+                    <vgr-list-column-header [text]="'Efternamn'" [width]="10" [sortKey]="'lastName'"></vgr-list-column-header>
                 </vgr-list-header>
 
                 <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
