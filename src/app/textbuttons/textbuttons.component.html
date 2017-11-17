@@ -68,13 +68,15 @@
       (inaktiv/aktiv)
     </p>
     <br>
-    <p>Following button activation, focus is set depending on the type of action the button performs. For example:</p>
+    <p>Vid knappaktivering flyttas fokus beroende på vilken åtgärd som knappen utför. Till exempel:</p>
     <ul class="doc-list">
-      <li>If activating the button opens a dialog, the focus moves inside the dialog. (see dialog pattern)</li>
-      <li>If activating the button closes a dialog, focus typically returns to the button that opened the dialog unless the function performed in the dialog context logically leads to a different element. For example, activating a cancel button in a dialog returns focus to the button that opened the dialog. However, if the dialog were confirming the action of deleting the page from which it was opened, the focus would logically move to a new context.</li>
-      <li>If activating the button does not dismiss the current context, then focus typically remains on the button after activation, e.g., an Apply or Recalculate button.</li>
-      <li>If the button action indicates a context change, such as move to next step in a wizard or add another search criteria, then it is often appropriate to move focus to the starting point for that action.</li>
-      <li>If the button is activated with a shortcut key, the focus usually remains in the context from which the shortcut key was activated. For example, if Alt + U were assigned to an "Up" button that moves the currently focused item in a list one position higher in the list, pressing Alt + U when the focus is in the list would not move the focus from the list.</li>
+      <li>Om knappåtgärden öppnar en dialog, flyttas fokus till inuti dialogrutan.</li>
+      <li>Om knappåtgärden stänger en dialog, återgår fokus normalt till den knapp som öppnade dialogen,
+        om inte funktionen som utförts i dialogrutan leder till ett annat element. Om du till exempel aktiverar en avbrytningsknapp i en dialogruta återgår fokus till knappen som öppnade dialogrutan. Om dialogrutan bekräftade åtgärden att radera den sida från vilken den öppnades skulle emellertid fokusen logiskt gå över till ett nytt element.
+      </li>
+      <li>Om knappåtgärden inte avvisar det aktuella sammanhanget, är fokus normalt kvar på knappen efter aktivering, till exempel en 'Tillämpa'-knapp.</li>
+      <li>Om knappåtgärden indikerar ett kontextbyte, till exempel att gå till nästa steg i en guide eller lägga till ett annat sökkriterium, är det ofta lämpligt att flytta fokus till utgångspunkten för den åtgärden.</li>
+      <li>Om knappen aktiveras med ett kortkommando, förblir fokus normalt i det sammanhang som kortkommandot användes. Om till exempel Alt + U aktiverar en "Upp" -knapp som flyttar det aktuella fokuserade objektet i en lista en position högre upp i listan, kommer Alt + U när fokus är i listan inte att flytta frokus fårn listan.</li>
     </ul>
   </div>
 </app-component-docs>
