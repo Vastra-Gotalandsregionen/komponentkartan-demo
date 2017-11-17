@@ -4,10 +4,10 @@
       <code>
         &lt;vgr-dropdown-multiselect&gt; </code> innehåller en lista där man kan välja flera alternativ.
       <br>- Kompletteras med filter och ett "visa alla" alternativ över 20 items.
-      <br>- Kompletteras med scroll vid över 8 items.
+      <br>- Kompletteras med scroll vid över 6 items.
       <br> Dropdown stängs inte när man väljer alternativ, förutom vid val av "Välja alla".
       <br>
-      <vgr-dropdown-multiselect [items]="dropDownItems8"></vgr-dropdown-multiselect>
+      <vgr-dropdown-multiselect [items]="dropDownItems6"></vgr-dropdown-multiselect>
     </p>
 
     <p> Förändras med tema:
@@ -17,12 +17,12 @@
   <div class="docs__examples">
     <div class="row-layout">
       <div>
-        <p>8 items (förvald)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems8AndSelected" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+        <p>6 items (förvald)</p>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
-        <p>9 items</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems9" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+        <p>7 items</p>
+        <vgr-dropdown-multiselect [items]="dropDownItems7" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>25 items</p>
@@ -37,19 +37,19 @@
     <div class="row-layout">
       <div>
         <p>Disabled</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems8AndSelected" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Readonly</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems8AndSelected" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Disabled (inget valt)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems9" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems7" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Readonly (inget valt)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems9" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems7" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Växla readonly och disabled</p>

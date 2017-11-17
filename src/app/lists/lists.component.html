@@ -5,7 +5,7 @@
     <vgr-page-block>
       <vgr-list [allowMultipleExpandedItems]="true">
         <vgr-list-header>
-          <vgr-list-column-header [text]="'Dokumentation för list'" [width]="columnWidth.xxl"></vgr-list-column-header>
+          <vgr-list-column-header [text]="'Dokumentation för list'" [width]="20"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item [expanded]="true">
           <div class="list-item__header">
@@ -135,14 +135,11 @@
                 <td>[sortKey]="'firstName'"</td>
               </tr>
               <tr>
-                <td>width : ColumnWidth</td>
-                <td>Kolumnens bredd (Anges med enum ColumnWidth med värde (xxs, xs, s, m, l, xl, xxl, xxxl)</td>
-                <td>[width]="columnWidth.m"
-                  <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en
-                  property. T.ex:
-                  <code>columnWidth = ColumnWidth</code>
-                  <strong>OBS!</strong> Width sätter bredd på kolumnen samt max antal tecken, t.ex ColumnWidth.m = max 10 tecken
-                  etc.
+                <td>width : number</td>
+                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska
+                  vara 20 för vgr-list.</td>
+                <td>
+                  [width]="20"
                 </td>
               </tr>
               <tr>

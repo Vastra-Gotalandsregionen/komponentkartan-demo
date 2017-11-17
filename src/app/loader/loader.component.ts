@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ColumnWidth } from 'vgr-komponentkartan';
 
 @Component({
   moduleId: module.id,
@@ -7,7 +6,6 @@ import { ColumnWidth } from 'vgr-komponentkartan';
   templateUrl: 'loader.component.html'
 })
 export class LoaderComponent {
-  columnWidth = ColumnWidth;
   title = 'app';
   actionInProgress = false;
 
