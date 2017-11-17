@@ -27,7 +27,11 @@
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
     "rxjs": "^5.4.2",
+<<<<<<< HEAD
     "vgr-komponentkartan": "^0.3.1-rc12",
+=======
+    "vgr-komponentkartan": "^0.3.1-rc11",
+>>>>>>> c1caf6d18ac0255b81ee5abeeb6204548060806d
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.14"
   },
