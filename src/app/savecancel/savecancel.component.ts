@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./savecancel.component.scss']
 })
 export class SavecancelComponent implements OnInit {
+
+  saveCancelMessage: string;
+
   constructor() { }
 
   ngOnInit() {
