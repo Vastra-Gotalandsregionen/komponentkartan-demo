@@ -55,6 +55,11 @@
         <td>[disabled]="true"</td>
       </tr>
       <tr>
+        <td>describedBy : string</td>
+        <td>Innehåller referens till en beskrivning på knappen (wcag)</td>
+        <td>[describedBy]="'info'"</td>
+      </tr>
+      <tr>
         <td>click = new EventEmitter&lt;string&gt;</td>
         <td>Event när knapp trycks ner</td>
         <td>(click)="OnClick()"</td>
@@ -64,19 +69,31 @@
 
   <div class="docs__wcag">
     <p>
-      <code>&lt;vgr-button&gt;</code> har en intern div vars roll är satt till button. Förutom rollen så används attributet attr.aria-disabled
-      (inaktiv/aktiv)
+      <code>&lt;vgr-button&gt;</code> har en intern div vars roll är satt till button.
     </p>
+    <br>
+    <p>Förutom rollen så används attributen:</p>
+    <ul class="doc-list">
+      <li>aria-disabled, om knappen är inaktiv eller aktiv </li>
+      <li>aria-describedby, referens till beskrivning utav knappen om sådan finns. Ska vara ett Id till html-element som innehåller
+        beskrivningen tex, "info" </li>
+    </ul>
     <br>
     <p>Vid knappaktivering flyttas fokus beroende på vilken åtgärd som knappen utför. Till exempel:</p>
     <ul class="doc-list">
       <li>Om knappåtgärden öppnar en dialog, flyttas fokus till inuti dialogrutan.</li>
-      <li>Om knappåtgärden stänger en dialog, återgår fokus normalt till den knapp som öppnade dialogen,
-        om inte funktionen som utförts i dialogrutan leder till ett annat element. Om du till exempel aktiverar en avbrytningsknapp i en dialogruta återgår fokus till knappen som öppnade dialogrutan. Om dialogrutan bekräftade åtgärden att radera den sida från vilken den öppnades skulle emellertid fokusen logiskt gå över till ett nytt element.
+      <li>Om knappåtgärden stänger en dialog, återgår fokus normalt till den knapp som öppnade dialogen, om inte funktionen som
+        utförts i dialogrutan leder till ett annat element. Om du till exempel aktiverar en avbrytningsknapp i en dialogruta
+        återgår fokus till knappen som öppnade dialogrutan. Om dialogrutan bekräftade åtgärden att radera den sida från vilken
+        den öppnades skulle emellertid fokusen logiskt gå över till ett nytt element.
       </li>
-      <li>Om knappåtgärden inte avvisar det aktuella sammanhanget, är fokus normalt kvar på knappen efter aktivering, till exempel en 'Tillämpa'-knapp.</li>
-      <li>Om knappåtgärden indikerar ett kontextbyte, till exempel att gå till nästa steg i en guide eller lägga till ett annat sökkriterium, är det ofta lämpligt att flytta fokus till utgångspunkten för den åtgärden.</li>
-      <li>Om knappen aktiveras med ett kortkommando, förblir fokus normalt i det sammanhang som kortkommandot användes. Om till exempel Alt + U aktiverar en "Upp" -knapp som flyttar det aktuella fokuserade objektet i en lista en position högre upp i listan, kommer Alt + U när fokus är i listan inte att flytta fokus från listan.</li>
+      <li>Om knappåtgärden inte avvisar det aktuella sammanhanget, är fokus normalt kvar på knappen efter aktivering, till exempel
+        en 'Tillämpa'-knapp.</li>
+      <li>Om knappåtgärden indikerar ett kontextbyte, till exempel att gå till nästa steg i en guide eller lägga till ett annat
+        sökkriterium, är det ofta lämpligt att flytta fokus till utgångspunkten för den åtgärden.</li>
+      <li>Om knappen aktiveras med ett kortkommando, förblir fokus normalt i det sammanhang som kortkommandot användes. Om till
+        exempel Alt + U aktiverar en "Upp" -knapp som flyttar det aktuella fokuserade objektet i en lista en position högre
+        upp i listan, kommer Alt + U när fokus är i listan inte att flytta fokus från listan.</li>
     </ul>
   </div>
 </app-component-docs>
