@@ -21,6 +21,7 @@ import { DemoValidationComponent } from './validation/demovalidation.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { TitleValueComponent } from './title-value/title-value.component';
+import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
 
@@ -46,6 +47,7 @@ export const appRoutes: Routes = [
     { path: 'validation', component: DemoValidationComponent },
     { path: 'start', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
-    { path: 'titlevalue', component: TitleValueComponent},
+    { path: 'titlevalue', component: TitleValueComponent },
+    { path: 'filtertextbox', component: FiltertexboxComponent },
     { path: '**', redirectTo: '/start' }
 ];

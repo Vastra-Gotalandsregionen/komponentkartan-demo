@@ -36,6 +36,7 @@ import { ListexampleComponent } from './listexample/listexample.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
+import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 
 @NgModule({
     imports: [
@@ -69,7 +70,8 @@ import { TitleValueComponent } from './title-value/title-value.component';
         ListexampleComponent,
         DemoValidationComponent,
         ComponentDocsComponent,
-        TitleValueComponent
+        TitleValueComponent,
+        FiltertexboxComponent
     ],
     providers: [
         Cityservice,
