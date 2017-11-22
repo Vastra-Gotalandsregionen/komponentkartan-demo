@@ -22,6 +22,7 @@ import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
+import { PageStructureComponent } from './page-structure/page-structure.component';
 import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
 
@@ -49,5 +50,6 @@ export const appRoutes: Routes = [
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
+    { path: 'pagestructure', component: PageStructureComponent },
     { path: '**', redirectTo: '/start' }
 ];

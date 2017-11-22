@@ -37,12 +37,15 @@ import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
+import { PageStructureComponent } from './page-structure/page-structure.component';
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 @NgModule({
     imports: [
         KomponentkartanModule,
         BrowserModule,
         FormsModule,
+        HighlightJsModule,
         RouterModule.forRoot(appRoutes)
     ],
     declarations: [
@@ -71,11 +74,12 @@ import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
         DemoValidationComponent,
         ComponentDocsComponent,
         TitleValueComponent,
-        FiltertexboxComponent
+        FiltertexboxComponent,
+        PageStructureComponent
     ],
     providers: [
         Cityservice,
-
+        HighlightJsService,
         { provide: LOCALE_ID, useValue: 'sv-SE' }
     ],
     schemas: [NO_ERRORS_SCHEMA],

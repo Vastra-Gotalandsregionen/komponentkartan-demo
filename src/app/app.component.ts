@@ -45,6 +45,7 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
                   { title: 'Modal dialog', url: '/modaldialog', child: true } as IMenuItem,
                   { title: 'Monthpicker', url: '/monthpicker', child: true } as IMenuItem,
+                  { title: 'Page', url: '/pagestructure', child: true } as IMenuItem,
                   { title: 'Panel', url: '/panels', child: true } as IMenuItem,
                   { title: 'Title-value', url: '/titlevalue', child: true } as IMenuItem,
                   { title: 'Save/Cancel', url: '/savecancel', child: true } as IMenuItem,
