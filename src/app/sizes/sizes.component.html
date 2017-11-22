@@ -1,0 +1,41 @@
+<vgr-page>
+  <vgr-page-header [title]="'Brytgränser'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <p>Komponenterna är definierade utifrån två fasta bredder. Dessa slår igenom automatiskt med skärmens upplösning. Storleken
+        styr fontstorlekar, marginaler, padding och komponenters storlek. Detta sköts med CSS media queries.
+      </p>
+      <br>
+      <p>
+        <strong>Liten storlek</strong> är bredd mellan
+        <strong>1366px</strong> och
+        <strong>1458px</strong>
+      </p>
+      <br>
+      <p>
+        <strong>Stor storlek</strong> är bredd över
+        <strong>1458px</strong>
+      </p>
+      <br>
+      <h2>Styra storlek med CSS media queries</h2>
+      <p>Storlekarna finns fördefinierade i komponentkartans css. Dessa går att återanvända i egna komponenter genom att importera
+        definitionerna via SASS.
+        <code>$desktop-width--small</code> är liten storlek.
+        <code>$desktop-width--medium</code> är stor storlek.
+      </p>
+      <br>
+
+      <h3>Exempel</h3>
+      Innehållet i denna label styrs beroende på aktiv brytgräns.
+      <br>
+      <span class="sizeInfo">Nuvarande storlek: </span>
+      <br>
+      <br>
+      <h4>SASS</h4>
+      <section [innerHTML]="mediaQueryExample" highlight-js-content=".highlight"></section>
+
+    </vgr-page-block>
+  </vgr-page-body>
+
+</vgr-page>

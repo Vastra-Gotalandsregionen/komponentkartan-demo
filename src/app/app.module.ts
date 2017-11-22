@@ -41,6 +41,7 @@ import { PageStructureComponent } from './page-structure/page-structure.componen
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
+import { SizesComponent } from './sizes/sizes.component';
 
 @NgModule({
     imports: [
@@ -78,7 +79,8 @@ import { HtmlEncodeService } from './html-encode.service';
         TitleValueComponent,
         FiltertexboxComponent,
         PageStructureComponent,
-        CardComponent
+        CardComponent,
+        SizesComponent
     ],
     providers: [
         Cityservice,

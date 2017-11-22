@@ -25,6 +25,7 @@ export class KomponentkartanApplicationComponent {
             order: '0',
             menuItems: [
               { title: 'Start', url: '/start' } as IMenuItem,
+              { title: 'Brytgränser', url: '/sizes' } as IMenuItem,
               { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
               { title: 'Färgkarta', url: '/colours' } as IMenuItem,
               { title: 'Validering', url: '/validation', child: true } as IMenuItem,

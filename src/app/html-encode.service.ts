@@ -14,8 +14,8 @@ export class HtmlEncodeService {
       .replace(/>/g, '&gt;');
   }
 
-  prepareHighlightedSection(htmlCode: string) {
-    return '<pre><code class="highlight html">' + this.escape(htmlCode) + '</code></pre>';
+  prepareHighlightedSection(htmlCode: string, language: string = 'html') {
+    return '<pre><code class="highlight ' + language + '">' + this.escape(htmlCode) + '</code></pre>';
   }
 
 }
