@@ -1,0 +1,85 @@
+<app-component-docs [componentName]="'card'">
+  <div class=" docs__overview ">
+    <p>
+      <code>&lt;vgr-card&gt;</code> används för att skapa kort, ofta i listor som expanderat innehåll. Ett kort har tre delar:
+      Topp, vänster och höger. Dessa fylls med innehåll genom att använda css-klasser. Ett kort innehåller en eller flera
+      <code>&lt;vgr-card-section&gt;</code> som kan expanderas.
+    </p>
+    <vgr-card>
+      <div class="card__top flex-row">
+        <vgr-button class="flex-right" [secondary]="true">Åtgärd</vgr-button>
+      </div>
+      <vgr-card-section class="card__left" [title]="'Rubrik'" [subtitle]="'vänster 1'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+      <vgr-card-section class="card__left" [title]="'Rubrik'" [subtitle]="'vänster 2'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+      <vgr-card-section class="card__right" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Höger 1'" [readonly]="false">
+        <div>Innehåll</div>
+      </vgr-card-section>
+    </vgr-card>
+
+    <p>Förändras med tema:
+      <strong>nej</strong>
+    </p>
+  </div>
+  <div class="docs__examples ">
+    <h2>Markup</h2>
+    <section [innerHTML]="cardExampleMarkup" highlight-js-content=".highlight"></section>
+    <br>
+    <h2>Resultat</h2>
+    <vgr-card>
+      <div class="card__top flex-row">
+        <vgr-button class="flex-right" [secondary]="true">Åtgärd</vgr-button>
+      </div>
+      <vgr-card-section class="card__left" [expanded]="true" [title]="'Rubrik'" [subtitle]="'vänster 1'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+      <vgr-card-section class="card__left" [expanded]="true" [title]="'Rubrik'" [subtitle]="'vänster 2'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+      <vgr-card-section class="card__right" [expanded]="false" [title]="'Rubrik'" [subtitle]="'Höger 1'" [readonly]="false">
+        <span>Innehåll</span>
+      </vgr-card-section>
+    </vgr-card>
+
+
+  </div>
+  <div class="docs__api">
+    <strong>OBS!</strong>
+    <code>&lt;vgr-card&gt;</code> innehåller inga properties. API nedan avser
+    <code>&lt;vgr-card-section&gt;</code>
+
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>expanded: boolean</td>
+        <td>Anger om sektionen är expanderad eller ej</td>
+        <td>[expanded]="true"</td>
+      </tr>
+      <tr>
+        <td>title: string</td>
+        <td>Sektionens rubrik</td>
+        <td>[title]="'Rubrik'"</td>
+      </tr>
+      <tr>
+        <td>subTitle: string</td>
+        <td>Sektionens underrubrik</td>
+        <td>[title]="'Underrubrik'"</td>
+      </tr>
+      <tr>
+        <td>readonly: boolean</td>
+        <td>Anger om symbolen för redigeringsläge skall visas eller ej. False = visa. True = dölj. Default är TRUE.</td>
+        <td>[readonly]="true"</td>
+      </tr>
+    </table>
+  </div>
+  <div class="docs__wcag ">
+    <i>Under utveckling</i>
+  </div>
+</app-component-docs>

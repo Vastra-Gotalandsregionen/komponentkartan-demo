@@ -23,6 +23,7 @@ import { ThemingComponent } from './theming/theming.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { PageStructureComponent } from './page-structure/page-structure.component';
+import { CardComponent } from './card/card.component';
 import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
 
@@ -51,5 +52,6 @@ export const appRoutes: Routes = [
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
     { path: 'pagestructure', component: PageStructureComponent },
+    { path: 'card', component: CardComponent },
     { path: '**', redirectTo: '/start' }
 ];

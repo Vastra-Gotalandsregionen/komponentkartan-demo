@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-page-structure',
@@ -32,21 +33,14 @@ export class PageStructureComponent implements OnInit {
       </vgr-page-block>
     </vgr-page-body>
   </vgr-page>`;
-  constructor() {
-    this.samplePageStructure = '<pre><code class="highlight html">' + this.htmlEscape(this.samplePage) + '</code></pre>';
+  constructor(private htmlEncoder: HtmlEncodeService) {
+    this.samplePageStructure = htmlEncoder.prepareHighlightedSection(this.samplePage);
   }
 
   ngOnInit() {
   }
 
 
-  private htmlEscape(str: string): string {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
+
 
 }

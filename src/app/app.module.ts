@@ -39,6 +39,8 @@ import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { PageStructureComponent } from './page-structure/page-structure.component';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+import { CardComponent } from './card/card.component';
+import { HtmlEncodeService } from './html-encode.service';
 
 @NgModule({
     imports: [
@@ -75,11 +77,13 @@ import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
         ComponentDocsComponent,
         TitleValueComponent,
         FiltertexboxComponent,
-        PageStructureComponent
+        PageStructureComponent,
+        CardComponent
     ],
     providers: [
         Cityservice,
         HighlightJsService,
+        HtmlEncodeService,
         { provide: LOCALE_ID, useValue: 'sv-SE' }
     ],
     schemas: [NO_ERRORS_SCHEMA],

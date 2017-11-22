@@ -33,6 +33,7 @@ export class KomponentkartanApplicationComponent {
                 title: 'Komponenter', menuItems: [
                   { title: 'Back to top', url: '/backtotop', child: true } as IMenuItem,
                   { title: 'Button', url: '/textbuttons', child: true } as IMenuItem,
+                  { title: 'Card', url: '/card', child: true } as IMenuItem,
                   { title: 'Checkbox', url: '/checkbox', child: true } as IMenuItem,
                   { title: 'Datepicker', url: '/datepicker', child: true } as IMenuItem,
                   { title: 'Dropdown', url: '/dropdowns', child: true } as IMenuItem,
