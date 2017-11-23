@@ -25,9 +25,11 @@ export class KomponentkartanApplicationComponent {
             order: '0',
             menuItems: [
               { title: 'Start', url: '/start' } as IMenuItem,
-              { title: 'Brytgränser', url: '/sizes' } as IMenuItem,
+              { isSeparator: true } as IMenuItem,
               { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
               { title: 'Färgkarta', url: '/colours' } as IMenuItem,
+              { title: 'Upplösning', url: '/sizes' } as IMenuItem,
+              { isSeparator: true } as IMenuItem,
               { title: 'Validering', url: '/validation', child: true } as IMenuItem,
               { title: 'Temahantering', url: '/theming', child: true } as IMenuItem,
               {
@@ -45,6 +47,7 @@ export class KomponentkartanApplicationComponent {
                   { title: 'List', url: '/lists', child: true } as IMenuItem,
                   { title: 'Loader', url: '/loader' } as IMenuItem,
                   { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
+                  { title: 'Menu', url: '/menu', child: true } as IMenuItem,
                   { title: 'Modal dialog', url: '/modaldialog', child: true } as IMenuItem,
                   { title: 'Monthpicker', url: '/monthpicker', child: true } as IMenuItem,
                   { title: 'Page', url: '/pagestructure', child: true } as IMenuItem,

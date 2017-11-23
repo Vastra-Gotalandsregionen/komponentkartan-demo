@@ -42,6 +42,7 @@ import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
     imports: [
@@ -80,7 +81,8 @@ import { SizesComponent } from './sizes/sizes.component';
         FiltertexboxComponent,
         PageStructureComponent,
         CardComponent,
-        SizesComponent
+        SizesComponent,
+        MenuComponent
     ],
     providers: [
         Cityservice,
