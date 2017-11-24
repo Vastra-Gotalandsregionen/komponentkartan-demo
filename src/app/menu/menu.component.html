@@ -87,6 +87,13 @@
     </div>
   </div>
   <div class="docs__api">
+    <p><code>&lt;vgr-sidebar-menu&gt;</code> har en property som behöver sättas, <code>[menus]</code>.
+    Menyer är en lista av <code>IMenu</code>, och är tänkt att hämtas från servern, som då kan bestämma vilka menyalternativ en användare får i systemet.
+    När [menus] sätts behandlas listan internt av komponenten som sätter ytterligare properties på den.
+    Nedan listas de properties som är aktuella att fylla i för användande system.</p>
+
+  <br>
+    <h3>IMenu</h3>
     <table class="property-table" style="margin-bottom: 20px">
       <tr>
         <th>Namn</th>
@@ -94,9 +101,63 @@
         <th>Exempel</th>
       </tr>
       <tr>
-        <td>property1: type</td>
-        <td>description of property</td>
-        <td>example of property</td>
+        <td>title: string</td>
+        <td>menyns rubrik</td>
+        <td>title: 'System'</td>
+      </tr>
+      <tr>
+        <td>groups: IMenuGroup[]</td>
+        <td>Grupperade menyalternativ, separeras med vertikal linje</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <h3>IMenuGroup</h3>
+    <table class="property-table" style="margin-bottom: 20px">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>order: string</td>
+        <td>Soteringsordning för gruppen. Grupper visas efter order i alfanumerisk sortering</td>
+        <td>order: '1'</td>
+      </tr>
+      <tr>
+        <td>menuItems: IMenuItem[]</td>
+        <td>Gruppens menyalternativ</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <h3>IMenuItem</h3>
+    <table class="property-table" style="margin-bottom: 20px">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>title: string</td>
+        <td>Menyalternativets rubrik</td>
+        <td>title: 'Min sida'</td>
+      </tr>
+      <tr>
+        <td>url: string</td>
+        <td>Länk att följa vid klick på länken.</td>
+        <td>url: "/my-route"</td>
+      </tr>
+      <tr>
+        <td>order: string</td>
+        <td>Menyalternativets ordning, alternativets. Sorteras alfanumeriskt.</td>
+        <td>order: "2"</td>
+      </tr>
+      <tr>
+        <td>menuItems: IMenuItem[]</td>
+        <td>Eventuella underalternativ för menyalternativet.
+          <strong>OBS!</strong> endast en undernivå är möjlig</td>
+        <td></td>
       </tr>
     </table>
   </div>
