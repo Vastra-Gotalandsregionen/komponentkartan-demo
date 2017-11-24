@@ -41,16 +41,46 @@
     </div>
   </div>
   <div class="docs__examples">
-    <div class="menu-example">
+    <div>
       <div class="column-layout">
-        <div class="row-layout" style="height:500px; overflow:hidden">
-          <div class="half">
+        <div class="row-layout">
+          <div style="width: 400px">
             <h2>Enkel meny</h2>
             <img class="screenshot_example" src="/assets/images/sidebar-menu.example-for-code.single.png">
           </div>
-          <div class="half">
-            <h3>Markup</h3>
+          <div>
+            <h2>Markup</h2>
             <section [innerHTML]="exampleCodeSimpleMenyMarkup" highlight-js-content=".highlight"></section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div class="column-layout">
+        <div class="row-layout">
+          <div style="width: 400px">
+            <h2>Meny med undernivå</h2>
+            <img class="screenshot_example" src="/assets/images/sidebar-menu-with-childern.example-for-code.single.png">
+          </div>
+          <div>
+            <h2>Markup</h2>
+            <section [innerHTML]="exampleCodeSimpleMenyWithChildrenMarkup" highlight-js-content=".highlight"></section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div class="column-layout">
+        <div class="row-layout">
+          <div style="width: 400px">
+            <h2>Meny med avdelare/gruppering</h2>
+            <img class="screenshot_example_large" src="/assets/images/sidebar-menu-with-groups.example-for-code.single.png">
+          </div>
+          <div>
+            <h2>Markup</h2>
+            <section [innerHTML]="exampleCodeSimpleMenyWithGroupsMarkup" highlight-js-content=".highlight"></section>
           </div>
         </div>
       </div>
