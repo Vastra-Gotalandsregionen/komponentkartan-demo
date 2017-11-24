@@ -43,6 +43,7 @@ import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
+import { ListcodeexampleComponent } from './listcodeexample/listcodeexample.component';
 
 @NgModule({
     imports: [
@@ -82,7 +83,8 @@ import { MenuComponent } from './menu/menu.component';
         PageStructureComponent,
         CardComponent,
         SizesComponent,
-        MenuComponent
+        MenuComponent,
+        ListcodeexampleComponent
     ],
     providers: [
         Cityservice,

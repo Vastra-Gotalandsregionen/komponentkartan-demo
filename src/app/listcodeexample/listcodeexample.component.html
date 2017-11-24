@@ -1,0 +1,59 @@
+<vgr-page>
+  <vgr-page-header [title]="'Kodexempel för listor'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <div>
+        <h2>Kodexempel för lista</h2>
+        <p> Här visas olika kodexempel på hur du konfigurerar en
+          <code>vgr-list</code>. För att se dokumentationen på komponenten, klicka
+          <a href="/lists">här.</a>
+        </p>
+        <br>
+      </div>
+      <div>
+        <div>
+          <h2>Vanlig lista</h2>
+          <p>Här har vi exempel på en enkelt lista med endast sortering implementerat och innehåll när man exapnderar en rad.
+            Observera även bredden på kolumnerna är satta.
+          </p>
+        </div>
+        <br>
+        <div>
+          <h3>HTML</h3>
+          <section [innerHTML]="htmlSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+        <br>
+        <div>
+          <h3>Typescript</h3>
+          <section [innerHTML]="typeScriptSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+        <br>
+        <div>
+          <h3>Resultat</h3>
+          <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+            <vgr-list-header>
+              <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+              <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
+              <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
+            </vgr-list-header>
+            <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
+              <div class="list-item__header">
+                <vgr-list-column [text]="row.firstName"></vgr-list-column>
+                <vgr-list-column [text]="row.lastName"></vgr-list-column>
+                <vgr-list-column [text]="row.occupation"></vgr-list-column>
+              </div>
+              <div class="list-item__content">
+                <span>Förnamn: {{row.firstName}}</span>
+                <br>
+                <span>Efternamn: {{row.lastName}}</span>
+                <br>
+                <span>Yrke: {{row.occupation}}</span>
+              </div>
+            </vgr-list-item>
+          </vgr-list>
+        </div>
+      </div>
+    </vgr-page-block>
+  </vgr-page-body>
+</vgr-page>

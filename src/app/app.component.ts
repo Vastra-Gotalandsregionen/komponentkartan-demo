@@ -57,6 +57,10 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Radio group', url: '/radioButtons', child: true } as IMenuItem
                 ] as IMenuItem[]
               } as IMenuItem,
+              {
+                title: 'Kodexempel', menuItems: [
+                  { title: 'Listor', url: '/listcodeexample', child: true } as IMenuItem]
+              }
             ] as IMenuItem[]
           } as IMenuGroup
         ] as IMenuGroup[]
