@@ -27,7 +27,6 @@ import { CardComponent } from './card/card.component';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 import { Routes } from '@angular/router';
-import { componentFactoryName } from '@angular/compiler';
 import { ListcodeexampleComponent } from './listcodeexample/listcodeexample.component';
 export const appRoutes: Routes = [
 
