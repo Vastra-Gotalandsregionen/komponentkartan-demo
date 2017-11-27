@@ -3,6 +3,8 @@ import {
   ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
   ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
 } from 'vgr-komponentkartan';
+import { Examples } from '../examples';
+import { HtmlEncodeService } from '../../../html-encode.service';
 
 @Component({
   selector: 'app-listexample',
@@ -12,9 +14,21 @@ import {
 export class ListexampleComponent {
   sortDirections = SortDirection;
   public peopleRows: ExpandableRow<ExamplePerson, ExamplePerson>[];
+  examplePeople: ExamplePerson[];
+  typeScriptAdvancedListMarkup: string;
+  htmlAdvancedListMarkup: string;
+  examples: Examples = new Examples();
 
-  constructor() {
-    const examplePeople = [
+
+
+
+
+  constructor(htmlEncoder: HtmlEncodeService) {
+    this.typeScriptAdvancedListMarkup =
+      htmlEncoder.prepareHighlightedSection(this.examples.typeScriptAdvancedListMarkup, 'typescript');
+    this.htmlAdvancedListMarkup =
+      htmlEncoder.prepareHighlightedSection(this.examples.htmlAdvancedListMarkup);
+    this.examplePeople = [
       { id: '1', firstName: 'Adam', lastName: 'Andersson' } as ExamplePerson,
       { id: '2', firstName: 'Bjarne', lastName: 'Bengtsson' } as ExamplePerson,
       { id: '3', firstName: 'Carola', lastName: 'Claesson' } as ExamplePerson,
@@ -22,7 +36,7 @@ export class ListexampleComponent {
       { id: '5', firstName: 'Erik', lastName: '' } as ExamplePerson,
     ];
 
-    this.peopleRows = examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
+    this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
 
     this.peopleRows[0].notification = {
       message: 'Information saknas', icon: NotificationIcon.ExclamationRed,
@@ -32,49 +46,21 @@ export class ListexampleComponent {
       message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation,
       type: NotificationType.Permanent
     } as RowNotification;
+    console.log(this.peopleRows);
   }
 
   deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
-    // Remove visually
+    // Remove visually.
     row.notifyOnRemove(row.previewObject.firstName + ' togs bort och kommer inte längre att kunna logga in', NotificationIcon.Ok);
 
-    // Delete object for real...
-
-
+    /*
+     Remove for real...
+    */
   }
 
-
-  /*   removeRowWithoutExpand(row: ExpandableRow<ExamplePerson, ExamplePerson>, event: Event) {
-      event.cancelBubble = true;
-      this.modalService.openDialog('Ta bort person', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
-        new ModalButtonConfiguration('Ja', () => {
-          row.notifyOnRemove(row.previewObject.firstName + ' togs bort och kommer inte längre att kunna logga in', NotificationIcon.Ok);
-          row.previewObject.deleted = true;
-        }),
-        new ModalButtonConfiguration('Nej', () => { }));
-    }
-  
-    removeCardRow(row: ExpandableRow<string, string>) {
-      this.modalService.openDialog('Ta bort rad', 'Vill du verkligen ta bort raden?',
-        new ModalButtonConfiguration('Ja', () => {
-          row.notifyOnRemove('Raden togs bort', NotificationIcon.Ok);
-        }),
-        new ModalButtonConfiguration('Nej', () => { }));
-    } */
-
-  savePerson(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
+  updateRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
     row.notifyOnCollapse(row.previewObject.firstName + ' sparades', NotificationIcon.OkGreen);
   }
-
-  /*   cardSaved() {
-      this.cardUnlocked = false;
-      this.cardRow.notifyOnCollapse('Användaren sparades', NotificationIcon.OkGreen);
-    }
-  
-    cardCancelled() {
-      this.cardUnlocked = false;
-      this.cardRow.notifyOnCollapse('Åtgärden avbröts', NotificationIcon.Ok);
-    } */
 
   onSortChanged(event: SortChangedArgs) {
     this.peopleRows = this.peopleRows.sort((row1, row2) => {
