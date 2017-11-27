@@ -22,34 +22,48 @@ export class KomponentkartanApplicationComponent {
         title: 'Innehåll',
         groups: [
           {
-            order: '0',
             menuItems: [
               { title: 'Start', url: '/start' } as IMenuItem,
+              { isSeparator: true } as IMenuItem,
               { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
               { title: 'Färgkarta', url: '/colours' } as IMenuItem,
-              { title: 'Validering', url: '/validation', child: true } as IMenuItem,
-              { title: 'Temahantering', url: '/theming', child: true } as IMenuItem,
+              { title: 'Upplösning', url: '/sizes' } as IMenuItem,
+              { isSeparator: true } as IMenuItem,
+              { title: 'Sidhantering', url: '/pagestructure' } as IMenuItem,
+              { title: 'Validering', url: '/validation' } as IMenuItem,
+              { title: 'Temahantering', url: '/theming' } as IMenuItem,
+              { isSeparator: true } as IMenuItem,
               {
                 title: 'Komponenter', menuItems: [
-                  { title: 'Back to top', url: '/backtotop', child: true } as IMenuItem,
-                  { title: 'Button', url: '/textbuttons', child: true } as IMenuItem,
-                  { title: 'Checkbox', url: '/checkbox', child: true } as IMenuItem,
-                  { title: 'Datepicker', url: '/datepicker', child: true } as IMenuItem,
-                  { title: 'Dropdown', url: '/dropdowns', child: true } as IMenuItem,
-                  { title: 'Dropdown multiselect', url: '/dropdownmultiselect', child: true } as IMenuItem,
-                  { title: 'Header', url: '/headers', child: true } as IMenuItem,
-                  { title: 'Input', url: '/inputFields', child: true } as IMenuItem,
-                  { title: 'List', url: '/lists', child: true } as IMenuItem,
+                  { title: 'Back to top', url: '/backtotop' } as IMenuItem,
+                  { title: 'Button', url: '/textbuttons' } as IMenuItem,
+                  { title: 'Card', url: '/card' } as IMenuItem,
+                  { title: 'Checkbox', url: '/checkbox' } as IMenuItem,
+                  { title: 'Datepicker', url: '/datepicker' } as IMenuItem,
+                  { title: 'Dropdown', url: '/dropdowns' } as IMenuItem,
+                  { title: 'Dropdown multiselect', url: '/dropdownmultiselect' } as IMenuItem,
+                  { title: 'Filter textbox', url: '/filtertextbox' } as IMenuItem,
+                  { title: 'Header/header menu', url: '/headers' } as IMenuItem,
+
+                  { title: 'Input', url: '/inputFields' } as IMenuItem,
+                  { title: 'List', url: '/lists' } as IMenuItem,
                   { title: 'Loader', url: '/loader' } as IMenuItem,
-                  { title: 'Lock button', url: '/lockbutton', child: true } as IMenuItem,
-                  { title: 'Modal dialog', url: '/modaldialog', child: true } as IMenuItem,
-                  { title: 'Monthpicker', url: '/monthpicker', child: true } as IMenuItem,
-                  { title: 'Panel', url: '/panels', child: true } as IMenuItem,
-                  { title: 'Title-value', url: '/titlevalue', child: true } as IMenuItem,
-                  { title: 'Save/Cancel', url: '/savecancel', child: true } as IMenuItem,
-                  { title: 'Radio group', url: '/radioButtons', child: true } as IMenuItem
+                  { title: 'Lock button', url: '/lockbutton' } as IMenuItem,
+                  { title: 'Menu', url: '/menu' } as IMenuItem,
+                  { title: 'Modal dialog', url: '/modaldialog' } as IMenuItem,
+                  { title: 'Monthpicker', url: '/monthpicker' } as IMenuItem,
+                  { title: 'Panel', url: '/panels' } as IMenuItem,
+                  { title: 'Title-value', url: '/titlevalue' } as IMenuItem,
+                  { title: 'Save/Cancel', url: '/savecancel' } as IMenuItem,
+                  { title: 'Radio group', url: '/radioButtons' } as IMenuItem
                 ] as IMenuItem[]
               } as IMenuItem,
+              {
+                title: 'Kodexempel', menuItems: [
+                  { title: 'Lista (enkel)', url: '/listexample-simple' } as IMenuItem,
+                  { title: 'Lista (notifieringar)', url: '/listexample-notifications' } as IMenuItem,
+                ]
+              }
             ] as IMenuItem[]
           } as IMenuGroup
         ] as IMenuGroup[]

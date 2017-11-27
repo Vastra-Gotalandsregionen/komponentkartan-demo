@@ -8,7 +8,6 @@ import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
-import { ListexampleComponent } from './listexample/listexample.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
@@ -21,7 +20,14 @@ import { DemoValidationComponent } from './validation/demovalidation.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { TitleValueComponent } from './title-value/title-value.component';
+import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
+import { PageStructureComponent } from './page-structure/page-structure.component';
+import { CardComponent } from './card/card.component';
+import { SizesComponent } from './sizes/sizes.component';
+import { MenuComponent } from './menu/menu.component';
 import { Routes } from '@angular/router';
+import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
+import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
@@ -37,7 +43,7 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'listexample', component: ListexampleComponent },
+    { path: 'listexample-notifications', component: ListexampleComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
@@ -46,6 +52,12 @@ export const appRoutes: Routes = [
     { path: 'validation', component: DemoValidationComponent },
     { path: 'start', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
-    { path: 'titlevalue', component: TitleValueComponent},
+    { path: 'titlevalue', component: TitleValueComponent },
+    { path: 'filtertextbox', component: FiltertexboxComponent },
+    { path: 'pagestructure', component: PageStructureComponent },
+    { path: 'card', component: CardComponent },
+    { path: 'sizes', component: SizesComponent },
+    { path: 'menu', component: MenuComponent },
+    { path: 'listexample-simple', component: ListcodeexampleComponent },
     { path: '**', redirectTo: '/start' }
 ];

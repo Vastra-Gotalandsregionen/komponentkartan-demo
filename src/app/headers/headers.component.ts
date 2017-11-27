@@ -1,17 +1,81 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { IHeaderMenu, IHeaderMenuItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/headerMenu.model';
+import { HeaderComponent } from 'vgr-komponentkartan';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-headers',
   templateUrl: './headers.component.html',
   styleUrls: ['./headers.component.scss']
 })
-export class HeadersComponent implements OnInit {
 
-  headerMenu : IHeaderMenu;
 
-  
-  constructor() {
+export class HeadersComponent implements OnInit, AfterViewInit {
+
+  headerMenu: IHeaderMenu;
+  simpleHeaderMenu: IHeaderMenu;
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+  exampleCodeHeaderMenu = `    this.headerMenu = {
+    menuItems: [
+      {
+        displayName: 'Internt menyval',
+        url: '/minsida',
+        isInternalLink: true
+      },
+      {
+        isSeparator: true
+      },
+      {
+        displayName: 'Externt menyval',
+        menuItems: [
+          {
+            displayName: 'Submenyval vgregion',
+            url: 'http://www.vgregion.se',
+            isInternalLink: false
+          }
+        ] as IHeaderMenuItem[]
+      }
+    ] as IHeaderMenuItem[]
+  } as IHeaderMenu;`;
+
+  exampleCodeSimpleMenyMarkup: string;
+
+  constructor(htmlEncoder: HtmlEncodeService) {
+    this.exampleCodeSimpleMenyMarkup = htmlEncoder.prepareHighlightedSection(this.exampleCodeHeaderMenu, 'typescript');
+    this.setMenuItems();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.headerComponent.toggleHeaderMenu(new Event(null));
+    }, 200);
+  }
+
+  setMenuItems() {
+
+    this.simpleHeaderMenu = {
+      menuItems: [
+        {
+          displayName: 'Internt menyval',
+          url: '/minsida',
+          isInternalLink: true
+        },
+        {
+          isSeparator: true
+        },
+        {
+          displayName: 'Externt menyval',
+          menuItems: [
+            {
+              displayName: 'Submenyval vgregion',
+              url: 'http://www.vgregion.se',
+              isInternalLink: false
+            }
+          ] as IHeaderMenuItem[]
+        }
+      ] as IHeaderMenuItem[]
+    } as IHeaderMenu;
+
     this.headerMenu = {
       menuItems: [
         {
@@ -59,8 +123,9 @@ export class HeadersComponent implements OnInit {
         }
       ] as IHeaderMenuItem[]
     } as IHeaderMenu;
-  
-   }
+
+  }
+
 
   ngOnInit() {
   }

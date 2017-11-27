@@ -32,16 +32,26 @@ import { BacktotopComponent } from './backtotop/backtotop.component';
 import { LoaderComponent } from './loader/loader.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
-import { ListexampleComponent } from './listexample/listexample.component';
+import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
+import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
+import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
+import { PageStructureComponent } from './page-structure/page-structure.component';
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+import { CardComponent } from './card/card.component';
+import { HtmlEncodeService } from './html-encode.service';
+import { SizesComponent } from './sizes/sizes.component';
+import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
     imports: [
         KomponentkartanModule,
         BrowserModule,
         FormsModule,
+        HighlightJsModule,
         RouterModule.forRoot(appRoutes)
     ],
     declarations: [
@@ -69,11 +79,18 @@ import { TitleValueComponent } from './title-value/title-value.component';
         ListexampleComponent,
         DemoValidationComponent,
         ComponentDocsComponent,
-        TitleValueComponent
+        TitleValueComponent,
+        FiltertexboxComponent,
+        PageStructureComponent,
+        CardComponent,
+        SizesComponent,
+        MenuComponent,
+        ListcodeexampleComponent
     ],
     providers: [
         Cityservice,
-
+        HighlightJsService,
+        HtmlEncodeService,
         { provide: LOCALE_ID, useValue: 'sv-SE' }
     ],
     schemas: [NO_ERRORS_SCHEMA],
