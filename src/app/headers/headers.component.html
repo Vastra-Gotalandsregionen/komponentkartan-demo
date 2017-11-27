@@ -1,5 +1,5 @@
 <app-component-docs [componentName]="'header/header menu'">
-  <div class="docs__overview">
+  <div class="docs__overview" style="height:420px">
     <code>&lt;vgr-header&gt;</code> är en komponent som skall användas i huvudet på sidorna och ligga där fast när användaren navigerar
     i systemet.
     <br> Färgen kan sättas beroende på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller flera
@@ -21,18 +21,20 @@
     </p>
   </div>
   <div class="docs__examples">
-    <h2>Header med user och meny (temad grön)</h2>
-    <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="simpleHeaderMenu"></vgr-header>
-    <div>
-      <h3>Markup för en menyn i exemplet ovan, tryck på pilen i headern så ser du kontextmenyn</h3>
-      <section [innerHTML]="exampleCodeSimpleMenyMarkup" highlight-js-content=".highlight"></section>
+    <div class="column-layout">
+      <h3>Header med user och meny (temad grön)</h3>
+      <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="simpleHeaderMenu"></vgr-header>
+      <div>
+        <h3>Markup för en menyn i exemplet ovan, tryck på pilen i headern så ser du kontextmenyn</h3>
+        <section [innerHTML]="exampleCodeSimpleMenyMarkup" highlight-js-content=".highlight"></section>
+      </div>
+      <h3>Header med user utan meny (temad röd)</h3>
+      <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
+      <h3>Header utan user och meny (temad blå)</h3>
+      <vgr-header class="header--inline theme--blue"></vgr-header>
+      <h3>Header utan user och meny (Standard)</h3>
+      <vgr-header class="header--inline"></vgr-header>
     </div>
-    <h2>Header med user utan meny (temad röd)</h2>
-    <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
-    <h2>Header utan user och meny (temad blå)</h2>
-    <vgr-header class="header--inline theme--blue"></vgr-header>
-    <h2>Header utan user och meny (Standard)</h2>
-    <vgr-header class="header--inline"></vgr-header>
   </div>
   <div class="docs__api">
     <table class="property-table ">
@@ -102,7 +104,7 @@
       </tr>
     </table>
   </div>
-  <div class="docs_wcag">
+  <div class="docs__wcag">
     <i>Under utveckling</i>
   </div>
 </app-component-docs>

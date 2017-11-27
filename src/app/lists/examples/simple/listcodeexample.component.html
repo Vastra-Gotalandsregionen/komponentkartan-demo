@@ -13,17 +13,6 @@
         </div>
         <br>
         <div>
-          <h3>HTML</h3>
-          <section [innerHTML]="htmlSimpleListMarkup" highlight-js-content=".highlight"></section>
-        </div>
-        <br>
-        <div>
-          <h3>Typescript</h3>
-          <section [innerHTML]="typeScriptSimpleListMarkup" highlight-js-content=".highlight"></section>
-        </div>
-        <br>
-        <div>
-          <h3>Resultat</h3>
           <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
             <vgr-list-header>
               <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
@@ -46,6 +35,19 @@
             </vgr-list-item>
           </vgr-list>
         </div>
+        <br>
+
+        <div>
+          <h3>HTML</h3>
+          <section [innerHTML]="htmlSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+        <br>
+        <div>
+          <h3>Typescript</h3>
+          <section [innerHTML]="typeScriptSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+        <br>
+
       </div>
     </vgr-page-block>
   </vgr-page-body>
