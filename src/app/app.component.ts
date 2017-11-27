@@ -59,7 +59,9 @@ export class KomponentkartanApplicationComponent {
               } as IMenuItem,
               {
                 title: 'Kodexempel', menuItems: [
-                  { title: 'Listor', url: '/listcodeexample', child: true } as IMenuItem]
+                  { title: 'Lista (enkel)', url: '/listexample-simple', child: true } as IMenuItem,
+                  { title: 'Lista (notifieringar)', url: '/listexample-notifications', child: true } as IMenuItem,
+                ]
               }
             ] as IMenuItem[]
           } as IMenuGroup

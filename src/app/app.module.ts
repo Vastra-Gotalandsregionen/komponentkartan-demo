@@ -32,7 +32,8 @@ import { BacktotopComponent } from './backtotop/backtotop.component';
 import { LoaderComponent } from './loader/loader.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
-import { ListexampleComponent } from './listexample/listexample.component';
+import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
+import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
@@ -43,7 +44,7 @@ import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
-import { ListcodeexampleComponent } from './listcodeexample/listcodeexample.component';
+
 
 @NgModule({
     imports: [

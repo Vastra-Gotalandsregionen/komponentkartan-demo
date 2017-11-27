@@ -8,7 +8,6 @@ import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
-import { ListexampleComponent } from './listexample/listexample.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
@@ -27,7 +26,8 @@ import { CardComponent } from './card/card.component';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 import { Routes } from '@angular/router';
-import { ListcodeexampleComponent } from './listcodeexample/listcodeexample.component';
+import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
+import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
@@ -43,7 +43,7 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'listexample', component: ListexampleComponent },
+    { path: 'listexample-notifications', component: ListexampleComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
@@ -58,6 +58,6 @@ export const appRoutes: Routes = [
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
-    { path: 'listcodeexample', component: ListcodeexampleComponent },
+    { path: 'listexample-simple', component: ListcodeexampleComponent },
     { path: '**', redirectTo: '/start' }
 ];

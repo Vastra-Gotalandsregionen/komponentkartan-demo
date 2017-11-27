@@ -3,8 +3,8 @@ import {
   SortDirection,  // Enum för vilket håll sorteringen skall ske.
   SortChangedArgs // Args när sorteringordningen ändras.
 } from 'vgr-komponentkartan';
-import { HtmlEncodeService } from '../html-encode.service';
-import { Examples } from './examples'
+import { HtmlEncodeService } from '../../../html-encode.service';
+import { Examples } from '../examples';
 
 @Component({
   selector: 'app-listcodeexample',
