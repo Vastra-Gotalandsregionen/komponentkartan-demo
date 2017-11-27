@@ -3,7 +3,14 @@
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
-      <vgr-list [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
+      <div>
+        <h2>Enkel lista</h2>
+        <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen
+          på komponenten, klicka
+          <a href="/lists">här.</a>
+        </p>
+      </div>
+      <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
           <vgr-list-column-header [text]="'Efternamn'" [width]="10" [sortKey]="'lastName'"></vgr-list-column-header>
@@ -15,31 +22,8 @@
             <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
           </div>
           <div class="list-item__content">
-            <vgr-card>
-              <div *ngIf="row.previewObject.canBeDeleted && !row.previewObject.deleted" class="card__top flex-row">
-                <vgr-button class="flex-right" [secondary]="true" [disabled]="false" (buttonClick)="removeRow(row)">Ta bort</vgr-button>
-              </div>
-              <vgr-card-section class="card__left" [expanded]="true" [title]="'Personlig information'" [subtitle]="row.previewObject.firstName + ' ' + row.previewObject.lastName">
-                <div class="title-value-layout">
-                  <vgr-title-value [title]="'Förnamn'">
-                    <span>{{row.previewObject.firstName}}</span>
-                  </vgr-title-value>
-                  <vgr-title-value [title]="'Efternamn'">
-                    <span>{{row.previewObject.lastName}}</span>
-                  </vgr-title-value>
-                </div>
-              </vgr-card-section>
-              <vgr-card-section class="card__right" [title]="'Detaljerad information'">
-                <div class="title-value-layout">
-                  <vgr-title-value [title]="'Förnamn'">
-                    <span>{{row.previewObject.firstName}}</span>
-                  </vgr-title-value>
-                  <vgr-title-value [title]="'Efternamn'">
-                    <span>{{row.previewObject.lastName}}</span>
-                  </vgr-title-value>
-                </div>
-              </vgr-card-section>
-            </vgr-card>
+            <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
+            <vgr-button [secondary]="true" (click)="deleteRow(row)">Ta bort</vgr-button>
           </div>
         </vgr-list-item>
 
