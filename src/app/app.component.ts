@@ -42,7 +42,8 @@ export class KomponentkartanApplicationComponent {
                   { title: 'Dropdown', url: '/dropdowns', child: true } as IMenuItem,
                   { title: 'Dropdown multiselect', url: '/dropdownmultiselect', child: true } as IMenuItem,
                   { title: 'Filter textbox', url: '/filtertextbox', child: true } as IMenuItem,
-                  { title: 'Header', url: '/headers', child: true } as IMenuItem,
+                  { title: 'Header och headermenu', url: '/headers', child: true } as IMenuItem,
+
                   { title: 'Input', url: '/inputFields', child: true } as IMenuItem,
                   { title: 'List', url: '/lists', child: true } as IMenuItem,
                   { title: 'Loader', url: '/loader' } as IMenuItem,

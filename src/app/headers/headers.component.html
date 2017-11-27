@@ -1,61 +1,119 @@
-<app-component-docs [componentName]="'Header'">
-  <div class="docs__overview">
-    <p>
-      <code>
-        &lt;vgr-header&gt; </code> är en komponent som skall användas i huvudet på sidorna och ligga där fast när användaren
-      navigerar i systemet.
-      <br> Färgen kan sättas beroende på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller
-      flera system. Om bara ett system finns, är det den färgen som gäller. Headern innehåller en transparent bild som gör
-      att man bara behöver sätta headerns bakgrundsfärg genom rätt klassnamn på headern eller på ett föräldraelement. I det
-      "neutrala" läget skall inte den transparenta bilden synas. Headern kan visas i olika utföranden, man kan ha den med
-      eller utan användarinformation samt med eller utan meny och olika kombinationer av dessa. I exemplet kan man se de
-      olika vyerna.
-      <br>
-      <br>
-    </p>
-    <vgr-header class="header--inline"></vgr-header>
+<vgr-page class="no-sort">
+    <vgr-page-header [title]="'Header'">
+    </vgr-page-header>
+    <vgr-page-body>
+        <vgr-page-block>
+            <vgr-list [allowMultipleExpandedItems]="true">
+                <vgr-list-header>
+                    <vgr-list-column-header [text]="'Dokumentation för header'" [width]="20"></vgr-list-column-header>
+                </vgr-list-header>
+                <vgr-list-item [expanded]="true" style="height: 530px">
+                    <div class="list-item__header">
+                        <h4>Översikt</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <div class="content-overview">
+                            <code>&lt;vgr-header&gt;</code> är en komponent som skall användas i huvudet på sidorna och ligga där fast när användaren navigerar i systemet.
+                            <br> Färgen kan sättas beroende på vilket system som är aktivt. I portalen beror färgen på om användaren har ett eller flera system. Om bara ett system finns, är det den färgen som gäller. Headern innehåller en transparent
+                            bild som gör att man bara behöver sätta headerns bakgrundsfärg genom rätt klassnamn på headern eller på ett föräldraelement. I det "neutrala" läget skall inte den transparenta bilden synas. Headern kan visas i olika utföranden,
+                            man kan ha den med eller utan användarinformation samt med eller utan meny och olika kombinationer av dessa. I exemplet kan man se de olika vyerna.
+                            <br>
+                            <br> På headern kan man även lägga till en kontextmeny (<code>&lt;vgr-header-menu&gt;</code>). Den menyn kan endast bo i headern.
+                            <br>
+                            <br>
+                            <div class="column-layout">
+                                <vgr-header class="header--inline" [userName]="'Neo Åhn'" [headerMenu]="headerMenu"></vgr-header>
+                            </div>
 
-    <br>
-    <p> Förändras med tema:
-      <strong>Ja</strong>
-    </p>
-  </div>
-  <div class="docs__examples">
-    <div class="column-layout">
-      <h2>Header utan user och meny (Standard)</h2>
-      <vgr-header class="header--inline"></vgr-header>
+                            <br>
+                            <p> Förändras med tema:
+                                <strong>Ja</strong>
+                            </p>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Exempel</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <div class="column-layout">
+                            <h2>Header med user och meny (temad grön)</h2>
+                            <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="simpleHeaderMenu"></vgr-header>
+                            <div>
+                                <h3>Markup för en menyn i exemplet ovan, tryck på pilen i headern så ser du kontextmenyn</h3>
+                                <section [innerHTML]="exampleCodeSimpleMenyMarkup" highlight-js-content=".highlight"></section>
+                            </div>
 
-      <h2>Header utan user och meny (temad blå)</h2>
-      <vgr-header class="header--inline theme--blue"></vgr-header>
+                            <h2>Header med user utan meny (temad röd)</h2>
+                            <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
 
-      <h2>Header med user utan meny (temad röd)</h2>
-      <vgr-header class="header--inline theme--red" [userName]="'Nils Åstrand'"></vgr-header>
+                            <h2>Header utan user och meny (temad blå)</h2>
+                            <vgr-header class="header--inline theme--blue"></vgr-header>
 
-      <h2>Header med user och meny (temad grön)</h2>
-      <vgr-header class="header--inline theme--green" [userName]="'Nova Åudit'" [headerMenu]="headerMenu"></vgr-header>
-    </div>
-  </div>
-  <div class="docs__api">
-    <table class="property-table ">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>headerMenu : IHeaderMenu</td>
-        <td>Menyn man vill visa (IHeaderMenu)</td>
-        <td>[headerMenu]="contextMenu"</td>
-      </tr>
-      <tr>
-        <td>userName : string</td>
-        <td>Sätter namnet på texten för den som är inloggad</td>
-        <td>[userName]="signedInUser"</td>
-      </tr>
-    </table>
-  </div>
 
-  <div class="docs__wcag">
-    <i>Under utveckling</i>
-  </div>
-</app-component-docs>
+                            <h2>Header utan user och meny (Standard)</h2>
+                            <vgr-header class="header--inline"></vgr-header>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-header</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table ">
+                            <tr>
+                                <th>Namn</th>
+                                <th>Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>headerMenu : IHeaderMenu</td>
+                                <td>Menyn man vill visa (IHeaderMenu)</td>
+                                <td>[headerMenu]="contextMenu"</td>
+                            </tr>
+                            <tr>
+                                <td>userName : string</td>
+                                <td>Sätter namnet på texten för den som är inloggad</td>
+                                <td>[userName]="signedInUser"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-header-menu</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table ">
+                            <tr>
+                                <th>Namn</th>
+                                <th>Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>menu : IHeaderMenu</td>
+                                <td>Menyn man vill visa (IHeaderMenu)</td>
+                                <td>[menu]="contextMenu"</td>
+                            </tr>
+                            <tr>
+                                <td>toggleHeaderMenu : EventEmitter&lt;RowNotification&gt;</td>
+                                <td>Event som triggas när man tryckt på området för kontextmenyn på headern, triggas av headern</td>
+                                <td>(toggleHeaderMenu)="ontoggleHeaderMenu($event)"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Tillgänglighet</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <i>Under utveckling</i>
+                    </div>
+                </vgr-list-item>
+            </vgr-list>
+        </vgr-page-block>
+    </vgr-page-body>
+</vgr-page>
