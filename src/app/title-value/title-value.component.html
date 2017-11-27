@@ -3,8 +3,8 @@
   <div class="docs__overview">
     <p>
       <code> &lt;vgr-title-value&gt; </code> används för att skapa title-value layouter, t.ex formulär.
-      <br>
-      Placera title-value komponenterna i en <code> &lt;div class="title-value-layout"&gt; </code>
+      <br> Placera title-value komponenterna i en
+      <code> &lt;div class="title-value-layout"&gt; </code>
     </p>
 
     <p> Förändras med tema:
@@ -13,7 +13,7 @@
   </div>
 
   <div class="docs__examples">
-    <vgr-card>
+    <vgr-card [mode]="2">
       <vgr-card-section [title]="'Belopp readonly (slim)'" [expanded]="true" class="card__left">
         <div class="title-value-layout">
           <vgr-title-value [title]="'Bruttobelopp'" [slim]="true">
@@ -27,7 +27,7 @@
           </vgr-title-value>
         </div>
       </vgr-card-section>
-      
+
       <vgr-card-section [title]="'Belopp'" [expanded]="true" class="card__right">
         <div class="title-value-layout">
           <vgr-title-value [title]="'Bruttobelopp'">
@@ -53,20 +53,21 @@
       </tr>
       <tr>
         <td>title : string</td>
-        <td>Title(label) för title-value-paret. 
+        <td>Title(label) för title-value-paret.
         </td>
         <td>
           [title]="'En titel'"
         </td>
       </tr>
       <tr>
-          <td>slim : boolean</td>
-          <td>Om title-value är satt som slim så kommer title-value-raden ta så lite plats som möjligt i höjdled. Detta ska användas för en title-value komponent som endast visar readonly fält.
-          </td>
-          <td>
-            [readonly]="true/false"
-          </td>
-        </tr>
+        <td>slim : boolean</td>
+        <td>Om title-value är satt som slim så kommer title-value-raden ta så lite plats som möjligt i höjdled. Detta ska användas
+          för en title-value komponent som endast visar readonly fält.
+        </td>
+        <td>
+          [readonly]="true/false"
+        </td>
+      </tr>
     </table>
   </div>
 

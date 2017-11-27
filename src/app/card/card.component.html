@@ -5,7 +5,7 @@
       Topp, vänster och höger. Dessa fylls med innehåll genom att använda css-klasser. Ett kort innehåller en eller flera
       <code>&lt;vgr-card-section&gt;</code> som kan expanderas.
     </p>
-    <vgr-card>
+    <vgr-card [mode]="2">
       <div class="card__top flex-row">
         <vgr-button class="flex-right" [secondary]="true">Åtgärd</vgr-button>
       </div>
@@ -25,7 +25,7 @@
     </p>
   </div>
   <div class="docs__examples ">
-    <vgr-card>
+    <vgr-card [mode]="2">
       <div class="card__top flex-row">
         <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
       </div>
@@ -62,9 +62,48 @@
 
 
   </div>
+
+  <div class="docs__examples2">
+    <vgr-card [mode]="1">
+      <div class="card__top flex-row">
+        <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
+      </div>
+      <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Exempel med kontroller'" [readonly]="!unlocked">
+        <div class="title-value-layout">
+          <vgr-title-value [title]="'Förnamn'" [slim]="!unlocked">
+            <vgr-input [value]="'Per-Åke'" [readonly]="!unlocked"></vgr-input>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Efternamn'" [slim]="!unlocked">
+            <vgr-input [value]="'Berg'" [readonly]="!unlocked"></vgr-input>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Boende'" [slim]="!unlocked">
+            <vgr-dropdown [values]="['Hus','Lägenhet','Kartong']" [selectedValue]="'Hus'" [readonly]="!unlocked"></vgr-dropdown>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Födelsedatum'" [slim]="!unlocked">
+            <vgr-datepicker [selectedDate]="birthDate" [readonly]="!unlocked"></vgr-datepicker>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Serienummer'" [slim]="!unlocked">
+            <span>7a787b27-c2cc-441f-a732</span>
+          </vgr-title-value>
+        </div>
+      </vgr-card-section>
+      <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'vänster 2'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+      <vgr-card-section [expanded]="false" [title]="'Rubrik'" [subtitle]="'Höger 1'">
+        <span>Innehåll</span>
+      </vgr-card-section>
+    </vgr-card>
+
+    <h3>Markup</h3>
+    <section [innerHTML]="cardExampleMarkup2" highlight-js-content=".highlight"></section>
+    <br>
+
+
+  </div>
+
   <div class="docs__api">
-    <strong>OBS!</strong>
-    <code>&lt;vgr-card&gt;</code> innehåller inga properties. API nedan avser
+    <code>&lt;vgr-card&gt;</code>API nedan avser
     <code>&lt;vgr-card-section&gt;</code>
 
     <table class="property-table">
@@ -92,6 +131,13 @@
         <td>readonly: boolean</td>
         <td>Anger om symbolen för redigeringsläge skall visas eller ej. False = visa. True = dölj. Default är TRUE.</td>
         <td>[readonly]="true"</td>
+      </tr>
+      <tr>
+        <td>mode: number</td>
+        <td>Anger hur många collumner kortet skall ha. Om inget anges så finns det inga kollumner. För närvarande stöds bara
+          mode =1 som är fulllängd och mode =2 som innebär 2 kollumner. Observera att om man vill ha fulllängd så får man
+          ha klasserna class="card__left" eller class="card_right" på sina vgr-card-section</td>
+        <td>[mode]="2"</td>
       </tr>
     </table>
   </div>
