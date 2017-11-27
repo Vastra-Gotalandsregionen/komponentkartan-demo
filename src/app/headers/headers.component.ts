@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { IHeaderMenu, IHeaderMenuItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/headerMenu.model';
 import { HeaderComponent } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
@@ -10,7 +10,7 @@ import { HtmlEncodeService } from '../html-encode.service';
 })
 
 
-export class HeadersComponent implements OnInit {
+export class HeadersComponent implements OnInit, AfterViewInit {
 
   headerMenu: IHeaderMenu;
   simpleHeaderMenu: IHeaderMenu;
