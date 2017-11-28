@@ -36,6 +36,7 @@ import { ListexampleComponent } from './lists/examples/withnotifications/listexa
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
+import { ComponentDocsComponent2 } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { PageStructureComponent } from './page-structure/page-structure.component';
@@ -79,6 +80,7 @@ import { MenuComponent } from './menu/menu.component';
         ListexampleComponent,
         DemoValidationComponent,
         ComponentDocsComponent,
+        ComponentDocsComponent2,
         TitleValueComponent,
         FiltertexboxComponent,
         PageStructureComponent,
