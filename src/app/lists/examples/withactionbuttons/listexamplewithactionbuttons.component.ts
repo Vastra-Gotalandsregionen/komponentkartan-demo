@@ -56,9 +56,9 @@ export class ListExampleWithActionButtonsComponent {
   constructor(htmlEncoder: HtmlEncodeService, private modalService: ModalService) {
     this.peopleRowSimpleList();
     this.typeScriptSimpleListMarkup =
-      htmlEncoder.prepareHighlightedSection(this.examples.typeScriptActionButtonsListyMarkup, 'typescript');
+      htmlEncoder.prepareHighlightedSection(this.examples.typeScriptActionButtonsListMarkup, 'typescript');
     this.htmlSimpleListMarkup =
-      htmlEncoder.prepareHighlightedSection(this.examples.htmlActionButtonsListyMarkup);
+      htmlEncoder.prepareHighlightedSection(this.examples.htmlActionButtonsListMarkup);
   }
 
 }

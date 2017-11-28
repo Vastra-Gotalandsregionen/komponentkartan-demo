@@ -41,7 +41,8 @@ export class Examples {
 
   htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
     <vgr-list-header>
-      <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+      <vgr-list-column-header [text]="'Förnamn'" [width]="5"
+        [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
       <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
       <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
     </vgr-list-header>
@@ -157,7 +158,8 @@ export class Examples {
     </vgr-page-block>
   </vgr-page-body>
 </vgr-page>`;
-  htmlActionButtonsListyMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+
+  htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
     <vgr-list-column-header [text]="'Förnamn'" [width]="9"></vgr-list-column-header>
     <vgr-list-column-header [text]="'Efternamn'" [width]="9"></vgr-list-column-header>
@@ -179,8 +181,8 @@ export class Examples {
 </vgr-list>
 <br>
 <p>Du har valt {{ getSelectedRows() }} rader</p>`;
-  typeScriptActionButtonsListyMarkup = `
-import { Component } from '@angular/core';
+
+  typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
 import { ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow } from 'vgr-komponentkartan';
 
 @Component({
