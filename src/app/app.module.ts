@@ -34,8 +34,10 @@ import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
+import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
+import { ComponentDocsComponent2 } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { PageStructureComponent } from './page-structure/page-structure.component';
@@ -79,13 +81,15 @@ import { MenuComponent } from './menu/menu.component';
         ListexampleComponent,
         DemoValidationComponent,
         ComponentDocsComponent,
+        ComponentDocsComponent2,
         TitleValueComponent,
         FiltertexboxComponent,
         PageStructureComponent,
         CardComponent,
         SizesComponent,
         MenuComponent,
-        ListcodeexampleComponent
+        ListcodeexampleComponent,
+        ListExampleWithActionButtonsComponent
     ],
     providers: [
         Cityservice,

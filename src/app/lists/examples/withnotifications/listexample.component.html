@@ -3,32 +3,32 @@
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
-      <div>
-        <h2>Lista med notifieringar</h2>
-        <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen
-          på komponenten, klicka
-          <a href="/lists">här.</a>
-        </p>
-      </div>
-      <div class="listexample">
-        <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
-          <vgr-list-header>
-            <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-            <vgr-list-column-header [text]="'Efternamn'" [width]="10" [sortKey]="'lastName'"></vgr-list-column-header>
-          </vgr-list-header>
+      <h2>Lista med notifieringar</h2>
+      <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen på
+        komponenten, klicka
+        <a href="/lists">här.</a>
+      </p>
+    </vgr-page-block>
+    <vgr-page-block>
+      <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
+        <vgr-list-header>
+          <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header [text]="'Efternamn'" [width]="10" [sortKey]="'lastName'"></vgr-list-column-header>
+        </vgr-list-header>
 
-          <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
-            <div class="list-item__header">
-              <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-              <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
-            </div>
-            <div class="list-item__content">
-              <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
-              <vgr-button [secondary]="true" (click)="deleteRow(row)">Ta bort</vgr-button>
-            </div>
-          </vgr-list-item>
-        </vgr-list>
-      </div>
+        <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
+          <div class="list-item__header">
+            <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+          </div>
+          <div class="list-item__content">
+            <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
+            <vgr-button [secondary]="true" (click)="deleteRow(row)">Ta bort</vgr-button>
+          </div>
+        </vgr-list-item>
+      </vgr-list>
+    </vgr-page-block>
+    <vgr-page-block>
       <div>
         <h3>HTML</h3>
         <section [innerHTML]="htmlAdvancedListMarkup" highlight-js-content=".highlight"></section>

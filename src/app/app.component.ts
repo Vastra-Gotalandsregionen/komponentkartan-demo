@@ -54,11 +54,16 @@ export class KomponentkartanApplicationComponent {
               {
                 title: 'Kodexempel', menuItems: [
                   { title: 'Lista (enkel)', url: '/listexample-simple' } as IMenuItem,
-                  { title: 'Lista (notifieringar)', url: '/listexample-notifications' } as IMenuItem
+                  { title: 'Lista (notifieringar)', url: '/listexample-notifications' } as IMenuItem,
+                  { title: 'Lista (checkbox & papperskorg)', url: '/listexample-actionbuttons' } as IMenuItem
                 ] as IMenuItem[]
-              } as IMenuItem] as IMenuItem[]
-          }] as IMenuGroup[]
-      } as IMenu
+              } as IMenuItem
+            ] as IMenuItem[]
+          } as IMenuGroup
+        ] as IMenuGroup[]
+      } as IMenu,
+
+
     ] as IMenu[];
 
     this.menus = this.singleMenu;

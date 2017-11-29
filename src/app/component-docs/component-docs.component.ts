@@ -11,5 +11,17 @@ export class ComponentDocsComponent implements OnInit {
 
   ngOnInit() {
   }
+}
 
+@Component({
+  selector: 'app-component-docs2',
+  templateUrl: './component-docs.component2.html',
+  styleUrls: ['./component-docs.component.scss']
+})
+export class ComponentDocsComponent2 implements OnInit {
+  @Input() componentName: string;
+  constructor() { }
+
+  ngOnInit() {
+  }
 }

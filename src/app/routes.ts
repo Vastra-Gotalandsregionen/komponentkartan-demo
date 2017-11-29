@@ -28,6 +28,8 @@ import { MenuComponent } from './menu/menu.component';
 import { Routes } from '@angular/router';
 import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
+import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
+
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
@@ -59,5 +61,6 @@ export const appRoutes: Routes = [
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
     { path: 'listexample-simple', component: ListcodeexampleComponent },
+    { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: '**', redirectTo: '/start' }
 ];
