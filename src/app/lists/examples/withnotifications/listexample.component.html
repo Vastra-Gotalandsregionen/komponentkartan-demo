@@ -3,15 +3,13 @@
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
-      <div>
-        <h2>Lista med notifieringar</h2>
-        <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen
-          på komponenten, klicka
-          <a href="/lists">här.</a>
-        </p>
-      </div>
-      <br>
-
+      <h2>Lista med notifieringar</h2>
+      <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen på
+        komponenten, klicka
+        <a href="/lists">här.</a>
+      </p>
+    </vgr-page-block>
+    <vgr-page-block>
       <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
@@ -29,7 +27,8 @@
           </div>
         </vgr-list-item>
       </vgr-list>
-      <br>
+    </vgr-page-block>
+    <vgr-page-block>
       <div>
         <h3>HTML</h3>
         <section [innerHTML]="htmlAdvancedListMarkup" highlight-js-content=".highlight"></section>

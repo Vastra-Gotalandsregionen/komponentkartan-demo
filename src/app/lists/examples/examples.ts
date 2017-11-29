@@ -126,18 +126,7 @@ export class Examples {
     lastName: string;
   }
   `;
-  htmlAdvancedListMarkup = `<vgr-page>
-  <vgr-page-header [title]="'Exempellista'">
-  </vgr-page-header>
-  <vgr-page-body>
-    <vgr-page-block>
-      <div>
-        <h2>Enkel lista</h2>
-        <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se dokumentationen
-          på komponenten, klicka
-          <a href="/lists">här.</a>
-        </p>
-      </div>
+  htmlAdvancedListMarkup = `
       <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'"
@@ -154,10 +143,7 @@ export class Examples {
             <vgr-button [secondary]="true" (click)="deleteRow(row)">Ta bort</vgr-button>
           </div>
         </vgr-list-item>
-      </vgr-list>
-    </vgr-page-block>
-  </vgr-page-body>
-</vgr-page>`;
+      </vgr-list>`;
 
   htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
@@ -171,7 +157,7 @@ export class Examples {
       <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
       <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
       <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
-      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected" 
+      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
         (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
     </div>
     <div class="list-item__content">
