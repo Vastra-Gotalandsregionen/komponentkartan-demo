@@ -82,9 +82,6 @@ export class CardComponent implements OnInit {
     this.cardExampleMarkup2 = htmlEncoder.prepareHighlightedSection(this.cardExample2);
     this.birthDate = new Date(1976, 5, 17);
   }
-
-
-
   ngOnInit() {
   }
 

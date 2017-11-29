@@ -46,7 +46,6 @@ export class ListexampleComponent {
       message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation,
       type: NotificationType.Permanent
     } as RowNotification;
-    console.log(this.peopleRows);
   }
 
   deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {

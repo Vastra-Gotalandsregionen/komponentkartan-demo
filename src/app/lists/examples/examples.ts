@@ -41,7 +41,8 @@ export class Examples {
 
   htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
     <vgr-list-header>
-      <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+      <vgr-list-column-header [text]="'Förnamn'" [width]="5"
+        [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
       <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
       <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
     </vgr-list-header>
@@ -96,7 +97,6 @@ export class Examples {
         message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation,
         type: NotificationType.Permanent
       } as RowNotification;
-      console.log(this.peopleRows);
     }
 
     deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
@@ -158,4 +158,83 @@ export class Examples {
     </vgr-page-block>
   </vgr-page-body>
 </vgr-page>`;
+
+  htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+  <vgr-list-header>
+    <vgr-list-column-header [text]="'Förnamn'" [width]="9"></vgr-list-column-header>
+    <vgr-list-column-header [text]="'Efternamn'" [width]="9"></vgr-list-column-header>
+    <vgr-list-column-header [width]="1"></vgr-list-column-header>
+    <vgr-list-column-header [width]="1"></vgr-list-column-header>
+  </vgr-list-header>
+  <vgr-list-item *ngFor="let row of peopleRowsSimpleList" [notification]="row.notification">
+    <div class="list-item__header">
+      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
+      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected" 
+        (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
+    </div>
+    <div class="list-item__content">
+      <span>Mer information</span>
+    </div>
+  </vgr-list-item>
+</vgr-list>
+<br>
+<p>Du har valt {{ getSelectedRows() }} rader</p>`;
+
+  typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
+import { ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow } from 'vgr-komponentkartan';
+
+@Component({
+  selector: 'app-listexamplewithactionbuttons',
+  templateUrl: './listexamplewithactionbuttons.component.html',
+  styleUrls: ['./listexamplewithactionbuttons.component.scss']
+})
+export class ListExampleWithActionButtonsComponent {
+  public peopleRowsSimpleList: ExpandableRow<ExamplePerson, any>[];
+
+  constructor(private modalService: ModalService) {
+    this.peopleRowsSimpleList = [
+      new ExpandableRow<ExamplePerson, any>({ id: '1', firstName: 'Git', lastName: 'Hubsson' }),
+      new ExpandableRow<ExamplePerson, any>({ id: '2', firstName: 'Adam', lastName: 'Lind' }),
+      new ExpandableRow<ExamplePerson, any>({ id: '3', firstName: 'Bjarne', lastName: 'Chi' }),
+      new ExpandableRow<ExamplePerson, any>({ id: '4', firstName: 'Carola', lastName: 'Bengtsson' }),
+      new ExpandableRow<ExamplePerson, any>({ id: '5', firstName: 'Erik', lastName: 'Karlsson' }),
+    ];
+  }
+
+  onSelectRowChanged(row: any, checked: boolean) {
+    row.previewObject.selected = checked;
+  }
+
+  onDeleteRow(row: any) {
+    this.removeRow(row);
+  }
+
+  removeRow(row: any) {
+    this.modalService.openDialog('Ta bort raden', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
+      new ModalButtonConfiguration('Ja', () => {
+        row.notifyOnRemove(row.previewObject.firstName + ' togs bort', NotificationIcon.Ok);
+        row.previewObject.selected = false;
+        row.previewObject.deleted = true;
+
+        /*
+          Remove for real...
+        */
+      }),
+      new ModalButtonConfiguration('Nej', () => { }));
+  }
+
+  getSelectedRows(): number {
+    return this.peopleRowsSimpleList && this.peopleRowsSimpleList.filter(r => r.previewObject.selected).length;
+  }
+}
+
+export interface ExamplePerson {
+  id: string;
+  firstName: string;
+  lastName: string;
+  selected?: boolean;
+}
+`;
 }
