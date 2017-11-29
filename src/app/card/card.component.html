@@ -25,11 +25,12 @@
     </p>
   </div>
   <div class="docs__examples ">
+    <h3>Kort med två kolumner</h3>
     <vgr-card [mode]="2">
       <div class="card__top flex-row">
         <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
       </div>
-      <vgr-card-section class="card__left" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Exempel med kontroller'" [readonly]="!unlocked">
+      <vgr-card-section class="card__left" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Personuppgifter'" [readonly]="!unlocked">
         <div class="title-value-layout">
           <vgr-title-value [title]="'Förnamn'" [slim]="!unlocked">
             <vgr-input [value]="'Per-Åke'" [readonly]="!unlocked"></vgr-input>
@@ -48,14 +49,27 @@
           </vgr-title-value>
         </div>
       </vgr-card-section>
-      <vgr-card-section class="card__left" [expanded]="true" [title]="'Rubrik'" [subtitle]="'vänster 2'">
-        <span>Innehåll</span>
+      <vgr-card-section class="card__right" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Adressuppgifter'">
+        <div class="title-value-layout ">
+          <vgr-title-value [title]="'Kommun'" [slim]="true">
+            <span>Vänersborg</span>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Besöksaddress'" [slim]="true">
+            <span>Duellvägen
+              <br>462 60
+              <br>Vänersborg
+            </span>
+          </vgr-title-value>
+          <vgr-title-value [title]="'Geokod (PT90)'" [slim]="true">
+            <span>x: 6471784</span>
+          </vgr-title-value>
+        </div>
       </vgr-card-section>
-      <vgr-card-section class="card__right" [expanded]="false" [title]="'Rubrik'" [subtitle]="'Höger 1'">
+      <vgr-card-section class="card__left" [expanded]="false" [title]="'Rubrik'" [subtitle]="'Övrig information'">
         <span>Innehåll</span>
       </vgr-card-section>
     </vgr-card>
-
+    <br>
     <h3>Markup</h3>
     <section [innerHTML]="cardExampleMarkup" highlight-js-content=".highlight"></section>
     <br>
@@ -64,6 +78,7 @@
   </div>
 
   <div class="docs__examples2">
+    <h3>Kort i fullbredd</h3>
     <vgr-card [mode]="1">
       <div class="card__top flex-row">
         <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
@@ -94,7 +109,7 @@
         <span>Innehåll</span>
       </vgr-card-section>
     </vgr-card>
-
+    <br>
     <h3>Markup</h3>
     <section [innerHTML]="cardExampleMarkup2" highlight-js-content=".highlight"></section>
     <br>
