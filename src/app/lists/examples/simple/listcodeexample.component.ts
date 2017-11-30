@@ -30,10 +30,10 @@ export class ListcodeexampleComponent implements OnInit {
 
   peopleRowSimpleList() {
     this.peopleRowsSimpleList = [
-      { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior' } as ExamplePerson,
-      { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon' } as ExamplePerson,
-      { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard' } as ExamplePerson,
-      { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data' } as ExamplePerson
+      { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior', income: 300000 } as ExamplePerson,
+      { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon', income: 450000 } as ExamplePerson,
+      { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard', income: 230000 } as ExamplePerson,
+      { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data', income: 600000 } as ExamplePerson
     ];
   }
 
@@ -52,5 +52,6 @@ export interface ExamplePerson {
   firstName: string;
   lastName: string;
   occupation: string;
+  income: number;
 }
 

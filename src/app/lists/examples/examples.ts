@@ -16,10 +16,10 @@ export class Examples {
       sortDirections = SortDirection; // Fix för att kunna använda sig utav enum.
       constructor() {
         this.peopleRowsSimpleList = [
-          { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior' } as ExamplePerson,
-          { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon' } as ExamplePerson,
-          { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard' } as ExamplePerson,
-          { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data' } as ExamplePerson
+          { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior', income: 300000 } as ExamplePerson,
+          { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon', income: 450000 } as ExamplePerson,
+          { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard', income: 230000 } as ExamplePerson,
+          { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data', income: 600000 } as ExamplePerson
         ];
       }
 
@@ -37,30 +37,34 @@ export class Examples {
       firstName: string;
       lastName: string;
       occupation: string;
+      income: number;
     }`;
 
   htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-    <vgr-list-header>
-      <vgr-list-column-header [text]="'Förnamn'" [width]="5"
-        [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-      <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
-      <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
-    </vgr-list-header>
-    <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
-      <div class="list-item__header">
-        <vgr-list-column [text]="row.firstName"></vgr-list-column>
-        <vgr-list-column [text]="row.lastName"></vgr-list-column>
-        <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      </div>
-      <div class="list-item__content">
-        <span>Förnamn: {{row.firstName}}</span>
-        <br>
-        <span>Efternamn: {{row.lastName}}</span>
-        <br>
-        <span>Yrke: {{row.occupation}}</span>
-      </div>
-    </vgr-list-item>
-  </vgr-list>`;
+  <vgr-list-header>
+    <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+    <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
+    <vgr-list-column-header [text]="'Yrke'" [width]="5" [sortKey]="'occupation'"></vgr-list-column-header>
+    <vgr-list-column-header [text]="'Inkomst'" [align]="'right'" [width]="5" [sortKey]="'income'"></vgr-list-column-header>
+  </vgr-list-header>
+  <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
+    <div class="list-item__header">
+      <vgr-list-column [text]="row.firstName"></vgr-list-column>
+      <vgr-list-column [text]="row.lastName"></vgr-list-column>
+      <vgr-list-column [text]="row.occupation"></vgr-list-column>
+      <vgr-list-column [text]="row.income"></vgr-list-column>
+    </div>
+    <div class="list-item__content">
+      <span>Förnamn: {{row.firstName}}</span>
+      <br>
+      <span>Efternamn: {{row.lastName}}</span>
+      <br>
+      <span>Yrke: {{row.occupation}}</span>
+      <br>
+      <span>Inkomst: {{row.income}}</span>
+    </div>
+  </vgr-list-item>
+</vgr-list>`;
 
   typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
   import {

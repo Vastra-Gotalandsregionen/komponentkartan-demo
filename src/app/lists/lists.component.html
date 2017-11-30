@@ -15,7 +15,8 @@
                         <div class="content-overview">
                             <p>
                                 <code>&lt;vgr-list&gt;</code> är en lista bestående av
-                                <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex. listor av kort. Rubrikraden är fast positionerad och kan inte scrollas bort.
+                                <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex. listor av kort. Rubrikraden
+                                är fast positionerad och kan inte scrollas bort.
                             </p>
                             <br>
                             <p> Förändras med tema:
@@ -82,13 +83,16 @@
                             <tr>
                                 <td>notification : RowNotification</td>
                                 <td>Ger möjligheten att lägga en notifiering på raden. En
-                                    <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela tiden -
+                                    <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela tiden
+                                    -
                                     <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
                                     <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
                                     <code>NotificationType.ShowOnRemove</code>
                                 </td>
-                                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
-                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property. T.ex:
+                                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation,
+                                    type: notificationTypes.Permanent{{'}'}}"
+                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
+                                    enum som en property. T.ex:
                                     <code>notificationTypes = NotificationType</code>
                                 </td>
                             </tr>
@@ -129,7 +133,8 @@
                                     <code>SortDirection.Descending</code> sortera fallande
                                 </td>
                                 <td>[sortDirection]="sortDirection.Ascending"
-                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property. T.ex:
+                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
+                                    enum som en property. T.ex:
                                     <code>sortDirection = SortDirection</code>
                                 </td>
                             </tr>
@@ -140,9 +145,21 @@
                             </tr>
                             <tr>
                                 <td>width : number</td>
-                                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska vara 20 för vgr-list.</td>
+                                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan
+                                    av width ska vara 20 för vgr-list.
+                                    <br> Bredden på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
                                 <td>
                                     [width]="20"
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>align : string</td>
+                                <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Valida värden är right, left
+                                    och center.
+                                    <br>Om man sätter ett felaktigt värde så sätts defaultvärdet.
+                                    <br> Justeringen på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
+                                <td>
+                                    [align]="'right'"
                                 </td>
                             </tr>
                             <tr>
