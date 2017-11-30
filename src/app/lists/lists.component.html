@@ -1,270 +1,267 @@
 <vgr-page class="no-sort">
-  <vgr-page-header [title]="'List'">
-  </vgr-page-header>
-  <vgr-page-body>
-    <vgr-page-block>
-      <vgr-list [allowMultipleExpandedItems]="true">
-        <vgr-list-header>
-          <vgr-list-column-header [text]="'Dokumentation för list'" [width]="20"></vgr-list-column-header>
-        </vgr-list-header>
-        <vgr-list-item [expanded]="true">
-          <div class="list-item__header">
-            <h4>Översikt</h4>
-          </div>
-          <div class="list-item__content">
-            <div class="content-overview">
-              <p>
-                <code>&lt;vgr-list&gt;</code> är en lista bestående av
-                <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex. listor av
-                kort. Rubrikraden är fast positionerad och kan inte scrollas bort.
-              </p>
-              <br>
-              <p> Förändras med tema:
-                <strong>Nej</strong>
-              </p>
-            </div>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
-            <h4>Exempel</h4>
-          </div>
-          <div class="list-item__content ">
-            Under "kodexempel" finns flera exempel på listor:
-            <br>
-            <a href="/listexample-simple">Enkel lista</a>
-            <br>
-            <a href="/listexample-notifications">Lista med notifieringar</a>
-            <br>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list</h4>
-          </div>
-          <div class="list-item__content ">
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th>Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
-              <tr>
-                <td>allowMultipleExpandedChildren : boolean</td>
-                <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
-                <td>[allowMultipleExpandedChildren]="true"</td>
-              </tr>
-              <tr>
-                <td>flexibleHeader : boolean</td>
-                <td>Kan man sätta om headern skall följa med i scrollningen, default är false.</td>
-                <td>[flexibleHeader]="true"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-item</h4>
-          </div>
-          <div class="list-item__content ">
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
-              <tr>
-                <td>expanded : boolean</td>
-                <td>Anger om raden skall vara expanderad eller inte.</td>
-                <td>[expanded]="false"</td>
-              </tr>
-              <tr>
-                <td>notification : RowNotification</td>
-                <td>Ger möjligheten att lägga en notifiering på raden. En
-                  <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela
-                  tiden -
-                  <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
-                  <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
-                  <code>NotificationType.ShowOnRemove</code>
-                </td>
-                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
-                  <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en
-                  property. T.ex:
-                  <code>notificationTypes = NotificationType</code>
-                </td>
-              </tr>
-              <tr>
-                <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
-                <td>Event som triggas när raden expanderar</td>
-                <td>(expandedChanged)="onExpandedChanged($event)"</td>
-              </tr>
-              <tr>
-                <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
-                <td>Event som triggas när notifiering ändras</td>
-                <td>(notificationChanged)="onNotificationChanged($event)"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-column-header</h4>
-          </div>
-          <div class="list-item__content ">
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
-              <tr>
-                <td>text : string</td>
-                <td>Kolumnens rubrik</td>
-                <td>[text]="'Förnamn'"</td>
-              </tr>
-              <tr>
-                <td>sortDirection : SortDirection</td>
-                <td>Anger åt vilket håll kolumnen sorteras vid initiering
-                  <code>SortDirection.None</code>, default - ingen sortering
-                  <code>SortDirection.Ascending</code> sortera stigande
-                  <code>SortDirection.Descending</code> sortera fallande
-                </td>
-                <td>[sortDirection]="sortDirection.Ascending"
-                  <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en
-                  property. T.ex:
-                  <code>sortDirection = SortDirection</code>
-                </td>
-              </tr>
-              <tr>
-                <td>sortKey : string</td>
-                <td>Nyckel som används för att identifiera kolumnen vid sorteringsevent.</td>
-                <td>[sortKey]="'firstName'"</td>
-              </tr>
-              <tr>
-                <td>width : number</td>
-                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska
-                  vara 20 för vgr-list.</td>
-                <td>
-                  [width]="20"
-                </td>
-              </tr>
-              <tr>
-                <td>sortChanged : EventEmitter&lt;SortDirection&gt;</td>
-                <td>Event som triggas när sortering sker i kolumnen</td>
-                <td>(sortChanged)="onSortChanged($event)"</td>
-              </tr>
+    <vgr-page-header [title]="'List'">
+    </vgr-page-header>
+    <vgr-page-body>
+        <vgr-page-block>
+            <vgr-list [allowMultipleExpandedItems]="true">
+                <vgr-list-header>
+                    <vgr-list-column-header [text]="'Dokumentation för list'" [width]="20"></vgr-list-column-header>
+                </vgr-list-header>
+                <vgr-list-item [expanded]="true">
+                    <div class="list-item__header">
+                        <h4>Översikt</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <div class="content-overview">
+                            <p>
+                                <code>&lt;vgr-list&gt;</code> är en lista bestående av
+                                <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex. listor av kort. Rubrikraden är fast positionerad och kan inte scrollas bort.
+                            </p>
+                            <br>
+                            <p> Förändras med tema:
+                                <strong>Nej</strong>
+                            </p>
+                        </div>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Exempel</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        Under "kodexempel" finns flera exempel på listor:
+                        <br>
+                        <a href="/listexample-simple">Enkel lista</a>
+                        <br>
+                        <a href="/listexample-notifications">Lista med notifieringar</a>
+                        <br>
+                        <br>
+                        <a href="/listexample-actionbuttons/">Lista med checkbox och papperskorg</a>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th>Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>allowMultipleExpandedChildren : boolean</td>
+                                <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
+                                <td>[allowMultipleExpandedChildren]="true"</td>
+                            </tr>
+                            <tr>
+                                <td>flexibleHeader : boolean</td>
+                                <td>Kan man sätta om headern skall följa med i scrollningen, default är false.</td>
+                                <td>[flexibleHeader]="true"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-item</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>expanded : boolean</td>
+                                <td>Anger om raden skall vara expanderad eller inte.</td>
+                                <td>[expanded]="false"</td>
+                            </tr>
+                            <tr>
+                                <td>notification : RowNotification</td>
+                                <td>Ger möjligheten att lägga en notifiering på raden. En
+                                    <code>NotificationType</code> har en icon (Error, Warning, Information) och en typ. Notifieringar kan visas hela tiden -
+                                    <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
+                                    <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
+                                    <code>NotificationType.ShowOnRemove</code>
+                                </td>
+                                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation, type: notificationTypes.Permanent{{'}'}}"
+                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property. T.ex:
+                                    <code>notificationTypes = NotificationType</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
+                                <td>Event som triggas när raden expanderar</td>
+                                <td>(expandedChanged)="onExpandedChanged($event)"</td>
+                            </tr>
+                            <tr>
+                                <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
+                                <td>Event som triggas när notifiering ändras</td>
+                                <td>(notificationChanged)="onNotificationChanged($event)"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-column-header</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
+                            <tr>
+                                <td>text : string</td>
+                                <td>Kolumnens rubrik</td>
+                                <td>[text]="'Förnamn'"</td>
+                            </tr>
+                            <tr>
+                                <td>sortDirection : SortDirection</td>
+                                <td>Anger åt vilket håll kolumnen sorteras vid initiering
+                                    <code>SortDirection.None</code>, default - ingen sortering
+                                    <code>SortDirection.Ascending</code> sortera stigande
+                                    <code>SortDirection.Descending</code> sortera fallande
+                                </td>
+                                <td>[sortDirection]="sortDirection.Ascending"
+                                    <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar enum som en property. T.ex:
+                                    <code>sortDirection = SortDirection</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sortKey : string</td>
+                                <td>Nyckel som används för att identifiera kolumnen vid sorteringsevent.</td>
+                                <td>[sortKey]="'firstName'"</td>
+                            </tr>
+                            <tr>
+                                <td>width : number</td>
+                                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska vara 20 för vgr-list.</td>
+                                <td>
+                                    [width]="20"
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sortChanged : EventEmitter&lt;SortDirection&gt;</td>
+                                <td>Event som triggas när sortering sker i kolumnen</td>
+                                <td>(sortChanged)="onSortChanged($event)"</td>
+                            </tr>
 
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-header</h4>
-          </div>
-          <div class="list-item__content ">
-            Innehåller ett antal vgr-list-column-header element och utför vissa åtgärder på dem.
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-header</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        Innehåller ett antal vgr-list-column-header element och utför vissa åtgärder på dem.
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
 
-              <tr>
-                <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
-                <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
-                <td>(sortChanged)="onSortChanged($event)"</td>
-              </tr>
+                            <tr>
+                                <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
+                                <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
+                                <td>(sortChanged)="onSortChanged($event)"</td>
+                            </tr>
 
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-column</h4>
-          </div>
-          <div class="list-item__content ">
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-column</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
 
-              <tr>
-                <td>text : string</td>
-                <td>Kolumnens textinnehåll</td>
-                <td>[text]="Sverige"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-column-trashcan</h4>
-          </div>
-          <div class="list-item__content ">
-            En variant av vgr-list-column som innehåller en papperskorg.
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
+                            <tr>
+                                <td>text : string</td>
+                                <td>Kolumnens textinnehåll</td>
+                                <td>[text]="Sverige"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-column-trashcan</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        En variant av vgr-list-column som innehåller en papperskorg.
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
 
-              <tr>
-                <td>disabled : boolean</td>
-                <td>Inaktiverar papperskorgen, den blir utgråad.</td>
-                <td>[disabled]="true"</td>
-              </tr>
-              <tr>
-                <td>delete : EventEmitter</td>
-                <td>Event som triggas då användaren trycker på papperskorgen.</td>
-                <td>(delete)="onDelete()"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
-            <h4>API - vgr-list-column-checkbox</h4>
-          </div>
-          <div class="list-item__content ">
-            En variant av vgr-list-column som innehåller en vgr-checkbox.
-            <table class="property-table">
-              <tr>
-                <th>Namn</th>
-                <th style="width:600px">Beskrivning</th>
-                <th>Exempel</th>
-              </tr>
+                            <tr>
+                                <td>disabled : boolean</td>
+                                <td>Inaktiverar papperskorgen, den blir utgråad.</td>
+                                <td>[disabled]="true"</td>
+                            </tr>
+                            <tr>
+                                <td>delete : EventEmitter</td>
+                                <td>Event som triggas då användaren trycker på papperskorgen.</td>
+                                <td>(delete)="onDelete()"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false ">
+                    <div class="list-item__header ">
+                        <h4>API - vgr-list-column-checkbox</h4>
+                    </div>
+                    <div class="list-item__content ">
+                        En variant av vgr-list-column som innehåller en vgr-checkbox.
+                        <table class="property-table">
+                            <tr>
+                                <th>Namn</th>
+                                <th style="width:600px">Beskrivning</th>
+                                <th>Exempel</th>
+                            </tr>
 
-              <tr>
-                <td>disabled : boolean</td>
-                <td>Inaktiverar checkboxen, den blir utgråad.</td>
-                <td>[disabled]="true"</td>
-              </tr>
-              <tr>
-                <td>checked : boolean</td>
-                <td>Inaktiverar checkboxen, den blir utgråad.</td>
-                <td>[disabled]="true"</td>
-              </tr>
-              <tr>
-                <td>checkedChanged : EventEmitter&lt;boolean&gt;</td>
-                <td>Event som triggas då användaren trycker på checkboxen.</td>
-                <td>(checkedChanged)="onCheckChanged($event)"</td>
-              </tr>
-            </table>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
-            <h4>Tillgänglighet</h4>
-          </div>
-          <div class="list-item__content">
-            <i>Under utveckling</i>
-          </div>
-        </vgr-list-item>
-      </vgr-list>
-    </vgr-page-block>
-  </vgr-page-body>
+                            <tr>
+                                <td>disabled : boolean</td>
+                                <td>Inaktiverar checkboxen, den blir utgråad.</td>
+                                <td>[disabled]="true"</td>
+                            </tr>
+                            <tr>
+                                <td>checked : boolean</td>
+                                <td>Inaktiverar checkboxen, den blir utgråad.</td>
+                                <td>[disabled]="true"</td>
+                            </tr>
+                            <tr>
+                                <td>checkedChanged : EventEmitter&lt;boolean&gt;</td>
+                                <td>Event som triggas då användaren trycker på checkboxen.</td>
+                                <td>(checkedChanged)="onCheckChanged($event)"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </vgr-list-item>
+                <vgr-list-item [expanded]="false">
+                    <div class="list-item__header ">
+                        <h4>Tillgänglighet</h4>
+                    </div>
+                    <div class="list-item__content">
+                        <i>Under utveckling</i>
+                    </div>
+                </vgr-list-item>
+            </vgr-list>
+        </vgr-page-block>
+    </vgr-page-body>
 </vgr-page>
