@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
+import { RowNotification, NotificationIcon, NotificationType } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-card',
@@ -81,8 +82,13 @@ export class CardComponent implements OnInit {
   </vgr-card-column>
 </vgr-card>`;
 
-
+  notification: RowNotification;
   constructor(htmlEncoder: HtmlEncodeService) {
+    this.notification = {
+      message: 'Meddelande som visas här, visas även när kortet är öppet.', icon: NotificationIcon.Exclamation,
+      type: NotificationType.Permanent
+    } as RowNotification;
+
     this.cardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.cardExample);
     this.cardExampleMarkup2 = htmlEncoder.prepareHighlightedSection(this.cardExample2);
     this.birthDate = new Date(1976, 5, 17);
