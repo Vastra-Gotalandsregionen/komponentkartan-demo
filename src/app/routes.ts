@@ -2,7 +2,7 @@ import { InputfieldsComponent } from './inputfields/inputfields.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { ColoursComponent } from './colours/colours.component';
-import { CheckboxComponent } from './checkbox/checkbox.component'
+import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DropdownmultiselectComponent } from './dropdownmultiselect/dropdownmultiselect.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
@@ -45,7 +45,7 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'listexample-notifications', component: ListexampleComponent },
+    { path: 'lists/example-notifications', component: ListexampleComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
@@ -60,7 +60,7 @@ export const appRoutes: Routes = [
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
-    { path: 'listexample-simple', component: ListcodeexampleComponent },
-    { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
+    { path: 'lists/example-simple', component: ListcodeexampleComponent },
+    { path: 'lists/example-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: '**', redirectTo: '/start' }
 ];
