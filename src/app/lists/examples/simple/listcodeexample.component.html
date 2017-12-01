@@ -5,8 +5,7 @@
     <vgr-page-block>
       <h2>Enkel lista</h2>
       <p>Här har vi exempel på en enkel lista med endast sortering implementerat och innehåll när man expanderar en rad. Observera
-        även bredden på kolumnerna är satta. Inkomst är satt till align="right" För att se dokumentationen på komponenten,
-        klicka
+        även bredden på kolumnerna är satta. För att se dokumentationen på komponenten, klicka
         <a href="/lists">här.</a>
       </p>
     </vgr-page-block>
@@ -14,7 +13,7 @@
       <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
+          <vgr-list-column-header text="Efternamn" width="2" align="left" sortKey="lastName"></vgr-list-column-header>
           <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
           <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
         </vgr-list-header>

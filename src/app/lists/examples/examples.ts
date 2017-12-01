@@ -150,25 +150,27 @@ export class Examples {
       </vgr-list>`;
 
     htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-  <vgr-list-header>
-    <vgr-list-column-header [text]="'Förnamn'" [width]="9"></vgr-list-column-header>
-    <vgr-list-column-header [text]="'Efternamn'" [width]="9"></vgr-list-column-header>
-    <vgr-list-column-header [width]="1"></vgr-list-column-header>
-    <vgr-list-column-header [width]="1"></vgr-list-column-header>
-  </vgr-list-header>
-  <vgr-list-item *ngFor="let row of peopleRowsSimpleList" [notification]="row.notification">
-    <div class="list-item__header">
-      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
-      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
-      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
+    <vgr-list-header>
+      <vgr-list-column-header text="Förnamn" width="9" align="left" sortKey="firstName"></vgr-list-column-header>
+      <vgr-list-column-header text="Efternamn" width="9" sortKey="lastName"></vgr-list-column-header>
+      <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
+      <vgr-list-column-header width="1"></vgr-list-column-header>
+      <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
+    </vgr-list-header>
+    <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification">
+      <div class="list-item__header">
+        <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
+        <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+        <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'"></vgr-list-column>
+        <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
+        <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
         (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
-    </div>
-    <div class="list-item__content">
-      <span>Mer information</span>
-    </div>
-  </vgr-list-item>
-</vgr-list>
+      </div>
+      <div class="list-item__content">
+        <span>Mer information</span>
+      </div>
+    </vgr-list-item>
+  </vgr-list>
 <br>
 <p>Du har valt {{ getSelectedRows() }} rader</p>`;
 
@@ -218,6 +220,27 @@ export class ListExampleWithActionButtonsComponent {
   getSelectedRows(): number {
     return this.peopleRowsSimpleList && this.peopleRowsSimpleList.filter(r => r.previewObject.selected).length;
   }
+
+  onSortChanged(event: SortChangedArgs) {
+    if (event.key === 'selected') {
+        if (event.direction === SortDirection.Ascending) {
+            this.peopleRows = this.peopleRows.sort(function (x, y) {
+                return (x.previewObject.selected === y.previewObject.selected) ? 0 : x.previewObject.selected ? -1 : 1;
+            });
+        } else {
+            this.peopleRows = this.peopleRows.sort(function (x, y) {
+                return (x.previewObject.selected === y.previewObject.selected) ? 0 : y.previewObject.selected ? -1 : 1;
+            });
+        }
+    } else {
+        this.peopleRows = this.peopleRows.sort((row1, row2) => {
+            return row1.previewObject[event.key] > row2.previewObject[event.key] ?
+                (event.direction === SortDirection.Ascending ? 1 : -1) :
+                row1.previewObject[event.key] < row2.previewObject[event.key] ?
+                    (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+        });
+    }
+}
 }
 
 export interface ExamplePerson {

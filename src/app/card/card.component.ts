@@ -3,17 +3,17 @@ import { HtmlEncodeService } from '../html-encode.service';
 import { RowNotification, NotificationIcon, NotificationType } from 'vgr-komponentkartan';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
 
-  cardExampleMarkup: string;
-  cardExampleMarkup2: string;
+    cardExampleMarkup: string;
+    cardExampleMarkup2: string;
 
-  birthDate: Date;
-  cardExample = `<vgr-card>
+    birthDate: Date;
+    cardExample = `<vgr-card>
   <vgr-card-header>
     <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true"
     (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
@@ -62,7 +62,7 @@ export class CardComponent implements OnInit {
   </vgr-card-column>
 </vgr-card>`;
 
-  cardExample2 = ` <vgr-card>
+    cardExample2 = ` <vgr-card>
   <vgr-card-header>
     <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true"
     (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
@@ -82,18 +82,18 @@ export class CardComponent implements OnInit {
   </vgr-card-column>
 </vgr-card>`;
 
-  notification: RowNotification;
-  constructor(htmlEncoder: HtmlEncodeService) {
-    this.notification = {
-      message: 'Meddelande som visas här, visas även när kortet är öppet.', icon: NotificationIcon.Exclamation,
-      type: NotificationType.Permanent
-    } as RowNotification;
+    notification: RowNotification;
+    constructor(htmlEncoder: HtmlEncodeService) {
+        this.notification = {
+            message: 'Meddelande som visas här, visas även när kortet är öppet. Meddelande som visas här, visas även när kortet är öppet. Meddelande som visas här,', icon: NotificationIcon.Exclamation,
+            type: NotificationType.Permanent
+        } as RowNotification;
 
-    this.cardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.cardExample);
-    this.cardExampleMarkup2 = htmlEncoder.prepareHighlightedSection(this.cardExample2);
-    this.birthDate = new Date(1976, 5, 17);
-  }
-  ngOnInit() {
-  }
+        this.cardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.cardExample);
+        this.cardExampleMarkup2 = htmlEncoder.prepareHighlightedSection(this.cardExample2);
+        this.birthDate = new Date(1976, 5, 17);
+    }
+    ngOnInit() {
+    }
 
 }
