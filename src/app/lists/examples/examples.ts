@@ -1,5 +1,5 @@
 export class Examples {
-  typeScriptSimpleListMarkup = `import { Component, OnInit } from '@angular/core';
+    typeScriptSimpleListMarkup = `import { Component, OnInit } from '@angular/core';
     import {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
       SortChangedArgs // Args när sorteringordningen ändras.
@@ -16,10 +16,10 @@ export class Examples {
       sortDirections = SortDirection; // Fix för att kunna använda sig utav enum.
       constructor() {
         this.peopleRowsSimpleList = [
-          { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior' } as ExamplePerson,
-          { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon' } as ExamplePerson,
-          { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard' } as ExamplePerson,
-          { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data' } as ExamplePerson
+          { id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior', income: 300000 } as ExamplePerson,
+          { id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon', income: 450000 } as ExamplePerson,
+          { id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard', income: 230000 } as ExamplePerson,
+          { id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data', income: 600000 } as ExamplePerson
         ];
       }
 
@@ -37,32 +37,36 @@ export class Examples {
       firstName: string;
       lastName: string;
       occupation: string;
+      income: number;
     }`;
 
-  htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-    <vgr-list-header>
-      <vgr-list-column-header [text]="'Förnamn'" [width]="5"
-        [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-      <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
-      <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
-    </vgr-list-header>
-    <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
-      <div class="list-item__header">
-        <vgr-list-column [text]="row.firstName"></vgr-list-column>
-        <vgr-list-column [text]="row.lastName"></vgr-list-column>
-        <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      </div>
-      <div class="list-item__content">
-        <span>Förnamn: {{row.firstName}}</span>
-        <br>
-        <span>Efternamn: {{row.lastName}}</span>
-        <br>
-        <span>Yrke: {{row.occupation}}</span>
-      </div>
-    </vgr-list-item>
-  </vgr-list>`;
+    htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+  <vgr-list-header>
+    <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+    <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
+    <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
+    <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
+  </vgr-list-header>
+  <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
+    <div class="list-item__header">
+      <vgr-list-column [text]="row.firstName"></vgr-list-column>
+      <vgr-list-column [text]="row.lastName"></vgr-list-column>
+      <vgr-list-column [text]="row.occupation"></vgr-list-column>
+      <vgr-list-column [text]="row.income"></vgr-list-column>
+    </div>
+    <div class="list-item__content">
+      <span>Förnamn: {{row.firstName}}</span>
+      <br>
+      <span>Efternamn: {{row.lastName}}</span>
+      <br>
+      <span>Yrke: {{row.occupation}}</span>
+      <br>
+      <span>Inkomst: {{row.income | currency : 'SEK'}}</span>
+    </div>
+  </vgr-list-item>
+</vgr-list>`;
 
-  typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
+    typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
   import {
     ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
     ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
@@ -126,7 +130,7 @@ export class Examples {
     lastName: string;
   }
   `;
-  htmlAdvancedListMarkup = `
+    htmlAdvancedListMarkup = `
       <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'"
@@ -145,30 +149,32 @@ export class Examples {
         </vgr-list-item>
       </vgr-list>`;
 
-  htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-  <vgr-list-header>
-    <vgr-list-column-header [text]="'Förnamn'" [width]="9"></vgr-list-column-header>
-    <vgr-list-column-header [text]="'Efternamn'" [width]="9"></vgr-list-column-header>
-    <vgr-list-column-header [width]="1"></vgr-list-column-header>
-    <vgr-list-column-header [width]="1"></vgr-list-column-header>
-  </vgr-list-header>
-  <vgr-list-item *ngFor="let row of peopleRowsSimpleList" [notification]="row.notification">
-    <div class="list-item__header">
-      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
-      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
-      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
+    htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+    <vgr-list-header>
+      <vgr-list-column-header text="Förnamn" width="9" align="left" sortKey="firstName"></vgr-list-column-header>
+      <vgr-list-column-header text="Efternamn" width="9" sortKey="lastName"></vgr-list-column-header>
+      <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
+      <vgr-list-column-header width="1"></vgr-list-column-header>
+      <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
+    </vgr-list-header>
+    <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification">
+      <div class="list-item__header">
+        <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
+        <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+        <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'"></vgr-list-column>
+        <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
+        <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
         (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
-    </div>
-    <div class="list-item__content">
-      <span>Mer information</span>
-    </div>
-  </vgr-list-item>
-</vgr-list>
+      </div>
+      <div class="list-item__content">
+        <span>Mer information</span>
+      </div>
+    </vgr-list-item>
+  </vgr-list>
 <br>
 <p>Du har valt {{ getSelectedRows() }} rader</p>`;
 
-  typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
+    typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
 import { ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow } from 'vgr-komponentkartan';
 
 @Component({
@@ -214,6 +220,27 @@ export class ListExampleWithActionButtonsComponent {
   getSelectedRows(): number {
     return this.peopleRowsSimpleList && this.peopleRowsSimpleList.filter(r => r.previewObject.selected).length;
   }
+
+  onSortChanged(event: SortChangedArgs) {
+    if (event.key === 'selected') {
+        if (event.direction === SortDirection.Ascending) {
+            this.peopleRows = this.peopleRows.sort(function (x, y) {
+                return (x.previewObject.selected === y.previewObject.selected) ? 0 : x.previewObject.selected ? -1 : 1;
+            });
+        } else {
+            this.peopleRows = this.peopleRows.sort(function (x, y) {
+                return (x.previewObject.selected === y.previewObject.selected) ? 0 : y.previewObject.selected ? -1 : 1;
+            });
+        }
+    } else {
+        this.peopleRows = this.peopleRows.sort((row1, row2) => {
+            return row1.previewObject[event.key] > row2.previewObject[event.key] ?
+                (event.direction === SortDirection.Ascending ? 1 : -1) :
+                row1.previewObject[event.key] < row2.previewObject[event.key] ?
+                    (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+        });
+    }
+}
 }
 
 export interface ExamplePerson {

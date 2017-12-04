@@ -4,7 +4,7 @@
   <vgr-page-body>
     <vgr-page-block>
       <h2>Enkel lista</h2>
-      <p>Här har vi exempel på en enkel lista med endast sortering implementerat och innehåll när man exapnderar en rad. Observera
+      <p>Här har vi exempel på en enkel lista med endast sortering implementerat och innehåll när man expanderar en rad. Observera
         även bredden på kolumnerna är satta. För att se dokumentationen på komponenten, klicka
         <a href="/lists">här.</a>
       </p>
@@ -12,15 +12,17 @@
     <vgr-page-block>
       <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
-          <vgr-list-column-header [text]="'Förnamn'" [width]="5" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header [text]="'Efternamn'" [width]="5" [sortKey]="'lastName'"></vgr-list-column-header>
-          <vgr-list-column-header [text]="'Yrke'" [width]="10" [sortKey]="'occupation'"></vgr-list-column-header>
+          <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header text="Efternamn" width="5" align="left" sortKey="lastName"></vgr-list-column-header>
+          <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
+          <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
           <div class="list-item__header">
             <vgr-list-column [text]="row.firstName"></vgr-list-column>
             <vgr-list-column [text]="row.lastName"></vgr-list-column>
             <vgr-list-column [text]="row.occupation"></vgr-list-column>
+            <vgr-list-column [text]="row.income"></vgr-list-column>
           </div>
           <div class="list-item__content">
             <span>Förnamn: {{row.firstName}}</span>
@@ -28,6 +30,8 @@
             <span>Efternamn: {{row.lastName}}</span>
             <br>
             <span>Yrke: {{row.occupation}}</span>
+            <br>
+            <span>Inkomst: {{row.income | currency : 'SEK'}}</span>
           </div>
         </vgr-list-item>
       </vgr-list>

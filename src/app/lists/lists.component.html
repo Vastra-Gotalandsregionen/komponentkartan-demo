@@ -36,6 +36,8 @@
             <br>
             <a href="/listexample-notifications">Lista med notifieringar</a>
             <br>
+
+            <a href="/listexample-actionbuttons/">Lista med checkbox och papperskorg</a>
           </div>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
@@ -143,9 +145,19 @@
               <tr>
                 <td>width : number</td>
                 <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska
-                  vara 20 för vgr-list.</td>
+                  vara 20 för vgr-list.
+                  <br> Bredden på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
                 <td>
                   [width]="20"
+                </td>
+              </tr>
+              <tr>
+                <td>align : string</td>
+                <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och center.
+                  <br>Om man sätter ett felaktigt värde så sätts defaultvärdet.
+                  <br> Justeringen på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
+                <td>
+                  [align]="'right'"
                 </td>
               </tr>
               <tr>
