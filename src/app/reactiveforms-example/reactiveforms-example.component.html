@@ -1,0 +1,39 @@
+<vgr-page>
+  <vgr-page-header [title]="'Kodexempel Reactive Forms'">
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <form [formGroup]="userForm">
+        <div class="title-value-layout">
+          <vgr-title-value title="Förnamn">
+            <vgr-input formControlName="firstname" [isInvalid]="userForm.controls.firstname.invalid" [errormessage]="'Du måste ange ett namn på minst 2 tecken'"></vgr-input>
+          </vgr-title-value>
+          <vgr-title-value title="Efternamn">
+            <vgr-input formControlName="lastname" [isInvalid]="userForm.controls.lastname.invalid" [errormessage]="'Du måste ange ett namn på minst 2 tecken'"></vgr-input>
+          </vgr-title-value>
+          <vgr-title-value title="Ålder">
+            <vgr-input formControlName="age" [rightAlign]="true" [suffix]="'år'" [isInvalid]="userForm.controls.age.invalid" [errormessage]="'Felaktig ålder'"></vgr-input>
+          </vgr-title-value>
+          <vgr-title-value title="E-post">
+            <vgr-input formControlName="email" [isInvalid]="userForm.controls.email.invalid" [errormessage]="'Ange en giltig e-postadress'"></vgr-input>
+          </vgr-title-value>
+        </div>
+        <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
+      </form>
+    </vgr-page-block>
+    <vgr-page-block>
+
+    </vgr-page-block>
+    <!-- <vgr-page-block>
+        <div>
+          <h3>HTML</h3>
+          <section [innerHTML]="htmlSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+        <br>
+        <div>
+          <h3>Typescript</h3>
+          <section [innerHTML]="typeScriptSimpleListMarkup" highlight-js-content=".highlight"></section>
+        </div>
+      </vgr-page-block> -->
+  </vgr-page-body>
+</vgr-page>
