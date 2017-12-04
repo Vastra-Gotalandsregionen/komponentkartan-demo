@@ -1,7 +1,7 @@
 // Core
 import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core'
 import { BrowserModule, Title } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 // Komponentkartan
@@ -12,7 +12,7 @@ import { KomponentkartanApplicationComponent } from './app.component';
 
 import { appRoutes } from './routes';
 import { InputfieldsComponent } from './inputfields/inputfields.component';
-import { Cityservice } from './inputfields/cityservice';
+import { CityService } from './inputfields/cityservice';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -53,6 +53,7 @@ import { MenuComponent } from './menu/menu.component';
         KomponentkartanModule,
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HighlightJsModule,
         RouterModule.forRoot(appRoutes)
     ],
@@ -92,7 +93,7 @@ import { MenuComponent } from './menu/menu.component';
         ListExampleWithActionButtonsComponent
     ],
     providers: [
-        Cityservice,
+        CityService,
         HighlightJsService,
         HtmlEncodeService,
         { provide: LOCALE_ID, useValue: 'sv-SE' }

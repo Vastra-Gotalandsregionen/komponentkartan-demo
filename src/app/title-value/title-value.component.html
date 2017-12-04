@@ -18,13 +18,13 @@
         <vgr-card-section [title]="'Belopp readonly (slim)'" [expanded]="true">
           <div class="title-value-layout">
             <vgr-title-value [title]="'Bruttobelopp'" [slim]="true">
-              <vgr-input [value]="1000" [type]="'amount'" [readonly]="true"></vgr-input>
+              <vgr-input [value]="1000" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
             </vgr-title-value>
             <vgr-title-value [title]="'Skattesats'" [slim]="true">
-              <vgr-input [value]="32" [type]="'percent'" [readonly]="true"></vgr-input>
+              <vgr-input [value]="32" [suffix]="'%'" [alignRight]="true" [readonly]="true"></vgr-input>
             </vgr-title-value>
             <vgr-title-value [title]="'Nettobelopp'" [slim]="true">
-              <vgr-input [value]="32" [type]="'amount'" [readonly]="true"></vgr-input>
+              <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
             </vgr-title-value>
           </div>
         </vgr-card-section>
@@ -33,13 +33,13 @@
         <vgr-card-section [title]="'Belopp'" [expanded]="true" class="card__right">
           <div class="title-value-layout">
             <vgr-title-value [title]="'Bruttobelopp'">
-              <vgr-input [value]="10000" [type]="'amount'"></vgr-input>
+              <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
             </vgr-title-value>
             <vgr-title-value [title]="'Skattesats'">
-              <vgr-input [value]="32" [type]="'percent'"></vgr-input>
+              <vgr-input [value]="32" [suffix]="'%'" [alignRight]="true"></vgr-input>
             </vgr-title-value>
             <vgr-title-value [title]="'Nettobelopp'">
-              <vgr-input [value]="32" [type]="'amount'"></vgr-input>
+              <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true"></vgr-input>
             </vgr-title-value>
           </div>
         </vgr-card-section>

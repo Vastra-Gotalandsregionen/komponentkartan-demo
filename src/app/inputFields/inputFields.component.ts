@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/component-package/models/validation.model';
-
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model';
-import { Cityservice } from './cityservice';
+import { CityService } from './cityservice';
 
 @Component({
   selector: 'app-inputfields',
   templateUrl: './inputfields.component.html',
   styleUrls: ['./inputfields.component.scss']
 })
-export class InputfieldsComponent implements OnInit {
+export class InputfieldsComponent {
+  // Reactive form
+  form: FormGroup;
+
   // Enum declarations
   cityName: string;
   amount1: number;
@@ -18,16 +21,18 @@ export class InputfieldsComponent implements OnInit {
   numericValue: number;
   percentValue: number;
   kmValue: number;
-  cityValidator: IValidator;
   intValue: number;
+  headerExpanded: boolean;
   isSmall: boolean;
 
-  ngOnInit() { }
-  constructor(private cityservice: Cityservice) {
+  validationMessage: string;
+  formErrors: any;
+
+  state: string;
+  allCities: any;
+
+  constructor(private fb: FormBuilder) {
     this.cityName = 'Houstons';
-    this.cityValidator = {
-      validate: (s: any) => this.validateCityName(s)
-    };
     this.amount1 = 15000;
     this.amount2 = -25.5;
     this.percentValue = 0.02;
@@ -35,28 +40,50 @@ export class InputfieldsComponent implements OnInit {
     this.intValue = 0;
     this.isSmall = false;
   }
-  validateCityName(cityName: string): IValidationResult {
-    const allCities = this.cityservice.getCities();
-    if (allCities.filter(x => x.city === cityName).length === 0) {
-      return { validationError: 'Ange en av de 1000 största städerna i USA', isValid: false };
-    }
-    return { isValid: true, validationError: '' } as IValidationResult;
-  }
-  validateEmail(email: string): IValidationResult {
-    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const isValid = regex.test(email);
 
-    return { isValid: isValid, validationError: isValid ? '' : 'Ogiltig e-postadress' } as IValidationResult;
+  ngOnInit() {
+    this.createForm();
+    this.validationMessage = 'aj då';
+
+
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      control1: [this.amount1],
+      control2: [this.amount2, Validators.required],
+      control3: [this.percentValue],
+      control4: [this.kmValue],
+      control5: [this.numericValue],
+      control6: [],
+      control7: ['abc', Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$')],
+      control8: ['', Validators.pattern('^.{2,6}$')],
+      control9: [this.intValue, Validators.pattern('^[0-9]+$')],
+      control10: ['', Validators.required],
+      control11: ['Visar värdet utan ram'],
+      control12: [],
+      control13: [this.cityName, validateCityName],
+      control14: ['', Validators.email]
+    });
   }
 
   formatNumericValue(value: number) {
     return isNaN(value) ? 'Inget' : value;
   }
+
   toggleInputType(option: ISelectableItem) {
-    if (option.displayName === 'Stor') {
+    if (option.displayName === 'Stor')
       this.isSmall = false;
-    } else {
+    else
       this.isSmall = true;
-    }
   }
 }
+
+function validateCityName(control: AbstractControl) {
+  const service = new CityService();
+  const allCities = service.getCities();
+  if (allCities.filter(x => x.city === control.value).length > 0) {
+      return null
+  }
+  return { invalidCity: true };
+    

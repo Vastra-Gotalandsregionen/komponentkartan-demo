@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Injectable()
-export class Cityservice {
+export class CityService {
     getCities(): ICityinformation[] {
         return [
             {
