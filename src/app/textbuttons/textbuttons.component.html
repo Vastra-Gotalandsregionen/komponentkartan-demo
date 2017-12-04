@@ -6,8 +6,8 @@
         &lt;vgr-button&gt; </code> finns i två olika utföranden, primär och sekundär.
       <br>
       <br>
-      <vgr-button (buttonClick)="lastButtonPressed = 'Klicka här - primär'">Klicka här</vgr-button>
-      <vgr-button [secondary]="true" (buttonClick)="lastButtonPressed = 'Klicka här - sekundär'">Klicka här</vgr-button>
+      <vgr-button (click)="lastButtonPressed = 'Klicka här - primär'">Klicka här</vgr-button>
+      <vgr-button [secondary]="true" (click)="lastButtonPressed = 'Klicka här - sekundär'">Klicka här</vgr-button>
     </p>
     <p> Förändras med tema:
       <strong>Ja</strong>
@@ -55,12 +55,7 @@
         <td>[disabled]="true"</td>
       </tr>
       <tr>
-        <td>describedBy : string</td>
-        <td>Innehåller referens till en beskrivning på knappen (wcag)</td>
-        <td>[describedBy]="'info'"</td>
-      </tr>
-      <tr>
-        <td>click = new EventEmitter&lt;string&gt;</td>
+        <td>click = new EventEmitter</td>
         <td>Event när knapp trycks ner</td>
         <td>(click)="OnClick()"</td>
       </tr>
@@ -75,8 +70,7 @@
     <p>Förutom rollen så används attributen:</p>
     <ul class="doc-list">
       <li>aria-disabled, om knappen är inaktiv eller aktiv </li>
-      <li>aria-describedby, referens till beskrivning utav knappen om sådan finns. Ska vara ett Id till html-element som innehåller
-        beskrivningen tex, "info" </li>
+
     </ul>
     <br>
     <p>Vid knappaktivering flyttas fokus beroende på vilken åtgärd som knappen utför. Till exempel:</p>
