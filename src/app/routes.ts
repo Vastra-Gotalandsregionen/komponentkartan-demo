@@ -29,6 +29,7 @@ import { Routes } from '@angular/router';
 import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
+import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
 
 export const appRoutes: Routes = [
 
@@ -62,5 +63,6 @@ export const appRoutes: Routes = [
     { path: 'menu', component: MenuComponent },
     { path: 'lists/example-simple', component: ListcodeexampleComponent },
     { path: 'lists/example-actionbuttons', component: ListExampleWithActionButtonsComponent },
+    { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
     { path: '**', redirectTo: '/start' }
 ];

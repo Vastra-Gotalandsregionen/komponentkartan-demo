@@ -55,7 +55,8 @@ export class KomponentkartanApplicationComponent {
                                 title: 'Kodexempel', menuItems: [
                                     { title: 'Lista (enkel)', url: '/lists/example-simple' } as IMenuItem,
                                     { title: 'Lista (notifieringar)', url: '/lists/example-notifications' } as IMenuItem,
-                                    { title: 'Lista (checkbox & papperskorg)', url: '/lists/example-actionbuttons' } as IMenuItem
+                                    { title: 'Lista (checkbox & papperskorg)', url: '/lists/example-actionbuttons' } as IMenuItem,
+                                    { title: 'Reactive Forms', url: 'reactiveformsexample' } as IMenuItem
                                 ] as IMenuItem[]
                             } as IMenuItem
                         ] as IMenuItem[]

@@ -1,6 +1,6 @@
 // Core
-import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core'
-import { BrowserModule, Title } from '@angular/platform-browser'
+import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -35,6 +35,7 @@ import { ThemingComponent } from './theming/theming.component';
 import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
+import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
 import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { ComponentDocsComponent2 } from './component-docs/component-docs.component';
@@ -90,7 +91,8 @@ import { MenuComponent } from './menu/menu.component';
         SizesComponent,
         MenuComponent,
         ListcodeexampleComponent,
-        ListExampleWithActionButtonsComponent
+        ListExampleWithActionButtonsComponent,
+        ReactiveformsexampleComponent
     ],
     providers: [
         CityService,
