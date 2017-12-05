@@ -51,7 +51,11 @@ export class ListExampleWithActionButtonsComponent {
     }
 
     getSelectedRows(): number {
-        return this.peopleRows && this.peopleRows.filter(r => r.previewObject.selected).length;
+        if (!this.peopleRows) {
+            return 0;
+        } else {
+            return this.peopleRows && this.peopleRows.filter(r => r.previewObject.selected).length;
+        }
     }
 
     onSortChanged(event: SortChangedArgs) {
