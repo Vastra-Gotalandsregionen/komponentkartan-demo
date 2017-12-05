@@ -29,7 +29,7 @@ export class InputfieldsComponent implements OnInit {
       control5: [],
       control6: [],
       control7: ['abc', Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$')],
-      control8: ['', Validators.pattern('^.{2,6}$')],
+      control8: ['', [Validators.pattern('^.{2,6}$'), Validators.required]],
       control9: [0, Validators.pattern('^[0-9]+$')],
       control10: ['', Validators.required],
       control11: ['Visar värdet utan ram'],

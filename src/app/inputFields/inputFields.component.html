@@ -29,26 +29,26 @@
 
           <h2>Fördefinierade typer</h2>
           <div>
-            Belopp 1 (type=amount)
+            Belopp 1 (suffix=kr, alignRight = true)
             <vgr-input formControlName="control1" [suffix]="'kr'" [alignRight]="true" [small]="isSmall"></vgr-input>
             <span>Belopp 1: </span>
             <span>{{formatNumericValue(form.controls.control1.value)}}</span>
           </div>
           <div>
-            Belopp 2, obligatoriskt
+            Belopp 2, obligatoriskt (suffix=kr, alignRight = true)
             <vgr-input formControlName="control2" [suffix]="'kr'" [alignRight]="true" [small]="isSmall" [isInvalid]="form.get('control2').invalid"
               [errormessage]="'Fältet är obligatoriskt'"></vgr-input>
             <span>Belopp 2: </span>
             <span>{{formatNumericValue(form.controls.control2.value)}}</span>
           </div>
           <div>
-            Procent
+            Procent (suffix=%, alignRight = true)
             <vgr-input formControlName="control3" [suffix]="'%'" [alignRight]="true" [small]="isSmall"></vgr-input>
             <span>Procent: </span>
             <span>{{formatNumericValue(form.controls.control3.value)}}</span>
           </div>
           <div>
-            Km
+            Km (suffix=km, alignRight = true)
             <vgr-input formControlName="control4" [suffix]="'km'" [alignRight]="true" [small]="isSmall"></vgr-input>
             <span>Km: </span>
             <span>{{formatNumericValue(form.controls.control4.value)}}</span>
