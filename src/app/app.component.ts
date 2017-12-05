@@ -21,7 +21,7 @@ export class KomponentkartanApplicationComponent {
                 groups: [
                     {
                         menuItems: [
-                            { title: 'Start', url: '/start' } as IMenuItem,
+                            { title: 'Start', url: '/' } as IMenuItem,
                             { title: 'Validering', url: '/validation' } as IMenuItem,
                             { title: 'Temahantering', url: '/theming' } as IMenuItem,
                             { title: 'Sidhantering', url: '/pagestructure' } as IMenuItem,

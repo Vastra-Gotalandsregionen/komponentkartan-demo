@@ -53,7 +53,7 @@ export const appRoutes: Routes = [
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
     { path: 'validation', component: DemoValidationComponent },
-    { path: 'start', component: StartComponent },
+    { path: '', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
@@ -64,5 +64,5 @@ export const appRoutes: Routes = [
     { path: 'listexample-simple', component: ListcodeexampleComponent },
     { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
-    { path: '**', redirectTo: '/start' }
+    { path: '**', redirectTo: '/' }
 ];
