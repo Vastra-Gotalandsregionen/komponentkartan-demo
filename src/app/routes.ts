@@ -46,7 +46,7 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'lists/example-notifications', component: ListexampleComponent },
+    { path: 'listexample-notifications', component: ListexampleComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
@@ -61,8 +61,8 @@ export const appRoutes: Routes = [
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
-    { path: 'lists/example-simple', component: ListcodeexampleComponent },
-    { path: 'lists/example-actionbuttons', component: ListExampleWithActionButtonsComponent },
+    { path: 'listexample-simple', component: ListcodeexampleComponent },
+    { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
     { path: '**', redirectTo: '/start' }
 ];

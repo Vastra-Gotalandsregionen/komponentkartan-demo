@@ -18,9 +18,8 @@ export class ListExampleWithActionButtonsComponent {
     htmlSimpleListMarkup: string;
     examples: Examples = new Examples();
 
-
-    createExampleList(): ExpandableRow<ExamplePerson, any>[] {
-        return [
+    loadData() {
+        this.peopleRows = [
             new ExpandableRow<ExamplePerson, any>({ id: '1', firstName: 'Git', lastName: 'Hubsson', amount: 125000 }),
             new ExpandableRow<ExamplePerson, any>({ id: '2', firstName: 'Adam', lastName: 'Lind', amount: 235000 }),
             new ExpandableRow<ExamplePerson, any>({ id: '3', firstName: 'Bjarne', lastName: 'Chi', amount: 25000 }),
@@ -79,7 +78,7 @@ export class ListExampleWithActionButtonsComponent {
 
 
     constructor(htmlEncoder: HtmlEncodeService, private modalService: ModalService) {
-        this.peopleRows = this.createExampleList();
+
         this.typeScriptSimpleListMarkup =
             htmlEncoder.prepareHighlightedSection(this.examples.typeScriptActionButtonsListMarkup, 'typescript');
         this.htmlSimpleListMarkup =
