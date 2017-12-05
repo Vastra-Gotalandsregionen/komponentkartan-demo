@@ -1,5 +1,5 @@
 export class Examples {
-    typeScriptSimpleListMarkup = `import { Component, OnInit } from '@angular/core';
+  typeScriptSimpleListMarkup = `import { Component, OnInit } from '@angular/core';
     import {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
       SortChangedArgs // Args när sorteringordningen ändras.
@@ -40,33 +40,34 @@ export class Examples {
       income: number;
     }`;
 
-    htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-  <vgr-list-header>
-    <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-    <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
-    <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
-    <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
-  </vgr-list-header>
-  <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
-    <div class="list-item__header">
-      <vgr-list-column [text]="row.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.lastName"></vgr-list-column>
-      <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      <vgr-list-column [text]="row.income| number:'2.2-2':'sv'"></vgr-list-column>
-    </div>
-    <div class="list-item__content">
-      <span>Förnamn: {{row.firstName}}</span>
-      <br>
-      <span>Efternamn: {{row.lastName}}</span>
-      <br>
-      <span>Yrke: {{row.occupation}}</span>
-      <br>
-      <span>Inkomst: {{row.income | currency : 'SEK'}}</span>
-    </div>
-  </vgr-list-item>
-</vgr-list>`;
+  htmltSimpleListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+    <vgr-list-header>
+      <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName"
+      [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+      <vgr-list-column-header text="Efternamn" width="5" align="left" sortKey="lastName"></vgr-list-column-header>
+      <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
+      <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
+    </vgr-list-header>
+    <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
+      <div class="list-item__header">
+        <vgr-list-column [text]="row.firstName"></vgr-list-column>
+        <vgr-list-column [text]="row.lastName"></vgr-list-column>
+        <vgr-list-column [text]="row.occupation"></vgr-list-column>
+        <vgr-list-column [text]="row.income| number:'2.2-2':'sv'"></vgr-list-column>
+      </div>
+      <div class="list-item__content">
+        <span>Förnamn: {{row.firstName}}</span>
+        <br>
+        <span>Efternamn: {{row.lastName}}</span>
+        <br>
+        <span>Yrke: {{row.occupation}}</span>
+        <br>
+        <span>Inkomst: {{row.income | currency : 'SEK'}}</span>
+      </div>
+    </vgr-list-item>
+  </vgr-list>`;
 
-    typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
+  typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
   import {
     ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
     ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
@@ -130,7 +131,7 @@ export class Examples {
     lastName: string;
   }
   `;
-    htmlAdvancedListMarkup = `
+  htmlAdvancedListMarkup = `
       <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
           <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'"
@@ -149,32 +150,32 @@ export class Examples {
         </vgr-list-item>
       </vgr-list>`;
 
-    htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
-    <vgr-list-header>
-      <vgr-list-column-header text="Förnamn" width="9" align="left" sortKey="firstName"></vgr-list-column-header>
-      <vgr-list-column-header text="Efternamn" width="9" sortKey="lastName"></vgr-list-column-header>
-      <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
-      <vgr-list-column-header width="1"></vgr-list-column-header>
-      <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
-    </vgr-list-header>
-    <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification">
-      <div class="list-item__header">
-        <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-        <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
-        <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'"></vgr-list-column>
-        <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
-        <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
-        (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
-      </div>
-      <div class="list-item__content">
-        <span>Mer information</span>
-      </div>
-    </vgr-list-item>
-  </vgr-list>
+  htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+  <vgr-list-header>
+    <vgr-list-column-header text="Förnamn" width="10" align="left" sortKey="firstName"></vgr-list-column-header>
+    <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
+    <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
+    <vgr-list-column-header width="1"></vgr-list-column-header>
+    <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
+  </vgr-list-header>
+  <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification">
+    <div class="list-item__header">
+      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'"></vgr-list-column>
+      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
+      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
+       (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
+    </div>
+    <div class="list-item__content">
+      <span>Mer information</span>
+    </div>
+  </vgr-list-item>
+</vgr-list>
 <br>
 <p>Du har valt {{ getSelectedRows() }} rader</p>`;
 
-    typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
+  typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
     import { HtmlEncodeService } from '../../../html-encode.service';
     import { Examples } from '../examples';
     import {
