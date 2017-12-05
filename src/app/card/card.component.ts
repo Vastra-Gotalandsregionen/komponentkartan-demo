@@ -68,17 +68,9 @@ export class CardComponent implements OnInit {
     (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
   </vgr-card-header>
   <vgr-card-column>
-    <vgr-card-section [expanded]="true" [title]="'Sektion 1'" [subtitle]="'Exempel med eget innehåll'">
       <table style="width:100%;text-align:left">
         <!-- Table data -->
       </table>
-    </vgr-card-section>
-    <vgr-card-section [expanded]="true" [title]="'Sektion 2'">
-      <span>Innehåll</span>
-    </vgr-card-section>
-    <vgr-card-section [expanded]="false" [title]="'Sektion 3'">
-      <span>Innehåll</span>
-    </vgr-card-section>
   </vgr-card-column>
 </vgr-card>`;
 

@@ -46,14 +46,14 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'lists/example-notifications', component: ListexampleComponent },
+    { path: 'listexample-notifications', component: ListexampleComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
     { path: 'validation', component: DemoValidationComponent },
-    { path: 'start', component: StartComponent },
+    { path: '', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
@@ -61,8 +61,8 @@ export const appRoutes: Routes = [
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
-    { path: 'lists/example-simple', component: ListcodeexampleComponent },
-    { path: 'lists/example-actionbuttons', component: ListExampleWithActionButtonsComponent },
+    { path: 'listexample-simple', component: ListcodeexampleComponent },
+    { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
-    { path: '**', redirectTo: '/start' }
+    { path: '**', redirectTo: '/' }
 ];
