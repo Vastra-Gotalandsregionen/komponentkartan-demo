@@ -2,23 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-// import { Examples } from '/examples';
+import { Examples } from './code-example';
 
 @Component({
     selector: 'app-reactiveformscodeexample',
     templateUrl: './reactiveforms-example.component.html',
+    styleUrls: ['./reactiveforms-example.component.scss']
 })
 export class ReactiveformsexampleComponent implements OnInit {
     userForm: FormGroup;
-    //   typeScriptSimpleListMarkup: string;
-    //   htmlSimpleListMarkup: string;
-    //   examples: Examples = new Examples();
+    typeScriptSimpleListMarkup: string;
+    htmlSimpleListMarkup: string;
+    examples: Examples = new Examples();
 
     constructor(htmlEncoder: HtmlEncodeService, private fb: FormBuilder) {
-        //     this.typeScriptSimpleListMarkup =
-        //       htmlEncoder.prepareHighlightedSection(this.examples.typeScriptSimpleListMarkup, 'typescript');
-        //     this.htmlSimpleListMarkup =
-        //       htmlEncoder.prepareHighlightedSection(this.examples.htmltSimpleListMarkup);
+        this.typeScriptSimpleListMarkup =
+            htmlEncoder.prepareHighlightedSection(this.examples.typeScriptSimpleFormMarkup, 'typescript');
+        this.htmlSimpleListMarkup =
+            htmlEncoder.prepareHighlightedSection(this.examples.htmltSimpFormMarkup);
     }
     ngOnInit() {
         this.createForm();
@@ -32,8 +33,5 @@ export class ReactiveformsexampleComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]]
         });
     }
-
-
-
 }
 
