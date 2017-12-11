@@ -22,71 +22,69 @@
     <vgr-radio-group [options]="[{id:'1', displayName:'Stor', selected:true},{id:'2', displayName:'Liten'}]" (selectedChanged)="toggleInputType($event)">
     </vgr-radio-group>
     <form [formGroup]="form">
-
       <div class="row-layout">
         <div class="one-third">
-
-
-          <h2>Fördefinierade typer</h2>
           <div>
-            Belopp 1 (suffix=kr, alignRight = true)
-            <vgr-input formControlName="control1" [suffix]="'kr'" [alignRight]="true" [small]="isSmall"></vgr-input>
+            Belopp 1 (2 decimaler)
+            <vgr-input formControlName="control1" [formatNumber]="true" [nrOfDecimals]="2" [suffix]="'kr'" [alignRight]="true" [small]="isSmall"
+              [errormessage]="validationMessages.control1"></vgr-input>
             <span>Belopp 1: </span>
             <span>{{formatNumericValue(form.controls.control1.value)}}</span>
           </div>
           <div>
-            Belopp 2, obligatoriskt (suffix=kr, alignRight = true)
-            <vgr-input formControlName="control2" [suffix]="'kr'" [alignRight]="true" [small]="isSmall" [isInvalid]="form.get('control2').invalid"
-              [errormessage]="'Fältet är obligatoriskt'"></vgr-input>
+            Belopp 2 (2 decimaler)
+            <vgr-input formControlName="control2" [formatNumber]="true" [nrOfDecimals]="2" [suffix]="'kr'" [alignRight]="true" [small]="isSmall"
+              [errormessage]="validationMessages.control2"></vgr-input>
             <span>Belopp 2: </span>
             <span>{{formatNumericValue(form.controls.control2.value)}}</span>
           </div>
           <div>
-            Procent (suffix=%, alignRight = true)
-            <vgr-input formControlName="control3" [suffix]="'%'" [alignRight]="true" [small]="isSmall"></vgr-input>
+            Procent (2 decimaler)
+            <vgr-input formControlName="control3" [formatNumber]="true" [nrOfDecimals]="2" [suffix]="'%'" [alignRight]="true" [small]="isSmall"
+              [errormessage]="validationMessages.control3"></vgr-input>
             <span>Procent: </span>
             <span>{{formatNumericValue(form.controls.control3.value)}}</span>
           </div>
           <div>
-            Km (suffix=km, alignRight = true)
-            <vgr-input formControlName="control4" [suffix]="'km'" [alignRight]="true" [small]="isSmall"></vgr-input>
+            Km (inga decimaler)
+            <vgr-input formControlName="control4" [formatNumber]="true" [nrOfDecimals]="0" [suffix]="'km'" [alignRight]="true" [small]="isSmall"
+              [errormessage]="validationMessages.control4"></vgr-input>
             <span>Km: </span>
             <span>{{formatNumericValue(form.controls.control4.value)}}</span>
-
           </div>
           <div>
             Numeriskt värde utan enhet
-            <vgr-input formControlName="control5" [alignRight]="true" [small]="isSmall"></vgr-input>
+            <vgr-input formControlName="control5" [formatNumber]="true" [alignRight]="true" [small]="isSmall" [errormessage]="validationMessages.control5"></vgr-input>
             <span>Värde: </span>
             <span>{{formatNumericValue(form.controls.control5.value)}}</span>
           </div>
         </div>
         <div class="one-third">
-          <h2>Egen konfiguration</h2>
           <div>
             Max-längd 5 tecken
             <vgr-input formControlName="control6" [maxlength]=5 [small]="isSmall"></vgr-input>
           </div>
           <div>
-            Exakt 3 VERSALER (Validering vid initiering)
-            <vgr-input formControlName="control7" [errormessage]="'Ange exakt tre VERSALER'" [maxlength]="3" [small]="isSmall" [validateoninit]="true"
-              [isInvalid]="form.get('control7').invalid"></vgr-input>
+            Exakt 3 VERSALER (validera vid initiering)
+            <vgr-input formControlName="control7" [errormessage]="validationMessages.control7" [validateoninit]="true" [maxlength]="3"
+              [small]="isSmall"></vgr-input>
+            <span>Värde: </span>
+            <span>{{form.controls.control7.value}}</span>
           </div>
           <div>
             Mellan 2 och 6 tecken
-            <vgr-input formControlName="control8" [maxlength]=6 [errormessage]="'Ange mellan 2-6 tecken'" [small]="isSmall" [isInvalid]="form.get('control8').invalid"></vgr-input>
+            <vgr-input formControlName="control8" [maxlength]=6 [errormessage]="validationMessages.control8" [small]="isSmall"></vgr-input>
           </div>
           <div>
             Heltal med enhet
-            <vgr-input formControlName="control9" [alignRight]="true" [suffix]="'st'" [errormessage]="'Ange ett giltigt heltal'" [alignRight]="true"
-              [small]="isSmall" [isInvalid]="form.get('control9').invalid"></vgr-input>
+            <vgr-input formControlName="control9" [formatNumber]="true" [nrOfDecimals]="0" [suffix]="'st'" [errormessage]="validationMessages.control9"
+              [alignRight]="true" [small]="isSmall"></vgr-input>
             <span>Antal: </span>
-            <span>{{formatNumericValue(form.controls.control9.value)}}</span>
+            <span>{{intValue + 0}}</span>
           </div>
           <div>
             Långa felmeddelanden
-            <vgr-input formControlName="control10" [isInvalid]="form.get('control10').invalid" [errormessage]="'Detta är ett längre meddelande som visas när något blir väldigt väldigt fel'"
-              [small]="isSmall"></vgr-input>
+            <vgr-input formControlName="control10" [errormessage]="validationMessages.control10" [small]="isSmall"></vgr-input>
           </div>
           <div>
             Readonly fält
@@ -99,16 +97,14 @@
 
         </div>
         <div class="one-third">
-          <h2>Validering med service</h2>
           <div>
-            Ange en storstad i USA (Validering vid initiering)
-            <vgr-input formControlName="control13" [small]="isSmall" [isInvalid]="form.get('control13').invalid" [validateoninit]="true"
-              [errormessage]="'Felaktig stad'"></vgr-input>
+            Ange en storstad i USA (validera vid initiering)
+            <vgr-input formControlName="control13" [small]="isSmall" [validateoninit]="true" [errormessage]="validationMessages.control13"></vgr-input>
             <span>Din stad: {{form.controls.control13.value}}</span>
           </div>
           <div>
             E-postadress
-            <vgr-input formControlName="control14" [small]="isSmall" [isInvalid]="form.get('control14').invalid" [errormessage]="'Felaktig e-post'"></vgr-input>
+            <vgr-input formControlName="control14" [small]="isSmall" [errormessage]="validationMessages.control14"></vgr-input>
           </div>
         </div>
       </div>
@@ -136,6 +132,11 @@
         <td>value: string</td>
         <td>Värde att binda till</td>
         <td>[value]="person.lastName"</td>
+      </tr>
+      <tr>
+        <td>valueChanged: EventEmitter &lt;string&gt;</td>
+        <td>Event när värdet ändras.</td>
+        <td>(valueChanged)="value = $event"</td>
       </tr>
       <tr>
         <td>validateoninit: boolean</td>
@@ -166,6 +167,16 @@
         <td>alignRight: boolean</td>
         <td>Om true, högerställ innehållet i fältet. Default är False.</td>
         <td>[alignRight]="true"</td>
+      </tr>
+      <tr>
+        <td>formatNumber: boolean</td>
+        <td>Om värdet som visas ska formateras, dvs '.' visas som ',' och mellanslag läggs mellan 1000-tal.</td>
+        <td>[formatNumber]="true"</td>
+      </tr>
+      <tr>
+        <td>nrOfDecimals: number</td>
+        <td>Antal decimaler som det inmatade värdet ska avrundas till.</td>
+        <td>[nrOfDecimals]="2"</td>
       </tr>
       <tr>
         <td>small: boolean</td>
