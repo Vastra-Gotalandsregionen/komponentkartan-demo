@@ -8,16 +8,19 @@
           <form [formGroup]="userForm">
             <div class="title-value-layout">
               <vgr-title-value title="Förnamn">
-                <vgr-input formControlName="firstname" [isInvalid]="userForm.controls.firstname.invalid" [errormessage]="'Du måste ange ett namn på minst 2 tecken'"></vgr-input>
+                <vgr-input formControlName="firstname" [errormessage]="validationMessages.firstname"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Efternamn">
-                <vgr-input formControlName="lastname" [isInvalid]="userForm.controls.lastname.invalid" [errormessage]="'Du måste ange ett namn på minst 2 tecken'"></vgr-input>
+                <vgr-input formControlName="lastname" [errormessage]="validationMessages.lastname"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Ålder">
-                <vgr-input formControlName="age" [rightAlign]="true" [suffix]="'år'" [isInvalid]="userForm.controls.age.invalid" [errormessage]="'Felaktig ålder'"></vgr-input>
+                <vgr-input formControlName="age" [rightAlign]="true" [suffix]="'år'" [errormessage]="validationMessages.age"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="E-post">
-                <vgr-input formControlName="email" [isInvalid]="userForm.controls.email.invalid" [errormessage]="'Ange en giltig e-postadress'"></vgr-input>
+                <vgr-input formControlName="email" [errormessage]="validationMessages.email"></vgr-input>
+              </vgr-title-value>
+              <vgr-title-value title="Inkomst">
+                <vgr-input formControlName="salary" [errormessage]="validationMessages.salary" [formatNumber]="true" [nrOfDecimals]="0"></vgr-input>
               </vgr-title-value>
             </div>
             <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
@@ -36,6 +39,9 @@
             </vgr-title-value>
             <vgr-title-value title="E-post">
               <span>Obligatorisk. Giltig e-post</span>
+            </vgr-title-value>
+            <vgr-title-value title="Inkomst">
+              <span>Obligatorisk. Giltigt belopp. Formatering av nummer.</span>
             </vgr-title-value>
           </div>
         </vgr-card-column>
