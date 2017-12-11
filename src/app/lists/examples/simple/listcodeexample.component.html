@@ -18,13 +18,13 @@
           <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
-          <div class="list-item__header">
+          <vgr-list-item-header>
             <vgr-list-column [text]="row.firstName"></vgr-list-column>
             <vgr-list-column [text]="row.lastName"></vgr-list-column>
             <vgr-list-column [text]="row.occupation"></vgr-list-column>
             <vgr-list-column [text]="row.income| number:'2.2-2':'sv'"></vgr-list-column>
-          </div>
-          <div class="list-item__content">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <span>Förnamn: {{row.firstName}}</span>
             <br>
             <span>Efternamn: {{row.lastName}}</span>
@@ -32,7 +32,7 @@
             <span>Yrke: {{row.occupation}}</span>
             <br>
             <span>Inkomst: {{row.income | currency : 'SEK'}}</span>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>
     </vgr-page-block>
