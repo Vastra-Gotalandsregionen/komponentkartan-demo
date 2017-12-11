@@ -8,10 +8,12 @@
           <vgr-list-column-header text="Dokumentation för Card" [width]="20"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item [expanded]="true">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Översikt</h4>
-          </div>
-          <div class="list-item__content">
+          </vgr-list-item-header>
+
+
+          <vgr-list-item-content>
             <div class="content-overview">
               <p>
                 <code>&lt;vgr-card&gt;</code> används för att skapa kort, ofta i listor som expanderat innehåll. Ett kort har tre
@@ -43,13 +45,15 @@
               </p>
             </div>
             <!-- Översikt -->
-          </div>
+          </vgr-list-item-content>
+
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
+
+          <vgr-list-item-header>
             <h4>Exempel - två kolumner</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- Exempel -->
             <vgr-card>
               <vgr-card-header>
@@ -102,13 +106,14 @@
             <h3>Markup</h3>
             <section [innerHTML]="cardExampleMarkup" highlight-js-content=".highlight"></section>
             <br>
-          </div>
+
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false" [notification]="notification">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Exempel - en kolumn</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- Exempel2 -->
 
             <vgr-card>
@@ -176,13 +181,14 @@
             <h3>Markup</h3>
             <section [innerHTML]="cardExampleMarkup2" highlight-js-content=".highlight"></section>
             <br>
-          </div>
+
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- API -->
             <h3>Templatestruktur</h3>
             <ul>
@@ -240,17 +246,16 @@
                 <td>[readonly]="true"</td>
               </tr>
             </table>
-
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Tillgänglighet</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- tILLGÄNGLIGHET -->
             <i>Under utveckling</i>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>
     </vgr-page-block>

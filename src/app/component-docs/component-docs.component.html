@@ -8,42 +8,33 @@
           <vgr-list-column-header [text]="'Dokumentation för ' + componentName" [width]="20"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item [expanded]="true">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Översikt</h4>
-          </div>
-          <div class="list-item__content">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <div class="content-overview">
+              <!-- Översikt -->
               <ng-content select=".docs__overview"></ng-content>
             </div>
-            <!-- Översikt -->
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
-            <h4>Exempel</h4>
-          </div>
-          <div class="list-item__content ">
-            <!-- Exempel -->
-            <ng-content select=".docs__examples"></ng-content>
-          </div>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- API -->
             <ng-content select=".docs__api"></ng-content>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Tillgänglighet</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <!-- tILLGÄNGLIGHET -->
             <ng-content select=".docs__wcag"></ng-content>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>
     </vgr-page-block>

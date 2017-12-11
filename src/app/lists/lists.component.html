@@ -8,10 +8,10 @@
           <vgr-list-column-header [text]="'Dokumentation för list'" [width]="20"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item [expanded]="true">
-          <div class="list-item__header">
+          <vgr-list-item-header>
             <h4>Översikt</h4>
-          </div>
-          <div class="list-item__content">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <div class="content-overview">
               <p>
                 <code>&lt;vgr-list&gt;</code> är en lista bestående av
@@ -23,13 +23,13 @@
                 <strong>Nej</strong>
               </p>
             </div>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Exempel</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             Under "kodexempel" finns flera exempel på listor:
             <br>
             <a href="/listexample-simple">Enkel lista</a>
@@ -38,13 +38,13 @@
             <br>
 
             <a href="/listexample-actionbuttons">Lista med checkbox och papperskorg</a>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -62,13 +62,13 @@
                 <td>[flexibleHeader]="true"</td>
               </tr>
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-item</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -106,13 +106,13 @@
                 <td>(notificationChanged)="onNotificationChanged($event)"</td>
               </tr>
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-column-header</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -167,13 +167,13 @@
               </tr>
 
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-header</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             Innehåller ett antal vgr-list-column-header element och utför vissa åtgärder på dem.
             <table class="property-table">
               <tr>
@@ -189,13 +189,13 @@
               </tr>
 
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-column</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -209,13 +209,13 @@
                 <td>[text]="Sverige"</td>
               </tr>
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-column-trashcan</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             En variant av vgr-list-column som innehåller en papperskorg.
             <table class="property-table">
               <tr>
@@ -235,13 +235,13 @@
                 <td>(delete)="onDelete()"</td>
               </tr>
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-column-checkbox</h4>
-          </div>
-          <div class="list-item__content ">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             En variant av vgr-list-column som innehåller en vgr-checkbox.
             <table class="property-table">
               <tr>
@@ -266,15 +266,15 @@
                 <td>(checkedChanged)="onCheckChanged($event)"</td>
               </tr>
             </table>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-          <div class="list-item__header ">
+          <vgr-list-item-header>
             <h4>Tillgänglighet</h4>
-          </div>
-          <div class="list-item__content">
+          </vgr-list-item-header>
+          <vgr-list-item-content>
             <i>Under utveckling</i>
-          </div>
+          </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>
     </vgr-page-block>
