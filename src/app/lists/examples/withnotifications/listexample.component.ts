@@ -18,6 +18,7 @@ export class ListexampleComponent {
   typeScriptAdvancedListMarkup: string;
   htmlAdvancedListMarkup: string;
   examples: Examples = new Examples();
+  readOnly = true;
 
 
 

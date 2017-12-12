@@ -1,6 +1,53 @@
 <vgr-page>
   <vgr-page-header [title]="'Kodexempel lista med notifieringar'">
+
+    <vgr-button (click)="actionsVisible = true">Öppna panel</vgr-button>
   </vgr-page-header>
+  <vgr-action-panel [expanded]="actionsVisible" [title]="'Action-panel'">
+
+        <vgr-card>
+          <vgr-card-header>
+            <div class="flex-right">
+              <vgr-button [secondary]="true" (click)="actionsVisible=false">Stäng</vgr-button>
+            </div>
+        </vgr-card-header>
+          <vgr-card-column>
+            <vgr-card-section [title]=" 'Information' " expanded="true" [readonly]="readonly">
+              <div class="title-value-layout">
+                <vgr-title-value [title]=" 'Id' " [slim]="readonly">
+                  <span>123456789-1234-546</span>
+                </vgr-title-value>
+                <vgr-title-value title="Kod* " [slim]="readonly">
+                  <vgr-input></vgr-input>
+                </vgr-title-value>
+                <vgr-title-value [title]=" 'Nämnd*' " [slim]="readonly">
+                  <vgr-dropdown [values]="['Nämnd 1', 'Nämnd 2', 'Nämnd 3', 'Nämnd 4', 'Nämnd 5', 'Nämnd 6', 'Nämnd 7']" [noItemSelectedLabel]=" 'Välj nämnd' "></vgr-dropdown>
+                </vgr-title-value>
+                <vgr-title-value [title]=" 'Datum*' " [slim]="readonly">
+                  <div class="row-layout ">
+                    <vgr-monthpicker></vgr-monthpicker>
+                    <vgr-monthpicker></vgr-monthpicker>
+                  </div>
+                </vgr-title-value>
+              </div>
+            </vgr-card-section>
+
+          </vgr-card-column>
+          <vgr-card-column>
+            <vgr-card-section [title]=" 'Ersättningsgrundande information' " [readonly]="readonly " [expanded]="false ">
+              <div class="title-value-layout ">
+                <vgr-title-value [title]=" 'Medverkan i familjecentral' " [slim]="readonly">
+                </vgr-title-value>
+                <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)' " [slim]="readonly">
+                  <vgr-input></vgr-input>
+                </vgr-title-value>
+
+              </div>
+            </vgr-card-section>
+          </vgr-card-column>
+        </vgr-card>
+
+      </vgr-action-panel>
   <vgr-page-body>
     <vgr-page-block>
       <h2>Lista med notifieringar</h2>
@@ -9,7 +56,6 @@
         <a href="/lists">här.</a>
       </p>
     </vgr-page-block>
-    <vgr-page-block></vgr-page-block>
     <vgr-page-block>
       <vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
