@@ -52,7 +52,9 @@ export class ReactiveformsexampleComponent implements OnInit {
             lastname: ['', [Validators.required, Validators.minLength(2)]],
             age: ['', [Validators.required, Validators.min(18), Validators.max(120), validateNumber]],
             email: ['', [Validators.required, Validators.email]],
-            salary: ['', [Validators.required, validateNumber]]
+            salary: ['', [Validators.required, validateNumber]],
+            favourite_pet: ['', Validators.required],
+            interests: [['Koda'], Validators.required]
         });
     }
 }

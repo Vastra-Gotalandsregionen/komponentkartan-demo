@@ -22,6 +22,12 @@
               <vgr-title-value title="Inkomst">
                 <vgr-input formControlName="salary" [errormessage]="validationMessages.salary" [formatNumber]="true" [nrOfDecimals]="0"></vgr-input>
               </vgr-title-value>
+              <vgr-title-value title="Favoritdjur">
+                <vgr-dropdown formControlName="favourite_pet" [values]="['Katt','Hund','Guldfisk']"></vgr-dropdown>
+              </vgr-title-value>
+              <vgr-title-value title="Intressen">
+                <vgr-dropdown-multiselect formControlName="interests" [values]="['Koda','Sport','Sova','Äta']"></vgr-dropdown-multiselect>
+              </vgr-title-value>
             </div>
             <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
           </form>
@@ -42,6 +48,12 @@
             </vgr-title-value>
             <vgr-title-value title="Inkomst">
               <span>Obligatorisk. Giltigt belopp. Formatering av nummer.</span>
+            </vgr-title-value>
+            <vgr-title-value title="Favoritdjur">
+              <span>Obligatorisk.</span>
+            </vgr-title-value>
+            <vgr-title-value title="Intressen">
+              <span>Obligatorisk. Ett alternativ är förvalt.</span>
             </vgr-title-value>
           </div>
         </vgr-card-column>

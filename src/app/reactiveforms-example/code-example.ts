@@ -18,6 +18,12 @@ export class Examples {
       <vgr-input formControlName="salary" [errormessage]="validationMessages.salary" [formatNumber]="true"
         [nrOfDecimals]="0"></vgr-input>
     </vgr-title-value>
+    <vgr-title-value title="Favoritdjur">
+      <vgr-dropdown formControlName="favourite_pet" [values]="['Katt','Hund','Guldfisk']"></vgr-dropdown>
+    </vgr-title-value>
+    <vgr-title-value title="Intressen">
+      <vgr-dropdown-multiselect formControlName="interests" [values]="['Koda','Sport','Sova','Äta']"></vgr-dropdown-multiselect>
+    </vgr-title-value>
   </div>
   <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
 </form>`;
@@ -64,7 +70,9 @@ export class Examples {
               lastname: ['', [Validators.required, Validators.minLength(2)]],
               age: ['', [Validators.required, Validators.min(18), Validators.max(120), validateNumber]],
               email: ['', [Validators.required, Validators.email]],
-              salary: ['', [Validators.required, validateNumber]]
+              salary: ['', [Validators.required, validateNumber]],
+              favourite_pet: ['', Validators.required],
+              interests: [['Koda'], Validators.required]
           });
       }
   }
