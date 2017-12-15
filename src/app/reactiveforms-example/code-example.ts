@@ -32,6 +32,15 @@ export class Examples {
         {id: '3', displayName: 'Tre'}] ">
       </vgr-radio-group>
     </vgr-title-value>
+    <vgr-title-value title="Välj Månad">
+        <vgr-monthpicker formControlName="monthpicker"></vgr-monthpicker>
+    </vgr-title-value>
+    <vgr-title-value title="Välj Dag">
+        <vgr-datepicker formControlName="datepicker"></vgr-datepicker>
+    </vgr-title-value>
+   <vgr-title-value title="Registreringsdatum">
+        <vgr-datepicker formControlName="datepicker_preselected"></vgr-datepicker>
+    </vgr-title-value>
   </div>
   <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
 </form>`;
@@ -82,7 +91,10 @@ export class Examples {
               favourite_pet: ['', Validators.required],
               interests: [['Koda'], Validators.required],
               check: [true, Validators.pattern('true')],
-              optional: ['Två']
+              optional: ['Två'],
+              monthpicker: ['', Validators.required],
+              datepicker: ['', Validators.required],
+              datepicker_preselected: [new Date(), Validators.required]
           });
       }
   }

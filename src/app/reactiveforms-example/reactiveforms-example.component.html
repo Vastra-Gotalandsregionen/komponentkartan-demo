@@ -36,6 +36,15 @@
                   'Tre'}] ">
                 </vgr-radio-group>
               </vgr-title-value>
+              <vgr-title-value title="Välj Månad">
+                <vgr-monthpicker formControlName="monthpicker"></vgr-monthpicker>
+              </vgr-title-value>
+              <vgr-title-value title="Välj Dag">
+                <vgr-datepicker formControlName="datepicker"></vgr-datepicker>
+              </vgr-title-value>
+              <vgr-title-value title="Registreringsdatum">
+                <vgr-datepicker formControlName="datepicker_preselected"></vgr-datepicker>
+            </vgr-title-value>
             </div>
             <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
           </form>
@@ -69,6 +78,15 @@
             <vgr-title-value title="Välj valfri">
               <span>Ingen validering.</span>
             </vgr-title-value>
+            <vgr-title-value title="Välj månad">
+              <span>Obligatorisk</span>
+            </vgr-title-value>
+            <vgr-title-value title="Välj dag">
+              <span>Obligatorisk</span>
+            </vgr-title-value>
+            <vgr-title-value title="Registreringsdatum">
+              <span>Obligatorisk. Dagens datum är förvalt</span>
+          </vgr-title-value>
           </div>
         </vgr-card-column>
       </vgr-card>

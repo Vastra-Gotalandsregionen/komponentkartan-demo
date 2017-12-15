@@ -2,7 +2,8 @@
     <div class="docs__overview">
         <p>
             <code>
-        &lt;vgr-datepicker&gt;</code> är en kalender där användaren kan välja ett datum. I kalendern visas valt datum (satt av användaren eller av systemet) och dagens datum.
+        &lt;vgr-datepicker&gt;</code> är en kalender där användaren kan välja ett datum. I kalendern visas valt datum (satt av användaren eller av
+            systemet) och dagens datum.
             <br>
         </p>
         <br>
@@ -55,8 +56,10 @@
                 <div>
                     <p>Här är kalendern obligatorisk och
                         <code>minDate</code> satt till 2016-05-15 och
-                        <code>maxDate</code> är 2016-12-25. Notera att min och maxdatum är satt innan innevarande datum. Det går endast att nagivera mellan maj 2016 och fram till nuvarande år och månad. Hela maj visas för 2016 även fast mindatumet är
-                        satt 2016-05-15. Det går bara att välja de dagar som ingår i perioden mellan min och max. Fältet är
+                        <code>maxDate</code> är 2016-12-25. Notera att min och maxdatum är satt innan innevarande datum. Det går endast att nagivera
+                        mellan maj 2016 och fram till nuvarande år och månad. Hela maj visas för 2016 även fast mindatumet
+                        är satt 2016-05-15. Det går bara att välja de dagar som ingår i perioden mellan min och max. Fältet
+                        är
                         <code>required</code> och därför ges valideringsfel om inget värde väljs.
                     </p>
                 </div>
@@ -121,7 +124,10 @@
             <span>Senast valt datum: </span>
             <span>{{lastselectedDate | date : 'yyyy MMM dd'}}</span>
         </div>
-
+        <br>
+        <br> Under "kodexempel" finns exempel på hur datepicker-komponenten kan användas i Angular Reactive Forms:
+        <br>
+        <a href="/reactiveformsexample">Reactive Forms exempel</a>
     </div>
     <div class="docs__api">
         <table class="property-table">
@@ -146,7 +152,8 @@
             </tr>
             <tr>
                 <td>minDate: Date</td>
-                <td>Sätter vilket datum kalendern börjar på. Sätts inget datum är standard första dagen i januari månad för innevarande år.
+                <td>Sätter vilket datum kalendern börjar på. Sätts inget datum är standard första dagen i januari månad för innevarande
+                    år.
                 </td>
                 <td>
                     [minDate]=someDate
@@ -154,7 +161,8 @@
             </tr>
             <tr>
                 <td>maxDate: Date</td>
-                <td>Sätter vilket datum kalendern slutar på. Sätts inget datum är standard sista dagen i december månad för innevarande år.
+                <td>Sätter vilket datum kalendern slutar på. Sätts inget datum är standard sista dagen i december månad för innevarande
+                    år.
                 </td>
                 <td>
                     [maxDate]=someDate
@@ -162,7 +170,8 @@
             </tr>
             <tr>
                 <td>selectedDate: Date</td>
-                <td> Valt datum som visas i kalendern. När kalendern instansieras och man öppnar den första gången så positioneras man på den valda månaden. Om inget datum är valt så positioneras man på dagens datum.</td>
+                <td> Valt datum som visas i kalendern. När kalendern instansieras och man öppnar den första gången så positioneras
+                    man på den valda månaden. Om inget datum är valt så positioneras man på dagens datum.</td>
                 <td>
                     [selectedDate] = someDate
                 </td>
@@ -178,8 +187,9 @@
                 <td>
                     required : boolean
                 </td>
-                <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus ges ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras. För att trigga
-                    validering utifrån använd
+                <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus
+                    ges ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel
+                    redigeras. För att trigga validering utifrån använd
                     <code>validate()</code>.
                 </td>
                 <td>[required]="true"</td>
@@ -188,7 +198,8 @@
                 <td>
                     validate() : IValidationResult
                 </td>
-                <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller ej. ValidationResult.errorMessage ger eventuellt fel.
+                <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller
+                    ej. ValidationResult.errorMessage ger eventuellt fel.
                 </td>
                 <td>const result = component.validate()</td>
             </tr>
@@ -203,7 +214,8 @@
             <tr>
                 <td>readonly: boolean
                 </td>
-                <td>Om datepicker är satt som readonly så ska bara textfält med datum visas. Om datum är förvalt så visas det som är satt i
+                <td>Om datepicker är satt som readonly så ska bara textfält med datum visas. Om datum är förvalt så visas det
+                    som är satt i
                     <code>selectedDate</code> annars visas ingenting. Datumet är formaterat på
                     <code>selectedDateFormat</code>.</td>
                 <td>

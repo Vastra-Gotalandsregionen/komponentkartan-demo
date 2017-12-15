@@ -47,6 +47,7 @@ export class ReactiveformsexampleComponent implements OnInit {
     }
 
     createForm() {
+
         this.userForm = this.fb.group({
             firstname: ['', [Validators.required, Validators.minLength(2)]],
             lastname: ['', [Validators.required, Validators.minLength(2)]],
@@ -56,7 +57,10 @@ export class ReactiveformsexampleComponent implements OnInit {
             favourite_pet: ['', Validators.required],
             interests: [['Koda'], Validators.required],
             check: [true, Validators.pattern('true')],
-            optional: ['Två']
+            optional: ['Två'],
+            monthpicker: ['', Validators.required],
+            datepicker: ['', Validators.required],
+            datepicker_preselected: [new Date(), Validators.required]
         });
     }
 }
