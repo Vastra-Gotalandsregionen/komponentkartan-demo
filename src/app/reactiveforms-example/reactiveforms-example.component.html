@@ -8,19 +8,19 @@
           <form [formGroup]="userForm">
             <div class="title-value-layout">
               <vgr-title-value title="Förnamn">
-                <vgr-input formControlName="firstname" [errormessage]="validationMessages.firstname"></vgr-input>
+                <vgr-input formControlName="firstname" [errorMessage]="validationMessages.firstname"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Efternamn">
-                <vgr-input formControlName="lastname" [errormessage]="validationMessages.lastname"></vgr-input>
+                <vgr-input formControlName="lastname" [errorMessage]="validationMessages.lastname"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Ålder">
-                <vgr-input formControlName="age" [rightAlign]="true" [suffix]="'år'" [errormessage]="validationMessages.age"></vgr-input>
+                <vgr-input formControlName="age" [rightAlign]="true" [suffix]="'år'" [errorMessage]="validationMessages.age"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="E-post">
-                <vgr-input formControlName="email" [errormessage]="validationMessages.email"></vgr-input>
+                <vgr-input formControlName="email" [errorMessage]="validationMessages.email"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Inkomst">
-                <vgr-input formControlName="salary" [errormessage]="validationMessages.salary" [formatNumber]="true" [nrOfDecimals]="0"></vgr-input>
+                <vgr-input formControlName="salary" [errorMessage]="validationMessages.salary" [formatNumber]="true" [nrOfDecimals]="0"></vgr-input>
               </vgr-title-value>
               <vgr-title-value title="Favoritdjur">
                 <vgr-dropdown formControlName="favourite_pet" [values]="['Katt','Hund','Guldfisk']"></vgr-dropdown>
@@ -44,7 +44,7 @@
               </vgr-title-value>
               <vgr-title-value title="Registreringsdatum">
                 <vgr-datepicker formControlName="datepicker_preselected"></vgr-datepicker>
-            </vgr-title-value>
+              </vgr-title-value>
             </div>
             <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
           </form>
@@ -86,7 +86,7 @@
             </vgr-title-value>
             <vgr-title-value title="Registreringsdatum">
               <span>Obligatorisk. Dagens datum är förvalt</span>
-          </vgr-title-value>
+            </vgr-title-value>
           </div>
         </vgr-card-column>
       </vgr-card>
