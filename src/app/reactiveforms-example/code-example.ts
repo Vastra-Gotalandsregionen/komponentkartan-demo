@@ -24,6 +24,14 @@ export class Examples {
     <vgr-title-value title="Intressen">
       <vgr-dropdown-multiselect formControlName="interests" [values]="['Koda','Sport','Sova','Äta']"></vgr-dropdown-multiselect>
     </vgr-title-value>
+    <vgr-title-value title="Du måste kryssa i mig!">
+      <vgr-checkbox formControlName="check" [label]="'Ok! "></vgr-checkbox>
+    </vgr-title-value>
+    <vgr-title-value title="Välj valfri">
+      <vgr-radio-group formControlName="optional" [options]="[{id: '1', displayName: 'Ett'},{id: '2', displayName: 'Två'},
+        {id: '3', displayName: 'Tre'}] ">
+      </vgr-radio-group>
+    </vgr-title-value>
   </div>
   <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
 </form>`;
@@ -72,7 +80,9 @@ export class Examples {
               email: ['', [Validators.required, Validators.email]],
               salary: ['', [Validators.required, validateNumber]],
               favourite_pet: ['', Validators.required],
-              interests: [['Koda'], Validators.required]
+              interests: [['Koda'], Validators.required],
+              check: [true, Validators.pattern('true')],
+              optional: ['Två']
           });
       }
   }

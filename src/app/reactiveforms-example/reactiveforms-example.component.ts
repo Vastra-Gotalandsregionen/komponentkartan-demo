@@ -54,7 +54,9 @@ export class ReactiveformsexampleComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             salary: ['', [Validators.required, validateNumber]],
             favourite_pet: ['', Validators.required],
-            interests: [['Koda'], Validators.required]
+            interests: [['Koda'], Validators.required],
+            check: [true, Validators.pattern('true')],
+            optional: ['Två']
         });
     }
 }
