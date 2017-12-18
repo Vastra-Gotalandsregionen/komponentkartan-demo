@@ -24,8 +24,10 @@
       <div>
         <vgr-button (click)="showThreeButtonModal()">Tre knappar</vgr-button>
       </div>
-      <div>
+      <div class="column-layout">
+
         <vgr-button (click)="showSaveDontSaveCancelModal()">Spara-SparaInte-Avbryt</vgr-button>
+        Modal där avbryt är defaultknapp
       </div>
     </div>
     <div style="margin-top: 20px">
@@ -35,8 +37,7 @@
   </div>
   <div class="docs__api">
     Modal består av två delar. En komponent som läggs ytterst i DOM, med
-    <code>&lt;vgr-modal&gt;</code>. Detta är en placeholder för det innehåll som sedan visas över applikationen. Den andra delen
-    är en
+    <code>&lt;vgr-modal&gt;</code>. Detta är en placeholder för det innehåll som sedan visas över applikationen. Den andra delen är en
     <code>modalService</code> som injectas i de komponenter som vill visa en dialog. För att visa en dialog, använd
     <code>modalService.openDialog()</code> eller någon av de andra metoderna. Se nedan.
     <br>
@@ -90,8 +91,7 @@
     Dialogen följer WCAG genom att man inte kan tabba ur dialogen utan att stänga den först.
     <br> Tänk på följande riktlinjer vid implementation av en modal:
     <br>
-    <br>
-    If content is large enough that focusing the first interactive element could cause the beginning of content to scroll
+    <br> If content is large enough that focusing the first interactive element could cause the beginning of content to scroll
     out of view, it is advisable to add tabindex=-1 to a static element at the top of the dialog, such as the dialog title
     or first paragraph, and initially focus that element.
     <ul>
@@ -101,8 +101,7 @@
       <li>If a dialog is limited to interactions that either provide additional information or continue processing, it may be
         advisable to set focus to the element that is likely to be most frequently used, such as an OK or Continue button.</li>
     </ul>
-<br>
-    When a dialog closes, focus returns to the element that invoked the dialog unless either: The invoking element no longer
+    <br> When a dialog closes, focus returns to the element that invoked the dialog unless either: The invoking element no longer
     exists. Then, focus is set on another element that provides logical work flow.
     <br>
     <ul>
@@ -113,9 +112,8 @@
       <li>For example, a grid has an associated toolbar with a button for adding rows. The Add Rows button opens a dialog that
         prompts for the number of rows. After the dialog closes, focus is placed in the first cell of the first new row.</li>
     </ul>
-    <br>
-    It is strongly recommended that the tab sequence of all dialogs include a visible element with role button that closes the
-    dialog, such as a close icon or cancel button.
+    <br> It is strongly recommended that the tab sequence of all dialogs include a visible element with role button that closes
+    the dialog, such as a close icon or cancel button.
 
   </div>
 </app-component-docs>
