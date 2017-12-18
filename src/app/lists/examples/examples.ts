@@ -157,7 +157,7 @@ export class Examples {
     <vgr-list-column-header width="1"></vgr-list-column-header>
     <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
   </vgr-list-header>
-  <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification">
+  <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" (deleted)="notifyOnDelete(row)">
     <vgr-list-item-header>
       <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
       <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
@@ -215,6 +215,13 @@ export class Examples {
 
         onDeleteRow(row: any) {
             this.removeRow(row);
+        }
+
+        notifyOnDelete(row: any) {
+          this.modalService.openDialog('Info', 'Du tog bort detta objektet: ' + JSON.stringify(row, null, "\\t"),
+              new ModalButtonConfiguration('Stäng', () => {
+              })
+          );
         }
 
         removeRow(row: any) {

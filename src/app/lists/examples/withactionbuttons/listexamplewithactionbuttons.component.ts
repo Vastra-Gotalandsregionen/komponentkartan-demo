@@ -36,6 +36,13 @@ export class ListExampleWithActionButtonsComponent {
         this.removeRow(row);
     }
 
+    notifyOnDelete(row: any) {
+        this.modalService.openDialog('Info', 'Du tog bort detta objektet: ' + JSON.stringify(row, null, "\t"),
+            new ModalButtonConfiguration('Stäng', () => {
+            })
+        );
+    }
+
     removeRow(row: any) {
         this.modalService.openDialog('Ta bort raden', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
             new ModalButtonConfiguration('Ja', () => {
