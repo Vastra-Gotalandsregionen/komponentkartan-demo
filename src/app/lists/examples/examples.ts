@@ -1,4 +1,26 @@
 export class Examples {
+  htmlBasicListStructureMarkup = `
+  <vgr-list">
+  <!-- Rootelementet -->
+  <vgr-list-header>
+  <!-- Header kan inhehålla flera kolumn-headers -->
+    <vgr-list-column-header>
+    <!-- Lägg rubriktext i kolumn-header här -->
+    </vgr-list-column-header>
+  </vgr-list-header>
+  <vgr-list-item>
+  <!-- Motsvarar en rad -->
+    <vgr-list-item-header>
+    <!-- List-item-header-element för ett list-item, kan innehålla flera kolumner med rubrik  -->
+      <vgr-list-column></vgr-list-column>
+      <!-- Anger rubrik för list-item-kolumnen -->
+    </vgr-list-item-header>
+    <vgr-list-item-content>
+    <!-- Innehåll för ett list-item -->
+    </vgr-list-item-content>
+  </vgr-list-item>
+</vgr-list>`;
+
   typeScriptSimpleListMarkup = `import { Component, OnInit } from '@angular/core';
     import {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
