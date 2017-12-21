@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/component-package/models/validation.model';
+import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/lib/index';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model';
+import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/lib/index';
 import { CityService } from './cityservice';
 
 @Component({
@@ -56,6 +56,7 @@ export class InputfieldsComponent implements OnInit {
     control14: {
       'email': 'Felaktig e-post'
     }
+
   };
 
   constructor(private fb: FormBuilder) {
@@ -73,53 +74,21 @@ export class InputfieldsComponent implements OnInit {
   }
 
   createForm() {
-    this.form = this.fb.group({
-      control1: [this.amount1, validateNumber],
-      control2: [this.amount2, [validateNumber, Validators.required, Validators.minLength(3)]],
-      control3: [this.percentValue, validateNumber],
-      control4: [this.kmValue, validateNumber],
-      control5: [this.numericValue, validateNumber],
-      control6: [],
-      control7: ['abc', [Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$'), Validators.required]],
-      control8: ['', [Validators.pattern('^.{2,6}$'), Validators.required]],
-      control9: [this.intValue, validateNumber],
-      control10: ['', Validators.required],
-      control11: ['Visar värdet utan ram'],
-      control12: [],
-      control13: [this.cityName, validateCityName],
-      control14: ['', Validators.email]
-    });
+    // this.form = this.fb.group({
+    //   control1: [this.amount1, validateNumber],
+    //   control2: [this.amount2, [validateNumber, Validators.required, Validators.minLength(3)]],
+    //   control3: [this.percentValue, validateNumber],
+    //   ntrol4: [this.kmValue, validateNumber], 
+    //   control5: [this.numericValue, validateNumber],
+    //   control6: [],
+    //   control7: ['abc', [Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$'), Validators.required]],
+    //   control8: ['', [Validators.pattern('^.{2,6}$'), Validators.required]], 
+    //   control9: [this.intValue, validateNumber],
+    //   control10: ['', Validators.required],
+    //   control11: ['Visar värdet utan ram'],
+    //   control12: [],
+    //   control13: [this.cityName, validateCityName],
+    //   control14: ['', Validators.email]
+    // });
   }
-
-  formatNumericValue(value: number) {
-    return isNaN(value) ? 'Inget' : value;
-  }
-
-  toggleInputType(option: ISelectableItem) {
-    if (option.displayName === 'Stor') {
-      this.isSmall = false;
-    } else {
-      this.isSmall = true;
-    }
-  }
-}
-
-function validateCityName(control: AbstractControl) {
-  const service = new CityService();
-  const allCities = service.getCities();
-  if (allCities.filter(x => x.city === control.value).length > 0) {
-    return null;
-  }
-  return { invalidCity: true };
-}
-
-function validateNumber(control: AbstractControl) {
-  const pattern = '^[-,−]{0,1}(\\d{1,3}([,\\s.]\\d{3})*|\\d+)([.,]\\d+)?$';
-
-  const regexp = new RegExp(pattern);
-  if (regexp.test(control.value)) {
-    return null;
-  }
-
-  return { invalidNumber: true };
 }

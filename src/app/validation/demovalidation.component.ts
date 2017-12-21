@@ -1,7 +1,7 @@
 import { Component, ViewChildren, QueryList } from '@angular/core';
-import { IValidationResult, ValidationErrorState, IValidation } from '../../../node_modules/vgr-komponentkartan/component-package/models/validation.model';
-import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model';
-import { ValidationComponent } from '../../../node_modules/vgr-komponentkartan/component-package/controls/validation/validation.component';
+import { IValidationResult, ValidationErrorState, IValidation } from 'vgr-komponentkartan/lib/index';
+import { ISelectableItem } from 'vgr-komponentkartan/lib/index';
+import { ValidationComponent } from '../../../node_modules/vgr-komponentkartan/lib/controls/validation/validation.component';
 @Component({
   selector: 'app-validation',
   templateUrl: './demovalidation.component.html',

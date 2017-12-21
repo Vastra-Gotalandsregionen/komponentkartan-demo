@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/selectableItem.model';
+import { ISelectableItem } from 'vgr-komponentkartan/lib/index';
 
 @Component({
   selector: 'app-theming',

@@ -4,7 +4,7 @@ import { Examples } from '../examples';
 import {
     ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow,
     SortDirection, SortChangedArgs
-} from 'vgr-komponentkartan';
+} from 'vgr-komponentkartan/lib/index';
 
 @Component({
     selector: 'app-listexamplewithactionbuttons',

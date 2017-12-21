@@ -10,7 +10,7 @@ export class StartComponent implements OnInit {
 
   constructor() {
     const { dependencies: appVersion } = require('../../../package.json');
-    this.currentVersion = appVersion["vgr-komponentkartan"];
+    this.currentVersion = appVersion["vgr-komponentkartan/"];
     this.currentVersion = this.currentVersion.replace('^', '');
   }
 

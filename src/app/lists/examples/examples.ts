@@ -25,7 +25,7 @@ export class Examples {
     import {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
       SortChangedArgs // Args när sorteringordningen ändras.
-    } from 'vgr-komponentkartan';
+    } from 'vgr-komponentkartan/';
 
     @Component({
       selector: 'app-listcodeexample',
@@ -93,7 +93,7 @@ export class Examples {
   import {
     ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
     ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
-  } from 'vgr-komponentkartan';
+  } from 'vgr-komponentkartan/';
 
   @Component({
     selector: 'app-listexample',
@@ -202,7 +202,7 @@ export class Examples {
     import {
         ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow,
         SortDirection, SortChangedArgs
-    } from 'vgr-komponentkartan';
+    } from 'vgr-komponentkartan/';
 
     @Component({
         selector: 'app-listexamplewithactionbuttons',

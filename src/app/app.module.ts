@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 // Komponentkartan
-import { KomponentkartanModule } from 'vgr-komponentkartan/component-package/komponentkartan.module';
+import { KomponentkartanModule } from 'vgr-komponentkartan/lib/komponentkartan.module';
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
