@@ -47,6 +47,11 @@ import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 
+//Locale registration
+import { registerLocaleData } from '@angular/common';
+import localeSe from '@angular/common/locales/se';
+import localeSerExtra from '@angular/common/locales/extra/se';
+registerLocaleData(localeSe, 'sv-SE', localeSerExtra);
 
 @NgModule({
     imports: [
