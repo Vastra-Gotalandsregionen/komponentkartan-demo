@@ -1,9 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { IValidator, IValidationResult } from '../../../node_modules/vgr-komponentkartan/lib/index';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { ISelectableItem } from '../../../node_modules/vgr-komponentkartan/lib/index';
+import {
+  IValidationResult, ValidationErrorState, IValidation, ICustomValidator,
+  ISelectableItem, ErrorHandler
+} from '../../../node_modules/vgr-komponentkartan/lib/index';
+import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-inputfields',
@@ -20,6 +27,25 @@ export class InputfieldsComponent implements OnInit {
   percentValue: number;
   kmValue: number;
   intValue: number;
+
+  state: string;
+  allCities: any;
+
+  value: any = 81273128739;
+
+  formErrors = {
+    'control1': '',
+    'control2': '',
+    'control3': '',
+    'control4': '',
+    'control5': '',
+    'control7': '',
+    'control8': '',
+    'control9': '',
+    'control10': '',
+    'control13': '',
+    'control14': ''
+  };
 
   validationMessages = {
     control1: {
@@ -56,10 +82,9 @@ export class InputfieldsComponent implements OnInit {
     control14: {
       'email': 'Felaktig e-post'
     }
-
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private errorHandler: ErrorHandler) {
     this.cityName = 'Houstons';
     this.amount1 = 15000;
     this.amount2 = -25.5;
@@ -71,24 +96,92 @@ export class InputfieldsComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    const validateOnInit = true;
+
+    this.isSmall = true;
+
+    if (validateOnInit) {
+      this.errorHandler.getErrorMessagesReactiveForms(this.formErrors, this.validationMessages, this.form, this.isSmall);
+    }
+
+    this.form.valueChanges
+      .subscribe(data => {
+        this.errorHandler.getErrorMessagesReactiveForms(this.formErrors, this.validationMessages, this.form, this.isSmall);
+      });
+
   }
 
   createForm() {
-    // this.form = this.fb.group({
-    //   control1: [this.amount1, validateNumber],
-    //   control2: [this.amount2, [validateNumber, Validators.required, Validators.minLength(3)]],
-    //   control3: [this.percentValue, validateNumber],
-    //   ntrol4: [this.kmValue, validateNumber], 
-    //   control5: [this.numericValue, validateNumber],
-    //   control6: [],
-    //   control7: ['abc', [Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$'), Validators.required]],
-    //   control8: ['', [Validators.pattern('^.{2,6}$'), Validators.required]], 
-    //   control9: [this.intValue, validateNumber],
-    //   control10: ['', Validators.required],
-    //   control11: ['Visar värdet utan ram'],
-    //   control12: [],
-    //   control13: [this.cityName, validateCityName],
-    //   control14: ['', Validators.email]
-    // });
+    this.form = this.fb.group({
+      control1: [this.amount1, validateNumber],
+      control2: [this.amount2, [validateNumber, Validators.required, Validators.minLength(3)]],
+      control3: [this.percentValue, validateNumber],
+      control4: [this.kmValue, validateNumber],
+      control5: [this.numericValue, validateNumber],
+      control6: [],
+      control7: ['', [Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$'), Validators.required]],
+      control8: ['', [Validators.pattern('^.{2,6}$'), Validators.required]],
+      control9: [this.intValue, validateNumber],
+      control10: ['', Validators.required],
+      control11: ['Visar värdet utan ram'],
+      control12: [],
+      control13: [this.cityName, Validators.required, validateAsyncCityName()],
+      control14: ['', Validators.email]
+    });
   }
+
+  formatNumericValue(value: number) {
+    return isNaN(value) ? 'Inget' : value;
+  }
+
+  toggleInputType(option: ISelectableItem) {
+    if (option.displayName === 'Stor') {
+      this.isSmall = false;
+    } else {
+      this.isSmall = true;
+    }
+  }
+
+  validateNumberControl1(value: any): boolean {
+    const pattern = '^[-,−]{0,1}(\\d{1,3}([,\\s.]\\d{3})*|\\d+)([.,]\\d+)?$';
+
+    const regexp = new RegExp(pattern);
+    if (regexp.test(value)) {
+      return true;
+    }
+    return false;
+  }
+}
+
+
+
+
+function validateAsyncCityName(): AsyncValidatorFn {
+  const service = new CityService();
+
+  return (control: AbstractControl) => {
+    return service.getAsyncCities().map(cities => {
+      return cities.filter(x => x.city === control.value).length > 0 ? null : { 'invalidCity': { value: control.value } };
+    });
+  };
+}
+
+function validateCityName(control: AbstractControl) {
+  const service = new CityService();
+  const allCities = service.getCities();
+  if (allCities.filter(x => x.city === control.value).length > 0) {
+    return null;
+  }
+  return { invalidCity: true };
+}
+
+function validateNumber(control: AbstractControl) {
+  const pattern = '^[-,−]{0,1}(\\d{1,3}([,\\s.]\\d{3})*|\\d+)([.,]\\d+)?$';
+
+  const regexp = new RegExp(pattern);
+  if (regexp.test(control.value)) {
+    return null;
+  }
+
+  return { invalidNumber: true };
 }
