@@ -37,19 +37,19 @@
     <div class="row-layout">
       <div>
         <p>Disabled</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [disabled]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Readonly</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Disabled (inget valt)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems7" [disabled]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems7" [disabled]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Readonly (inget valt)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems7" [readonly]="isReadonlyAndDisabled"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems7" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Växla readonly och disabled</p>
