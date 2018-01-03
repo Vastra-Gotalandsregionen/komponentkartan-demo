@@ -29,8 +29,11 @@
           <vgr-list-item-header>
             <h4>Exempel</h4>
           </vgr-list-item-header>
+
+
           <vgr-list-item-content>
-            Under "kodexempel" finns flera exempel på listor:
+            <section [innerHTML]="htmlBasicListStructureMarkup" highlight-js-content=".highlight"></section>
+            <br> Under "kodexempel" finns flera exempel på listor:
             <br>
             <a href="/listexample-simple">Enkel lista</a>
             <br>
@@ -109,6 +112,40 @@
                 <td>deleted : EventEmitter&lt;any&gt;</td>
                 <td>Event som triggas när item har tagits bort (visuellt)</td>
                 <td>(deleted)="onDeleted()"</td>
+              </tr>
+            </table>
+          </vgr-list-item-content>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <vgr-list-item-header>
+            <h4>API - vgr-list-item-header</h4>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            <table class="property-table">
+              <tr>
+                <th style="width:600px">Beskrivning</th>
+              </tr>
+              <tr>
+                <td>
+                  Behållare för att ange header-rubrik i ett list-item. Har inga properties.
+                </td>
+              </tr>
+            </table>
+          </vgr-list-item-content>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <vgr-list-item-header>
+            <h4>API - vgr-list-item-content</h4>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            <table class="property-table">
+              <tr>
+                <th style="width:600px">Beskrivning</th>
+              </tr>
+              <tr>
+                <td>
+                  Behållare för att ange innehåll i ett list-item. Har inga properties.
+                </td>
               </tr>
             </table>
           </vgr-list-item-content>
@@ -262,8 +299,8 @@
               </tr>
               <tr>
                 <td>checked : boolean</td>
-                <td>Inaktiverar checkboxen, den blir utgråad.</td>
-                <td>[disabled]="true"</td>
+                <td>Markerar checkboxen.</td>
+                <td>[checked]="true"</td>
               </tr>
               <tr>
                 <td>checkedChanged : EventEmitter&lt;boolean&gt;</td>
