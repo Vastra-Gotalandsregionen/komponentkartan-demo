@@ -20,10 +20,10 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "app",
     "styles": [
-      "../node_modules/vgr-komponentkartan/assets/komponentkartan.scss",
+      "../node_modules/vgr-komponentkartan/dist/assets/komponentkartan.scss",
       "styles.scss"
     ],
-    "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/lib/scripts/_objects.back-to-top.js"],
+    "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/dist/scripts/_objects.back-to-top.js"],
     "environmentSource": "environments/environment.ts",
     "environments": {
       "dev": "environments/environment.ts",

@@ -1,9 +1,9 @@
 import { Component, AfterViewInit, ViewChild, HostBinding } from '@angular/core';
-import { ISelectableItem } from 'vgr-komponentkartan/lib/index';
-import { SidebarMenuComponent } from 'vgr-komponentkartan/lib/index';
-import { IMenu, IMenuGroup, IMenuItem } from 'vgr-komponentkartan/lib/index';
-import { ModalService } from 'vgr-komponentkartan/lib/index';
-import { IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan/lib/index';
+import {
+    ISelectableItem, IMenu, IMenuGroup, IMenuItem,
+    SidebarMenuComponent, ModalService, IHeaderMenu, IHeaderMenuItem
+} from 'vgr-komponentkartan/dist';
+
 @Component({
     selector: 'app-komponentkartan',
     templateUrl: 'app.component.html'

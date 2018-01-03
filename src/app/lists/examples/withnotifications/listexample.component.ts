@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
   ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
-} from 'vgr-komponentkartan/lib/index';
+} from 'vgr-komponentkartan/dist';
 import { Examples } from '../examples';
 import { HtmlEncodeService } from '../../../html-encode.service';
 

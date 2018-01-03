@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import {
   IValidationResult, ValidationErrorState, IValidation, ICustomValidator,
-  ISelectableItem, ErrorHandler
-} from '../../../node_modules/vgr-komponentkartan/lib/index';
+  ISelectableItem, ErrorHandler, InputComponent
+} from 'vgr-komponentkartan/dist';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan/lib/index';
-import { HeaderComponent } from 'vgr-komponentkartan/lib/index';
+import { IHeaderMenu, IHeaderMenuItem, HeaderComponent } from 'vgr-komponentkartan/dist';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({

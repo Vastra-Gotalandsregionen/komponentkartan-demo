@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
-import { RowNotification, NotificationIcon, NotificationType } from 'vgr-komponentkartan/lib/index';
+import { RowNotification, NotificationIcon, NotificationType } from 'vgr-komponentkartan/dist';
 
 @Component({
   selector: 'app-card',

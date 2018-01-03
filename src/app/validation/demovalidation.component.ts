@@ -1,7 +1,8 @@
 import { Component, ViewChildren, QueryList } from '@angular/core';
-import { IValidationResult, ValidationErrorState, IValidation } from 'vgr-komponentkartan/lib/index';
-import { ISelectableItem } from 'vgr-komponentkartan/lib/index';
-import { ValidationComponent } from '../../../node_modules/vgr-komponentkartan/lib/controls/validation/validation.component';
+import { IValidationResult, ValidationErrorState, IValidation, ISelectableItem } from 'vgr-komponentkartan/dist';
+
+import { ValidationComponent } from 'vgr-komponentkartan/dist';
+
 @Component({
   selector: 'app-validation',
   templateUrl: './demovalidation.component.html',
