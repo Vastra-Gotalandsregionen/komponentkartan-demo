@@ -69,7 +69,8 @@ Task("Deploy-Frontend")
 
 	var sourcePath =  MakeAbsolute(Directory("./dist/")).FullPath;
 	var destinationPath = environment + "-komponentkartan";
-
+	var username =  EnvironmentVariable("DeployUsername");
+	var password =  EnvironmentVariable("DeployPwd");
 
 		MsDeploy(new MsDeploySettings
 	{
@@ -85,8 +86,8 @@ Task("Deploy-Frontend")
 			Direction = Direction.dest,
 			Path = destinationPath,
 			WebManagementService = deployServer,
-			Username = "deploy",
-			Password = "Spring2017!"
+			Username = username,
+			Password = password
 		}
 	});
 });
