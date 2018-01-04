@@ -8,9 +8,9 @@ describe('InputfieldsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputfieldsComponent ]
+      declarations: [InputfieldsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

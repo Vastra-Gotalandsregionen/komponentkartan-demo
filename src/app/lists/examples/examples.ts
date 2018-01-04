@@ -25,7 +25,7 @@ export class Examples {
     import {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
       SortChangedArgs // Args när sorteringordningen ändras.
-    } from 'vgr-komponentkartan';
+    } from 'vgr-komponentkartan/';
 
     @Component({
       selector: 'app-listcodeexample',
@@ -75,7 +75,7 @@ export class Examples {
       <vgr-list-column [text]="row.firstName"></vgr-list-column>
       <vgr-list-column [text]="row.lastName"></vgr-list-column>
       <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      <vgr-list-column [text]="row.income| number:'2.2-2':'sv'"></vgr-list-column>
+      <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'"></vgr-list-column>
     </vgr-list-item-header>
     <vgr-list-item-content>
         <span>Förnamn: {{row.firstName}}</span>
@@ -93,7 +93,7 @@ export class Examples {
   import {
     ExpandableRow, NotificationIcon, RowNotification, NotificationType, ModalService,
     ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
-  } from 'vgr-komponentkartan';
+  } from 'vgr-komponentkartan/';
 
   @Component({
     selector: 'app-listexample',
@@ -202,7 +202,7 @@ export class Examples {
     import {
         ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow,
         SortDirection, SortChangedArgs
-    } from 'vgr-komponentkartan';
+    } from 'vgr-komponentkartan/';
 
     @Component({
         selector: 'app-listexamplewithactionbuttons',

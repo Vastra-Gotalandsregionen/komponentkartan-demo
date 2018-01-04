@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValidationComponent } from './validation.component';
+import { ValidationComponent } from 'vgr-komponentkartan/dist';
 
 describe('ValidationComponent', () => {
   let component: ValidationComponent;
@@ -8,9 +8,9 @@ describe('ValidationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ValidationComponent ]
+      declarations: [ValidationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

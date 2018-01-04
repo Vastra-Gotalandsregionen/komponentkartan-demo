@@ -38,19 +38,21 @@
     <div class="row-layout">
       <div>
         <p>Disabled</p>
-        <vgr-dropdown [items]="dropDownItems8AndSelected" [noItemSelectedLabel]="'Välj alternativ'" [disabled]="isReadonlyAndDisabled"></vgr-dropdown>
+        <vgr-dropdown [items]="dropDownItems8AndSelected" [noItemSelectedLabel]="'Välj alternativ'" [disabled]="isReadonlyAndDisabled"
+          (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
         <p>Readonly</p>
-        <vgr-dropdown [items]="dropDownItems8AndSelected" [noItemSelectedLabel]="'Välj alternativ'" [readonly]="isReadonlyAndDisabled"></vgr-dropdown>
+        <vgr-dropdown [items]="dropDownItems8AndSelected" [noItemSelectedLabel]="'Välj alternativ'" [readonly]="isReadonlyAndDisabled"
+          (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
         <p>Disabled (inget valt)</p>
-        <vgr-dropdown [items]="dropDownItems9" [noItemSelectedLabel]="'Välj alternativ'" [disabled]="isReadonlyAndDisabled"></vgr-dropdown>
+        <vgr-dropdown [items]="dropDownItems9" [noItemSelectedLabel]="'Välj alternativ'" [disabled]="isReadonlyAndDisabled" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
         <p>Readonly (inget valt)</p>
-        <vgr-dropdown [items]="dropDownItems9" [noItemSelectedLabel]="'Välj alternativ'" [readonly]="isReadonlyAndDisabled"></vgr-dropdown>
+        <vgr-dropdown [items]="dropDownItems9" [noItemSelectedLabel]="'Välj alternativ'" [readonly]="isReadonlyAndDisabled" (selectedItemChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
         <p>Växla readonly och disabled</p>

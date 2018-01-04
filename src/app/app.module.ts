@@ -4,13 +4,18 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+// Core
+import { appRoutes } from './routes';
+
 // Komponentkartan
-import { KomponentkartanModule } from 'vgr-komponentkartan/component-package/komponentkartan.module';
+import { KomponentkartanModule } from 'vgr-komponentkartan/dist';
+
+// Vendors
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
 
-import { appRoutes } from './routes';
 import { InputfieldsComponent } from './inputfields/inputfields.component';
 import { CityService } from './inputfields/cityservice';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
@@ -41,12 +46,10 @@ import { ComponentDocsComponent } from './component-docs/component-docs.componen
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
 import { PageStructureComponent } from './page-structure/page-structure.component';
-import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
-
 
 @NgModule({
     imports: [
@@ -95,8 +98,7 @@ import { MenuComponent } from './menu/menu.component';
     providers: [
         CityService,
         HighlightJsService,
-        HtmlEncodeService,
-        { provide: LOCALE_ID, useValue: 'sv-SE' }
+        HtmlEncodeService
     ],
     schemas: [NO_ERRORS_SCHEMA],
 

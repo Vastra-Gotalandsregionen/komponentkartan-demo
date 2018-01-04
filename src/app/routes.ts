@@ -1,3 +1,7 @@
+// Core
+import { Routes } from '@angular/router';
+
+// Domain
 import { InputfieldsComponent } from './inputfields/inputfields.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
@@ -25,7 +29,6 @@ import { PageStructureComponent } from './page-structure/page-structure.componen
 import { CardComponent } from './card/card.component';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
-import { Routes } from '@angular/router';
 import { ListexampleComponent } from './lists/examples/withnotifications/listexample.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';

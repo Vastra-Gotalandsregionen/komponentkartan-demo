@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IDropdownItem } from '../../../node_modules/vgr-komponentkartan/component-package/models/dropdownItem.model';
+import { IDropdownItem } from 'vgr-komponentkartan/dist';
 
 @Component({
   selector: 'app-dropdownmultiselect',
