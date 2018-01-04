@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValidationComponent } from 'vgr-komponentkartan/dist';
+import { ValidationComponent } from 'vgr-komponentkartan';
 
 describe('ValidationComponent', () => {
   let component: ValidationComponent;

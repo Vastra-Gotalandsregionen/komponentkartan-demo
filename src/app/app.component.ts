@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ViewChild, HostBinding } from '@angular/core'
 import {
     ISelectableItem, IMenu, IMenuGroup, IMenuItem,
     SidebarMenuComponent, ModalService, IHeaderMenu, IHeaderMenuItem
-} from 'vgr-komponentkartan/dist';
+} from 'vgr-komponentkartan';
 
 @Component({
     selector: 'app-komponentkartan',

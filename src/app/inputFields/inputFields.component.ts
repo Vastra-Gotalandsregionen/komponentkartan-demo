@@ -3,7 +3,7 @@ import { DecimalPipe } from '@angular/common';
 import {
   IValidationResult, ValidationErrorState, IValidation, ICustomValidator,
   ISelectableItem, ErrorHandler, InputComponent
-} from 'vgr-komponentkartan/dist';
+} from 'vgr-komponentkartan';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
