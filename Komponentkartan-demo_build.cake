@@ -54,7 +54,7 @@ Task("Build-Frontend")
 .Does(() => {
       NpmRunScript(new NpmRunScriptSettings
     {
-        ScriptName = "build",
+        ScriptName = "build-prod",
         WorkingDirectory = "./"
     });
 
