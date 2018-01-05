@@ -8992,7 +8992,7 @@ export class CityService {
                 observer.complete();
             }, 2000);
 
-        })
+        });
         return observable;
     }
 }

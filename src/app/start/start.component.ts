@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartComponent implements OnInit {
   currentVersion: string;
-  angularVersion: string
+  angularVersion: string;
 
   constructor() {
     const { dependencies: appVersion } = require('../../../package.json');

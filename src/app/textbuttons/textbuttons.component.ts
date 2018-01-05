@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextbuttonsComponent implements OnInit {
   lastButtonPressed: string;
-  buttonDisabled: boolean = true;
-  buttonSecondaryDisabled: boolean = true;
+  buttonDisabled = true;
+  buttonSecondaryDisabled = true;
   constructor() {
     this.lastButtonPressed = '';
   }

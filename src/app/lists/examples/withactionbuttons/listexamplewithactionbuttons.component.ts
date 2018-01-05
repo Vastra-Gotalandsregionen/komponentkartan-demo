@@ -37,7 +37,7 @@ export class ListExampleWithActionButtonsComponent {
     }
 
     notifyOnDelete(row: any) {
-        this.modalService.openDialog('Info', 'Du tog bort detta objektet: ' + JSON.stringify(row, null, "\t"),
+        this.modalService.openDialog('Info', 'Du tog bort detta objektet: ' + JSON.stringify(row, null, '\t'),
             new ModalButtonConfiguration('Stäng', () => {
             })
         );
