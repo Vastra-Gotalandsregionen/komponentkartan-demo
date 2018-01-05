@@ -32,7 +32,7 @@ Task("Install-Latest-KomponentkartanPackage")
 	{
 		 NpmRunScript(new NpmRunScriptSettings
     	{
-			ScriptName = "install-demo",
+			ScriptName = "install-dev",
 			WorkingDirectory = "./"
 		});
 	});
