@@ -52,6 +52,8 @@ import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 
+import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
+
 @NgModule({
     imports: [
         KomponentkartanModule,
@@ -95,7 +97,8 @@ import { ExpandableDivComponent } from './expandable-div/expandable-div.componen
         ListcodeexampleComponent,
         ListExampleWithActionButtonsComponent,
         ReactiveformsexampleComponent,
-        ExpandableDivComponent
+        ExpandableDivComponent,
+        ListexamplewithexpandabledivComponent
     ],
     providers: [
         CityService,

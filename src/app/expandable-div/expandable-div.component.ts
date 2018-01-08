@@ -27,5 +27,5 @@ export class ExpandableDivComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onExpandedChanged(flag: Boolean) { }
 }
