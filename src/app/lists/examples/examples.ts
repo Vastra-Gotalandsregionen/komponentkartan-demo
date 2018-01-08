@@ -53,20 +53,27 @@ export class Examples {
           this.peopleRowsSimpleList = [
               {
                   id: '1', firstName: 'Git', lastName: 'Hubsson', occupation: 'Ninja codewarrior', income: 300000,
-                  children: [{ firstName: 'Lena', lastName: 'Hubsson' } as ExamplePerson,
-                  { firstName: 'Signe', lastName: 'Hubsson' } as ExamplePerson]
+                  children: [
+                      { firstName: 'Lena', lastName: 'Hubsson' } as ExamplePerson,
+                      { firstName: 'Signe', lastName: 'Hubsson' } as ExamplePerson]
               } as ExamplePerson,
               {
-                  id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon', income: 450000, children: [{ firstName: 'Kalle', lastName: 'Visualizer' } as ExamplePerson,
-                  { firstName: 'Oskar', lastName: 'Visualizer' } as ExamplePerson]
+                  id: '2', firstName: 'Stud', lastName: 'Visualizer', occupation: 'Black Dragon', income: 450000,
+                  children: [
+                      { firstName: 'Kalle', lastName: 'Visualizer' } as ExamplePerson,
+                      { firstName: 'Oskar', lastName: 'Visualizer' } as ExamplePerson]
               } as ExamplePerson,
               {
-                  id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard', income: 230000, children: [{ firstName: 'Eva', lastName: 'Charper' } as ExamplePerson,
-                  { firstName: 'Lars', lastName: 'Charper' } as ExamplePerson]
+                  id: '3', firstName: 'See', lastName: 'Charper', occupation: 'Chrome wizard', income: 230000,
+                  children: [
+                      { firstName: 'Eva', lastName: 'Charper' } as ExamplePerson,
+                      { firstName: 'Lars', lastName: 'Charper' } as ExamplePerson]
               } as ExamplePerson,
               {
-                  id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data', income: 600000, children: [{ firstName: 'Siv', lastName: 'Andersson' } as ExamplePerson,
-                  { firstName: 'Erik', lastName: 'Andersson' } as ExamplePerson]
+                  id: '3', firstName: 'IT-Lasse', lastName: 'Andersson', occupation: 'Data', income: 600000,
+                  children: [
+                      { firstName: 'Siv', lastName: 'Andersson' } as ExamplePerson,
+                      { firstName: 'Erik', lastName: 'Andersson' } as ExamplePerson]
               } as ExamplePerson
           ];
       }
