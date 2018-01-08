@@ -37,6 +37,7 @@ export class KomponentkartanApplicationComponent {
                                     { title: 'Datepicker', url: '/datepicker' } as IMenuItem,
                                     { title: 'Dropdown', url: '/dropdowns' } as IMenuItem,
                                     { title: 'Dropdown multiselect', url: '/dropdownmultiselect' } as IMenuItem,
+                                    { title: 'Expandable div', url: '/expandablediv' } as IMenuItem,
                                     { title: 'Filter textbox', url: '/filtertextbox' } as IMenuItem,
                                     { title: 'Header/header menu', url: '/headers' } as IMenuItem,
                                     { title: 'Input', url: '/inputFields' } as IMenuItem,

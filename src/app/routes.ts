@@ -33,6 +33,7 @@ import { ListexampleComponent } from './lists/examples/withnotifications/listexa
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
+import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 
 export const appRoutes: Routes = [
 
@@ -67,5 +68,6 @@ export const appRoutes: Routes = [
     { path: 'listexample-simple', component: ListcodeexampleComponent },
     { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
+    { path: 'expandablediv', component: ExpandableDivComponent },
     { path: '**', redirectTo: '/' }
 ];
