@@ -50,6 +50,7 @@ import { CardComponent } from './card/card.component';
 import { HtmlEncodeService } from './html-encode.service';
 import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
+import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 
 @NgModule({
     imports: [
@@ -93,7 +94,8 @@ import { MenuComponent } from './menu/menu.component';
         MenuComponent,
         ListcodeexampleComponent,
         ListExampleWithActionButtonsComponent,
-        ReactiveformsexampleComponent
+        ReactiveformsexampleComponent,
+        ExpandableDivComponent
     ],
     providers: [
         CityService,
