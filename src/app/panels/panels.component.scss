@@ -1,0 +1,15 @@
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  li {
+    ul {
+      li {
+        padding-left: 26px;
+      }
+    }
+  }
+}
+
+.circle {
+  max-height: 100px;
+}

@@ -3,110 +3,49 @@
     <div class="content-overview">
       <p>
         <code>
-          &lt;div class="information-panel"&gt;</code>
-      </p>
-      <br>
-      <p>Paneler är en samling css-klasser som skall hjälpa till att gruppera innehåll.</p>
+          &lt;vgr-panel&gt;</code> är en panel som man kan lägga innehåll i. Panelen har två olika utseenden som går att
+        ställa in:
 
-      <br>
-      <div class="information-panel">
-        <div class="information-panel__content">
-          <div class="information-panel__header">
-            <span class="information-panel__header__title">Panel med enkel rubrik</span>
-          </div>
-          <p class="information-panel__information">Den här panelen innehåller enbart text</p>
-        </div>
-      </div>
+      </p>
+      <ul>
+        <li>Färgad kant runt panelen och en markör överst som färgas beroende på färgtemat. Det går även att sätta själv vilken
+          färg en specifik panel ska ha.</li>
+        <li>Utan färgad kant och markör överst.</li>
+      </ul>
+      <p>
+        Behöver man ha flera paneler på samma rad och att de ska ta olika mycket utrymme så ska dessa ligga i en
+        <code>
+          &lt;vgr-panel-container&gt;</code>
+      </p>
+
+      <vgr-panel-container>
+        <vgr-panel width="4">
+          <p>Panel med neutralt tema och med lite text i som tar 1/3 av innehållet i en panelbehållare.</p>
+        </vgr-panel>
+        <vgr-panel noborder="true" width="8">
+
+        </vgr-panel>
+      </vgr-panel-container>
     </div>
     <br>
     <p> Förändras med tema:
-      <strong>Ja</strong> (överkant färgas med tema)
+      <strong>Ja</strong> (överkant färgas med tema).
     </p>
   </div>
-  <div class="docs__examples">
-    <div class="column-layout">
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel two-thirds ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Panel med tiddstämpel</span>
-              <span class="information-panel___header__timestamp">2017-12-31</span>
-            </div>
-            <p class="information-panel__information">
-              En panel med både en rubrik och en tiddstämpel. Längst ned finns plats för en länk. Texten bryts efter tre rader:
-              <i>
-                We built this city we built this city on rock an roll Built this city we built this city on rock an roll Say you don't know
-                me or recognize my face Say you don't care who goes to that kind of place Knee deep in the hoopla sinking
-                in your fight Too many runaways eating up the night
-              </i>
-            </p>
-            <div class="information-panel__footer">
-              <a href="https://www.google.com">En användbar länk</a>
-            </div>
-          </div>
-        </div>
-        <div class="information-panel one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Panel med enkel rubrik</span>
-            </div>
-            <p class="information-panel__information">Den här panelen tar en tredjedel av utrymmet och saknar både tiddstämpel och länk.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel theme--green one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Rehab</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från Rehab får en grön markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-            <div class="information-panel__footer">
-              <a href="https://vardvalrehab.vgregion.se" target="_blank">Gå till Vårdval Rehab</a>
-            </div>
-          </div>
-        </div>
-        <div class="information-panel theme--red one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">VGPV</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från VGPV får en röd markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-            <div class="information-panel__footer">
-              <a href="https://vardval.vgregion.se" target="_blank">Gå till Vårdval Primärvård</a>
-            </div>
-          </div>
-        </div>
-        <div class="information-panel theme--blue one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">BMM</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från BMM får en blå markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel theme--green half ">
-          <div class="information-panel__content">
-            <div style="font-size: 48px">+89</div>
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">NYA LISTNINGAR DENNA MÅNAD</span>
-            </div>
-            <p class="information-panel__information">En panel med eget innehåll före rubriken</p>
-          </div>
-        </div>
-        <div class="information-panel theme--red half ">
-          <div class="information-panel__content">
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="docs__examples ">
+
+    <h2>Grönt tema, panel-container med en 1/3 panel och en 2/3 panel </h2>
+    <vgr-panel-container>
+      <vgr-panel width="4" color="green">
+      </vgr-panel>
+      <vgr-panel width="8" color="green">
+      </vgr-panel>
+    </vgr-panel-container>
   </div>
-  <div class="docs__api">
-    <table class="property-table">
+  <div class="docs__api ">
+    <table class="property-table ">
       <tr>
-        <th style="width:350px">CSS-Klass</th>
+        <th style="width:350px ">CSS-Klass</th>
         <th>Beskrivning</th>
         <th>Exempel</th>
       </tr>
@@ -116,11 +55,11 @@
         </td>
         <td>Sätts på element som skall vara en panel</td>
         <td>Kombinera med klasserna
-          <code class="css">.full</code>,
-          <code class="css">.one-third</code>,
-          <code class="css">.two-thirds</code> eller
-          <code class="css">half</code> för att sätta storlek. Notera att panelerna då måste ligga i en
-          <code class="css">.row-layout</code>.</td>
+          <code class="css ">.full</code>,
+          <code class="css ">.one-third</code>,
+          <code class="css ">.two-thirds</code> eller
+          <code class="css ">half</code> för att sätta storlek. Notera att panelerna då måste ligga i en
+          <code class="css ">.row-layout</code>.</td>
       </tr>
       <tr>
         <td>
@@ -166,7 +105,7 @@
       </tr>
     </table>
   </div>
-  <div class="docs__wcag">
+  <div class="docs__wcag ">
     <i>Ej aktuellt, då detta enbart är css-klasser</i>
   </div>
 </app-component-docs>
