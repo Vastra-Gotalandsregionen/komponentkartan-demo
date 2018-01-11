@@ -1,0 +1,59 @@
+.panel-heading {
+  height: 50px;
+  h1 {
+    line-height: 2em;
+  }
+}
+
+.listings {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2em;
+    strong {
+      font-size: 68px;
+      font-weight: normal
+    }
+  }
+  .line {
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      width: 248px;
+      border-bottom: 1px solid #151515;
+      position: absolute;
+      top: 10px;
+    }
+  }
+}
+
+.details {
+  max-width: 300px;
+}
+
+.circle-img {
+  max-height: 50px;
+}
+
+.stethoscope-img {
+  max-height: 40px;
+}
+
+.stats-img {
+  max-height: 112px;
+}
+
+.phockey-stick-img {
+  max-height: 20px;
+}
+
+.red-circle-img {
+  height: 120px;
+}
+
+.file-info-text {
+  margin-left: 0px;
+}

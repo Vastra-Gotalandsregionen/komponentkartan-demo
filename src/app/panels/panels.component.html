@@ -2,171 +2,108 @@
   <div class="docs__overview">
     <div class="content-overview">
       <p>
-        <code>
-          &lt;div class="information-panel"&gt;</code>
+        <code>&lt;vgr-panel&gt;</code> är en panel som kan innehålla valfritt innehåll. Den har en fast höjd och kan visas med
+        eller utan ram. Behöver man ha flera paneler på samma rad ska de placeras i en
+        <code>&lt;vgr-panel-container&gt;</code>
       </p>
-      <br>
-      <p>Paneler är en samling css-klasser som skall hjälpa till att gruppera innehåll.</p>
+      <vgr-panel-container>
+        <vgr-panel width="4">
+          <p>Panel med neutralt tema och med lite text i som tar 1/3 av innehållet i en panelbehållare.</p>
+        </vgr-panel>
+        <vgr-panel noborder="true" width="8">
 
-      <br>
-      <div class="information-panel">
-        <div class="information-panel__content">
-          <div class="information-panel__header">
-            <span class="information-panel__header__title">Panel med enkel rubrik</span>
-          </div>
-          <p class="information-panel__information">Den här panelen innehåller enbart text</p>
-        </div>
-      </div>
+        </vgr-panel>
+      </vgr-panel-container>
     </div>
     <br>
     <p> Förändras med tema:
-      <strong>Ja</strong> (överkant färgas med tema)
+      <strong>Ja</strong> (ram färgas med tema, men går att sätta till en specifik tema-färg).
     </p>
   </div>
-  <div class="docs__examples">
-    <div class="column-layout">
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel two-thirds ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Panel med tiddstämpel</span>
-              <span class="information-panel___header__timestamp">2017-12-31</span>
+  <div class="docs__examples ">
+    <vgr-panel-container>
+      <vgr-panel width="4" color="green">
+        <div class="row-layout panel-heading">
+          <img class="circle-img" src="/assets/images/panel-circle.PNG">
+          <h1 class="file-info-text">2 / 3 filuppladdningar</h1>
+        </div>
+        <p>Antal enheter som laddat upp A eller C-fil denna månaden i
+          <a>Rehab.</a>
+        </p>
+      </vgr-panel>
+      <vgr-panel width="8" color="green">
+        <div class="row-layout">
+          <div>
+            <div class="row-layout panel-heading">
+              <img class="stethoscope-img" src="/assets/images/panel-stethoscope.PNG">
+              <div class="file-info-text">
+                <h1>Genomsnitt 3 442 besök/månad</h1>
+              </div>
             </div>
-            <p class="information-panel__information">
-              En panel med både en rubrik och en tiddstämpel. Längst ned finns plats för en länk. Texten bryts efter tre rader:
-              <i>
-                We built this city we built this city on rock an roll Built this city we built this city on rock an roll Say you don't know
-                me or recognize my face Say you don't care who goes to that kind of place Knee deep in the hoopla sinking
-                in your fight Too many runaways eating up the night
-              </i>
+            <div>
+              <p>Genomsnitt på antal besök per månad beräknat på alla enheter de senaste två åren,
+                <a>läs mer om besöksstatistik</a>.
+              </p>
+            </div>
+          </div>
+          <img class="stats-img" src='/assets/images/panel-stats.PNG' />
+        </div>
+      </vgr-panel>
+    </vgr-panel-container>
+    <vgr-panel-container>
+      <vgr-panel width="4" noborder="true">
+        <div class="row-layout">
+          <div>
+            <h2>Filuppladdningar</h2>
+            <p>antal enheter som laddat upp A, B eller C-fil denna månaden i
             </p>
-            <div class="information-panel__footer">
-              <a href="https://www.google.com">En användbar länk</a>
-            </div>
+            <a>Vårdval vårdcentral</a>.
+          </div>
+          <div>
+            <img class="red-circle-img" src="/assets/images/panel-red-circle-text.PNG" />
           </div>
         </div>
-        <div class="information-panel one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Panel med enkel rubrik</span>
-            </div>
-            <p class="information-panel__information">Den här panelen tar en tredjedel av utrymmet och saknar både tiddstämpel och länk.</p>
-          </div>
+      </vgr-panel>
+      <vgr-panel width="8" color="red">
+        <div class="listings">
+          <h1>
+            <strong>+89</strong> Nya listningar denna månad
+          </h1>
+          <span class="line"></span>
         </div>
-      </div>
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel theme--green one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">Rehab</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från Rehab får en grön markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-            <div class="information-panel__footer">
-              <a href="https://vardvalrehab.vgregion.se" target="_blank">Gå till Vårdval Rehab</a>
-            </div>
-          </div>
-        </div>
-        <div class="information-panel theme--red one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">VGPV</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från VGPV får en röd markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-            <div class="information-panel__footer">
-              <a href="https://vardval.vgregion.se" target="_blank">Gå till Vårdval Primärvård</a>
-            </div>
-          </div>
-        </div>
-        <div class="information-panel theme--blue one-third ">
-          <div class="information-panel__content">
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">BMM</span>
-            </div>
-            <p class="information-panel__information">Panel med innehåll från BMM får en blå markör överst. Den är panelen tar en tredjedel av utrymmet.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row-layout row-layout--equal-height">
-        <div class="information-panel theme--green half ">
-          <div class="information-panel__content">
-            <div style="font-size: 48px">+89</div>
-            <div class="information-panel__header">
-              <span class="information-panel__header__title">NYA LISTNINGAR DENNA MÅNAD</span>
-            </div>
-            <p class="information-panel__information">En panel med eget innehåll före rubriken</p>
-          </div>
-        </div>
-        <div class="information-panel theme--red half ">
-          <div class="information-panel__content">
-          </div>
-        </div>
-      </div>
-    </div>
+        <p class="details">Antal nya listningar denna månad sammanställt på alla dina enheter i
+          <a>VGPV</a>.
+        </p>
+      </vgr-panel>
+    </vgr-panel-container>
+    <section [innerHTML]="htmlMarkup" highlight-js-content=".highlight"></section>
   </div>
-  <div class="docs__api">
-    <table class="property-table">
+  <div class="docs__api ">
+    <table class="property-table ">
       <tr>
-        <th style="width:350px">CSS-Klass</th>
+        <th>Namn</th>
         <th>Beskrivning</th>
         <th>Exempel</th>
       </tr>
       <tr>
-        <td>
-          .information-panel
-        </td>
-        <td>Sätts på element som skall vara en panel</td>
-        <td>Kombinera med klasserna
-          <code class="css">.full</code>,
-          <code class="css">.one-third</code>,
-          <code class="css">.two-thirds</code> eller
-          <code class="css">half</code> för att sätta storlek. Notera att panelerna då måste ligga i en
-          <code class="css">.row-layout</code>.</td>
+        <td>width : number</td>
+        <td>vgr-panel-container är baserad på en 12-kolumnslayout. Default-bredden för en panel är 4 kolumner.</td>
+        <td>[width]="8"</td>
       </tr>
       <tr>
-        <td>
-          .information-panel__content
-        </td>
-        <td>Innehåll i panelen, innehåller header, information samt footer</td>
-        <td></td>
+        <td>color : string</td>
+        <td>Bestämmer vilken färg panelen ska ha på ramen. Tillgängliga färger är red, green, blue, neutral. Default är att färgen
+          följer temat.</td>
+        <td>[color]="green"</td>
       </tr>
       <tr>
-        <td>
-          .information-panel__header
-        </td>
-        <td>Headerelement, innehåller rubrik och ev tidsstämpel</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          .information-panel__header__title
-        </td>
-        <td>Panelens rubrik, visas till vänster i rubriken</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          .information-panel__header__timestamp
-        </td>
-        <td>Tidsstämpel, visas till höger i header</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          .information-panel__information
-        </td>
-        <td>Plats för text eller annat innehåll</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          .information-panel__footer
-        </td>
-        <td>Visas längst ned i panelen</td>
-        <td></td>
+        <td>noborder : boolean</td>
+        <td>Gör det möjligt att skapa en panel som inte har någon ram. Default är false.</td>
+        <td>[noborder]="true"</td>
       </tr>
     </table>
   </div>
-  <div class="docs__wcag">
-    <i>Ej aktuellt, då detta enbart är css-klasser</i>
+  <div class="docs__wcag ">
+    <i>Ej aktuellt, då detta enbart en yta med en ram.</i>
   </div>
 </app-component-docs>
