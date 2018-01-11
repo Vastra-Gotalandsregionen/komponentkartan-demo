@@ -26,7 +26,7 @@ const htmlMarkup = `
   styleUrls: ['./panels.component.scss']
 })
 export class PanelsComponent implements OnInit {
-  private htmlMarkup: string;
+  htmlMarkup: string;
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.htmlMarkup =
