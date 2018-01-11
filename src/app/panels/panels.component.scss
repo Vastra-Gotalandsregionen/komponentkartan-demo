@@ -10,16 +10,33 @@ ul {
   }
 }
 
+.listings {
+  padding-top: 10px;
+}
+
+strong {
+  font-size: 68px;
+}
+
 .circle-img {
   max-height: 50px;
 }
 
 .stats-img {
-  max-height: 50px;
-}
-
-.stethoscope-img {
   max-height: 112px;
 }
 
-.file-info-text {}
+.phockey-stick-img {
+  max-height: 20px;
+}
+
+.red-circle-img {
+  height: 120px;
+}
+
+.file-info-text {
+  margin-left: 0px;
+  div {
+    padding-top: 5px;
+  }
+}
