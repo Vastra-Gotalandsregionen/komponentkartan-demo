@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IDropdownItem } from 'vgr-komponentkartan';
+import { DropdownItem } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-dropdownmultiselect',
@@ -8,13 +8,13 @@ import { IDropdownItem } from 'vgr-komponentkartan';
 })
 export class DropdownmultiselectComponent implements OnInit {
 
-  dropDownItems6: IDropdownItem[];
-  dropDownItems6AndSelected: IDropdownItem[];
-  dropDownItems6AndThreeSelected: IDropdownItem[];
-  dropDownItems7: IDropdownItem[];
-  dropDownItems25: IDropdownItem[];
-  dropDownItems25All: IDropdownItem[];
-  dropDownItems200: IDropdownItem[];
+  dropDownItems6: DropdownItem<string>[];
+  dropDownItems6AndSelected: DropdownItem<string>[];
+  dropDownItems6AndThreeSelected: DropdownItem<string>[];
+  dropDownItems7: DropdownItem<string>[];
+  dropDownItems25: DropdownItem<string>[];
+  dropDownItems25All: DropdownItem<string>[];
+  dropDownItems200: DropdownItem<string>[];
   isReadonlyAndDisabled: boolean;
 
   lastMultipleSelection: string;
@@ -33,35 +33,35 @@ export class DropdownmultiselectComponent implements OnInit {
   ngOnInit() {
   }
 
-  private getDemoItems(numberOfItems: number): IDropdownItem[] {
-    const items: IDropdownItem[] = [];
+  private getDemoItems(numberOfItems: number): DropdownItem<string>[] {
+    const items: DropdownItem<string>[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ id: i.toString(), displayName: `Min mottagning ${i}` } as IDropdownItem);
+      items.push({ value: i.toString(), displayName: `Min mottagning ${i}` } as DropdownItem<string>);
     }
     return items;
   }
 
-  private getDemoItemsLongName(numberOfItems: number): IDropdownItem[] {
-    const items: IDropdownItem[] = [];
+  private getDemoItemsLongName(numberOfItems: number): DropdownItem<string>[] {
+    const items: DropdownItem<string>[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ id: i.toString(), displayName: `${i} - En mottagning med långt namn i landstinget`, displayNameWhenSelected: `Alt ${i}` } as IDropdownItem);
+      items.push({ value: i.toString(), displayName: `${i} - En mottagning med långt namn i landstinget`, displayNameWhenSelected: `Alt ${i}` } as DropdownItem<string>);
     }
     return items;
   }
 
 
-  private getDemoItemsMixedName(numberOfItems: number): IDropdownItem[] {
-    const items: IDropdownItem[] = [];
+  private getDemoItemsMixedName(numberOfItems: number): DropdownItem<string>[] {
+    const items: DropdownItem<string>[] = [];
 
-    const demoitems: string[] = ['En mottagning med långt namn', 'Min mottagning', 'Hennes mottagning', 'Hans mottagning', 'Evas mottagning', 'Karl-Johan Fredrikssons mottagning - Östra Göteborg']
+    const demoitems: string[] = ['En mottagning med långt namn', 'Min mottagning', 'Hennes mottagning', 'Hans mottagning', 'Evas mottagning', 'Karl-Johan Fredrikssons mottagning - Östra Göteborg'];
 
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ id: i.toString(), displayName: `${demoitems[this.getRandomInt(0, 6)]}` } as IDropdownItem);
+      items.push({ value: i.toString(), displayName: `${demoitems[this.getRandomInt(0, 6)]}` } as DropdownItem<string>);
     }
     return items;
   }
 
-  private getDemoItemsWithSelected(numberOfItems: number, selectedIndexes: Array<number>): IDropdownItem[] {
+  private getDemoItemsWithSelected(numberOfItems: number, selectedIndexes: Array<number>): DropdownItem<string>[] {
     const list = this.getDemoItems(numberOfItems);
     list.forEach((dpItem, index) => {
       if (dpItem != null) {
@@ -73,7 +73,7 @@ export class DropdownmultiselectComponent implements OnInit {
     return list;
   }
 
-  onMultipleSelectionChanged(selectedItems: IDropdownItem[]) {
+  onMultipleSelectionChanged(selectedItems: DropdownItem<string>[]) {
     this.lastMultipleSelection = selectedItems.map(x => x.displayName).join(',');
   }
 
@@ -81,7 +81,7 @@ export class DropdownmultiselectComponent implements OnInit {
   getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
   }
 
 }
