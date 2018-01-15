@@ -3,10 +3,10 @@ import { HtmlEncodeService } from '../html-encode.service';
 
 const htmlMarkup = `
 <vgr-panel-container>
-  <vgr-panel width="4" color="green">
+  <vgr-panel width="4" themecolor="green">
     <!-- html för panel-innehåll -->
   </vgr-panel>
-  <vgr-panel width="8" color="green">
+  <vgr-panel width="8" themecolor="green">
     <!-- html för panel-innehåll -->
   </vgr-panel>
 </vgr-panel-container>
@@ -14,7 +14,7 @@ const htmlMarkup = `
   <vgr-panel width="4" noborder="true">
     <!-- html för panel-innehåll -->
   </vgr-panel>
-  <vgr-panel width="8" color="red">
+  <vgr-panel width="8" themecolor="red">
     <!-- html för panel-innehåll -->
   </vgr-panel>
 </vgr-panel-container>
