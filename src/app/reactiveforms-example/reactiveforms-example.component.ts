@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-
+import { SelectableItem, DropdownItem } from 'vgr-komponentkartan';;
 import { Examples } from './code-example';
 
 @Component({
@@ -32,6 +32,10 @@ export class ReactiveformsexampleComponent implements OnInit {
         }
     };
 
+    radioOptions: SelectableItem<number>[];
+    dropdownItems: DropdownItem<string>[];
+    dropdownItemsMulti: DropdownItem<string>[];
+
     typeScriptSimpleListMarkup: string;
     htmlSimpleListMarkup: string;
     examples: Examples = new Examples();
@@ -41,28 +45,46 @@ export class ReactiveformsexampleComponent implements OnInit {
             htmlEncoder.prepareHighlightedSection(this.examples.typeScriptSimpleFormMarkup, 'typescript');
         this.htmlSimpleListMarkup =
             htmlEncoder.prepareHighlightedSection(this.examples.htmltSimpFormMarkup);
+
+        this.radioOptions = [
+            { displayName: 'Ett', value: 1 },
+            { displayName: 'Två', value: 2 },
+            { displayName: 'Tre', value: 3 }
+        ];
+
+        this.dropdownItems = [
+            { displayName: 'Hund', value: 'Hund' },
+            { displayName: 'Katt', value: 'Katt' },
+            { displayName: 'Guldfisk', value: 'Guldfisk' }
+        ];
+
+        this.dropdownItemsMulti = [
+            { displayName: 'Koda', value: 'Koda' },
+            { displayName: 'Äta', value: 'Äta' },
+            { displayName: 'Sova', value: 'Soa' }
+        ];
     }
     ngOnInit() {
         this.createForm();
     }
 
     createForm() {
-
         this.userForm = this.fb.group({
             firstname: ['', [Validators.required, Validators.minLength(2)]],
             lastname: ['', [Validators.required, Validators.minLength(2)]],
             age: ['', [Validators.required, Validators.min(18), Validators.max(120), validateNumber]],
             email: ['', [Validators.required, Validators.email]],
             salary: ['', [Validators.required, validateNumber]],
-            favourite_pet: ['', Validators.required],
-            interests: [['Koda'], Validators.required],
+            favourite_pet: [null, Validators.required],
+            interests: [[this.dropdownItemsMulti[0].value], Validators.required],
             check: [true, Validators.pattern('true')],
-            optional: ['Två'],
+            optional: [this.radioOptions[2].value],
             monthpicker: ['', Validators.required],
             datepicker: ['', Validators.required],
             datepicker_preselected: [new Date(), Validators.required]
-        });
+        })
     }
+
 }
 
 function validateNumber(control: AbstractControl) {
