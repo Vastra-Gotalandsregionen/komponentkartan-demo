@@ -19,18 +19,21 @@ const htmlMarkup = `
   </vgr-panel>
 </vgr-panel-container>
 <vgr-panel-container>
-  <vgr-panel width="6" themecolor="red">
+  <vgr-panel width="6" >
     <!-- html för panel-innehåll -->
   </vgr-panel>
-  <vgr-panel width="6" themecolor="green">
+  <vgr-panel width="6">
     <!-- html för panel-innehåll -->
   </vgr-panel>
 </vgr-panel-container>
 <vgr-panel-container>
-  <vgr-panel width="6">
+  <vgr-panel width="4" themecolor="green">
     <!-- html för panel-innehåll -->
   </vgr-panel>
-  <vgr-panel width="6">
+  <vgr-panel width="4" themecolor="green">
+    <!-- html för panel-innehåll -->
+  </vgr-panel>
+  <vgr-panel width="4" themecolor="green">
     <!-- html för panel-innehåll -->
   </vgr-panel>
 </vgr-panel-container>`;
