@@ -24,7 +24,7 @@
       <br>
       <br>
       <h2>Exempel på validering</h2>
-      <div class="title-value-layout" style="width:50%">
+      <vgr-title-value-layout style="width:50%">
         <vgr-title-value [title]="'Startmånad'">
           <vgr-monthpicker [required]="true"></vgr-monthpicker>
         </vgr-title-value>
@@ -38,7 +38,7 @@
           <vgr-dropdown-multiselect [required]="true" [items]="multiItems"></vgr-dropdown-multiselect>
         </vgr-title-value>
         <vgr-button (click)="onSave()">Spara</vgr-button>
-      </div>
+      </vgr-title-value-layout>
       <div>Valideringsfel:</div>
       <div>{{validationStatus}}</div>
 

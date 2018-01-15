@@ -1,7 +1,7 @@
 export class Examples {
-  htmltSimpFormMarkup = `
+    htmltSimpFormMarkup = `
   <form [formGroup]="userForm">
-  <div class="title-value-layout">
+  <vgr-title-value-layout>
     <vgr-title-value title="Förnamn">
       <vgr-input formControlName="firstname" [errormessage]="validationMessages.firstname"></vgr-input>
     </vgr-title-value>
@@ -41,11 +41,11 @@ export class Examples {
    <vgr-title-value title="Registreringsdatum">
         <vgr-datepicker formControlName="datepicker_preselected"></vgr-datepicker>
     </vgr-title-value>
-  </div>
+  </vgr-title-value-layout>
   <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
 </form>`;
 
-  typeScriptSimpleFormMarkup = `
+    typeScriptSimpleFormMarkup = `
   import { Component, OnInit } from '@angular/core';
   import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 

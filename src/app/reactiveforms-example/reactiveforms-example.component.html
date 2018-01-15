@@ -6,7 +6,7 @@
       <vgr-card>
         <vgr-card-column>
           <form [formGroup]="userForm">
-            <div class="title-value-layout">
+            <vgr-title-value-layout>
               <vgr-title-value title="Förnamn">
                 <vgr-input formControlName="firstname" [errorMessage]="validationMessages.firstname"></vgr-input>
               </vgr-title-value>
@@ -45,12 +45,12 @@
               <vgr-title-value title="Registreringsdatum">
                 <vgr-datepicker formControlName="datepicker_preselected"></vgr-datepicker>
               </vgr-title-value>
-            </div>
+            </vgr-title-value-layout>
             <vgr-button [disabled]="userForm.invalid">Skapa användare</vgr-button>
           </form>
         </vgr-card-column>
         <vgr-card-column>
-          <div class="title-value-layout">
+          <vgr-title-value-layout>
             <vgr-title-value title="Förnamn">
               <span>Obligatorisk. Minst två tecken. </span>
             </vgr-title-value>
@@ -87,7 +87,7 @@
             <vgr-title-value title="Registreringsdatum">
               <span>Obligatorisk. Dagens datum är förvalt</span>
             </vgr-title-value>
-          </div>
+          </vgr-title-value-layout>
         </vgr-card-column>
       </vgr-card>
     </vgr-page-block>
