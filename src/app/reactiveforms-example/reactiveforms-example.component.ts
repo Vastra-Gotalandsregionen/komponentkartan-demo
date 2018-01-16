@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { SelectableItem, DropdownItem } from 'vgr-komponentkartan';;
+import { SelectableItem, DropdownItem } from 'vgr-komponentkartan';
 import { Examples } from './code-example';
 
 @Component({
@@ -82,9 +82,8 @@ export class ReactiveformsexampleComponent implements OnInit {
             monthpicker: ['', Validators.required],
             datepicker: ['', Validators.required],
             datepicker_preselected: [new Date(), Validators.required]
-        })
+        });
     }
-
 }
 
 function validateNumber(control: AbstractControl) {

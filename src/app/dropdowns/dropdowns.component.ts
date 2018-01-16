@@ -32,7 +32,7 @@ export class DropdownsComponent implements OnInit {
   private getDemoItems(numberOfItems: number): DropdownItem<string>[] {
     const items: DropdownItem<string>[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ value: i.toString(), displayName: `${i} - Min mottagning`, displayNameWhenSelected: `Alt ${i}` } as DropdownItem<string>);
+      items.push({ value: `${i} - Min mottagning`, displayName: `${i} - Min mottagning`, displayNameWhenSelected: `Alt ${i}` } as DropdownItem<string>);
     }
     return items;
   }
@@ -40,7 +40,7 @@ export class DropdownsComponent implements OnInit {
   private getDemoItemsLongName(numberOfItems: number): DropdownItem<string>[] {
     const items: DropdownItem<string>[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ value: i.toString(), displayName: `${i} - En mottagning med långt namn i landstinget`, displayNameWhenSelected: `Alt ${i}` } as DropdownItem<string>);
+      items.push({ value: `${i} - En mottagning med långt namn i landstinget`, displayName: `${i} - En mottagning med långt namn i landstinget`, displayNameWhenSelected: `Alt ${i}` } as DropdownItem<string>);
     }
     return items;
   }
@@ -52,7 +52,8 @@ export class DropdownsComponent implements OnInit {
     const demoitems: string[] = ['En mottagning med långt namn', 'Min mottagning', 'Hennes mottagning', 'Hans mottagning', 'Evas mottagning', 'Karl-Johan Fredrikssons mottagning - Östra Göteborg', 'Karl-Johan Fredrikssons mottagning - Västra Göteborg'];
 
     for (let i = 1; i <= numberOfItems; i++) {
-      items.push({ value: i.toString(), displayName: `${demoitems[this.getRandomInt(0, 7)]}` } as DropdownItem<string>);
+      const index = this.getRandomInt(0, 7);
+      items.push({ value: `${i} - ${demoitems[index]}`, displayName: `${demoitems[index]}` } as DropdownItem<string>);
     }
     return items;
   }
