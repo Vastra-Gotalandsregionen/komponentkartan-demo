@@ -41,7 +41,7 @@
       </div>
       <div>
         <p>Readonly</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelected" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems6AndSelectedReadonly" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Disabled (inget valt)</p>
@@ -49,7 +49,7 @@
       </div>
       <div>
         <p>Readonly (inget valt)</p>
-        <vgr-dropdown-multiselect [items]="dropDownItems7" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
+        <vgr-dropdown-multiselect [items]="dropDownItems7Readonly" [readonly]="isReadonlyAndDisabled" (selectionChanged)="onMultipleSelectionChanged($event)"></vgr-dropdown-multiselect>
       </div>
       <div>
         <p>Växla readonly och disabled</p>
@@ -78,10 +78,10 @@
       </tr>
       <tr>
         <td>
-          items : IDropdownItem[]
+          items : DropdownItem&lt;T&gt;[]
         </td>
         <td>Samling av
-          <code>IDropdownItem</code> som utgör valbara alternativ</td>
+          <code>DropdownItem&lt;T&gt;</code> som utgör valbara alternativ</td>
         <td>[items]="[item1, item2, ...] "</td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         <td>const result = component.validate()</td>
       </tr>
       <tr>
-        <td> selectionChanged : EventEmitter&lt;IDropdownItem[]&gt;</td>
+        <td> selectionChanged : EventEmitter&lt;any[]&gt;</td>
         <td>Event som triggas när man väljer ett alternativ i dropdownen</td>
         <td>(selectionChanged)="onMultipleSelectionChanged($event) "</td>
       </tr>
