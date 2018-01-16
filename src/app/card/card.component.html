@@ -11,8 +11,6 @@
           <vgr-list-item-header>
             <h4>Översikt</h4>
           </vgr-list-item-header>
-
-
           <vgr-list-item-content>
             <div class="content-overview">
               <p>
@@ -49,7 +47,6 @@
 
         </vgr-list-item>
         <vgr-list-item [expanded]="false">
-
           <vgr-list-item-header>
             <h4>Exempel - två kolumner</h4>
           </vgr-list-item-header>
@@ -77,7 +74,7 @@
                     <vgr-title-value [title]="'Serienummer'" [slim]="!unlocked">
                       <span>7a787b27-c2cc-441f-a732</span>
                     </vgr-title-value>
-                    <vgr-title-value-layout>
+                  </vgr-title-value-layout>
                 </vgr-card-section>
                 <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Adressuppgifter'">
                   <vgr-title-value-layout>
@@ -116,7 +113,6 @@
           </vgr-list-item-header>
           <vgr-list-item-content>
             <!-- Exempel2 -->
-
             <vgr-card>
               <vgr-card-header>
                 <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
