@@ -3,20 +3,19 @@
   <div class="docs__overview">
     <p>
       <code> &lt;vgr-title-value&gt; </code> används för att skapa title-value layouter, t.ex formulär.
-      <br> Placera title-value komponenterna i en
-      <code> &lt;div class="title-value-layout"&gt; </code>
+      <br> Placera title-value komponenterna i
+      <code> &lt;vgr-title-value-layout&gt; </code>.
     </p>
 
     <p> Förändras med tema:
       <strong>Nej</strong>
     </p>
   </div>
-
   <div class="docs__examples">
     <vgr-card>
       <vgr-card-column>
         <vgr-card-section [title]="'Belopp readonly (slim)'" [expanded]="true">
-          <div class="title-value-layout">
+          <vgr-title-value-layout>
             <vgr-title-value [title]="'Bruttobelopp'" [slim]="true">
               <vgr-input [value]="1000" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
             </vgr-title-value>
@@ -26,12 +25,12 @@
             <vgr-title-value [title]="'Nettobelopp'" [slim]="true">
               <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
             </vgr-title-value>
-          </div>
+          </vgr-title-value-layout>
         </vgr-card-section>
       </vgr-card-column>
       <vgr-card-column>
         <vgr-card-section [title]="'Belopp'" [expanded]="true" class="card__right">
-          <div class="title-value-layout">
+          <vgr-title-value-layout>
             <vgr-title-value [title]="'Bruttobelopp'">
               <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
             </vgr-title-value>
@@ -41,7 +40,7 @@
             <vgr-title-value [title]="'Nettobelopp'">
               <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true"></vgr-input>
             </vgr-title-value>
-          </div>
+          </vgr-title-value-layout>
         </vgr-card-section>
       </vgr-card-column>
     </vgr-card>
