@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISelectableItem } from 'vgr-komponentkartan';
+import { SelectableItem } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-theming',
@@ -8,26 +8,26 @@ import { ISelectableItem } from 'vgr-komponentkartan';
 })
 export class ThemingComponent implements OnInit {
 
-  themes: ISelectableItem[];
+  themes: SelectableItem<string>[];
   constructor() {
     this.themes = [
-      { displayName: 'Neutralt', id: 'theme--neutral' } as ISelectableItem,
-      { displayName: 'Blått', id: 'theme--blue' } as ISelectableItem,
-      { displayName: 'Rött', id: 'theme--red' } as ISelectableItem,
-      { displayName: 'Grönt', id: 'theme--green' } as ISelectableItem
-    ] as ISelectableItem[];
+      { displayName: 'Neutralt', value: 'theme--neutral' } as SelectableItem<string>,
+      { displayName: 'Blått', value: 'theme--blue' } as SelectableItem<string>,
+      { displayName: 'Rött', value: 'theme--red' } as SelectableItem<string>,
+      { displayName: 'Grönt', value: 'theme--green' } as SelectableItem<string>
+    ] as SelectableItem<string>[];
   }
 
   ngOnInit() {
-    this.themes.forEach(x => x.selected = this.isThemeActive(x.id));
+    this.themes.forEach(x => x.selected = this.isThemeActive(x.value));
   }
 
-  themeChanged(theme: ISelectableItem) {
+  themeChanged(theme: string) {
     document.getElementById('theme-root').classList.remove('theme--neutral');
     document.getElementById('theme-root').classList.remove('theme--blue');
     document.getElementById('theme-root').classList.remove('theme--red');
     document.getElementById('theme-root').classList.remove('theme--green');
-    document.getElementById('theme-root').classList.add(theme.id);
+    document.getElementById('theme-root').classList.add(theme);
   }
 
   isThemeActive(themeName: string): boolean {
