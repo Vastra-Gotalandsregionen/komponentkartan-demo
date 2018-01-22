@@ -20,11 +20,26 @@
     </div>
     <div class="docs__examples">
         <div>
-            <vgr-radio-group [options]="[{value:'1', displayName:'Förvald', selected:true},{value:'2', displayName:'Ej förvald'}, {value:'3', displayName:'Inaktiv', disabled:true}]"
+            <vgr-radio-group [options]="[{value:'Förvald', displayName:'Förvald', selected:true},{value:'Ej förvald', displayName:'Ej förvald'}, {value:'3Inaktiv', displayName:'Inaktiv', disabled:true}]"
                 (selectedChanged)="onSelectedRadioOptionChanged($event)">
             </vgr-radio-group>
 
-            <div>Du har valt alternativ: {{selectedOption}}</div>
+           <br>
+           <br>
+           <br>
+
+
+            <vgr-radio-group [options]="options"
+            (selectedChanged)="onSelectedRadioOptionChanged($event)">
+        </vgr-radio-group>
+        <vgr-button (click)="rensaVal()" >Rensa alternativ</vgr-button>
+<br>
+
+<br>
+<br>
+        <div>Du har valt alternativ: {{selectedOption}}</div>
+        
+
         </div>
         <br>
         <br> Under "kodexempel" finns exempel på hur radiogroup-komponenten kan användas i Angular Reactive Forms:
