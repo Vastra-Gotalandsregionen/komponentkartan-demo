@@ -53,6 +53,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
+import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 
 @NgModule({
     imports: [
@@ -98,7 +99,8 @@ import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpa
         ListExampleWithActionButtonsComponent,
         ReactiveformsexampleComponent,
         ExpandableDivComponent,
-        ListexamplewithexpandabledivComponent
+        ListexamplewithexpandabledivComponent,
+        ExamplesListwithcardsComponent
     ],
     providers: [
         CityService,

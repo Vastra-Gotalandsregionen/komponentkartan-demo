@@ -61,6 +61,12 @@ export class KomponentkartanApplicationComponent {
                                     { title: 'Reactive Forms', url: 'reactiveformsexample' } as IMenuItem
                                 ] as IMenuItem[]
                             } as IMenuItem
+                            ,
+                            {
+                                title: 'Exempelsidor', menuItems: [
+                                    { title: 'Lista med kort', url: '/examples-listwithcards' } as IMenuItem,
+                                ] as IMenuItem[]
+                            } as IMenuItem
                         ] as IMenuItem[]
                     } as IMenuGroup
                 ] as IMenuGroup[]
