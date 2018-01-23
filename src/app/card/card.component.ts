@@ -20,7 +20,8 @@ export class CardComponent implements OnInit {
   </vgr-card-header>
   <vgr-card-column>
     <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Personuppgifter'" [readonly]="!unlocked">
-      <div class="title-value-layout">
+    <vgr-title-value-layout>
+
         <vgr-title-value [title]="'Förnamn'" [slim]="!unlocked">
           <vgr-input [value]="'Per-Åke'" [readonly]="!unlocked"></vgr-input>
         </vgr-title-value>
@@ -36,10 +37,10 @@ export class CardComponent implements OnInit {
         <vgr-title-value [title]="'Serienummer'" [slim]="!unlocked">
           <span>7a787b27-c2cc-441f-a732</span>
         </vgr-title-value>
-      </div>
+     </vgr-title-value-layout>
     </vgr-card-section>
     <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Adressuppgifter'">
-      <div class="title-value-layout ">
+     <vgr-title-value-layout>
         <vgr-title-value [title]="'Kommun'" [slim]="true">
           <span>Vänersborg</span>
         </vgr-title-value>
@@ -52,7 +53,7 @@ export class CardComponent implements OnInit {
         <vgr-title-value [title]="'Geokod (PT90)'" [slim]="true">
           <span>x: 6471784</span>
         </vgr-title-value>
-      </div>
+      </vgr-title-value-layout>
     </vgr-card-section>
   </vgr-card-column>
   <vgr-card-column>

@@ -4,8 +4,7 @@
   <div class="docs__overview">
     <p>
       <code>
-        &lt;vgr-input&gt; </code> är ett fält för inmatning utav värden i t.ex. ett formulär. Sen har den även följande funktioner
-      implementerade:
+        &lt;vgr-input&gt; </code> är ett fält för inmatning utav värden i t.ex. ett formulär. Sen har den även följande funktioner implementerade:
       <br> - Två olika fasta storlekar på fältet (liten och stor).
       <br> - Visar suffix.
     </p>
@@ -19,7 +18,7 @@
 
   <div class="docs__examples">
     <p>Ändra storleken på inputfälten:</p>
-    <vgr-radio-group [options]="[{id:'1', displayName:'Stor', selected:true},{id:'2', displayName:'Liten'}]" (selectedChanged)="toggleInputType($event)">
+    <vgr-radio-group [options]="[{value:'Stor', displayName:'Stor', selected:true},{value:'Liten', displayName:'Liten'}]" (selectedChanged)="toggleInputType($event)">
     </vgr-radio-group>
     <form [formGroup]="form">
       <div class="row-layout">

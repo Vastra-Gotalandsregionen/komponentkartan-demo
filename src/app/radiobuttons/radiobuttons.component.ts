@@ -1,21 +1,28 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NotificationType, NotificationIcon, ISelectableItem } from 'vgr-komponentkartan';
+import { NotificationType, NotificationIcon, SelectableItem } from 'vgr-komponentkartan';
 @Component({
   selector: 'app-radiobuttons',
   templateUrl: './radiobuttons.component.html',
   styleUrls: ['./radiobuttons.component.scss']
 })
 export class RadiobuttonsComponent implements OnInit {
-  selectedRadioOption: ISelectableItem;
+  selectedOption: string;
   notificationTypes = NotificationType;
   notificationIcons = NotificationIcon;
+
+  options: Array<SelectableItem<any>> = [];
   constructor() { }
 
   ngOnInit() {
+    this.options = [{ value: 'Val 1', displayName: 'Val 1' }, { value: 'Val 2', displayName: 'Val 2' }, { value: 'Val 3', displayName: 'Val 3' }];
   }
 
-  onSelectedRadioOptionChanged(option: ISelectableItem) {
-    this.selectedRadioOption = option;
+  onSelectedRadioOptionChanged(option: string) {
+    this.selectedOption = option;
+  }
+
+  rensaVal() {
+    this.options.forEach(o => o.selected = false);
   }
 
 }

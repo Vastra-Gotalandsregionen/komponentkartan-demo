@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ViewChild, HostBinding } from '@angular/core';
 import {
-    ISelectableItem, IMenu, IMenuGroup, IMenuItem,
+    IMenu, IMenuGroup, IMenuItem,
     SidebarMenuComponent, ModalService, IHeaderMenu, IHeaderMenuItem
 } from 'vgr-komponentkartan';
 
@@ -47,7 +47,7 @@ export class KomponentkartanApplicationComponent {
                                     { title: 'Menu', url: '/menu' } as IMenuItem,
                                     { title: 'Modal dialog', url: '/modaldialog' } as IMenuItem,
                                     { title: 'Monthpicker', url: '/monthpicker' } as IMenuItem,
-                                    { title: 'Panel', url: '/panels' } as IMenuItem,
+                                    { title: 'Panel/Dashboard', url: '/panels' } as IMenuItem,
                                     { title: 'Title-value', url: '/titlevalue' } as IMenuItem,
                                     { title: 'Save/Cancel', url: '/savecancel' } as IMenuItem,
                                     { title: 'Radio group', url: '/radioButtons' } as IMenuItem] as IMenuItem[]
