@@ -1,16 +1,159 @@
 <vgr-page>
   <vgr-page-header [title]="'Enheter'">
+
     <div class="column-layout column-layout--pull-left">
       <label>Filtrera enheter</label>
       <div class="row-layout row-layout--equal-height">
         <vgr-filter-textbox value={{filtertext}}></vgr-filter-textbox>
-        <vgr-button>Lägg till ny enhet</vgr-button>
+        <vgr-button (click)="showActionPanel = true">Lägg till ny enhet</vgr-button>
       </div>
       <vgr-checkbox [label]="'Inkludera stängda enheter'"></vgr-checkbox>
 
     </div>
 
   </vgr-page-header>
+  <vgr-action-panel [expanded]="showActionPanel" [title]="'Lägg till ny enhet'">
+    <div *ngIf=!addNewUnit>
+      <div class="row-layout">
+        <label style="width: 150px">Välj enhet</label>
+        <vgr-dropdown [items]="newUnits" (selectedChanged)="onSelectedChanged($event)"></vgr-dropdown>
+        <vgr-button secondary=true [disabled]=!itemSelected (click)="addNewUnit=true">Lägg till</vgr-button>
+
+      </div>
+      <div class="column-layout column-layout--pull-right">
+        <vgr-button (click)="onActionPanelClose()">Stäng</vgr-button>
+      </div>
+    </div>
+    <vgr-card *ngIf=addNewUnit>
+
+      <vgr-card-header>
+        <div class="row-layout">
+          <label style="width:200px">Enhet</label>
+          <label>{{selectedUnit}}</label>
+        </div>
+
+        <div class="flex-right">
+          <vgr-button class="enhet-card__abort-button" [secondary]="true ">Avbryt</vgr-button>
+          <vgr-button [secondary]="true ">Spara enhet</vgr-button>
+        </div>
+      </vgr-card-header>
+
+      <vgr-card-column>
+        <vgr-card-section [title]=" 'Enhetsinformation' " expanded="true" [readonly]="readonly">
+          <vgr-title-value-layout>
+            <vgr-title-value [title]=" 'HSA-id' ">
+              <span>SE2321000131-E000000011887</span>
+            </vgr-title-value>
+            <vgr-title-value title="Avtalskod* ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Enhetskod*' ">
+              <span></span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Nämnd*' ">
+              <vgr-dropdown [values]="['Nämnd 1', 'Nämnd 2', 'Nämnd 3', 'Nämnd 4', 'Nämnd 5', 'Nämnd 6', 'Nämnd 7']" [noItemSelectedLabel]=" 'Välj nämnd' "></vgr-dropdown>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Avtalsperiod*' ">
+              <div class="row-layout ">
+                <vgr-monthpicker></vgr-monthpicker>
+                <vgr-datepicker></vgr-datepicker>
+              </div>
+            </vgr-title-value>
+          </vgr-title-value-layout>
+        </vgr-card-section>
+        <vgr-card-section [title]=" 'Enhetschef' " [expanded]="false " [readonly]="readonly ">
+          <vgr-title-value-layout>
+            <vgr-title-value [title]=" 'Lägg till enhetschef*' ">
+              <div class="column-layout ">
+                <vgr-filter-textbox></vgr-filter-textbox>
+                <div class="flex-right ">
+                  <vgr-button [secondary]="true ">Lägg till</vgr-button>
+                </div>
+              </div>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Namn' ">
+              <span></span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Telefon' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'E-post' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+          </vgr-title-value-layout>
+        </vgr-card-section>
+        <vgr-card-section [title]=" 'Avtalspart' " [expanded]="false " [readonly]="readonly ">
+          <vgr-title-value-layout>
+            <vgr-title-value [title]=" 'Ägare*' ">
+              <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj ägare' "></vgr-dropdown> -->
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Ägarkod' ">
+              <span></span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Ägarform' ">
+              <span></span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Organisationsnr*' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Utbetalningssätt*' ">
+              <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj Utbetalningssätt' "></vgr-dropdown> -->
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Kontonummer*' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Leverantörsid RD*' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Kundreferens' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+          </vgr-title-value-layout>
+        </vgr-card-section>
+      </vgr-card-column>
+      <vgr-card-column>
+        <vgr-card-section [title]=" 'Adressinformation' " [readonly]="readonly " [expanded]="false ">
+          <vgr-title-value-layout>
+            <vgr-title-value [title]=" 'Kommun' ">
+              <span>Vänersborg</span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Kommunkod' ">
+              <span>1487</span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Postadress' ">
+              <span></span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Besöksadress' ">
+              <span>Duellvägen 8</span>
+              <br>
+              <span>462 60</span>
+              <br>
+              <span>Vänersborg</span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Geokod (PT90)' ">
+              <span>x: 6471784 y: 6471784</span>
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Telefon' ">
+              <span></span>
+            </vgr-title-value>
+          </vgr-title-value-layout>
+        </vgr-card-section>
+        <vgr-card-section [title]=" 'Ersättningsgrundande information' " [readonly]="readonly " [expanded]="false ">
+          <vgr-title-value-layout>
+            <vgr-title-value [title]=" 'Medverkan i familjecentral' ">
+              <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj' "></vgr-dropdown> -->
+            </vgr-title-value>
+            <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)' ">
+              <vgr-input></vgr-input>
+            </vgr-title-value>
+
+          </vgr-title-value-layout>
+        </vgr-card-section>
+      </vgr-card-column>
+
+    </vgr-card>
+
+  </vgr-action-panel>
   <vgr-page-body>
     <vgr-page-block>
       <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
