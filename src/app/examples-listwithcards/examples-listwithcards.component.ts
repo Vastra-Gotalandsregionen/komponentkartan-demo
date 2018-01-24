@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SortDirection } from 'vgr-komponentkartan'
+import { SortDirection, SortChangedArgs } from 'vgr-komponentkartan'
 
 @Component({
   selector: 'app-examples-listwithcards',
@@ -9,6 +9,7 @@ import { SortDirection } from 'vgr-komponentkartan'
 export class ExamplesListwithcardsComponent implements OnInit {
   sortDirections = SortDirection;
   exampleData: ExampleUnits[] = [];
+  filtertext: string = "";
   constructor() { this.exampleData = this.initExampleData(); }
 
   ngOnInit() {
@@ -49,9 +50,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
       // } as ExampleUnits);
     }
     return items;
+  }
 
-
-
+  onSortChanged(event: SortChangedArgs) {
+    this.exampleData = this.exampleData.sort((row1, row2) => {
+      return row1[event.key] > row2[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
+        row1[event.key] < row2[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+    });
   }
 
 }

@@ -1,17 +1,25 @@
 <vgr-page>
   <vgr-page-header [title]="'Enheter'">
+    <div class="column-layout column-layout--pull-left">
+      <label>Filtrera enheter</label>
+      <div class="row-layout row-layout--equal-height">
+        <vgr-filter-textbox value={{filtertext}}></vgr-filter-textbox>
+        <vgr-button>Lägg till ny enhet</vgr-button>
+      </div>
+      <vgr-checkbox [label]="'Inkludera stängda enheter'"></vgr-checkbox>
 
+    </div>
 
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
       <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
         <vgr-list-header>
-          <vgr-list-column-header text="Enhet" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header text="HSA-ID" width="4" align="left" sortKey="lastName"></vgr-list-column-header>
-          <vgr-list-column-header text="Ägare" width="3" sortKey="occupation"></vgr-list-column-header>
-          <vgr-list-column-header text="Enhetskod" align="right" width="3" sortKey="income"></vgr-list-column-header>
-          <vgr-list-column-header text="Nämnd" width="5" sortKey="income"></vgr-list-column-header>
+          <vgr-list-column-header text="Enhet" width="5" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="Ägare" width="3" sortKey="agare"></vgr-list-column-header>
+          <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
+          <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of exampleData">
 
