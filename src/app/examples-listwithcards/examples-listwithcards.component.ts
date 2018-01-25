@@ -7,6 +7,7 @@ import { SortDirection, SortChangedArgs, SelectableItem } from 'vgr-komponentkar
   styleUrls: ['./examples-listwithcards.component.scss']
 })
 export class ExamplesListwithcardsComponent implements OnInit {
+  exampleDetail: ExampleUnitDetails;
   sortDirections = SortDirection;
   exampleData: ExampleUnit[] = [];
   filtertext: string = "";
@@ -23,7 +24,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' },
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' },
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' }]
-
+    this.exampleDetail = { enhetschef: 'Sarah Larsson', enhetschef_epost: 'sarah.larsson@minmail.se', enhetschef_telefon: '+461 111 1111', avtalsperiod_slut: new Date(2019, 11, 31), avtalsperiod_start: new Date(2018, 0, 1), agare_kod: 101, avtalskod: 1234, kontonummer: '1234 1234 12', geokod: 'x:6471784 y:6471784', kommun: 'Mölndal', kommunkod: 123, telefon: '123456789', organisationsnummer: '123456789', versions: [1, 2, 3, 4, 5, 6], utbetalningsssätt: 'PG' } as ExampleUnitDetails;
 
   }
 
@@ -64,8 +65,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
       // else
       items.push({
-        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd]
+        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd],
+        details: this.exampleDetail
       } as ExampleUnit);
+
       // console.log(i);
       // items.push({
       //   id: i, enhet: 'Enhet', hsaid: 'hsaid', agare: 'Ägare', enhetskod: 123456, namnd: 'nämnd'
@@ -114,7 +117,7 @@ export interface ExampleUnit {
   enhetskod: number;
   namnd: string;
   vald: boolean;
-  // details: ExampleUnitDetails;
+  details: ExampleUnitDetails;
 
 }
 export interface ExampleUnitDetails {
@@ -124,7 +127,7 @@ export interface ExampleUnitDetails {
   avtalsperiod_start: Date;
   avtalsperiod_slut: Date;
   enhetschef: string;
-  enhetschef_telefon: number;
+  enhetschef_telefon: string;
   enhetschef_epost: string;
   agare_kod: number;
   organisationsnummer: string;
@@ -135,7 +138,7 @@ export interface ExampleUnitDetails {
   kommun: string;
   kommunkod: number;
   geokod: string;
-  telefon: number;
+  telefon: string;
   ersättningsinformation: ExampleUnitPaymentinformation;
   justeringar: ExampleUnitJusteringar;
 }
