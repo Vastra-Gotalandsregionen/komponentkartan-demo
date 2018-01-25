@@ -8,13 +8,16 @@ import { SortDirection, SortChangedArgs, SelectableItem } from 'vgr-komponentkar
 })
 export class ExamplesListwithcardsComponent implements OnInit {
   sortDirections = SortDirection;
-  exampleData: ExampleUnits[] = [];
+  exampleData: ExampleUnit[] = [];
   filtertext: string = "";
   newUnits: SelectableItem<string>[] = [];
   itemSelected: boolean = false;
   addNewUnit: boolean = false;
   showActionPanel: boolean = false;
   selectedUnit: string = "";
+  readonly: boolean = true;
+  unitInFocus: string = "";
+
   constructor() {
     this.exampleData = this.initExampleData();
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' },
@@ -36,7 +39,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   initExampleData() {
-    const items: ExampleUnits[] = [];
+    const items: ExampleUnit[] = [];
     const exampleNames: string[] = ['Närhälsan Mellerud', 'Närhälsan Lunden', 'Närhälsan Kungälv',
       'Närhälsan psykologenheten för mödravård', 'BB-mottagningen Östra', 'Kalle Karlssons fotvårdsenhet',
       'Närhälsan rehabmottagning', 'Närhälsan Kristinedal', 'Janne Karlssons hudvårdsspecialist',
@@ -48,15 +51,21 @@ export class ExamplesListwithcardsComponent implements OnInit {
     const examplenamnd: string[] = ['Göteborgs hälso- och sjukvårdsnämnden', 'Norra hälso- och sjukvårdsnämnden', 'Södra hälso- och sjukvårdsnämnden', 'Västra hälso- och sjukvårdsnämnden', 'Östra hälso- och sjukvårdsnämnden'];
 
 
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 20; i++) {
       const indexForNames = this.getRandomInt(0, 12);
       const indexForAgare = this.getRandomInt(0, 4);
       const indexForEnhetskod = this.getRandomInt(0, 12);
       const indexForNamnd = this.getRandomInt(0, 4);
-      console.log(i + '=>' + indexForNames + ' ' + indexForAgare + ' ' + indexForEnhetskod + ' ' + indexForNamnd)
+      //console.log(i + '=>' + indexForNames + ' ' + indexForAgare + ' ' + indexForEnhetskod + ' ' + indexForNamnd)
+      // if (i === 1)
+      //   items.push({
+      //     vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd]
+      //   } as ExampleUnit);
+
+      // else
       items.push({
-        id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd]
-      } as ExampleUnits);
+        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd]
+      } as ExampleUnit);
       // console.log(i);
       // items.push({
       //   id: i, enhet: 'Enhet', hsaid: 'hsaid', agare: 'Ägare', enhetskod: 123456, namnd: 'nämnd'
@@ -66,22 +75,29 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   onSelectedChanged(selectedItem: string) {
-    console.log(selectedItem);
     this.itemSelected = true;
     this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
 
   }
 
+  onExpandedChanged(expanded: boolean, item: ExampleUnit) {
+    if (expanded && !item.vald) {
+      this.unitInFocus = item.enhet;
+      item.vald = true;
+    }
+    else {
+      item.vald = false;
+    }
+  }
+
   onActionPanelClose() {
     this.showActionPanel = false;
     this.addNewUnit = false;
-
-
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false
     console.log(this.newUnits);
-
   }
+
   onSortChanged(event: SortChangedArgs) {
     this.exampleData = this.exampleData.sort((row1, row2) => {
       return row1[event.key] > row2[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
@@ -90,11 +106,52 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
 }
-export interface ExampleUnits {
+export interface ExampleUnit {
   id: number;
   enhet: string;
   hsaid: string;
   agare: string;
   enhetskod: number;
   namnd: string;
+  vald: boolean;
+  // details: ExampleUnitDetails;
+
+}
+export interface ExampleUnitDetails {
+  versions: number[];
+  avtalskod: number;
+  enhet: string;
+  avtalsperiod_start: Date;
+  avtalsperiod_slut: Date;
+  enhetschef: string;
+  enhetschef_telefon: number;
+  enhetschef_epost: string;
+  agare_kod: number;
+  organisationsnummer: string;
+  utbetalningsssätt: string;
+  kontonummer: string;
+  postadress: ExampleUnitAdress;
+  besöksadress: ExampleUnitAdress;
+  kommun: string;
+  kommunkod: number;
+  geokod: string;
+  telefon: number;
+  ersättningsinformation: ExampleUnitPaymentinformation;
+  justeringar: ExampleUnitJusteringar;
+}
+
+export interface ExampleUnitAdress {
+  gata: string;
+  postnummer: string;
+  stad: string;
+}
+
+export interface ExampleUnitPaymentinformation {
+  medverkanfamiljecentral: string;
+  regionsövergripandegrupper: string;
+}
+export interface ExampleUnitJusteringar {
+  typ: string;
+  betalningavser: string;
+  belopp: number;
 }

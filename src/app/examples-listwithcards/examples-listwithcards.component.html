@@ -164,7 +164,7 @@
           <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
           <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of exampleData">
+        <vgr-list-item *ngFor="let row of exampleData" (expandedChanged)="onExpandedChanged($event,row)">
 
           <vgr-list-item-header>
             <vgr-list-column [text]="row.enhet"></vgr-list-column>
@@ -175,19 +175,15 @@
           </vgr-list-item-header>
           <vgr-list-item-content>
             <vgr-card>
-
               <vgr-card-header>
                 <div class="row-layout">
-                  <label style="width:200px">Enhet</label>
-                  <label>{{selectedUnit}}</label>
+                  <label>{{unitInFocus}}</label>
                 </div>
-
                 <div class="flex-right">
                   <vgr-button class="enhet-card__abort-button" [secondary]="true ">Avbryt</vgr-button>
                   <vgr-button [secondary]="true ">Spara enhet</vgr-button>
                 </div>
               </vgr-card-header>
-
               <vgr-card-column>
                 <vgr-card-section [title]=" 'Enhetsinformation' " expanded="true" [readonly]="readonly">
                   <vgr-title-value-layout>
