@@ -37,14 +37,13 @@
           <vgr-button [secondary]="true ">Spara enhet</vgr-button>
         </div>
       </vgr-card-header>
-
       <vgr-card-column>
         <vgr-card-section [title]=" 'Enhetsinformation' " expanded="true" [readonly]="readonly">
           <vgr-title-value-layout>
             <vgr-title-value [title]=" 'HSA-id' ">
               <span>SE2321000131-E000000011887</span>
             </vgr-title-value>
-            <vgr-title-value title="Avtalskod* ">
+            <vgr-title-value [title]="'Avtalskod*' ">
               <vgr-input></vgr-input>
             </vgr-title-value>
             <vgr-title-value [title]=" 'Enhetskod*' ">
@@ -165,7 +164,6 @@
           <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of exampleData" (expandedChanged)="onExpandedChanged($event,row)">
-
           <vgr-list-item-header>
             <vgr-list-column [text]="row.enhet"></vgr-list-column>
             <vgr-list-column [text]="row.hsaid"></vgr-list-column>
@@ -188,16 +186,16 @@
                 <vgr-card-section [title]=" 'Enhetsinformation' " expanded="true" [readonly]="readonly">
                   <vgr-title-value-layout>
                     <vgr-title-value [title]=" 'HSA-id' ">
-                      <span>SE2321000131-E000000011887</span>
+                      <span>{{row.hsaid}}}</span>
                     </vgr-title-value>
-                    <vgr-title-value title="Avtalskod* ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]="'Avtalskod*'">
+                      <vgr-input [value]="row.details.avtalskod"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Enhetskod*' ">
-                      <span></span>
+                      <span>{{row.enhetskod}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Nämnd*' ">
-                      <vgr-dropdown [values]="['Nämnd 1', 'Nämnd 2', 'Nämnd 3', 'Nämnd 4', 'Nämnd 5', 'Nämnd 6', 'Nämnd 7']" [noItemSelectedLabel]=" 'Välj nämnd' "></vgr-dropdown>
+                      <vgr-dropdown [values]="examplenamnd" [noItemSelectedLabel]=" 'Välj nämnd' "></vgr-dropdown>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Avtalsperiod*' ">
                       <div class="row-layout ">
