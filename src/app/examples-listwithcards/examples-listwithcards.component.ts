@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem } from 'vgr-komponentkartan';
 
 @Component({
@@ -11,7 +11,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   sortDirections = SortDirection;
   exampleData: ExampleUnit[] = [];
   filtertext = '';
-  newUnits: SelectableItem<string>[] = [];
+  newUnits: DropdownItem<any>[] = [];
   itemSelected = false;
   addNewUnit = false;
   showActionPanel = false;
@@ -19,20 +19,57 @@ export class ExamplesListwithcardsComponent implements OnInit {
   readonly = true;
   unitInFocus = '';
   examplenamnd: DropdownItem<any>[];
-
+  exampleagare: DropdownItem<any>[];
+  exempelUtbetalningssatt: DropdownItem<any>[];
+  exempelMedverkanIfamiljecentral: DropdownItem<any>[];
+  cardUnlocked: false;
 
   constructor() {
-    this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' },
-    { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' },
-    { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' }];
-    this.exampleDetail = { enhetschef: 'Sarah Larsson', enhetschef_epost: 'sarah.larsson@minmail.se', enhetschef_telefon: '+461 111 1111', avtalsperiod_slut: new Date(2019, 11, 31), avtalsperiod_start: new Date(2018, 0, 1), agare_kod: 101, avtalskod: 1234, kontonummer: '1234 1234 12', geokod: 'x:6471784 y:6471784', kommun: 'Mölndal', kommunkod: 123, telefon: '123456789', organisationsnummer: '123456789', versions: [1, 2, 3, 4, 5, 6], utbetalningsssätt: 'PG' } as ExampleUnitDetails;
-    this.examplenamnd = [{ value: 'Göteborgs hälso- och sjukvårdsnämnden', selected: true } as DropdownItem<any>,
-    { value: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { value: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { value: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { value: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<any>] as DropdownItem<any>[];
-    this.exampleData = this.initExampleData();
+    this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
+    { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
+    { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exampleDetail = {
+      enhetschef: 'Sarah Larsson',
+      enhetschef_epost: 'sarah.larsson@minmail.se',
+      enhetschef_telefon: '+461 111 1111',
+      avtalsperiod_slut: new Date(2019, 11, 31),
+      avtalsperiod_start: new Date(2018, 0, 1),
+      agare_kod: 101,
+      agare_form: 'privat',
+      avtalskod: 1234,
+      kontonummer: '1234 1234 12',
+      geokod: 'x:6471784 y:6471784',
+      kommun: 'Mölndal', kommunkod: 123,
+      telefon: '123456789',
+      organisationsnummer: '123456789',
+      versions: [1, 2, 3, 4, 5, 6],
+      leverantorsid_RD: '123456',
+      kundreferens: 'A233',
+      postadress_stad: 'Vänersborg',
+      postadress_gata: 'Regeringsgatan 12',
+      postadress_postnummer: '12345',
+      besoksadress_stad: 'Göteborg',
+      besoksadress_gata: 'Torgatan',
+      besoksadress_postnummer: '32133',
+      regionsovergripandegrupper: '1000 kr'
+    } as ExampleUnitDetails;
 
+    this.exampleagare = [{ displayName: 'Närhälsan' } as DropdownItem<any>,
+    { displayName: 'Hälsoakuten' } as DropdownItem<any>,
+    { displayName: 'Kalle Karlsson' } as DropdownItem<any>,
+    { displayName: 'Närhälsan Rehab' } as DropdownItem<any>,
+    { displayName: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
+    { displayName: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
+    { displayName: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
+    { displayName: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
+    { displayName: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exempelUtbetalningssatt = [{ displayName: 'BG' } as DropdownItem<any>,
+    { displayName: 'PG' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exampleData = this.initExampleData();
+    this.exempelMedverkanIfamiljecentral = [{ displayName: 'ja' } as DropdownItem<any>,
+    { displayName: 'nej' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exampleData = this.initExampleData();
   }
 
   ngOnInit() {
@@ -54,41 +91,27 @@ export class ExamplesListwithcardsComponent implements OnInit {
       'Hälsoakuten Mölndal', 'Hälsoakuten Göteborg', 'Hälsoakuten Alingsås',
       'Rehabmottagningen Hemma'];
     const examplehsaid = 'SE2321000131-E000000011800';
-    const exampleagare: string[] = ['Närhälsan', 'Hälsoakuten', 'Kalle Karlsson', 'Närhälsan Rehab', 'Hemmabolaget'];
     const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
 
 
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 4; i++) {
       const indexForNames = this.getRandomInt(0, 12);
       const indexForAgare = this.getRandomInt(0, 4);
       const indexForEnhetskod = this.getRandomInt(0, 12);
       const indexForNamnd = this.getRandomInt(0, 4);
-      // console.log(i + '=>' + indexForNames + ' ' + indexForAgare + ' ' + indexForEnhetskod + ' ' + indexForNamnd)
-      // if (i === 1)
-      //   items.push({
-      //     vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: examplenamnd[indexForNamnd]
-      //   } as ExampleUnit);
 
-      // else
       items.push({
-        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: exampleagare[indexForAgare], enhetskod: examplehenhetskod[indexForEnhetskod], namnd: this.examplenamnd[indexForNamnd].value,
+        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: this.exampleagare[indexForAgare].displayName, enhetskod: examplehenhetskod[indexForEnhetskod], namnd: this.examplenamnd[indexForNamnd].displayName,
         details: this.exampleDetail
       } as ExampleUnit);
 
-      // console.log(i);
-      // items.push({
-      //   id: i, enhet: 'Enhet', hsaid: 'hsaid', agare: 'Ägare', enhetskod: 123456, namnd: 'nämnd'
-      // } as ExampleUnits);
     }
-
-    console.log(items);
     return items;
   }
 
   onSelectedChanged(selectedItem: string) {
     this.itemSelected = true;
     this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
-
   }
 
   onExpandedChanged(expanded: boolean, item: ExampleUnit) {
@@ -96,8 +119,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
       this.unitInFocus = item.enhet;
       item.vald = true;
     } else { item.vald = false; }
-
-    console.log(item);
   }
 
   onActionPanelClose() {
@@ -121,13 +142,13 @@ export interface ExampleUnit {
   enhet: string;
   hsaid: string;
   agare: string;
-  enhetskod: number;
   namnd: string;
   vald: boolean;
   details: ExampleUnitDetails;
 
 }
 export interface ExampleUnitDetails {
+  enhetskod: number;
   versions: number[];
   avtalskod: number;
   enhet: string;
@@ -137,28 +158,26 @@ export interface ExampleUnitDetails {
   enhetschef_telefon: string;
   enhetschef_epost: string;
   agare_kod: number;
+  agare_form: string;
   organisationsnummer: string;
   utbetalningsssätt: string;
   kontonummer: string;
-  postadress: ExampleUnitAdress;
-  besöksadress: ExampleUnitAdress;
+  postadress_gata: string;
+  postadress_postnummer: string;
+  postadress_stad: string;
+  besoksadress_gata: string;
+  besoksadress_postnummer: string;
+  besoksadress_stad: string;
   kommun: string;
   kommunkod: number;
   geokod: string;
   telefon: string;
-  ersättningsinformation: ExampleUnitPaymentinformation;
-  justeringar: ExampleUnitJusteringar;
-}
-
-export interface ExampleUnitAdress {
-  gata: string;
-  postnummer: string;
-  stad: string;
-}
-
-export interface ExampleUnitPaymentinformation {
+  leverantorsid_RD: string;
+  kundreferens: string;
   medverkanfamiljecentral: string;
-  regionsövergripandegrupper: string;
+  regionsovergripandegrupper: string;
+  justeringar: ExampleUnitJusteringar[];
+
 }
 export interface ExampleUnitJusteringar {
   typ: string;

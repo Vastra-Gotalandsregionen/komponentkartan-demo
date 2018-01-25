@@ -122,12 +122,11 @@
             <vgr-title-value [title]=" 'Postadress' ">
               <span></span>
             </vgr-title-value>
-            <vgr-title-value [title]=" 'Besöksadress' ">
-              <span>Duellvägen 8</span>
-              <br>
-              <span>462 60</span>
-              <br>
-              <span>Vänersborg</span>
+            <vgr-title-value [title]=" 'Besöksadress' " [slim]="true">
+              <span>Duellvägen 8
+                <br> 462 60
+                <br> >Vänersborg
+              </span>
             </vgr-title-value>
             <vgr-title-value [title]=" 'Geokod (PT90)' ">
               <span>x: 6471784 y: 6471784</span>
@@ -178,36 +177,36 @@
                   <label>{{unitInFocus}}</label>
                 </div>
                 <div class="flex-right">
-                  <vgr-button class="enhet-card__abort-button" [secondary]="true ">Avbryt</vgr-button>
-                  <vgr-button [secondary]="true ">Spara enhet</vgr-button>
+                  <vgr-save-cancel [unlocked]="cardUnlocked" (cancel)="cardUnlocked = false" (save)="cardUnlocked = false" (unlock)="cardUnlocked = true"></vgr-save-cancel>
                 </div>
               </vgr-card-header>
               <vgr-card-column>
                 <vgr-card-section [title]=" 'Enhetsinformation' " expanded="true" [readonly]="readonly">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]=" 'HSA-id' ">
-                      <span>{{row.hsaid}}}</span>
+                    <vgr-title-value [title]=" 'HSA-id' " [slim]="!cardUnlocked">
+                      <span>{{row.hsaid}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Avtalskod*'">
-                      <vgr-input [value]="row.details.avtalskod"></vgr-input>
+                    <vgr-title-value [title]="'Avtalskod*'" [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.avtalskod" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Enhetskod*' ">
+                    <vgr-title-value [title]=" 'Enhetskod*' " [slim]="!cardUnlocked">
                       <span>{{row.enhetskod}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Nämnd*' ">
-                      <vgr-dropdown [values]="examplenamnd" [noItemSelectedLabel]=" 'Välj nämnd' "></vgr-dropdown>
+                    <vgr-title-value [title]=" 'Nämnd*' " [slim]="!cardUnlocked">
+                      <vgr-dropdown [items]="examplenamnd" [noItemSelectedLabel]=" 'Välj nämnd' " [readonly]="!cardUnlocked"></vgr-dropdown>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Avtalsperiod*' ">
+                    <vgr-title-value [title]=" 'Avtalsperiod*' " [slim]="!cardUnlocked">
                       <div class="row-layout ">
-                        <vgr-monthpicker></vgr-monthpicker>
-                        <vgr-datepicker></vgr-datepicker>
+                        <vgr-monthpicker [selectedDate]="row.details.avtalsperiod_start" [readonly]="!cardUnlocked"></vgr-monthpicker>
+                        <vgr-datepicker [selectedDate]="row.details.avtalsperiod_slut" [readonly]="!cardUnlocked"></vgr-datepicker>
                       </div>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
                 <vgr-card-section [title]=" 'Enhetschef' " [expanded]="false " [readonly]="readonly ">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]=" 'Lägg till enhetschef*' ">
+                    <vgr-title-value [title]=" 'Lägg till enhetschef*' " [slim]="!cardUnlocked">
+                      <!-- Vy för att lägga till ny enhetschef   -->
                       <div class="column-layout ">
                         <vgr-filter-textbox></vgr-filter-textbox>
                         <div class="flex-right ">
@@ -215,42 +214,43 @@
                         </div>
                       </div>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Namn' ">
+                    <!-- Vy för befintlig enhetschef  -->
+                    <vgr-title-value [title]=" 'Namn' " [slim]="!cardUnlocked">
                       <span></span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Telefon' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Telefon' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.enhetschef_telefon" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'E-post' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'E-post' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.enhetschef_epost" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
                 <vgr-card-section [title]=" 'Avtalspart' " [expanded]="false " [readonly]="readonly ">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]=" 'Ägare*' ">
-                      <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj ägare' "></vgr-dropdown> -->
+                    <vgr-title-value [title]=" 'Ägare*' " [slim]="!cardUnlocked">
+                      <vgr-dropdown [items]="exampleagare" [noItemSelectedLabel]=" 'Välj ägare' " [readonly]="!cardUnlocked"></vgr-dropdown>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Ägarkod' ">
-                      <span></span>
+                    <vgr-title-value [title]=" 'Ägarkod' " [slim]="!cardUnlocked">
+                      <span>{{row.details.agare_kod}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Ägarform' ">
-                      <span></span>
+                    <vgr-title-value [title]=" 'Ägarform' " [slim]="!cardUnlocked">
+                      <span>{{row.details.agare_form}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Organisationsnr*' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Organisationsnr*' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.organisationsnummer" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Utbetalningssätt*' ">
-                      <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj Utbetalningssätt' "></vgr-dropdown> -->
+                    <vgr-title-value [title]=" 'Utbetalningssätt*' " [slim]="!cardUnlocked">
+                      <vgr-dropdown [items]="exempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt' " [readonly]="!cardUnlocked"></vgr-dropdown>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Kontonummer*' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Kontonummer*' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.kontonummer" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Leverantörsid RD*' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Leverantörsid RD*' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.leverantorsid_RD" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Kundreferens' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Kundreferens' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.kundreferens" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
@@ -258,43 +258,43 @@
               <vgr-card-column>
                 <vgr-card-section [title]=" 'Adressinformation' " [readonly]="readonly " [expanded]="false ">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]=" 'Kommun' ">
-                      <span>Vänersborg</span>
+                    <vgr-title-value [title]=" 'Kommun' " [slim]="!cardUnlocked">
+                      <span>{{row.details.kommun}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Kommunkod' ">
-                      <span>1487</span>
+                    <vgr-title-value [title]=" 'Kommunkod' " [slim]="!cardUnlocked">
+                      <span>{{row.details.kommunkod}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Postadress' ">
-                      <span></span>
+                    <vgr-title-value [title]=" 'Postadress' " [slim]="true">
+                      <span>{{row.details.postadress_gata}}
+                        <br> {{row.details.postadress_postnummer}}
+                        <br> {{row.details.postadress_stad}}
+                      </span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Besöksadress' ">
-                      <span>Duellvägen 8</span>
-                      <br>
-                      <span>462 60</span>
-                      <br>
-                      <span>Vänersborg</span>
+                    <vgr-title-value [title]=" 'Besöksadress' " [slim]="true">
+                      <span>{{row.details.besoksadress_gata}}
+                        <br> {{row.details.besoksadress_postnummer}}
+                        <br> {{row.details.besoksadress_stad}}
+                      </span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Geokod (PT90)' ">
-                      <span>x: 6471784 y: 6471784</span>
+                    <vgr-title-value [title]=" 'Geokod (PT90)' " [slim]="!cardUnlocked">
+                      <span>{{row.details.geokod}}</span>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Telefon' ">
-                      <span></span>
+                    <vgr-title-value [title]=" 'Telefon' " [slim]="!cardUnlocked">
+                      <span>{{row.details.telefon}}</span>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
-                <vgr-card-section [title]=" 'Ersättningsgrundande information' " [readonly]="readonly " [expanded]="false ">
+                <vgr-card-section [title]=" 'Ersättningsgrundande information' " [expanded]="false ">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]=" 'Medverkan i familjecentral' ">
-                      <!-- <vgr-dropdown [noItemSelectedLabel]=" 'Välj' "></vgr-dropdown> -->
+                    <vgr-title-value [title]=" 'Medverkan i familjecentral' " [slim]="!cardUnlocked">
+                      <vgr-dropdown [items]="exempelMedverkanIfamiljecentral" [noItemSelectedLabel]=" 'Välj' " [readonly]="!cardUnlocked"></vgr-dropdown>
                     </vgr-title-value>
-                    <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)' ">
-                      <vgr-input></vgr-input>
+                    <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)' " [slim]="!cardUnlocked">
+                      <vgr-input [value]="row.details.regionsovergripandegrupper" [readonly]="!cardUnlocked"></vgr-input>
                     </vgr-title-value>
-
                   </vgr-title-value-layout>
                 </vgr-card-section>
               </vgr-card-column>
-
             </vgr-card>
           </vgr-list-item-content>
         </vgr-list-item>
