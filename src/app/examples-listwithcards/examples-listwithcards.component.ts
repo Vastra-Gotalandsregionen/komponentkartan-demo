@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
+import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
   selector: 'app-examples-listwithcards',
@@ -27,6 +28,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
 
   constructor(private changeDetecor: ChangeDetectorRef) {
+
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
@@ -114,7 +116,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
 
-    //return items;
+    // return items;
   }
 
   onSelectedChanged(selectedItem: string) {
@@ -198,51 +200,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     });
   }
 
-}
-export interface ExampleUnit {
-  id: number;
-  enhet: string;
-  hsaid: string;
-  agare: string;
-  namnd: string;
-  vald: boolean;
-  details: ExampleUnitDetails;
 
-}
-export interface ExampleUnitDetails {
-  enhetskod: number;
-  versions: number[];
-  avtalskod: number;
-  enhet: string;
-  avtalsperiod_start: Date;
-  avtalsperiod_slut: Date;
-  enhetschef: string;
-  enhetschef_telefon: string;
-  enhetschef_epost: string;
-  agare_kod: number;
-  agare_form: string;
-  organisationsnummer: string;
-  utbetalningsssätt: string;
-  kontonummer: string;
-  postadress_gata: string;
-  postadress_postnummer: string;
-  postadress_stad: string;
-  besoksadress_gata: string;
-  besoksadress_postnummer: string;
-  besoksadress_stad: string;
-  kommun: string;
-  kommunkod: number;
-  geokod: string;
-  telefon: string;
-  leverantorsid_RD: string;
-  kundreferens: string;
-  medverkanfamiljecentral: string;
-  regionsovergripandegrupper: string;
-  justeringar: ExampleUnitJusteringar[];
 
-}
-export interface ExampleUnitJusteringar {
-  typ: string;
-  betalningavser: string;
-  belopp: number;
 }

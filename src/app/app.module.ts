@@ -13,6 +13,9 @@ import { KomponentkartanModule } from 'vgr-komponentkartan';
 // Vendors
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
+// Pipe
+import { UnitFilterPipe } from './examples-listwithcards/UnitFilterPipe';
+
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
 
@@ -100,8 +103,10 @@ import { ExamplesListwithcardsComponent } from './examples-listwithcards/example
         ReactiveformsexampleComponent,
         ExpandableDivComponent,
         ListexamplewithexpandabledivComponent,
-        ExamplesListwithcardsComponent
+        ExamplesListwithcardsComponent,
+        UnitFilterPipe
     ],
+    exports: [UnitFilterPipe],
     providers: [
         CityService,
         HighlightJsService,
