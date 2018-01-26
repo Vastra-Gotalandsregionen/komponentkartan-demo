@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem } from 'vgr-komponentkartan';
 
 @Component({
@@ -16,15 +16,15 @@ export class ExamplesListwithcardsComponent implements OnInit {
   addNewUnit = false;
   showActionPanel = false;
   selectedUnit = '';
-  readonly = true;
+  // readonly = true;
   unitInFocus = '';
   examplenamnd: DropdownItem<any>[];
-  exampleagare: DropdownItem<any>[];
+  exampleagare: DropdownItem<string>[];
   exempelUtbetalningssatt: DropdownItem<any>[];
   exempelMedverkanIfamiljecentral: DropdownItem<any>[];
-  cardUnlocked: false;
+  cardLocked: boolean;
 
-  constructor() {
+  constructor(private changeDetecor: ChangeDetectorRef) {
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
@@ -54,11 +54,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
       regionsovergripandegrupper: '1000 kr'
     } as ExampleUnitDetails;
 
-    this.exampleagare = [{ displayName: 'Närhälsan' } as DropdownItem<any>,
-    { displayName: 'Hälsoakuten' } as DropdownItem<any>,
-    { displayName: 'Kalle Karlsson' } as DropdownItem<any>,
-    { displayName: 'Närhälsan Rehab' } as DropdownItem<any>,
-    { displayName: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exampleagare = [{ displayName: 'Närhälsan', value: 'Närhälsan' } as DropdownItem<any>,
+    { displayName: 'Hälsoakuten', value: 'Hälsoakuten' } as DropdownItem<any>,
+    { displayName: 'Kalle Karlsson', value: 'Kalle Karlsson' } as DropdownItem<any>,
+    { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
+    { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
     this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
     { displayName: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
     { displayName: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
@@ -70,6 +70,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exempelMedverkanIfamiljecentral = [{ displayName: 'ja' } as DropdownItem<any>,
     { displayName: 'nej' } as DropdownItem<any>] as DropdownItem<any>[];
     this.exampleData = this.initExampleData();
+
+    this.cardLocked = true;
   }
 
   ngOnInit() {
@@ -118,7 +120,39 @@ export class ExamplesListwithcardsComponent implements OnInit {
     if (expanded && !item.vald) {
       this.unitInFocus = item.enhet;
       item.vald = true;
+
+
+      this.updateCardDropdowns(item);
+
+
+
     } else { item.vald = false; }
+  }
+
+  updateCardDropdowns(item: ExampleUnit) {
+    console.log(item.agare);
+    console.log(this.exampleagare);
+    this.exampleagare.forEach(a => a.selected = false);
+    this.exampleagare.find(a => a.displayName === item.agare).selected = true;
+
+
+    this.changeDetecor.detectChanges();
+
+    console.log(this.exampleagare.find(a => a.value === item.agare).selected);
+  }
+  onCardCancel() {
+    this.cardLocked = true;
+
+  }
+
+  onCardSave() {
+    this.cardLocked = true;
+    //row.notifyOnCollapse(row.previewObject.firstName + ' sparades', NotificationIcon.OkGreen);
+  }
+
+  onCardUnlocked() {
+
+    this.cardLocked = false;
   }
 
   onActionPanelClose() {
