@@ -179,6 +179,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   onNewUnitCancel() {
     this.actionPanelClose();
+    this.cardLocked = true;
   }
 
   onActionPanelClose() {
