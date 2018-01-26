@@ -156,13 +156,13 @@
           <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
           <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of exampleData" (expandedChanged)="onExpandedChanged($event,row)">
+        <vgr-list-item *ngFor="let row of exampleData" [notification]="row.notification" (expandedChanged)="onExpandedChanged($event,row)">
           <vgr-list-item-header>
-            <vgr-list-column [text]="row.enhet"></vgr-list-column>
-            <vgr-list-column [text]="row.hsaid"></vgr-list-column>
-            <vgr-list-column [text]="row.agare"></vgr-list-column>
-            <vgr-list-column [text]="row.enhetskod"></vgr-list-column>
-            <vgr-list-column [text]="row.namnd"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.enhet"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.hsaid"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.agare"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.enhetskod"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.namnd"></vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
             <vgr-card>
@@ -178,21 +178,21 @@
                 <vgr-card-section [title]=" 'Enhetsinformation'" expanded="true" [readonly]="cardLocked">
                   <vgr-title-value-layout>
                     <vgr-title-value [title]=" 'HSA-id'" [slim]="cardLocked">
-                      <span>{{row.hsaid}}</span>
+                      <span>{{row.previewObject.hsaid}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]="'Avtalskod*'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.avtalskod" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.avtalskod" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Enhetskod*'" [slim]="cardLocked">
-                      <span>{{row.enhetskod}}</span>
+                      <span>{{row.previewObject.enhetskod}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Nämnd*'" [slim]="cardLocked">
                       <vgr-dropdown [items]="examplenamnd" [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
                       <div class="row-layout">
-                        <vgr-monthpicker [selectedDate]="row.details.avtalsperiod_start" [readonly]="cardLocked"></vgr-monthpicker>
-                        <vgr-datepicker [selectedDate]="row.details.avtalsperiod_slut" [readonly]="cardLocked"></vgr-datepicker>
+                        <vgr-monthpicker [selectedDate]="row.previewObject.details.avtalsperiod_start" [readonly]="cardLocked"></vgr-monthpicker>
+                        <vgr-monthpicker [selectedDate]="row.previewObject.details.avtalsperiod_slut" [readonly]="cardLocked"></vgr-monthpicker>
                       </div>
                     </vgr-title-value>
                   </vgr-title-value-layout>
@@ -212,13 +212,13 @@
                     </vgr-title-value>
                     <!-- Vy för befintlig enhetschef  -->
                     <vgr-title-value [title]=" 'Namn'" [slim]="true" *ngIf="cardLocked">
-                      <span>{{row.details.enhetschef}}</span>
+                      <span>{{row.previewObject.details.enhetschef}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Telefon'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.enhetschef_telefon" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.enhetschef_telefon" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'E-post'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.enhetschef_epost" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.enhetschef_epost" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
@@ -234,25 +234,25 @@
 
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Ägarkod'" [slim]="cardLocked">
-                      <span>{{row.details.agare_kod}}</span>
+                      <span>{{row.previewObject.details.agare_kod}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Ägarform'" [slim]="cardLocked">
-                      <span>{{row.details.agare_form}}</span>
+                      <span>{{row.previewObject.details.agare_form}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Organisationsnr*'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.organisationsnummer" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.organisationsnummer" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Utbetalningssätt*'" [slim]="cardLocked">
                       <vgr-dropdown [items]="exempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="cardLocked"></vgr-dropdown>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Kontonummer*'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.kontonummer" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.kontonummer" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Leverantörsid RD*'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.leverantorsid_RD" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.leverantorsid_RD" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Kundreferens'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.kundreferens" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.kundreferens" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
@@ -261,28 +261,28 @@
                 <vgr-card-section [title]=" 'Adressinformation'" [readonly]="cardLocked" [expanded]="false">
                   <vgr-title-value-layout>
                     <vgr-title-value [title]=" 'Kommun'" [slim]="cardLocked">
-                      <span>{{row.details.kommun}}</span>
+                      <span>{{row.previewObject.details.kommun}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Kommunkod'" [slim]="cardLocked">
-                      <span>{{row.details.kommunkod}}</span>
+                      <span>{{row.previewObject.details.kommunkod}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Postadress'" [slim]="true">
-                      <span>{{row.details.postadress_gata}}
-                        <br> {{row.details.postadress_postnummer}}
-                        <br> {{row.details.postadress_stad}}
+                      <span>{{row.previewObject.details.postadress_gata}}
+                        <br> {{row.previewObject.details.postadress_postnummer}}
+                        <br> {{row.previewObject.details.postadress_stad}}
                       </span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Besöksadress'" [slim]="true">
-                      <span>{{row.details.besoksadress_gata}}
-                        <br> {{row.details.besoksadress_postnummer}}
-                        <br> {{row.details.besoksadress_stad}}
+                      <span>{{row.previewObject.details.besoksadress_gata}}
+                        <br> {{row.previewObject.details.besoksadress_postnummer}}
+                        <br> {{row.previewObject.details.besoksadress_stad}}
                       </span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Geokod (PT90)'" [slim]="cardLocked">
-                      <span>{{row.details.geokod}}</span>
+                      <span>{{row.previewObject.details.geokod}}</span>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Telefon'" [slim]="cardLocked">
-                      <span>{{row.details.telefon}}</span>
+                      <span>{{row.previewObject.details.telefon}}</span>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
@@ -292,7 +292,7 @@
                       <vgr-dropdown [items]="exempelMedverkanIfamiljecentral" [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
                     </vgr-title-value>
                     <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
-                      <vgr-input [value]="row.details.regionsovergripandegrupper" [readonly]="cardLocked"></vgr-input>
+                      <vgr-input [value]="row.previewObject.details.regionsovergripandegrupper" [readonly]="cardLocked"></vgr-input>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
