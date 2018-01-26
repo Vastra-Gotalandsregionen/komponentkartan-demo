@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
-import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem } from 'vgr-komponentkartan';
+import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
-// import { UnitFilterPipe } from './UnitFilterPipe';
 
 @Component({
   selector: 'app-examples-listwithcards',
@@ -11,7 +10,8 @@ import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.
 export class ExamplesListwithcardsComponent implements OnInit {
   exampleDetail: ExampleUnitDetails;
   sortDirections = SortDirection;
-  exampleData: ExampleUnit[] = [];
+  notificationIcon = NotificationIcon;
+  exampleData: ExpandableRow<ExampleUnit, any>[] = [];
   filtertext = '';
   newUnits: DropdownItem<any>[] = [];
   itemSelected = false;
@@ -25,11 +25,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
   exempelMedverkanIfamiljecentral: DropdownItem<any>[];
   cardLocked: boolean;
 
+
   constructor(private changeDetecor: ChangeDetectorRef) {
 
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
+
     this.exampleDetail = {
       enhetschef: 'Sarah Larsson',
       enhetschef_epost: 'sarah.larsson@minmail.se',
@@ -61,6 +63,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     { displayName: 'Kalle Karlsson', value: 'Kalle Karlsson' } as DropdownItem<any>,
     { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
     { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
+
     this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
     { displayName: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
     { displayName: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
@@ -68,10 +71,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
     { displayName: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<any>] as DropdownItem<any>[];
     this.exempelUtbetalningssatt = [{ displayName: 'BG' } as DropdownItem<any>,
     { displayName: 'PG' } as DropdownItem<any>] as DropdownItem<any>[];
-    this.exampleData = this.initExampleData();
+
     this.exempelMedverkanIfamiljecentral = [{ displayName: 'ja' } as DropdownItem<any>,
     { displayName: 'nej' } as DropdownItem<any>] as DropdownItem<any>[];
-    this.exampleData = this.initExampleData();
+    this.initExampleData();
 
     this.cardLocked = true;
   }
@@ -105,12 +108,14 @@ export class ExamplesListwithcardsComponent implements OnInit {
       const indexForNamnd = this.getRandomInt(0, 4);
 
       items.push({
+
         vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: this.exampleagare[indexForAgare].displayName, enhetskod: examplehenhetskod[indexForEnhetskod], namnd: this.examplenamnd[indexForNamnd].displayName,
         details: this.exampleDetail
       } as ExampleUnit);
-
     }
-    return items;
+    this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
+
+    // return items;
   }
 
   onSelectedChanged(selectedItem: string) {
@@ -118,34 +123,33 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
   }
 
-  onExpandedChanged(expanded: boolean, item: ExampleUnit) {
-    if (expanded && !item.vald) {
-      this.unitInFocus = item.enhet;
-      item.vald = true;
-      this.updateCardDropdowns(item);
+  onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
 
-    } else { item.vald = false; }
+    if (expanded && !item.previewObject.vald) {
+      this.unitInFocus = item.previewObject.enhet;
+      item.previewObject.vald = true;
+
+      this.updateCardDropdowns(item.previewObject);
+
+    } else { item.previewObject.vald = false; }
   }
 
   updateCardDropdowns(item: ExampleUnit) {
-    console.log(item.agare);
-    console.log(this.exampleagare);
     this.exampleagare.forEach(a => a.selected = false);
     this.exampleagare.find(a => a.displayName === item.agare).selected = true;
 
 
     this.changeDetecor.detectChanges();
 
-    console.log(this.exampleagare.find(a => a.value === item.agare).selected);
   }
-  onCardCancel() {
+  onCardCancel(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
-
+    row.notifyOnCollapse('redigering av ' + row.previewObject.enhet + ' avbröts', NotificationIcon.Exclamation);
   }
 
-  onCardSave() {
+  onCardSave(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
-    // row.notifyOnCollapse(row.previewObject.firstName + ' sparades', NotificationIcon.OkGreen);
+    row.notifyOnCollapse(row.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
   }
 
   onCardUnlocked() {
@@ -158,7 +162,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.addNewUnit = false;
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false;
-    console.log(this.newUnits);
   }
 
   onSortChanged(event: SortChangedArgs) {
