@@ -15,6 +15,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   newUnits: DropdownItem<any>[] = [];
   itemSelected = false;
   addNewUnit = false;
+  newUnit: ExampleUnit;
   showActionPanel = false;
   selectedUnit = '';
   unitInFocus = '';
@@ -155,11 +156,39 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.cardLocked = false;
   }
 
+  onNewUnitClick() {
+    this.addNewUnit = true;
+    this.newUnit = {
+      hsaid: this.newUnits.find(u => u.displayName === this.selectedUnit).value,
+      details: {
+        enhet: this.selectedUnit,
+        postadress_stad: 'Vänersborg',
+        postadress_gata: 'Regeringsgatan 12',
+        postadress_postnummer: '12345',
+        besoksadress_stad: 'Göteborg',
+        besoksadress_gata: 'Torgatan',
+        besoksadress_postnummer: '32133',
+        geokod: 'x:6471784 y:6471784',
+        kommun: 'Mölndal', kommunkod: 123,
+      }
+    } as ExampleUnit;
+    this.cardLocked = false;
+  }
+
+  onNewUnitCancel() {
+    this.actionPanelClose();
+  }
+
   onActionPanelClose() {
+    this.actionPanelClose();
+  }
+
+  actionPanelClose() {
     this.showActionPanel = false;
     this.addNewUnit = false;
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false;
+
   }
 
   onSortChanged(event: SortChangedArgs) {
