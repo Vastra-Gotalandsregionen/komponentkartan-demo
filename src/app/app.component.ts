@@ -22,7 +22,6 @@ export class KomponentkartanApplicationComponent {
                     {
                         menuItems: [
                             { title: 'Start', url: '/' } as IMenuItem,
-                            { title: 'Validering', url: '/validation' } as IMenuItem,
                             { title: 'Temahantering', url: '/theming' } as IMenuItem,
                             { title: 'Sidhantering', url: '/pagestructure' } as IMenuItem,
                             { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,

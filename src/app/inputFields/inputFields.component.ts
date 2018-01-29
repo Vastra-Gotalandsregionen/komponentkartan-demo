@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import {
-  IValidationResult, ValidationErrorState, IValidation, ICustomValidator,
   ErrorHandler, InputComponent
 } from 'vgr-komponentkartan';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';

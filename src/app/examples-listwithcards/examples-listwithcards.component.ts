@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
@@ -20,14 +21,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
   showActionPanel = false;
   selectedUnit = '';
   unitInFocus = '';
-  examplenamnd: DropdownItem<any>[];
+  examplenamnd: DropdownItem<string>[];
   exampleagare: DropdownItem<string>[];
-  exempelUtbetalningssatt: DropdownItem<any>[];
-  exempelMedverkanIfamiljecentral: DropdownItem<any>[];
+  exempelUtbetalningssatt: DropdownItem<string>[];
+  exempelMedverkanIfamiljecentral: DropdownItem<string>[];
   cardLocked: boolean;
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
+
+  newUnitForm: FormGroup;
+  userFormSubmitted: boolean = false;
 
   constructor(private changeDetecor: ChangeDetectorRef) {
 
@@ -67,16 +71,16 @@ export class ExamplesListwithcardsComponent implements OnInit {
     { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
     { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
 
-    this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { displayName: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { displayName: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { displayName: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<any>,
-    { displayName: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<any>] as DropdownItem<any>[];
-    this.exempelUtbetalningssatt = [{ displayName: 'BG' } as DropdownItem<any>,
-    { displayName: 'PG' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden', value: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Norra hälso- och sjukvårdsnämnden', value: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Södra hälso- och sjukvårdsnämnden', value: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Västra hälso- och sjukvårdsnämnden', value: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Östra hälso- och sjukvårdsnämnden', value: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.exempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
+    { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
 
-    this.exempelMedverkanIfamiljecentral = [{ displayName: 'ja' } as DropdownItem<any>,
-    { displayName: 'nej' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exempelMedverkanIfamiljecentral = [{ value: 'ja' } as DropdownItem<string>,
+    { value: 'nej' } as DropdownItem<string>] as DropdownItem<string>[];
     this.initExampleData();
 
     this.cardLocked = true;
@@ -84,9 +88,50 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.createOnSubmitForm();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
   }
+
+  createOnSubmitForm() {
+    this.newUnitForm = new FormGroup({
+      avtalskod: new FormControl('', { validators: [Validators.required, Validators.minLength(4), Validators.maxLength(4)] }),
+      enhetskod: new FormControl('', { validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)] }),
+      namnd: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_start: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
+      agare: new FormControl('', { validators: [Validators.required] }),
+      organisationsnummer: new FormControl('', { validators: [Validators.required] }),
+
+    }, { updateOn: 'blur' });
+  }
+  onFormSubmitted() {
+    this.userFormSubmitted = true;
+  }
+
+
+  validationMessages = {
+    avtalskod: {
+      'minlength': 'Avtalskoden skall vara fyra siffror',
+      'maxlength': 'Avtalskoden skall vara fyra siffror',
+    },
+    enhetskod: {
+      'minlength': 'Avtalskoden skall vara sex siffror',
+      'maxlength': 'Avtalskoden skall vara sex siffror',
+    },
+    // age: {
+    //   'invalidNumber': 'Ange en siffra',
+    //   'min': 'Ange en ålder på minst 18 år',
+    //   'max': 'Ange en ålder under 120',
+    // },
+    // email: {
+    //   'email': 'Ange en giltig e-post',
+    // },
+    // salary: {
+    //   'invalidNumber': 'Ange ett giltigt belopp',
+    //   'required': 'Detta skriver över default meddelandet för obligatoriska fält'
+    // }
+  };
+
 
   getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -202,6 +247,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   onNewUnitCancel() {
     this.actionPanelClose();
     this.cardLocked = true;
+    this.newUnitForm.reset();
   }
 
   onActionPanelClose() {
