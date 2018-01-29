@@ -80,7 +80,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.initExampleData();
 
     this.cardLocked = true;
-    this.searchInactiveUnits = false;
+    this.includeInactiveUnits = false;
   }
 
   ngOnInit() {
@@ -116,11 +116,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
       details.enhet = 'copy';
 
       if (i < 2) {
-        isActive = true;
-        year = (new Date().getFullYear());
-      } else {
         isActive = false;
         year = (new Date().getFullYear() - 1);
+      } else {
+        isActive = true;
+        year = (new Date().getFullYear());
       }
 
       details.avtalsperiod_start = new Date(year, 0, 1);

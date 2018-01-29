@@ -9,18 +9,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UnitFilterPipe implements PipeTransform {
     transform(items: ExpandableRow<ExampleUnit, any>[], searchword: string, includeInactiveUnits: boolean): any {
 
+
         if (!items) {
             return items;
         }
 
+
         if (!includeInactiveUnits) {
             items = items.filter(x => x.previewObject.isActive);
-            console.log(items);
         }
 
-
-
-        return items.filter(item => (item.previewObject.enhet.toLowerCase().indexOf(searchword.toLowerCase()) !== -1) || 
+        return items.filter(item => (item.previewObject.enhet.toLowerCase().indexOf(searchword.toLowerCase()) !== -1) ||
             (item.previewObject.hsaid.toLowerCase().indexOf(searchword.toLowerCase()) !== -1) ||
             (item.previewObject.agare.toLowerCase().indexOf(searchword.toLowerCase()) !== -1) ||
             (item.previewObject.enhetskod.toString().indexOf(searchword.toLowerCase()) !== -1) ||
