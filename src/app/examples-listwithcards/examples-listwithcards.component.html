@@ -16,7 +16,7 @@
     <div *ngIf=!addNewUnit>
       <div class="row-layout">
         <label style="width: 150px">Välj enhet</label>
-        <vgr-dropdown [items]="newUnits" (selectedChanged)="onSelectedChanged($event)"></vgr-dropdown>
+        <vgr-dropdown [items]="newUnits" (selectedChanged)="onSelectedChangedUnit($event)"></vgr-dropdown>
         <vgr-button secondary=true [disabled]=!itemSelected (click)="onNewUnitClick()">Lägg till</vgr-button>
       </div>
       <div class="column-layout column-layout--pull-right">
@@ -182,7 +182,8 @@
             <vgr-card>
               <vgr-card-header>
                 <div class="row-layout">
-                  <label>{{unitInFocus}}</label>
+                  <p>Version</p>
+                  <vgr-dropdown [items]="exempelVersions" (selectedChanged)="onSelectedChangedVersion($event)"></vgr-dropdown>
                 </div>
                 <div class="flex-right">
                   <vgr-save-cancel [unlocked]="!cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave(row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>

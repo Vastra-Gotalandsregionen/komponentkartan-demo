@@ -28,14 +28,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
+  exempelVersions: DropdownItem<any>[] = [];
 
   constructor(private changeDetecor: ChangeDetectorRef) {
 
     this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
-
-
 
     this.exampleDetail = {
       enhetschef: 'Sarah Larsson',
@@ -104,7 +103,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     const examplehsaid = 'SE2321000131-E000000011800';
     const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
 
-
     for (let i = 1; i <= 4; i++) {
       const indexForNames = this.getRandomInt(0, 12);
       const indexForAgare = this.getRandomInt(0, 4);
@@ -141,7 +139,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
   }
 
-  onSelectedChanged(selectedItem: string) {
+  onSelectedChangedVersion(selectedItem: string) {
+    this.itemSelected = true;
+    this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
+  }
+
+
+  onSelectedChangedUnit(selectedItem: string) {
     this.itemSelected = true;
     this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
   }
@@ -160,10 +164,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
   updateCardDropdowns(item: ExampleUnit) {
     this.exampleagare.forEach(a => a.selected = false);
     this.exampleagare.find(a => a.displayName === item.agare).selected = true;
-
-
+    this.exempelVersions = [];
+    item.details.versions.forEach(x => {
+      this.exempelVersions.push({ displayName: x.toString(), value: x.toString(), marked: false } as DropdownItem<any>);
+    });
     this.changeDetecor.detectChanges();
-
   }
   onCardCancel(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
