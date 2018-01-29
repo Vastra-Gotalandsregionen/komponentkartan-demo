@@ -1,0 +1,39 @@
+<vgr-page>
+  <vgr-page-header [title]="'Enheter'">
+    <div class="column-layout column-layout--pull-left">
+      <label>Filtrera enheter</label>
+      <div class="row-layout row-layout--equal-height">
+        <vgr-filter-textbox value={{filtertext}}></vgr-filter-textbox>
+        <vgr-button>Lägg till ny enhet</vgr-button>
+      </div>
+      <vgr-checkbox [label]="'Inkludera stängda enheter'"></vgr-checkbox>
+
+    </div>
+
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
+        <vgr-list-header>
+          <vgr-list-column-header text="Enhet" width="5" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="Ägare" width="3" sortKey="agare"></vgr-list-column-header>
+          <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
+          <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
+        </vgr-list-header>
+        <vgr-list-item *ngFor="let row of exampleData">
+
+          <vgr-list-item-header>
+            <vgr-list-column [text]="row.enhet"></vgr-list-column>
+            <vgr-list-column [text]="row.hsaid"></vgr-list-column>
+            <vgr-list-column [text]="row.agare"></vgr-list-column>
+            <vgr-list-column [text]="row.enhetskod"></vgr-list-column>
+            <vgr-list-column [text]="row.namnd"></vgr-list-column>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+          </vgr-list-item-content>
+        </vgr-list-item>
+      </vgr-list>
+    </vgr-page-block>
+  </vgr-page-body>
+</vgr-page>
