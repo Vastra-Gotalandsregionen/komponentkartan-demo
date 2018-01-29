@@ -218,8 +218,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   onSortChanged(event: SortChangedArgs) {
     this.exampleData = this.exampleData.sort((row1, row2) => {
-      return row1[event.key] > row2[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
-        row1[event.key] < row2[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+      return row1.previewObject[event.key] > row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
+        row1.previewObject[event.key] < row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
     });
   }
 
