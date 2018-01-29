@@ -7,6 +7,8 @@ export interface ExampleUnit {
     vald: boolean;
     enhetskod: number;
     details: ExampleUnitDetails;
+    isActive: boolean;
+
 }
 export interface ExampleUnitDetails {
     versions: number[];

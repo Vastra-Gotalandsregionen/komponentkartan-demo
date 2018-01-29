@@ -7,7 +7,7 @@
         <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
         <vgr-button (click)="showActionPanel = true">Lägg till ny enhet</vgr-button>
       </div>
-      <vgr-checkbox [label]="'Inkludera stängda enheter'"></vgr-checkbox>
+      <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
 
     </div>
 
@@ -169,7 +169,8 @@
           <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
           <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of exampleData | unitfilter:filtertext" [notification]="row.notification" (expandedChanged)="onExpandedChanged($event,row)">
+        <vgr-list-item *ngFor="let row of exampleData | unitfilter:filtertext: includeInactiveUnits" [notification]="row.notification"
+          (expandedChanged)="onExpandedChanged($event,row)">
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid"></vgr-list-column>

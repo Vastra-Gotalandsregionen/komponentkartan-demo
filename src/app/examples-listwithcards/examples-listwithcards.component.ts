@@ -25,7 +25,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
   exempelUtbetalningssatt: DropdownItem<any>[];
   exempelMedverkanIfamiljecentral: DropdownItem<any>[];
   cardLocked: boolean;
-
+  includeInactiveUnits = false;
+  startdate: Date;
+  enddate: Date;
 
   constructor(private changeDetecor: ChangeDetectorRef) {
 
@@ -33,12 +35,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
     { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
     { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
 
+
+
     this.exampleDetail = {
       enhetschef: 'Sarah Larsson',
       enhetschef_epost: 'sarah.larsson@minmail.se',
       enhetschef_telefon: '+461 111 1111',
-      avtalsperiod_slut: new Date(2019, 11, 31),
-      avtalsperiod_start: new Date(2018, 0, 1),
       agare_kod: 101,
       agare_form: 'privat',
       avtalskod: 1234,
@@ -78,6 +80,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.initExampleData();
 
     this.cardLocked = true;
+    this.searchInactiveUnits = false;
   }
 
   ngOnInit() {
@@ -107,16 +110,35 @@ export class ExamplesListwithcardsComponent implements OnInit {
       const indexForAgare = this.getRandomInt(0, 4);
       const indexForEnhetskod = this.getRandomInt(0, 12);
       const indexForNamnd = this.getRandomInt(0, 4);
+      let isActive;
+      let year;
+      const details = Object.create(this.exampleDetail);
+      details.enhet = 'copy';
+
+      if (i < 2) {
+        isActive = true;
+        year = (new Date().getFullYear());
+      } else {
+        isActive = false;
+        year = (new Date().getFullYear() - 1);
+      }
+
+      details.avtalsperiod_start = new Date(year, 0, 1);
+      details.avtalsperiod_slut = new Date(year, 11, 0);
 
       items.push({
-
-        vald: false, id: i, enhet: exampleNames[indexForNames], hsaid: examplehsaid, agare: this.exampleagare[indexForAgare].displayName, enhetskod: examplehenhetskod[indexForEnhetskod], namnd: this.examplenamnd[indexForNamnd].displayName,
-        details: this.exampleDetail
+        vald: false,
+        id: i,
+        enhet: exampleNames[indexForNames],
+        hsaid: examplehsaid,
+        agare: this.exampleagare[indexForAgare].displayName,
+        enhetskod: examplehenhetskod[indexForEnhetskod],
+        namnd: this.examplenamnd[indexForNamnd].displayName,
+        isActive: isActive,
+        details: details
       } as ExampleUnit);
     }
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
-
-    // return items;
   }
 
   onSelectedChanged(selectedItem: string) {
