@@ -1,7 +1,5 @@
 import { Component, ViewChildren, QueryList } from '@angular/core';
-import { IValidationResult, ValidationErrorState, IValidation, ISelectableItem } from 'vgr-komponentkartan';
-
-import { ValidationComponent } from 'vgr-komponentkartan';
+import { ISelectableItem } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-validation',
@@ -12,7 +10,7 @@ export class DemoValidationComponent {
   validationStatus: string;
   items: ISelectableItem[];
   multiItems: ISelectableItem[];
-  @ViewChildren(ValidationComponent) validatedComponents: QueryList<ValidationComponent>;
+  // @ViewChildren(ValidationComponent) validatedComponents: QueryList<ValidationComponent>;
   constructor() {
     this.validationStatus = 'Inte validerad';
     this.items = [
@@ -30,19 +28,19 @@ export class DemoValidationComponent {
   }
 
   onSave() {
-    this.validationStatus = 'Inga fel (kontrollerar ' + this.validatedComponents.length + ' fält)';
-    let isValid = true;
+    // this.validationStatus = 'Inga fel (kontrollerar ' + this.validatedComponents.length + ' fält)';
+    // let isValid = true;
 
-    this.validatedComponents.forEach(validatedComponent => {
-      const result = validatedComponent.validate();
-      if (result.isValid) {
-      } else {
-        isValid = false;
-      }
-    });
-    if (!isValid) {
-      this.validationStatus = 'Ett eller flera av ' + this.validatedComponents.length + ' fält har fel, se markering';
-    }
+    // this.validatedComponents.forEach(validatedComponent => {
+    //   const result = validatedComponent.validate();
+    //   if (result.isValid) {
+    //   } else {
+    //     isValid = false;
+    //   }
+    // });
+    // if (!isValid) {
+    //   this.validationStatus = 'Ett eller flera av ' + this.validatedComponents.length + ' fält har fel, se markering';
+    // }
   }
 
 }
