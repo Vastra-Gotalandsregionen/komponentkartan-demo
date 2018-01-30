@@ -20,7 +20,6 @@ import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
-import { DemoValidationComponent } from './validation/demovalidation.component';
 import { StartComponent } from './start/start.component';
 import { ThemingComponent } from './theming/theming.component';
 import { TitleValueComponent } from './title-value/title-value.component';
@@ -58,7 +57,6 @@ export const appRoutes: Routes = [
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
-    { path: 'validation', component: DemoValidationComponent },
     { path: '', component: StartComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },

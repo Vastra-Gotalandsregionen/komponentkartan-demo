@@ -126,26 +126,6 @@
         <td>[selectAllItemText]="Välj alla alternativ"</td>
       </tr>
       <tr>
-        <td>
-          required : boolean
-        </td>
-        <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus ges
-          ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
-          För att trigga validering utifrån använd
-          <code>validate()</code>.
-        </td>
-        <td>[required]="true"</td>
-      </tr>
-      <tr>
-        <td>
-          validate() : IValidationResult
-        </td>
-        <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller ej.
-          ValidationResult.errorMessage ger eventuellt fel.
-        </td>
-        <td>const result = component.validate()</td>
-      </tr>
-      <tr>
         <td> selectionChanged : EventEmitter&lt;any[]&gt;</td>
         <td>Event som triggas när man väljer ett alternativ i dropdownen</td>
         <td>(selectionChanged)="onMultipleSelectionChanged($event) "</td>
@@ -157,6 +137,11 @@
         <td>
           [readonly]="true/false"
         </td>
+      </tr>
+      <tr>
+        <td>showValidation: boolean</td>
+        <td>Anger om valideringsfel ska visas eller ej. Default = true.</td>
+        <td>[showValidation]="true"</td>
       </tr>
     </table>
   </div>
