@@ -41,7 +41,6 @@ import { ListexampleComponent } from './lists/examples/withnotifications/listexa
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
-import { DemoValidationComponent } from './validation/demovalidation.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
 import { FiltertexboxComponent } from './filtertexbox/filtertexbox.component';
@@ -87,7 +86,6 @@ import { ExamplesListwithcardsComponent } from './examples-listwithcards/example
         StartComponent,
         ThemingComponent,
         ListexampleComponent,
-        DemoValidationComponent,
         ComponentDocsComponent,
         TitleValueComponent,
         FiltertexboxComponent,
