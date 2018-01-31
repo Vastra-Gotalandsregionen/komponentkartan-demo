@@ -213,6 +213,36 @@
         </vgr-list-item>
         <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
+            <h4>API - vgr-list-column-header-checkbox</h4>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            En variant av vgr-list-column-header som innehåller en checkbox.
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th style="width:600px">Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+              <tr>
+                <td>disabled : boolean</td>
+                <td>Inaktiverar checkboxen, den blir utgråad.</td>
+                <td>[disabled]="true"</td>
+              </tr>
+              <tr>
+                <td>checked : boolean</td>
+                <td>Markerar checkboxen.</td>
+                <td>[checked]="true"</td>
+              </tr>
+              <tr>
+                <td>checkedChanged : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas då användaren trycker på checkboxen.</td>
+                <td>(checkedChanged)="onCheckChanged($event)"</td>
+              </tr>
+            </table>
+          </vgr-list-item-content>
+        </vgr-list-item>
+        <vgr-list-item [expanded]="false ">
+          <vgr-list-item-header>
             <h4>API - vgr-list-header</h4>
           </vgr-list-item-header>
           <vgr-list-item-content>
@@ -291,7 +321,6 @@
                 <th style="width:600px">Beskrivning</th>
                 <th>Exempel</th>
               </tr>
-
               <tr>
                 <td>disabled : boolean</td>
                 <td>Inaktiverar checkboxen, den blir utgråad.</td>
