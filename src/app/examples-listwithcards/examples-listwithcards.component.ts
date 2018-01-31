@@ -100,11 +100,50 @@ export class ExamplesListwithcardsComponent implements OnInit {
       avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
       agare: new FormControl('', { validators: [Validators.required] }),
       organisationsnummer: new FormControl('', { validators: [Validators.required] }),
+      utbetalningssatt: new FormControl('', { validators: [Validators.required] }),
+      kontonummer: new FormControl('', { validators: [Validators.required] }),
+      leverantorsid: new FormControl('', { validators: [Validators.required] }),
+      kundreferens: new FormControl('', { validators: [Validators.required] }),
 
     }, { updateOn: 'blur' });
+
+
+
   }
   onFormSubmitted() {
     this.userFormSubmitted = true;
+  }
+
+  onNewUnitAgareChanged(value: string) {
+    switch (value) {
+      case 'Närhälsan': {
+        this.newUnit.details.agare_form = 'Offentlig';
+        this.newUnit.details.agare_kod = 1000
+        break;
+      };
+      case 'Kalle Karlsson': {
+        this.newUnit.details.agare_form = 'Privat';
+        this.newUnit.details.agare_kod = 1001
+        break;
+      };
+      case 'Hemmabolaget': {
+        this.newUnit.details.agare_form = 'Privat';
+        this.newUnit.details.agare_kod = 1002
+        break;
+      };
+      case 'Närhälsan Rehab': {
+        this.newUnit.details.agare_form = 'Offentlig';
+        this.newUnit.details.agare_kod = 1003
+        break;
+      };
+      case 'Hälsoakuten': {
+        this.newUnit.details.agare_form = 'Privat';
+        this.newUnit.details.agare_kod = 1004
+        break;
+      };
+    }
+
+
   }
 
 
@@ -255,6 +294,34 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnitForm.reset();
   }
 
+  onNewUnitSave() {
+
+    if (this.newUnitForm.valid) {
+      this.newUnit.details.avtalskod = this.newUnitForm.controls.avtalskod.value;
+      this.newUnit.details.avtalsperiod_slut = this.newUnitForm.controls.avtalsperiod_slut.value;
+      this.newUnit.details.avtalsperiod_start = this.newUnitForm.controls.avtalsperiod_start.value;
+
+      this.newUnit.details.organisationsnummer = this.newUnitForm.controls.organisationsnummer.value;
+      this.newUnit.details.leverantorsid_RD = this.newUnitForm.controls.leverantorsid.value;
+      this.newUnit.details.kontonummer = this.newUnitForm.controls.kontonummer.value;
+
+      this.newUnit.namnd = this.newUnitForm.controls.namnd.value;
+      this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
+      this.newUnit.agare = this.newUnitForm.controls.agare.value;
+      this.newUnit.enhet = this.selectedUnit;
+
+      this.newUnit.isActive = true;
+
+      //   let unitTosave = this.newUnit
+      let newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
+      newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
+
+      this.exampleData.push(newRow);
+
+      this.actionPanelClose();
+    }
+  }
+
   onActionPanelClose() {
     this.actionPanelClose();
   }
@@ -264,6 +331,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.addNewUnit = false;
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false;
+    this.cardLocked = true;
 
   }
 
