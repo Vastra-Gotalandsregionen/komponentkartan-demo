@@ -51,17 +51,15 @@
     <div class="column-layout">
       <div class="row-layout">
         <div style="width:200px">
-          <p>Med min- och maxdatum, obligatoriskt</p>
+          <p>Med min- och maxdatum</p>
 
-          <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" [required]="true"
-            (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+          <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
         </div>
         <div>
           <p>Här är
             <code>minDate</code> satt till 2015-05-01 och
             <code>maxDate</code> är 2016-03-31. Från 2015 och fram till nuvarande år så visas samtliga månader, men endast månaderna
-            mellan maj 2015 - mars 2016 är valbara. . Fältet är
-            <code>required</code> och därför ges valideringsfel om inget värde väljs.
+            mellan maj 2015 - mars 2016 är valbara.
           </p>
         </div>
       </div>
@@ -174,26 +172,6 @@
         <td>[disabled]=true</td>
       </tr>
       <tr>
-        <td>
-          required : boolean
-        </td>
-        <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus ges
-          ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
-          För att trigga validering utifrån använd
-          <code>validate()</code>.
-        </td>
-        <td>[required]="true"</td>
-      </tr>
-      <tr>
-        <td>
-          validate() : IValidationResult
-        </td>
-        <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller ej.
-          ValidationResult.errorMessage ger eventuellt fel.
-        </td>
-        <td>const result = component.validate()</td>
-      </tr>
-      <tr>
         <td>selectedDateChanged : EventEmitter&lt;Date&gt;
         </td>
         <td>Event som triggas när man väljer ett nytt datum</td>
@@ -209,6 +187,11 @@
         <td>
           [readonly]="true/false"
         </td>
+      </tr>
+      <tr>
+        <td>showValidation: boolean</td>
+        <td>Anger om valideringsfel ska visas eller ej. Default = true.</td>
+        <td>[showValidation]="true"</td>
       </tr>
     </table>
   </div>

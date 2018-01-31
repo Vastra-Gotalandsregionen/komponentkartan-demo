@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
 
   cardExampleMarkup: string;
   cardExampleMarkup2: string;
-
+  unlocked: boolean;
   birthDate: Date;
   cardExample = `<vgr-card>
   <vgr-card-header>

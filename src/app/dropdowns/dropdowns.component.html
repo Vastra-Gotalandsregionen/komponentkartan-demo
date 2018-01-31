@@ -26,9 +26,9 @@
         <vgr-dropdown [items]="dropDownItems9" [noItemSelectedLabel]="'Välj alternativ'" (selectedChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
-        <p>25 items - obligatoriskt</p>
+        <p>25 items</p>
         <vgr-dropdown [items]="dropDownItems25All" [noItemSelectedLabel]="'Välj nåt då'" [showAllItemText]="'Visa alla alternativ'"
-          (selectedChanged)="onSingleSelectionChanged($event)" [required]="true"></vgr-dropdown>
+          (selectedChanged)="onSingleSelectionChanged($event)"></vgr-dropdown>
       </div>
       <div>
         <p>200 items</p>
@@ -111,29 +111,14 @@
         <td>[noItemSelectedLabel]="Välj alternativ"</td>
       </tr>
       <tr>
-        <td>
-          required : boolean
-        </td>
-        <td>Anger om värde är obligatoriskt eller ej. Om required=true och inget värde valts när komponenten tappar fokus ges
-          ett validerings fel. Vid val av värde uppdateras validering. Vid fokus indikeras att valideringsfel redigeras.
-          För att trigga validering utifrån använd
-          <code>validate()</code>.
-        </td>
-        <td>[required]="true"</td>
-      </tr>
-      <tr>
-        <td>
-          validate() : IValidationResult
-        </td>
-        <td>Anropas utifrån för att validera komponenten. ValidationResult.isValid indikerar om innehåll är giltigt eller ej.
-          ValidationResult.errorMessage ger eventuellt fel.
-        </td>
-        <td>const result = component.validate()</td>
-      </tr>
-      <tr>
         <td> onSelectedChanged : EventEmitter&lt;any&gt;</td>
         <td>Event som triggas när man väljer ett nytt alternativ i dropdownen</td>
         <td>(selectedChanged)="onSelectedChanged($event)"</td>
+      </tr>
+      <tr>
+        <td>showValidation: boolean</td>
+        <td>Anger om valideringsfel ska visas eller ej. Default = true.</td>
+        <td>[showValidation]="true"</td>
       </tr>
       <tr>
         <td>readonly : boolean</td>

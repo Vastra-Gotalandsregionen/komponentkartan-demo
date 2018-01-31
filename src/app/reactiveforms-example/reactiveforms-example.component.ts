@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { SelectableItem, DropdownItem } from 'vgr-komponentkartan';
 import { Examples } from './code-example';
 
@@ -10,7 +10,19 @@ import { Examples } from './code-example';
     styleUrls: ['./reactiveforms-example.component.scss']
 })
 export class ReactiveformsexampleComponent implements OnInit {
-    userForm: FormGroup;
+    radioOptions: SelectableItem<number>[];
+    dropdownItems: DropdownItem<string>[];
+    dropdownItemsMulti: DropdownItem<string>[];
+
+    minDate = new Date('2015');
+    maxDate = new Date('2025');
+
+    updateOnBlurForm: FormGroup;
+    updateOnSubmitForm: FormGroup;
+    updateOnChangeForm: FormGroup;
+
+    formSubmitted: boolean;
+
     validationMessages = {
         firstname: {
             'minlength': 'Namnet måste vara minst 2 tecken',
@@ -32,19 +44,24 @@ export class ReactiveformsexampleComponent implements OnInit {
         }
     };
 
-    radioOptions: SelectableItem<number>[];
-    dropdownItems: DropdownItem<string>[];
-    dropdownItemsMulti: DropdownItem<string>[];
 
     typeScriptSimpleListMarkup: string;
-    htmlSimpleListMarkup: string;
+    htmlOnBlur: string;
+    htmlOnSubmit: string;
+    htmlOnChange: string;
+
     examples: Examples = new Examples();
 
-    constructor(htmlEncoder: HtmlEncodeService, private fb: FormBuilder) {
+    constructor(htmlEncoder: HtmlEncodeService) {
         this.typeScriptSimpleListMarkup =
             htmlEncoder.prepareHighlightedSection(this.examples.typeScriptSimpleFormMarkup, 'typescript');
-        this.htmlSimpleListMarkup =
-            htmlEncoder.prepareHighlightedSection(this.examples.htmltSimpFormMarkup);
+        this.htmlOnBlur =
+            htmlEncoder.prepareHighlightedSection(this.examples.htmlOnBlurFormMarkup);
+        this.htmlOnSubmit =
+            htmlEncoder.prepareHighlightedSection(this.examples.htmlOnSubmitFormMarkup);
+        this.htmlOnChange =
+            htmlEncoder.prepareHighlightedSection(this.examples.htmlOnChangeFormMarkup);
+
 
         this.radioOptions = [
             { displayName: 'Ett', value: 1 },
@@ -64,28 +81,83 @@ export class ReactiveformsexampleComponent implements OnInit {
             { displayName: 'Sova', value: 'Soa' }
         ];
     }
+
     ngOnInit() {
-        this.createForm();
+        this.createOnBlurForm();
+        this.createOnSubmitForm();
+        this.createUpdateOnChangeForm();
     }
 
-    createForm() {
-        this.userForm = this.fb.group({
-            firstname: ['', [Validators.required, Validators.minLength(2)]],
-            lastname: ['', [Validators.required, Validators.minLength(2)]],
-            age: ['', [Validators.required, Validators.min(18), Validators.max(120), validateNumber]],
-            email: ['', [Validators.required, Validators.email]],
-            salary: ['', [Validators.required, validateNumber]],
-            favourite_pet: [null, Validators.required],
-            interests: [[this.dropdownItemsMulti[0].value], Validators.required],
-            check: [true, Validators.pattern('true')],
-            optional: [this.radioOptions[2].value],
-            monthpicker: ['', Validators.required],
-            datepicker: ['', Validators.required],
-            datepicker_preselected: [new Date(), Validators.required]
-        });
+    createOnBlurForm() {
+        this.updateOnBlurForm = new FormGroup({
+            firstname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            lastname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            age: new FormControl('', { validators: [Validators.required, Validators.min(18), Validators.max(120), validateNumber] }),
+            email: new FormControl('', { validators: [Validators.required, Validators.email] }),
+            salary: new FormControl('', { validators: [Validators.required, validateNumber] }),
+            favourite_pet: new FormControl(null, { validators: [Validators.required] }),
+            interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
+            check: new FormControl(true, { validators: [Validators.pattern('true')] }),
+            optional: new FormControl(this.radioOptions[2].value),
+            monthpicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
+        }, { updateOn: 'blur' });
+    }
+
+    createOnSubmitForm() {
+        this.updateOnSubmitForm = new FormGroup({
+            firstname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            lastname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            age: new FormControl('', { validators: [Validators.required, Validators.min(18), Validators.max(120), validateNumber] }),
+            email: new FormControl('', { validators: [Validators.required, Validators.email] }),
+            salary: new FormControl('', { validators: [Validators.required, validateNumber] }),
+            favourite_pet: new FormControl(null, { validators: [Validators.required] }),
+            interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
+            check: new FormControl(true, { validators: [Validators.pattern('true')] }),
+            optional: new FormControl(this.radioOptions[2].value),
+            monthpicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
+        }, { updateOn: 'submit' });
+    }
+
+    createUpdateOnChangeForm() {
+        this.updateOnChangeForm = new FormGroup({
+            firstname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            lastname: new FormControl('', { validators: [Validators.required, Validators.minLength(2)] }),
+            age: new FormControl('', { validators: [Validators.required, Validators.min(18), Validators.max(120), validateNumber] }),
+            email: new FormControl('', { validators: [Validators.required, Validators.email] }),
+            salary: new FormControl('', { validators: [Validators.required, validateNumber] }),
+            favourite_pet: new FormControl(null, { validators: [Validators.required] }),
+            interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
+            check: new FormControl(true, { validators: [Validators.pattern('true')] }),
+            optional: new FormControl(this.radioOptions[2].value),
+            monthpicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker: new FormControl('', { validators: [Validators.required] }),
+            datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
+        }, { updateOn: 'change' });
+    }
+
+    onSubmit() {
+        this.formSubmitted = true;
+    }
+
+    onResetUpdateOnBlurForm() {
+        this.updateOnBlurForm.reset();
+    }
+
+    onResetUpdateOnSubmitForm() {
+        this.updateOnSubmitForm.reset();
+        this.formSubmitted = false;
+    }
+
+    onResetUpdateOnChangeForm() {
+        this.updateOnChangeForm.reset();
     }
 }
 
+// Custom validator
 function validateNumber(control: AbstractControl) {
     const pattern = '^[-,−]{0,1}(\\d{1,3}([,\\s.]\\d{3})*|\\d+)([.,]\\d+)?$';
 

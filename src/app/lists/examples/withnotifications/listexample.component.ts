@@ -19,10 +19,8 @@ export class ListexampleComponent {
   htmlAdvancedListMarkup: string;
   examples: Examples = new Examples();
   readOnly = true;
-
-
-
-
+  actionsVisible: boolean;
+  readonly: boolean;
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.typeScriptAdvancedListMarkup =
