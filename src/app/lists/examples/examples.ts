@@ -26,8 +26,6 @@ export class Examples {
       SortDirection,  // Enum för vilket håll sorteringen skall ske.
       SortChangedArgs // Args när sorteringordningen ändras.
   } from 'vgr-komponentkartan';
-  import { HtmlEncodeService } from '../../../html-encode.service';
-  import { Examples } from '../examples';
 
   @Component({
       selector: 'app-listexamplewithexpandablediv',
@@ -271,11 +269,11 @@ export class Examples {
 
   htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
-    <vgr-list-column-header text="Förnamn" width="10" align="left" sortKey="firstName"></vgr-list-column-header>
+    <vgr-list-column-header text="Förnamn" width="8" align="left" sortKey="firstName"></vgr-list-column-header>
     <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
     <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
     <vgr-list-column-header width="1"></vgr-list-column-header>
-    <vgr-list-column-header width="1" align="center" text="Val" sortKey="selected"></vgr-list-column-header>
+    <vgr-list-column-header-checkbox align="left" width="3" text="Markera alla" [checked]="allChecked" (checkedChanged)="onSelectAllChanged($event)"></vgr-list-column-header-checkbox>
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" (deleted)="notifyOnDelete(row)">
     <vgr-list-item-header>
@@ -310,10 +308,6 @@ export class Examples {
     export class ListExampleWithActionButtonsComponent {
 
         public peopleRows: ExpandableRow<ExamplePerson, any>[];
-        typeScriptSimpleListMarkup: string;
-        htmlSimpleListMarkup: string;
-        examples: Examples = new Examples();
-
 
         createExampleList(): ExpandableRow<ExamplePerson, any>[] {
             return [
@@ -325,12 +319,22 @@ export class Examples {
             ];
         }
 
+        get allChecked() {
+            return this.peopleRows && !this.peopleRows.find(x => !x.previewObject.selected);
+        }
+
         loadData() {
             this.peopleRows = this.createExampleList();
         }
 
         onSelectRowChanged(row: any, checked: boolean) {
             row.previewObject.selected = checked;
+        }
+
+        onSelectAllChanged(checked: boolean) {
+            if (this.peopleRows) {
+                this.peopleRows.forEach(r => r.previewObject.selected = checked);
+            }
         }
 
         onDeleteRow(row: any) {
@@ -385,13 +389,7 @@ export class Examples {
         }
 
 
-        constructor(htmlEncoder: HtmlEncodeService, private modalService: ModalService) {
-
-            this.typeScriptSimpleListMarkup =
-                htmlEncoder.prepareHighlightedSection(this.examples.typeScriptActionButtonsListMarkup, 'typescript');
-            this.htmlSimpleListMarkup =
-                htmlEncoder.prepareHighlightedSection(this.examples.htmlActionButtonsListMarkup);
-        }
+        constructor(private modalService: ModalService) {}
 
     }
 

@@ -18,6 +18,10 @@ export class ListExampleWithActionButtonsComponent {
     htmlSimpleListMarkup: string;
     examples: Examples = new Examples();
 
+    get allChecked() {
+        return this.peopleRows && !this.peopleRows.find(x => !x.previewObject.selected);
+    }
+
     loadData() {
         this.peopleRows = [
             new ExpandableRow<ExamplePerson, any>({ id: '1', firstName: 'Git', lastName: 'Hubsson', amount: 125000 }),
@@ -30,6 +34,12 @@ export class ListExampleWithActionButtonsComponent {
 
     onSelectRowChanged(row: any, checked: boolean) {
         row.previewObject.selected = checked;
+    }
+
+    onSelectAllChanged(checked: boolean) {
+        if (this.peopleRows) {
+            this.peopleRows.forEach(r => r.previewObject.selected = checked);
+        }
     }
 
     onDeleteRow(row: any) {
