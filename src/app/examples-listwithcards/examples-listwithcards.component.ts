@@ -30,8 +30,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
   startdate: Date;
   enddate: Date;
   exempelVersions: DropdownItem<any>[] = [];
-
+  submitted: boolean = false;
   newUnitForm: FormGroup;
+  privateOwnerForm: FormGroup;
   userFormSubmitted: boolean = false;
 
   constructor(private changeDetecor: ChangeDetectorRef) {
@@ -88,6 +89,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   ngOnInit() {
     this.createOnSubmitForm();
+    this.createPrivateOwnerForm();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
   }
 
@@ -98,23 +100,29 @@ export class ExamplesListwithcardsComponent implements OnInit {
       namnd: new FormControl('', { validators: [Validators.required] }),
       avtalsperiod_start: new FormControl('', { validators: [Validators.required] }),
       avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
+      enhetschef: new FormControl('', { validators: [Validators.required] }),
       agare: new FormControl('', { validators: [Validators.required] }),
-      organisationsnummer: new FormControl('', { validators: [Validators.required] }),
-      utbetalningssatt: new FormControl('', { validators: [Validators.required] }),
-      kontonummer: new FormControl('', { validators: [Validators.required] }),
-      leverantorsid: new FormControl('', { validators: [Validators.required] }),
-      kundreferens: new FormControl('', { validators: [Validators.required] }),
+      leverantorsid: new FormControl('', { validators: [Validators.required] })
 
     }, { updateOn: 'blur' });
 
-
-
   }
+  createPrivateOwnerForm() {
+    this.privateOwnerForm = new FormGroup({
+      organisationsnummer: new FormControl('', { validators: [Validators.required] }),
+      utbetalningssatt: new FormControl('', { validators: [Validators.required] }),
+      kontonummer: new FormControl('', { validators: [Validators.required] })
+    }, { updateOn: 'blur' });
+  }
+
   onFormSubmitted() {
     this.userFormSubmitted = true;
   }
 
+
   onNewUnitAgareChanged(value: string) {
+
+
     switch (value) {
       case 'Närhälsan': {
         this.newUnit.details.agare_form = 'Offentlig';
@@ -144,6 +152,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
 
 
+    if (this.newUnit.details.agare_form === "Privat") {
+      this.privateOwnerForm.setValidators([Validators.required])
+      console.log("ändra till privatformulär" + this.privateOwnerForm.valid);
+    }
+    else
+      this.privateOwnerForm.setValidators(null);
+
+    this.privateOwnerForm.updateValueAndValidity;
+
+
+
   }
 
 
@@ -153,28 +172,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
       'maxlength': 'Avtalskoden skall vara fyra siffror',
     },
     enhetskod: {
-      'minlength': 'Avtalskoden skall vara sex siffror',
-      'maxlength': 'Avtalskoden skall vara sex siffror',
+      'minlength': 'Enhetskoden skall vara sex siffror',
+      'maxlength': 'Enhetskoden skall vara sex siffror',
     },
-    // age: {
-    //   'invalidNumber': 'Ange en siffra',
-    //   'min': 'Ange en ålder på minst 18 år',
-    //   'max': 'Ange en ålder under 120',
-    // },
-    // email: {
-    //   'email': 'Ange en giltig e-post',
-    // },
-    // salary: {
-    //   'invalidNumber': 'Ange ett giltigt belopp',
-    //   'required': 'Detta skriver över default meddelandet för obligatoriska fält'
-    // }
+
   };
 
 
   getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   initExampleData() {
@@ -184,10 +192,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
       'Närhälsan rehabmottagning', 'Närhälsan Kristinedal', 'Janne Karlssons hudvårdsspecialist',
       'Hälsoakuten Mölndal', 'Hälsoakuten Göteborg', 'Hälsoakuten Alingsås',
       'Rehabmottagningen Hemma'];
-    const examplehsaid = 'SE2321000131-E000000011800';
+    const examplehsaid = 'SE2321000131-E000000011';
     const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
 
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 100; i++) {
       const indexForNames = this.getRandomInt(0, 12);
       const indexForAgare = this.getRandomInt(0, 4);
       const indexForEnhetskod = this.getRandomInt(0, 12);
@@ -212,7 +220,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
         vald: false,
         id: i,
         enhet: exampleNames[indexForNames],
-        hsaid: examplehsaid,
+        hsaid: examplehsaid + (200 + i).toString(),
         agare: this.exampleagare[indexForAgare].displayName,
         enhetskod: examplehenhetskod[indexForEnhetskod],
         namnd: this.examplenamnd[indexForNamnd].displayName,
@@ -223,11 +231,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
   }
 
+
+
   onSelectedChangedVersion(selectedItem: string) {
     this.itemSelected = true;
     this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
   }
-
 
   onSelectedChangedUnit(selectedItem: string) {
     this.itemSelected = true;
@@ -235,7 +244,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
-
     if (expanded && !item.previewObject.vald) {
       this.unitInFocus = item.previewObject.enhet;
       item.previewObject.vald = true;
@@ -256,7 +264,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
   onCardCancel(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
-    row.notifyOnCollapse('redigering av ' + row.previewObject.enhet + ' avbröts', NotificationIcon.Exclamation);
+
+    row.notifyOnCollapse('Redigering av ' + row.previewObject.enhet + ' avbröts', NotificationIcon.Exclamation);
+
   }
 
   onCardSave(row: ExpandableRow<ExampleUnit, any>) {
@@ -271,6 +281,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   onNewUnitClick() {
     this.addNewUnit = true;
+
     this.newUnit = {
       hsaid: this.newUnits.find(u => u.displayName === this.selectedUnit).value,
       details: {
@@ -291,35 +302,43 @@ export class ExamplesListwithcardsComponent implements OnInit {
   onNewUnitCancel() {
     this.actionPanelClose();
     this.cardLocked = true;
-    this.newUnitForm.reset();
+    this.newUnit = null;
   }
 
   onNewUnitSave() {
 
-    if (this.newUnitForm.valid) {
-      this.newUnit.details.avtalskod = this.newUnitForm.controls.avtalskod.value;
-      this.newUnit.details.avtalsperiod_slut = this.newUnitForm.controls.avtalsperiod_slut.value;
-      this.newUnit.details.avtalsperiod_start = this.newUnitForm.controls.avtalsperiod_start.value;
-
-      this.newUnit.details.organisationsnummer = this.newUnitForm.controls.organisationsnummer.value;
-      this.newUnit.details.leverantorsid_RD = this.newUnitForm.controls.leverantorsid.value;
-      this.newUnit.details.kontonummer = this.newUnitForm.controls.kontonummer.value;
-
-      this.newUnit.namnd = this.newUnitForm.controls.namnd.value;
-      this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
-      this.newUnit.agare = this.newUnitForm.controls.agare.value;
-      this.newUnit.enhet = this.selectedUnit;
-
-      this.newUnit.isActive = true;
-
-      //   let unitTosave = this.newUnit
-      let newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
-      newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
-
-      this.exampleData.push(newRow);
-
-      this.actionPanelClose();
+    this.submitted = true;
+    console.log(this.newUnitForm.valid);
+    if (!this.newUnitForm.valid) {
+      return;
     }
+
+
+    this.newUnit.details.avtalskod = this.newUnitForm.controls.avtalskod.value;
+    this.newUnit.details.avtalsperiod_slut = this.newUnitForm.controls.avtalsperiod_slut.value;
+    this.newUnit.details.avtalsperiod_start = this.newUnitForm.controls.avtalsperiod_start.value;
+
+    this.newUnit.agare = this.newUnitForm.controls.agare.value;
+
+    if (this.newUnit.details.agare_form === 'Privat') {
+
+      this.newUnit.details.organisationsnummer = this.privateOwnerForm.controls.organisationsnummer.value;
+      this.newUnit.details.kontonummer = this.privateOwnerForm.controls.kontonummer.value;
+      this.newUnit.details.utbetalningsssätt = this.privateOwnerForm.controls.utbetalningssatt.value;
+    }
+    this.newUnit.details.leverantorsid_RD = this.newUnitForm.controls.leverantorsid.value;
+    this.newUnit.namnd = this.newUnitForm.controls.namnd.value;
+    this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
+    this.newUnit.enhet = this.selectedUnit;
+
+    this.newUnit.isActive = true;
+
+    let newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
+    newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
+    this.exampleData.push(newRow);
+
+    this.actionPanelClose();
+    this.newUnit = null;
   }
 
   onActionPanelClose() {
@@ -332,6 +351,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false;
     this.cardLocked = true;
+    this.newUnitForm.reset();
+    this.privateOwnerForm.reset();
+    this.submitted = false;
 
   }
 
