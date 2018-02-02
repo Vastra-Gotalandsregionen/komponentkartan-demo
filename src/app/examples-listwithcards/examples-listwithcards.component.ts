@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
+import { SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.
   styleUrls: ['./examples-listwithcards.component.scss']
 })
 export class ExamplesListwithcardsComponent implements OnInit {
+
   exampleDetail: ExampleUnitDetails;
   sortDirections = SortDirection;
   notificationIcon = NotificationIcon;
@@ -33,7 +34,14 @@ export class ExamplesListwithcardsComponent implements OnInit {
   submitted: boolean = false;
   newUnitForm: FormGroup;
   privateOwnerForm: FormGroup;
+  editUnitForm: FormGroup;
+  editprivateOwnerForm: FormGroup;
+
   userFormSubmitted: boolean = false;
+
+
+
+  @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
 
   constructor(private changeDetecor: ChangeDetectorRef) {
 
@@ -49,11 +57,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
       agare_form: 'privat',
       avtalskod: 1234,
       kontonummer: '1234 1234 12',
+      utbetalningsssätt: 'PG',
       geokod: 'x:6471784 y:6471784',
       kommun: 'Mölndal', kommunkod: 123,
       telefon: '123456789',
       organisationsnummer: '123456789',
-      versions: [1, 2, 3, 4, 5, 6],
+      versions: [1, 2, 3],
       leverantorsid_RD: '123456',
       kundreferens: 'A233',
       postadress_stad: 'Vänersborg',
@@ -79,8 +88,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
     { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
 
-    this.exempelMedverkanIfamiljecentral = [{ value: 'ja' } as DropdownItem<string>,
-    { value: 'nej' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.exempelMedverkanIfamiljecentral = [{ value: 'ja', displayName: 'Ja' } as DropdownItem<string>,
+    { value: 'nej', displayName: 'Nej' } as DropdownItem<string>] as DropdownItem<string>[];
     this.initExampleData();
 
     this.cardLocked = true;
@@ -90,6 +99,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
   ngOnInit() {
     this.createOnSubmitForm();
     this.createPrivateOwnerForm();
+    this.createEditForm();
+    this.createEditPrivateOwnerForm();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
   }
 
@@ -107,8 +118,39 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }, { updateOn: 'blur' });
 
   }
+
+  createEditForm() {
+    this.editUnitForm = new FormGroup({
+      hsaid: new FormControl('', {}),
+      avtalskod: new FormControl('', { validators: [Validators.required, Validators.minLength(4), Validators.maxLength(4)] }),
+      enhetskod: new FormControl('', { validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)] }),
+      namnd: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_start: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
+      enhetschef: new FormControl('', { validators: [Validators.required] }),
+      enhetschef_telefon: new FormControl('', {}),
+      enhetschef_epost: new FormControl('', {}),
+      agare: new FormControl('', { validators: [Validators.required] }),
+      leverantorsid: new FormControl('', { validators: [Validators.required] }),
+      agarkod: new FormControl('', {}),
+      agarform: new FormControl('', {}),
+      kundreferens: new FormControl('', {}),
+      regionsovergripandegrupper: new FormControl('', {}),
+      medverkanIFamiljecentral: new FormControl('', { validators: [Validators.required] }),
+    }, { updateOn: 'blur' });
+
+  }
+
   createPrivateOwnerForm() {
     this.privateOwnerForm = new FormGroup({
+      organisationsnummer: new FormControl('', { validators: [Validators.required] }),
+      utbetalningssatt: new FormControl('', { validators: [Validators.required] }),
+      kontonummer: new FormControl('', { validators: [Validators.required] })
+    }, { updateOn: 'blur' });
+  }
+
+  createEditPrivateOwnerForm() {
+    this.editprivateOwnerForm = new FormGroup({
       organisationsnummer: new FormControl('', { validators: [Validators.required] }),
       utbetalningssatt: new FormControl('', { validators: [Validators.required] }),
       kontonummer: new FormControl('', { validators: [Validators.required] })
@@ -120,49 +162,64 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
 
+
   onNewUnitAgareChanged(value: string) {
 
-
-    switch (value) {
-      case 'Närhälsan': {
-        this.newUnit.details.agare_form = 'Offentlig';
-        this.newUnit.details.agare_kod = 1000
-        break;
-      };
-      case 'Kalle Karlsson': {
-        this.newUnit.details.agare_form = 'Privat';
-        this.newUnit.details.agare_kod = 1001
-        break;
-      };
-      case 'Hemmabolaget': {
-        this.newUnit.details.agare_form = 'Privat';
-        this.newUnit.details.agare_kod = 1002
-        break;
-      };
-      case 'Närhälsan Rehab': {
-        this.newUnit.details.agare_form = 'Offentlig';
-        this.newUnit.details.agare_kod = 1003
-        break;
-      };
-      case 'Hälsoakuten': {
-        this.newUnit.details.agare_form = 'Privat';
-        this.newUnit.details.agare_kod = 1004
-        break;
-      };
-    }
-
+    this.agareChanged(value, this.newUnit);
 
     if (this.newUnit.details.agare_form === "Privat") {
       this.privateOwnerForm.setValidators([Validators.required])
-      console.log("ändra till privatformulär" + this.privateOwnerForm.valid);
     }
     else
       this.privateOwnerForm.setValidators(null);
 
-    this.privateOwnerForm.updateValueAndValidity;
+    this.privateOwnerForm.updateValueAndValidity();
 
 
+  }
 
+  agareChanged(agare: string, unit: ExampleUnit) {
+    switch (agare) {
+      case 'Närhälsan': {
+        unit.details.agare_form = 'Offentlig';
+        unit.details.agare_kod = 1000
+        break;
+      };
+      case 'Kalle Karlsson': {
+        unit.details.agare_form = 'Privat';
+        unit.details.agare_kod = 1001
+        break;
+      };
+      case 'Hemmabolaget': {
+        unit.details.agare_form = 'Privat';
+        unit.details.agare_kod = 1002
+        break;
+      };
+      case 'Närhälsan Rehab': {
+        unit.details.agare_form = 'Offentlig';
+        unit.details.agare_kod = 1003
+        break;
+      };
+      case 'Hälsoakuten': {
+        unit.details.agare_form = 'Privat';
+        unit.details.agare_kod = 1004
+        break;
+      };
+    }
+
+  }
+  onUnitAgareChanged(value: string, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
+
+    this.agareChanged(value, item.previewObject);
+
+    console.log(item.previewObject.details.agare_form);
+    if (item.previewObject.details.agare_form === "Privat") {
+      this.editprivateOwnerForm.setValidators([Validators.required])
+    }
+    else
+      this.editprivateOwnerForm.setValidators(null);
+
+    this.editprivateOwnerForm.updateValueAndValidity();
   }
 
 
@@ -177,7 +234,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     },
 
   };
-
 
   getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -219,7 +275,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       items.push({
         vald: false,
         id: i,
-        enhet: exampleNames[indexForNames],
+        enhet: exampleNames[indexForNames] + ' ' + i.toString(),
         hsaid: examplehsaid + (200 + i).toString(),
         agare: this.exampleagare[indexForAgare].displayName,
         enhetskod: examplehenhetskod[indexForEnhetskod],
@@ -231,11 +287,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
   }
 
-
-
   onSelectedChangedVersion(selectedItem: string) {
-    this.itemSelected = true;
-    this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
+    // if (selectedItem === "3")
+    //   this.saveCancelComponent.hideLock = false;
+    // else
+    //   this.saveCancelComponent.hideLock = true;
+
   }
 
   onSelectedChangedUnit(selectedItem: string) {
@@ -244,21 +301,59 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
+
     if (expanded && !item.previewObject.vald) {
       this.unitInFocus = item.previewObject.enhet;
       item.previewObject.vald = true;
 
       this.updateCardDropdowns(item.previewObject);
 
-    } else { item.previewObject.vald = false; }
+      this.editUnitForm.setValue({
+        hsaid: item.previewObject.hsaid,
+        avtalskod: item.previewObject.details.avtalskod,
+        enhetskod: item.previewObject.enhetskod,
+        namnd: item.previewObject.namnd,
+        avtalsperiod_start: item.previewObject.details.avtalsperiod_start,
+        avtalsperiod_slut: item.previewObject.details.avtalsperiod_slut,
+        enhetschef: item.previewObject.details.enhetschef,
+        leverantorsid: item.previewObject.details.leverantorsid_RD,
+        enhetschef_telefon: item.previewObject.details.enhetschef_telefon,
+        enhetschef_epost: item.previewObject.details.enhetschef_epost,
+        agare: item.previewObject.agare,
+        agarkod: item.previewObject.details.agare_kod,
+        agarform: item.previewObject.details.agare_form,
+        kundreferens: item.previewObject.details.kundreferens,
+        regionsovergripandegrupper: item.previewObject.details.regionsovergripandegrupper,
+        medverkanIFamiljecentral: ""//item.previewObject.details.medverkanfamiljecentral 
+      })
+
+      if (item.previewObject.details.agare_form === 'Privat') {
+        this.editprivateOwnerForm.setValue({
+          organisationsnummer: item.previewObject.details.organisationsnummer,
+          utbetalningssatt: item.previewObject.details.utbetalningsssätt,
+          kontonummer: item.previewObject.details.kontonummer
+        });
+      }
+
+      this.editUnitForm.updateValueAndValidity();
+
+    } else {
+      item.previewObject.vald = false;
+      this.submitted = false;
+    }
+
+
+
+
   }
 
   updateCardDropdowns(item: ExampleUnit) {
     this.exampleagare.forEach(a => a.selected = false);
     this.exampleagare.find(a => a.displayName === item.agare).selected = true;
+
     this.exempelVersions = [];
     item.details.versions.forEach(x => {
-      this.exempelVersions.push({ displayName: x.toString(), value: x.toString(), marked: false } as DropdownItem<any>);
+      this.exempelVersions.push({ displayName: x.toString(), value: x.toString(), marked: x === 3, selected: x === 3 } as DropdownItem<any>);
     });
     this.changeDetecor.detectChanges();
   }
@@ -269,7 +364,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   }
 
-  onCardSave(row: ExpandableRow<ExampleUnit, any>) {
+  onMedverkaniFamiljecentralChanged(value: string) {
+  }
+
+  onCardSave(event: Event, row: ExpandableRow<ExampleUnit, any>) {
+    this.submitted = true;
+
+    if (!this.editprivateOwnerForm.valid || !this.editUnitForm.valid) {
+      console.log('en valid');
+      return;
+    }
+
     this.cardLocked = true;
     row.notifyOnCollapse(row.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
   }
@@ -306,13 +411,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   onNewUnitSave() {
-
     this.submitted = true;
-    console.log(this.newUnitForm.valid);
-    if (!this.newUnitForm.valid) {
+
+    if (!this.privateOwnerForm.valid || !this.newUnitForm.valid) {
       return;
     }
-
 
     this.newUnit.details.avtalskod = this.newUnitForm.controls.avtalskod.value;
     this.newUnit.details.avtalsperiod_slut = this.newUnitForm.controls.avtalsperiod_slut.value;
