@@ -199,7 +199,7 @@
                 <vgr-card-header>
                   <div class="row-layout">
                     <p>Version</p>
-                    <vgr-dropdown [items]="exempelVersions" (selectedChanged)="onSelectedChangedVersion($event)"></vgr-dropdown>
+                    <vgr-dropdown (selectedChanged)="onSelectedChangedVersion($event)"></vgr-dropdown>
                   </div>
                   <div class="flex-right">
                     <vgr-save-cancel [unlocked]="!cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
