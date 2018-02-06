@@ -10,7 +10,9 @@ import { Examples } from './code-example';
     styleUrls: ['./reactiveforms-example.component.scss']
 })
 export class ReactiveformsexampleComponent implements OnInit {
-    radioOptions: SelectableItem<number>[];
+    radioOptions1: SelectableItem<number>[];
+    radioOptions2: SelectableItem<number>[];
+    radioOptions3: SelectableItem<number>[];
     dropdownItems: DropdownItem<string>[];
     dropdownItemsMulti: DropdownItem<string>[];
 
@@ -63,7 +65,19 @@ export class ReactiveformsexampleComponent implements OnInit {
             htmlEncoder.prepareHighlightedSection(this.examples.htmlOnChangeFormMarkup);
 
 
-        this.radioOptions = [
+        this.radioOptions1 = [
+            { displayName: 'Ett', value: 1 },
+            { displayName: 'Två', value: 2 },
+            { displayName: 'Tre', value: 3 }
+        ];
+
+        this.radioOptions2 = [
+            { displayName: 'Ett', value: 1 },
+            { displayName: 'Två', value: 2 },
+            { displayName: 'Tre', value: 3 }
+        ];
+
+        this.radioOptions3 = [
             { displayName: 'Ett', value: 1 },
             { displayName: 'Två', value: 2 },
             { displayName: 'Tre', value: 3 }
@@ -98,7 +112,7 @@ export class ReactiveformsexampleComponent implements OnInit {
             favourite_pet: new FormControl(null, { validators: [Validators.required] }),
             interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
             check: new FormControl(true, { validators: [Validators.pattern('true')] }),
-            optional: new FormControl(this.radioOptions[2].value),
+            optional: new FormControl(1),
             monthpicker: new FormControl('', { validators: [Validators.required] }),
             datepicker: new FormControl('', { validators: [Validators.required] }),
             datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
@@ -115,7 +129,7 @@ export class ReactiveformsexampleComponent implements OnInit {
             favourite_pet: new FormControl(null, { validators: [Validators.required] }),
             interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
             check: new FormControl(true, { validators: [Validators.pattern('true')] }),
-            optional: new FormControl(this.radioOptions[2].value),
+            optional: new FormControl(2),
             monthpicker: new FormControl('', { validators: [Validators.required] }),
             datepicker: new FormControl('', { validators: [Validators.required] }),
             datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
@@ -132,7 +146,7 @@ export class ReactiveformsexampleComponent implements OnInit {
             favourite_pet: new FormControl(null, { validators: [Validators.required] }),
             interests: new FormControl(this.dropdownItemsMulti[0].value, { validators: [Validators.required] }),
             check: new FormControl(true, { validators: [Validators.pattern('true')] }),
-            optional: new FormControl(this.radioOptions[2].value),
+            optional: new FormControl(3),
             monthpicker: new FormControl('', { validators: [Validators.required] }),
             datepicker: new FormControl('', { validators: [Validators.required] }),
             datepicker_preselected: new FormControl(new Date(), { validators: [Validators.required] })
