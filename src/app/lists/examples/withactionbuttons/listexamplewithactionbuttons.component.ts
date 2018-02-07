@@ -19,7 +19,7 @@ export class ListExampleWithActionButtonsComponent {
     examples: Examples = new Examples();
 
     get allChecked() {
-        return this.peopleRows && !this.peopleRows.find(x => !x.previewObject.selected);
+        return this.peopleRows && !this.peopleRows.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.selected);
     }
 
     loadData() {
@@ -38,7 +38,7 @@ export class ListExampleWithActionButtonsComponent {
 
     onSelectAllChanged(checked: boolean) {
         if (this.peopleRows) {
-            this.peopleRows.forEach(r => r.previewObject.selected = checked);
+            this.peopleRows.filter(r => !r.previewObject.deleted).forEach(x => x.previewObject.selected = checked);
         }
     }
 
@@ -53,7 +53,7 @@ export class ListExampleWithActionButtonsComponent {
         );
     }
 
-    removeRow(row: any) {
+    removeRow(row: ExpandableRow<ExamplePerson, any>) {
         this.modalService.openDialog('Ta bort raden', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
             new ModalButtonConfiguration('Ja', () => {
                 row.notifyOnRemove(row.previewObject.firstName + ' togs bort', NotificationIcon.Ok);
@@ -114,5 +114,6 @@ export interface ExamplePerson {
     lastName: string;
     amount: number;
     selected?: boolean;
+    deleted?: boolean;
 }
 

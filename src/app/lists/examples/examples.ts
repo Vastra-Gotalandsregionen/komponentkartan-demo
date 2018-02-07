@@ -319,7 +319,7 @@ export class Examples {
         }
 
         get allChecked() {
-            return this.peopleRows && !this.peopleRows.find(x => !x.previewObject.selected);
+            return this.peopleRows && !this.peopleRows.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.selected);
         }
 
         loadData() {
@@ -332,7 +332,7 @@ export class Examples {
 
         onSelectAllChanged(checked: boolean) {
             if (this.peopleRows) {
-                this.peopleRows.forEach(r => r.previewObject.selected = checked);
+                this.peopleRows.filter(r => !r.previewObject.deleted).forEach(x => x.previewObject.selected = checked);
             }
         }
 
@@ -398,6 +398,7 @@ export class Examples {
         lastName: string;
         amount: number;
         selected?: boolean;
+        deleted?: boolean;
     }
 
     `;
