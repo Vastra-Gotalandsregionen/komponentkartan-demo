@@ -188,7 +188,7 @@
                 <td>width : number</td>
                 <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska
                   vara 20 för vgr-list.
-                  <br> Bredden på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
+                </td>
                 <td>
                   [width]="20"
                 </td>
@@ -196,8 +196,8 @@
               <tr>
                 <td>align : string</td>
                 <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och center.
-                  <br>Om man sätter ett felaktigt värde så sätts defaultvärdet.
-                  <br> Justeringen på rubrik-kolumnerna ärvs ner till sina värde-kolumner</td>
+                  <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
+                </td>
                 <td>
                   [align]="'right'"
                 </td>
@@ -274,11 +274,28 @@
                 <th style="width:600px">Beskrivning</th>
                 <th>Exempel</th>
               </tr>
-
               <tr>
                 <td>text : string</td>
                 <td>Kolumnens textinnehåll</td>
                 <td>[text]="Sverige"</td>
+              </tr>
+              <tr>
+                <td>width : number</td>
+                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av width ska
+                  vara 20 för vgr-list.
+                </td>
+                <td>
+                  [width]="20"
+                </td>
+              </tr>
+              <tr>
+                <td>align : string</td>
+                <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och center.
+                  <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
+                </td>
+                <td>
+                  [align]="'right'"
+                </td>
               </tr>
             </table>
           </vgr-list-item-content>

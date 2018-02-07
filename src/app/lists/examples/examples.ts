@@ -90,16 +90,16 @@ export class Examples {
   htmlListWithExpandableDiv = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
     <vgr-list-column-header text="Förnamn" width="5" sortKey="firstName" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-    <vgr-list-column-header text="Efternamn" width="5" align="left" sortKey="lastName"></vgr-list-column-header>
+    <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
     <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
     <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
     <vgr-list-item-header>
-      <vgr-list-column [text]="row.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.lastName"></vgr-list-column>
-      <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'"></vgr-list-column>
+      <vgr-list-column [text]="row.firstName" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.lastName" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.occupation" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'" width="5" align="right"></vgr-list-column>
     </vgr-list-item-header>
     <vgr-list-item-content>
       <vgr-expandable-div *ngFor="let row of row.children" [expanded]="false">
@@ -168,10 +168,10 @@ export class Examples {
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
     <vgr-list-item-header>
-      <vgr-list-column [text]="row.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.lastName"></vgr-list-column>
-      <vgr-list-column [text]="row.occupation"></vgr-list-column>
-      <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'"></vgr-list-column>
+      <vgr-list-column [text]="row.firstName" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.lastName" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.occupation" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'" align="right" width="5"></vgr-list-column>
     </vgr-list-item-header>
     <vgr-list-item-content>
         <span>Förnamn: {{row.firstName}}</span>
@@ -251,14 +251,13 @@ export class Examples {
   `;
   htmlAdvancedListMarkup = `<vgr-list [flexibleHeader]="true" [allowMultipleExpandedItems]="false" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
-    <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'"
-    [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+    <vgr-list-column-header [text]="'Förnamn'" [width]="10" [sortKey]="'firstName'" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
     <vgr-list-column-header [text]="'Efternamn'" [width]="10" [sortKey]="'lastName'"></vgr-list-column-header>
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
     <vgr-list-item-header>
-      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.firstName" [width]="10"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.lastName" [width]="10"></vgr-list-column>
     </vgr-list-item-header>
     <vgr-list-item-content>
       <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
@@ -269,20 +268,20 @@ export class Examples {
 
   htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
-    <vgr-list-column-header text="Förnamn" width="8" align="left" sortKey="firstName"></vgr-list-column-header>
+    <vgr-list-column-header text="Förnamn" width="8" sortKey="firstName"></vgr-list-column-header>
     <vgr-list-column-header text="Efternamn" width="5" sortKey="lastName"></vgr-list-column-header>
     <vgr-list-column-header text="Årsbelopp" width="3" align="right" sortKey="amount"></vgr-list-column-header>
     <vgr-list-column-header width="1"></vgr-list-column-header>
-    <vgr-list-column-header-checkbox align="left" width="3" text="Markera alla" [checked]="allChecked" (checkedChanged)="onSelectAllChanged($event)"></vgr-list-column-header-checkbox>
+    <vgr-list-column-header-checkbox width="3" text="Markera alla" [checked]="allChecked" (checkedChanged)="onSelectAllChanged($event)"></vgr-list-column-header-checkbox>
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" (deleted)="notifyOnDelete(row)">
     <vgr-list-item-header>
-      <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-      <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
-      <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'"></vgr-list-column>
-      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
-      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected"
-       (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
+      <vgr-list-column [text]="row.previewObject.firstName" width="8"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.lastName" width="5"></vgr-list-column>
+      <vgr-list-column [text]="row.previewObject.amount | number:'2.2-2':'sv'" width="3" align="right"></vgr-list-column>
+      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)" width="1"></vgr-list-column-trashcan>
+      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected" (checkedChanged)="onSelectRowChanged(row, $event)"
+        width="3"></vgr-list-column-checkbox>
     </vgr-list-item-header>
     <vgr-list-item-content>
       <span>Mer information</span>
