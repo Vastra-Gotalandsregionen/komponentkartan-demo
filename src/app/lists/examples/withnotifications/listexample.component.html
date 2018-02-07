@@ -63,8 +63,8 @@
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" [expanded]="row.expanded">
           <vgr-list-item-header>
-            <vgr-list-column [text]="row.previewObject.firstName"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.lastName"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.firstName" [width]="10"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.lastName" [width]="10"></vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
             <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
