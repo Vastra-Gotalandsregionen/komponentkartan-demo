@@ -53,14 +53,13 @@
         <div style="width:200px">
           <p>Med min- och maxdatum</p>
 
-          <vgr-monthpicker [selectedDateFormat]="'MM yyyy'" [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+          <vgr-monthpicker [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
         </div>
         <div>
           <p>Här är
             <code>minDate</code> satt till 2015-05-01 och
             <code>maxDate</code> är 2016-03-31. Från 2015 och fram till nuvarande år så visas samtliga månader, men endast månaderna
-            mellan maj 2015 - mars 2016 är valbara.
-          </p>
+            mellan maj 2015 - mars 2016 är valbara.</p>
         </div>
       </div>
     </div>
@@ -74,7 +73,6 @@
         <div>
           <p>Här är kalendern satt i disable-läge och
             <code>selectedDate</code> satt till 2015-01-13.</p>
-          <p>Datumformat MMMM </p>
         </div>
       </div>
     </div>
@@ -83,12 +81,11 @@
       <div class="row-layout">
         <div style="width:200px">
           <p>Readonly</p>
-          <vgr-monthpicker [selectedDate]="preselectedDate" [readonly]="isReadonlyAndDisabled" [selectedDateFormat]="'MMMM'"></vgr-monthpicker>
+          <vgr-monthpicker [selectedDate]="preselectedDate" [readonly]="isReadonlyAndDisabled"></vgr-monthpicker>
         </div>
         <div>
           <p>Här är kalendern satt i readonly-läge och
             <code>selectedDate</code> satt till 2015-01-13.</p>
-          <p>Datumformat MMMM </p>
         </div>
       </div>
     </div>
@@ -100,7 +97,7 @@
           <vgr-monthpicker style="margin-top: 20px" [disabled]="isReadonlyAndDisabled" [selectedDate]=""></vgr-monthpicker>
         </div>
         <div>
-          <p>Här är kalendern satt i disable-läge och inget datum valt
+          <p>Här är kalendern satt i disable-läge och inget datum valt</p>
         </div>
       </div>
     </div>
@@ -109,10 +106,11 @@
       <div class="row-layout">
         <div style="width:200px">
           <p>Readonly</p>
-          <vgr-monthpicker [selectedDate]="" [readonly]="isReadonlyAndDisabled" [selectedDateFormat]="'MMMM'"></vgr-monthpicker>
+          <vgr-monthpicker [selectedDate]="" [readonly]="isReadonlyAndDisabled"></vgr-monthpicker>
         </div>
         <div>
-          <p>Här är kalendern satt i readonly-läge och inget datum valt
+          <p>Här är kalendern satt i readonly-läge och inget datum valt</p>
+
         </div>
       </div>
     </div>
