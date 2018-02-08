@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
+import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
@@ -68,7 +68,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       kommun: 'Mölndal', kommunkod: 123,
       telefon: '123456789',
       organisationsnummer: '123456789',
-      versions: [1, 2, 3],
+      versions: [],
       leverantorsid_RD: '123456',
       kundreferens: 'A233',
       postadress_stad: 'Vänersborg',
@@ -344,6 +344,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       const details = Object.create(this.exampleDetail);
 
       details.enhet = 'copy';
+      details.versions = [1, 2, 3];
 
       if (1 === this.getRandomInt(0, 3)) {
         isActive = false;
@@ -352,6 +353,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
         isActive = true;
         year = (new Date().getFullYear());
       }
+
+      // if (1 === this.getRandomInt(1, 20)) {
+      //   details.medverkanfamiljecentral = "";
+      // }
 
       details.avtalsperiod_start = new Date(year, 0, 1);
       details.avtalsperiod_slut = new Date(year, 11, 0);
@@ -373,6 +378,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
 
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
+
+    // this.exampleData.forEach(element => {
+    //   if (element.previewObject.details.medverkanfamiljecentral === "")
+    //     element.notification = { message: 'Information saknas, medverkan i familjecentral ej ifylld', icon: NotificationIcon.ExclamationRed, type: NotificationType.Permanent } as RowNotification
+    // });
 
   }
 
@@ -537,8 +547,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   updateCardDropdowns(item: ExampleUnit) {
+
     this.exempelVersions = [];
     item.details.versions.forEach(x => {
+
       this.exempelVersions.push({
         displayName: x.toString(),
         value: x.toString(),
@@ -546,6 +558,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
         selected: x === item.details.versions.length
       } as DropdownItem<any>);
     });
+
     this.changeDetector.detectChanges();
   }
 
