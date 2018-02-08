@@ -8,9 +8,7 @@
         <vgr-button (click)="showActionPanel = true">Lägg till ny enhet</vgr-button>
       </div>
       <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
-
     </div>
-
   </vgr-page-header>
   <vgr-action-panel [expanded]="showActionPanel" [title]="'Lägg till ny enhet'">
     <div *ngIf=!addNewUnit>
@@ -32,12 +30,9 @@
         <div class="flex-right">
           <vgr-button class="enhet-card__abort-button" (click)="onNewUnitCancel()" [secondary]="true">Avbryt</vgr-button>
           <vgr-button [secondary]="true" (click)="onNewUnitSave()">Spara enhet</vgr-button>
-
         </div>
       </vgr-card-header>
-
       <vgr-card-column>
-
         <form [formGroup]="newUnitForm">
           <vgr-card-section [title]=" 'Enhetsinformation'" expanded="true" [readonly]="cardLocked">
             <vgr-title-value-layout>
@@ -56,7 +51,7 @@
             <form [formGroup]="onChangeForm">
               <vgr-title-value-layout>
                 <vgr-title-value [title]=" 'Nämnd*'" [slim]="cardLocked">
-                  <vgr-dropdown formControlName="namnd" [showValidation]="onChangeForm.controls.namnd.touched || submitted" [items]="examplenamnd"
+                  <vgr-dropdown formControlName="namnd" [showValidation]="onChangeForm.controls.namnd.touched || submitted" [items]="newExamplenamnd"
                     [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
                 </vgr-title-value>
                 <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
@@ -69,8 +64,6 @@
                 </vgr-title-value>
               </vgr-title-value-layout>
             </form>
-
-
           </vgr-card-section>
           <vgr-card-section [title]=" 'Enhetschef'" [expanded]="true" [readonly]="cardLocked">
             <vgr-title-value-layout>
@@ -90,17 +83,12 @@
                 <vgr-input formControlName="enhetschef_epost" [readonly]="cardLocked"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
-
           </vgr-card-section>
-
           <vgr-card-section [title]=" 'Avtalspart'" [expanded]="true" [readonly]="cardLocked">
-            <!--  (selectedChanged)="onUnitAgareChanged($event,row)"-->
-
-
             <form [formGroup]="agarOwnerForm">
               <vgr-title-value-layout>
                 <vgr-title-value [title]=" 'Ägare*'" [slim]="cardLocked">
-                  <vgr-dropdown formControlName="agare" [showValidation]="agarOwnerForm.controls.agare.touched || submitted" [items]="exampleagare"
+                  <vgr-dropdown formControlName="agare" [showValidation]="agarOwnerForm.controls.agare.touched || submitted" [items]="newExampleagare"
                     [noItemSelectedLabel]="'Välj ägare'" [readonly]="cardLocked"></vgr-dropdown>
                 </vgr-title-value>
               </vgr-title-value-layout>
@@ -113,7 +101,6 @@
                 <vgr-input [readonly]="true" formControlName="agarform"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
-
             <form [formGroup]="privateOwnerForm">
               <vgr-title-value-layout>
                 <vgr-title-value *ngIf="newUnitForm.controls.agarform.value==='Privat'" [title]=" 'Organisationsnr*'" [slim]="cardLocked">
@@ -122,7 +109,7 @@
                 </vgr-title-value>
                 <vgr-title-value *ngIf="newUnitForm.controls.agarform.value==='Privat'" [title]=" 'Utbetalningssätt*'" [slim]="cardLocked">
                   <vgr-dropdown formControlName="utbetalningssatt" [showValidation]="privateOwnerForm.controls.utbetalningssatt.touched || submitted"
-                    [items]="exempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="cardLocked"></vgr-dropdown>
+                    [items]="newExempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="cardLocked"></vgr-dropdown>
                 </vgr-title-value>
                 <vgr-title-value *ngIf="newUnitForm.controls.agarform.value==='Privat'" [title]=" 'Kontonummer*'" [slim]="cardLocked">
                   <vgr-input formControlName="kontonummer" [showValidation]="privateOwnerForm.controls.kontonummer.touched || submitted" [readonly]="cardLocked"></vgr-input>
@@ -137,13 +124,10 @@
                 <vgr-input formControlName="kundreferens" [readonly]="cardLocked"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
-
-
           </vgr-card-section>
         </form>
       </vgr-card-column>
       <vgr-card-column>
-
         <vgr-card-section [title]=" 'Adressinformation'" [readonly]="true" [expanded]="true">
           <vgr-title-value-layout>
             <vgr-title-value [title]=" 'Kommun'" [slim]="cardLocked">
@@ -176,7 +160,7 @@
           <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="cardLocked">
             <vgr-title-value-layout>
               <vgr-title-value [title]=" 'Medverkan i familjecentral'" [slim]="cardLocked">
-                <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
+                <vgr-dropdown formControlName="newMedverkanIFamiljecentral" [items]="newExempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                   [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
               </vgr-title-value>
               <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
@@ -186,8 +170,6 @@
           </vgr-card-section>
         </form>
       </vgr-card-column>
-
-
     </vgr-card>
   </vgr-action-panel>
   <vgr-page-body>
@@ -214,16 +196,15 @@
               <vgr-card>
                 <vgr-card-header>
                   <div class="row-layout">
-
-                    <p>Version</p>
+                    <label style="width:189px">Version</label>
                     <vgr-dropdown #unitVersions (selectedChanged)="onSelectedChangedVersion($event, row.previewObject)" [items]="exempelVersions"></vgr-dropdown>
                   </div>
                   <div class="flex-right">
-                    <vgr-save-cancel [unlocked]="!cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
+                    <vgr-save-cancel [secondary]="true" [unlocked]="!cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)"
+                      (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
                   </div>
                 </vgr-card-header>
                 <vgr-card-column>
-
                   <form [formGroup]="editUnitForm">
                     <vgr-card-section [title]=" 'Enhetsinformation'" expanded="true" [readonly]="cardLocked">
                       <vgr-title-value-layout>
@@ -251,7 +232,6 @@
                           </div>
                         </vgr-title-value>
                       </vgr-title-value-layout>
-
                     </vgr-card-section>
                     <vgr-card-section [title]=" 'Enhetschef'" [expanded]="true" [readonly]="cardLocked">
                       <vgr-title-value-layout>
@@ -271,11 +251,8 @@
                           <vgr-input formControlName="enhetschef_epost" [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
                       </vgr-title-value-layout>
-
                     </vgr-card-section>
-
                     <vgr-card-section [title]=" 'Avtalspart'" [expanded]="true" [readonly]="cardLocked">
-                      <!--  (selectedChanged)="onUnitAgareChanged($event,row)"-->
                       <vgr-title-value-layout>
                         <vgr-title-value [title]=" 'Ägare*'" [slim]="cardLocked">
                           <vgr-dropdown formControlName="agare" [showValidation]="editUnitForm.controls.agare.touched || submitted" [items]="exampleagare"
@@ -313,13 +290,10 @@
                           <vgr-input formControlName="kundreferens" [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
                       </vgr-title-value-layout>
-
-
                     </vgr-card-section>
                   </form>
                 </vgr-card-column>
                 <vgr-card-column>
-
                   <vgr-card-section [title]=" 'Adressinformation'" [readonly]="true" [expanded]="true">
                     <vgr-title-value-layout>
                       <vgr-title-value [title]=" 'Kommun'" [slim]="cardLocked">
@@ -362,7 +336,6 @@
                     </vgr-card-section>
                   </form>
                 </vgr-card-column>
-
               </vgr-card>
             </div>
           </vgr-list-item-content>

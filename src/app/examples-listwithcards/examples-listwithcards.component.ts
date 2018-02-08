@@ -9,9 +9,6 @@ import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.
   styleUrls: ['./examples-listwithcards.component.scss']
 })
 export class ExamplesListwithcardsComponent implements OnInit {
-
-
-
   exampleDetail: ExampleUnitDetails;
   sortDirections = SortDirection;
   notificationIcon = NotificationIcon;
@@ -23,10 +20,19 @@ export class ExamplesListwithcardsComponent implements OnInit {
   newUnit: ExampleUnit;
   showActionPanel = false;
   selectedUnit = '';
+
   examplenamnd: DropdownItem<string>[];
+  newExamplenamnd: DropdownItem<string>[];
+
   exampleagare: DropdownItem<string>[];
+  newExampleagare: DropdownItem<string>[];
+
   exempelUtbetalningssatt: DropdownItem<string>[];
+  newExempelUtbetalningssatt: DropdownItem<string>[];
+
   exempelMedverkanIfamiljecentral: DropdownItem<string>[];
+  newExempelMedverkanIfamiljecentral: DropdownItem<string>[];
+
   cardLocked: boolean;
   includeInactiveUnits = false;
   startdate: Date;
@@ -39,10 +45,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   editprivateOwnerForm: FormGroup;
   agarOwnerForm: FormGroup;
   onChangeForm: FormGroup;
-
   userFormSubmitted: boolean = false;
-
-
 
   @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
   @ViewChild('unitVersions') unitVersions: DropdownComponent;
@@ -85,16 +88,36 @@ export class ExamplesListwithcardsComponent implements OnInit {
     { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
     { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
 
+
+    this.newExampleagare = [{ displayName: 'Närhälsan', value: 'Närhälsan' } as DropdownItem<string>,
+    { displayName: 'Hälsoakuten', value: 'Hälsoakuten' } as DropdownItem<any>,
+    { displayName: 'Kalle Karlsson', value: 'Kalle Karlsson' } as DropdownItem<any>,
+    { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
+    { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
+
     this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden', value: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
     { displayName: 'Norra hälso- och sjukvårdsnämnden', value: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
     { displayName: 'Södra hälso- och sjukvårdsnämnden', value: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
     { displayName: 'Västra hälso- och sjukvårdsnämnden', value: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
     { displayName: 'Östra hälso- och sjukvårdsnämnden', value: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.newExamplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden', value: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Norra hälso- och sjukvårdsnämnden', value: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Södra hälso- och sjukvårdsnämnden', value: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Västra hälso- och sjukvårdsnämnden', value: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
+    { displayName: 'Östra hälso- och sjukvårdsnämnden', value: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<string>] as DropdownItem<string>[];
+
     this.exempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
     { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.newExempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
+    { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
+
 
     this.exempelMedverkanIfamiljecentral = [{ value: 'ja', displayName: 'Ja' } as DropdownItem<string>,
     { value: 'nej', displayName: 'Nej' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.newExempelMedverkanIfamiljecentral = [{ value: 'ja', displayName: 'Ja' } as DropdownItem<string>,
+    { value: 'nej', displayName: 'Nej' } as DropdownItem<string>] as DropdownItem<string>[];
+
+
     this.initExampleData();
 
     this.cardLocked = true;
@@ -251,7 +274,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
         break;
       };
     }
-    console.log(agare);
+
     form.controls.agarform.setValue(agareform);
     form.controls.agarkod.setValue(agarekod);
 
@@ -376,15 +399,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
       this.updateCardForm(item.previewObject);
     } else {
       item.previewObject.vald = false;
+      this.cardLocked = true;
       this.submitted = false;
-
-
     }
     this.changeDetector.detectChanges();
   }
 
   updateRowValues(row: ExpandableRow<ExampleUnit, ExampleUnit>) {
-    console.log(row.previewObject);
     row.previewObject.agare = this.editUnitForm.controls.agare.value;
     row.previewObject.details.avtalskod = this.editUnitForm.controls.avtalskod.value;
     row.previewObject.enhetskod = this.editUnitForm.controls.enhetskod.value;
@@ -462,14 +483,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
       })
     }
-
     this.editUnitForm.updateValueAndValidity();
-
   }
 
   updateNewCardForm() {
-    //this.newUnitForm.reset();
-
     const agare = this.newUnit.agare ? this.newUnit.agare : "";
     this.agarOwnerForm.controls.agare.setValue(agare);
 
@@ -518,6 +535,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       this.newUnitForm.updateValueAndValidity();
     }
   }
+
   updateCardDropdowns(item: ExampleUnit) {
     this.exempelVersions = [];
     item.details.versions.forEach(x => {
@@ -535,7 +553,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.cardLocked = true;
 
     row.notifyOnCollapse('Redigering av ' + row.previewObject.enhet + ' avbröts', NotificationIcon.Exclamation);
-
   }
 
   onCardSave(event: Event, row: ExpandableRow<ExampleUnit, any>) {
@@ -543,7 +560,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     if (!this.editprivateOwnerForm.valid || !this.editUnitForm.valid) {
       this.saveCancelComponent.unlocked = true;
-      console.log('invalid');
       return;
     }
     this.updateRowValues(row);
@@ -559,8 +575,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     if (this.unitVersions) {
       this.unitVersions.readonly = true;
     }
-
-
   }
 
   onNewUnitClick() {
