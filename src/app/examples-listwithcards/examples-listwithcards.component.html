@@ -52,19 +52,24 @@
                 <vgr-input formControlName="enhetskod" [showValidation]="newUnitForm.controls.enhetskod.touched || submitted" [errorMessage]="validationMessages.enhetskod"
                   [readonly]="cardLocked"></vgr-input>
               </vgr-title-value>
-              <vgr-title-value [title]=" 'Nämnd*'" [slim]="cardLocked">
-                <vgr-dropdown formControlName="namnd" [showValidation]="newUnitForm.controls.namnd.touched || submitted" [items]="examplenamnd"
-                  [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
-              </vgr-title-value>
-              <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
-                <div class="row-layout">
-                  <vgr-monthpicker formControlName="avtalsperiod_start" [showValidation]="newUnitForm.controls.avtalsperiod_start.touched || submitted"
-                    [readonly]="cardLocked"></vgr-monthpicker>
-                  <vgr-monthpicker formControlName="avtalsperiod_slut" [showValidation]="newUnitForm.controls.avtalsperiod_slut.touched || submitted"
-                    [readonly]="cardLocked"></vgr-monthpicker>
-                </div>
-              </vgr-title-value>
             </vgr-title-value-layout>
+            <form [formGroup]="onChangeForm">
+              <vgr-title-value-layout>
+                <vgr-title-value [title]=" 'Nämnd*'" [slim]="cardLocked">
+                  <vgr-dropdown formControlName="namnd" [showValidation]="onChangeForm.controls.namnd.touched || submitted" [items]="examplenamnd"
+                    [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
+                </vgr-title-value>
+                <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
+                  <div class="row-layout">
+                    <vgr-monthpicker formControlName="avtalsperiod_start" [showValidation]="onChangeForm.controls.avtalsperiod_start.touched || submitted"
+                      [readonly]="cardLocked"></vgr-monthpicker>
+                    <vgr-monthpicker formControlName="avtalsperiod_slut" [showValidation]="onChangeForm.controls.avtalsperiod_slut.touched || submitted"
+                      [readonly]="cardLocked"></vgr-monthpicker>
+                  </div>
+                </vgr-title-value>
+              </vgr-title-value-layout>
+            </form>
+
 
           </vgr-card-section>
           <vgr-card-section [title]=" 'Enhetschef'" [expanded]="true" [readonly]="cardLocked">

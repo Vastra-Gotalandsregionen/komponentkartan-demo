@@ -38,6 +38,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   editUnitForm: FormGroup;
   editprivateOwnerForm: FormGroup;
   agarOwnerForm: FormGroup;
+  onChangeForm: FormGroup;
 
   userFormSubmitted: boolean = false;
 
@@ -74,7 +75,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       besoksadress_gata: 'Torgatan',
       besoksadress_postnummer: '32133',
       regionsovergripandegrupper: '1000 kr',
-      medverkanfamiljecentral: 'Nej'
+      medverkanfamiljecentral: 'nej'
 
     } as ExampleUnitDetails;
 
@@ -101,13 +102,22 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.createOnSubmitForm();
+    this.createNewUnitForm();
     this.createPrivateOwnerForm();
     this.createEditForm();
     this.createEditPrivateOwnerForm();
     this.createAgarOwnerForm();
     this.agareChanged();
+    this.createOnChangeForm();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
+  }
+
+  createOnChangeForm() {
+    this.onChangeForm = new FormGroup({
+      namnd: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_start: new FormControl('', { validators: [Validators.required] }),
+      avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
+    }, { updateOn: 'change' });
   }
 
   createAgarOwnerForm() {
@@ -115,14 +125,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
       agare: new FormControl('', { validators: [Validators.required] }),
     }, { updateOn: 'change' });
   }
-  createOnSubmitForm() {
+
+  createNewUnitForm() {
     this.newUnitForm = new FormGroup({
       hsaid: new FormControl('', {}),
       avtalskod: new FormControl('', { validators: [Validators.required, Validators.minLength(4), Validators.maxLength(4)] }),
       enhetskod: new FormControl('', { validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)] }),
-      namnd: new FormControl('', { validators: [Validators.required] }),
-      avtalsperiod_start: new FormControl('', { validators: [Validators.required] }),
-      avtalsperiod_slut: new FormControl('', { validators: [Validators.required] }),
+
       enhetschef: new FormControl('', { validators: [Validators.required] }),
       enhetschef_telefon: new FormControl('', {}),
       enhetschef_epost: new FormControl('', {}),
@@ -179,28 +188,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
   onFormSubmitted() {
     this.userFormSubmitted = true;
   }
-
-  // onNewUnitAgareChanged(value: string) {
-
-  //   this.newUnit.agare = value;
-  //   this.setAgareDetaljer(this.newUnit);
-
-
-  //   if (this.newUnit.details.agare_form === "Privat") {
-  //     Object.keys(this.privateOwnerForm.controls).forEach(key => {
-  //       this.privateOwnerForm.controls[key].setValidators([Validators.required]);
-  //       this.privateOwnerForm.controls[key].updateValueAndValidity();
-
-  //     })
-  //   }
-  //   else {
-  //     Object.keys(this.privateOwnerForm.controls).forEach(key => {
-  //       this.privateOwnerForm.controls[key].setValidators(null);
-  //       this.privateOwnerForm.controls[key].updateValueAndValidity();
-
-  //     })
-  //   }
-  // }
 
   setAgareDetaljer(unit: ExampleUnit) {
     switch (unit.agare) {
@@ -481,7 +468,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   updateNewCardForm() {
-    this.newUnitForm.reset();
+    //this.newUnitForm.reset();
 
     const agare = this.newUnit.agare ? this.newUnit.agare : "";
     this.agarOwnerForm.controls.agare.setValue(agare);
@@ -490,9 +477,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
       hsaid: this.newUnit.hsaid,
       avtalskod: this.newUnit.details.avtalskod ? this.newUnit.details.avtalskod : "",
       enhetskod: this.newUnit.enhetskod ? this.newUnit.enhetskod : "",
-      namnd: this.newUnit.namnd ? this.newUnit.namnd : "",
-      avtalsperiod_start: this.newUnit.details.avtalsperiod_start ? this.newUnit.details.avtalsperiod_start : "",
-      avtalsperiod_slut: this.newUnit.details.avtalsperiod_slut ? this.newUnit.details.avtalsperiod_slut : "",
       enhetschef: this.newUnit.details.enhetschef ? this.newUnit.details.enhetschef : "",
       leverantorsid: this.newUnit.details.leverantorsid_RD ? this.newUnit.details.leverantorsid_RD : "",
       enhetschef_telefon: this.newUnit.details.enhetschef_telefon ? this.newUnit.details.enhetschef_telefon : "",
@@ -504,6 +488,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
       regionsovergripandegrupper: this.newUnit.details.regionsovergripandegrupper ? this.newUnit.details.regionsovergripandegrupper : "",
       medverkanIFamiljecentral: this.newUnit.details.medverkanfamiljecentral ? this.newUnit.details.medverkanfamiljecentral : ""
     })
+
+    this.onChangeForm.setValue({
+      namnd: this.newUnit.namnd ? this.newUnit.namnd : "",
+      avtalsperiod_start: this.newUnit.details.avtalsperiod_start ? this.newUnit.details.avtalsperiod_start : "",
+      avtalsperiod_slut: this.newUnit.details.avtalsperiod_slut ? this.newUnit.details.avtalsperiod_slut : "",
+
+    });
 
     if (this.newUnit.details.agare_form === "Privat") {
       this.privateOwnerForm.controls.organisationsnummer.setValue(this.newUnit.details.organisationsnummer);
@@ -607,8 +598,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
 
     this.newUnit.details.avtalskod = this.newUnitForm.controls.avtalskod.value;
-    this.newUnit.details.avtalsperiod_slut = this.newUnitForm.controls.avtalsperiod_slut.value;
-    this.newUnit.details.avtalsperiod_start = this.newUnitForm.controls.avtalsperiod_start.value;
+
+    this.newUnit.namnd = this.onChangeForm.controls.namnd.value;
+    this.newUnit.details.avtalsperiod_slut = this.onChangeForm.controls.avtalsperiod_slut.value;
+    this.newUnit.details.avtalsperiod_start = this.onChangeForm.controls.avtalsperiod_start.value;
 
     this.newUnit.agare = this.newUnitForm.controls.agare.value;
 
@@ -619,7 +612,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       this.newUnit.details.utbetalningsssätt = this.privateOwnerForm.controls.utbetalningssatt.value;
     }
     this.newUnit.details.leverantorsid_RD = this.newUnitForm.controls.leverantorsid.value;
-    this.newUnit.namnd = this.newUnitForm.controls.namnd.value;
+
     this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
     this.newUnit.enhet = this.selectedUnit;
     this.newUnit.details.enhetschef = this.newUnitForm.controls.enhetschef.value;
@@ -646,6 +639,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.itemSelected = false;
     this.cardLocked = true;
     this.newUnitForm.reset();
+    this.onChangeForm.reset();
     this.privateOwnerForm.reset();
     this.submitted = false;
 
