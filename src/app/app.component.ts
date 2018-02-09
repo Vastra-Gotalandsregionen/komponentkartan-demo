@@ -26,7 +26,7 @@ export class KomponentkartanApplicationComponent {
                             { title: 'Sidhantering', url: '/pagestructure' } as IMenuItem,
                             { title: 'Formatmall', url: '/formattemplate' } as IMenuItem,
                             { title: 'Färgkarta', url: '/colours' } as IMenuItem,
-                            { title: 'Ikonbibliotek', url: '/icons' } as IMenuItem,
+                            // { title: 'Ikonbibliotek', url: '/icons' } as IMenuItem,
                             { title: 'Upplösning', url: '/sizes' } as IMenuItem,
                             {
                                 title: 'Komponenter', menuItems: [

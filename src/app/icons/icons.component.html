@@ -1,20 +1,122 @@
 <vgr-page>
   <vgr-page-header [title]="'Ikonbibliotek'">
   </vgr-page-header>
-
   <vgr-page-body>
-    <!-- Ikoner -->
-    <vgr-page-block class="column-layout">
-      <h2>Ikoner för notiferingar i list</h2>
-      bla bla asdlkajsdl
-      <div class="vgr-icon-trashcan"></div>
-      <div class="vgr-icon-search"></div>
-      <div class="vgr-icon-lock-button"></div>
-      <div class="vgr-icon-pinkiepie"></div>
-      <div class="vgr-icon-ok-check-green"></div>
-
-      <!-- <section [innerHTML]="samplePageStructure" highlight-js-content=".highlight"> -->
-      <!-- </section> -->
+    <vgr-page-block>
+      <h2>Ikoner i komponentkartan</h2>
+      <p>För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn representerade
+        i tabellen nedanför.
+        <br> svg-bilderna är kopplade till en background-image för samtliga klasser i komponentkartans ikon-bibliotek.
+      </p>
+      <br>
+      <h3>Ikoner</h3>
+      <table class="property-table">
+        <tr>
+          <th>Klassnamn</th>
+          <th>Ikon</th>
+          <th>Exempel</th>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-plus
+          </td>
+          <td>
+            <div class="vgr-icon-plus"></div>
+          </td>
+          <td>
+            <section [innerHTML]="varningCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-minus
+          </td>
+          <td>
+            <div class="vgr-icon-minus"></div>
+          </td>
+          <td>
+            <section [innerHTML]="minusCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-edit
+          </td>
+          <td>
+            <div class="vgr-icon-edit"></div>
+          </td>
+          <td>
+            <section [innerHTML]="editCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-message
+          </td>
+          <td>
+            <div class="vgr-icon-message"></div>
+          </td>
+          <td>
+            <section [innerHTML]="messageCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-trashcan
+          </td>
+          <td>
+            <div class="vgr-icon-trashcan"></div>
+          </td>
+          <td>
+            <section [innerHTML]="trashcanCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-ok-check-green
+          </td>
+          <td>
+            <div class="vgr-icon-ok-check-green"></div>
+          </td>
+          <td>
+            <section [innerHTML]="greenCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-exclamation
+          </td>
+          <td>
+            <div class="vgr-icon-exclamation"></div>
+          </td>
+          <td>
+            <section [innerHTML]="exclamationCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-exclamation--red
+          </td>
+          <td>
+            <div class="vgr-icon-exclamation--red"></div>
+          </td>
+          <td>
+            <section [innerHTML]="exclamationRedCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            vgr-icon-question
+          </td>
+          <td>
+            <div class="vgr-icon-question"></div>
+          </td>
+          <td>
+            <section [innerHTML]="questionCode" highlight-js-content=".highlight"></section>
+          </td>
+        </tr>
+      </table>
     </vgr-page-block>
   </vgr-page-body>
+
 </vgr-page>
