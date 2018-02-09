@@ -56,6 +56,7 @@ import { ExpandableDivComponent } from './expandable-div/expandable-div.componen
 
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
+import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
     imports: [
@@ -102,6 +103,7 @@ import { ExamplesListwithcardsComponent } from './examples-listwithcards/example
         ExpandableDivComponent,
         ListexamplewithexpandabledivComponent,
         ExamplesListwithcardsComponent,
+        IconsComponent,
         UnitFilterPipe
     ],
     exports: [UnitFilterPipe],
