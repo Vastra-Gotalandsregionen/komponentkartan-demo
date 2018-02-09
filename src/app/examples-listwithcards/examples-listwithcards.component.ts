@@ -132,6 +132,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.createAgarOwnerForm();
     this.agareChanged();
     this.createOnChangeForm();
+
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
   }
 
@@ -630,7 +631,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.details.avtalsperiod_slut = this.onChangeForm.controls.avtalsperiod_slut.value;
     this.newUnit.details.avtalsperiod_start = this.onChangeForm.controls.avtalsperiod_start.value;
 
-    this.newUnit.agare = this.newUnitForm.controls.agare.value;
+    this.newUnit.agare = this.agarOwnerForm.controls.agare.value;
 
     if (this.newUnit.details.agare_form === 'Privat') {
 

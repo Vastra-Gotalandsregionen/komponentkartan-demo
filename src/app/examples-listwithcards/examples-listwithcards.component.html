@@ -160,7 +160,7 @@
           <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="cardLocked">
             <vgr-title-value-layout>
               <vgr-title-value [title]=" 'Medverkan i familjecentral'" [slim]="cardLocked">
-                <vgr-dropdown formControlName="newMedverkanIFamiljecentral" [items]="newExempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
+                <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="newExempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                   [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
               </vgr-title-value>
               <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
@@ -233,7 +233,7 @@
                         </vgr-title-value>
                       </vgr-title-value-layout>
                     </vgr-card-section>
-                    <vgr-card-section [title]=" 'Enhetschef'" [expanded]="true" [readonly]="cardLocked">
+                    <vgr-card-section [title]=" 'Enhetschef'" [expanded]="false" [readonly]="cardLocked">
                       <vgr-title-value-layout>
                         <!-- <vgr-title-value [title]=" 'Lägg till enhetschef*'" *ngIf="!cardLocked">
                           <div class="column-layout column-layout--pull-left column-layout--component">
@@ -252,7 +252,7 @@
                         </vgr-title-value>
                       </vgr-title-value-layout>
                     </vgr-card-section>
-                    <vgr-card-section [title]=" 'Avtalspart'" [expanded]="true" [readonly]="cardLocked">
+                    <vgr-card-section [title]=" 'Avtalspart'" [expanded]="false" [readonly]="cardLocked">
                       <vgr-title-value-layout>
                         <vgr-title-value [title]=" 'Ägare*'" [slim]="cardLocked">
                           <vgr-dropdown formControlName="agare" [showValidation]="editUnitForm.controls.agare.touched || submitted" [items]="exampleagare"
@@ -323,7 +323,7 @@
                     </vgr-title-value-layout>
                   </vgr-card-section>
                   <form [formGroup]="editUnitForm">
-                    <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="cardLocked">
+                    <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="false" [readonly]="cardLocked">
                       <vgr-title-value-layout>
                         <vgr-title-value [title]=" 'Medverkan i familjecentral'" [slim]="cardLocked">
                           <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="editUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
