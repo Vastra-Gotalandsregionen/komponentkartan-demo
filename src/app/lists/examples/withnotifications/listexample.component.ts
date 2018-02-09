@@ -38,18 +38,18 @@ export class ListexampleComponent {
     this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
 
     this.peopleRows[0].notification = {
-      message: 'Information saknas', icon: NotificationIcon.ExclamationRed,
+      message: 'Meddelande: Text', icon: 'vgr-icon-message',
       type: NotificationType.Permanent
     } as RowNotification;
     this.peopleRows[4].notification = {
-      message: 'Personen är inaktiv', icon: NotificationIcon.Exclamation,
+      message: 'Personen är inaktiv', icon: 'vgr-icon-exclamation--red',
       type: NotificationType.Permanent
     } as RowNotification;
   }
 
   deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
     // Remove visually.
-    row.notifyOnRemove(row.previewObject.firstName + ' togs bort och kommer inte längre att kunna logga in', NotificationIcon.Ok);
+    row.notifyOnRemove(row.previewObject.firstName + ' togs bort och kommer inte längre att kunna logga in', 'vgr-icon-ok-check');
 
     /*
      Remove for real...
@@ -57,7 +57,7 @@ export class ListexampleComponent {
   }
 
   updateRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
-    row.notifyOnCollapse(row.previewObject.firstName + ' sparades', NotificationIcon.OkGreen);
+    row.notifyOnCollapse(row.previewObject.firstName + ' sparades', 'vgr-icon-ok-check-green');
   }
 
   onSortChanged(event: SortChangedArgs) {

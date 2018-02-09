@@ -38,17 +38,28 @@ export class ExamplesListwithcardsComponent implements OnInit {
   startdate: Date;
   enddate: Date;
   exempelVersions: DropdownItem<string>[] = [];
-  submitted: boolean = false;
+  submitted = false;
   newUnitForm: FormGroup;
   privateOwnerForm: FormGroup;
   editUnitForm: FormGroup;
   editprivateOwnerForm: FormGroup;
   agarOwnerForm: FormGroup;
   onChangeForm: FormGroup;
-  userFormSubmitted: boolean = false;
+  userFormSubmitted = false;
 
   @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
   @ViewChild('unitVersions') unitVersions: DropdownComponent;
+
+  validationMessages = {
+    avtalskod: {
+      'minlength': 'Avtalskoden skall vara fyra siffror',
+      'maxlength': 'Avtalskoden skall vara fyra siffror',
+    },
+    enhetskod: {
+      'minlength': 'Enhetskoden skall vara sex siffror',
+      'maxlength': 'Enhetskoden skall vara sex siffror',
+    }
+  };
 
   constructor(private changeDetector: ChangeDetectorRef) {
 
@@ -217,29 +228,29 @@ export class ExamplesListwithcardsComponent implements OnInit {
     switch (unit.agare) {
       case 'Närhälsan': {
         unit.details.agare_form = 'Offentlig';
-        unit.details.agare_kod = 1000
+        unit.details.agare_kod = 1000;
         break;
-      };
+      }
       case 'Kalle Karlsson': {
         unit.details.agare_form = 'Privat';
-        unit.details.agare_kod = 1001
+        unit.details.agare_kod = 1001;
         break;
-      };
+      }
       case 'Hemmabolaget': {
         unit.details.agare_form = 'Privat';
-        unit.details.agare_kod = 1002
+        unit.details.agare_kod = 1002;
         break;
-      };
+      }
       case 'Närhälsan Rehab': {
         unit.details.agare_form = 'Offentlig';
-        unit.details.agare_kod = 1003
+        unit.details.agare_kod = 1003;
         break;
-      };
+      }
       case 'Hälsoakuten': {
         unit.details.agare_form = 'Privat';
-        unit.details.agare_kod = 1004
+        unit.details.agare_kod = 1004;
         break;
-      };
+      }
     }
 
   }
@@ -251,47 +262,46 @@ export class ExamplesListwithcardsComponent implements OnInit {
     switch (agare) {
       case 'Närhälsan': {
         agareform = 'Offentlig';
-        agarekod = 1000
+        agarekod = 1000;
         break;
-      };
+      }
       case 'Kalle Karlsson': {
         agareform = 'Privat';
-        agarekod = 1001
+        agarekod = 1001;
         break;
-      };
+      }
       case 'Hemmabolaget': {
         agareform = 'Privat';
-        agarekod = 1002
+        agarekod = 1002;
         break;
-      };
+      }
       case 'Närhälsan Rehab': {
         agareform = 'Offentlig';
-        agarekod = 1003
+        agarekod = 1003;
         break;
-      };
+      }
       case 'Hälsoakuten': {
         agareform = 'Privat';
-        agarekod = 1004
+        agarekod = 1004;
         break;
-      };
+      }
     }
 
     form.controls.agarform.setValue(agareform);
     form.controls.agarkod.setValue(agarekod);
 
-    if (agareform === "Privat") {
+    if (agareform === 'Privat') {
       Object.keys(agarForm.controls).forEach(key => {
         agarForm.controls[key].setValidators([Validators.required]);
         agarForm.controls[key].updateValueAndValidity();
 
-      })
-    }
-    else {
+      });
+    } else {
       Object.keys(agarForm.controls).forEach(key => {
         agarForm.controls[key].setValidators(null);
         agarForm.controls[key].updateValueAndValidity();
 
-      })
+      });
     }
 
   }
@@ -306,18 +316,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
       (value: string) => this.updateAgarDetaljerForm(value, this.newUnitForm, this.privateOwnerForm));
 
   }
-
-  validationMessages = {
-    avtalskod: {
-      'minlength': 'Avtalskoden skall vara fyra siffror',
-      'maxlength': 'Avtalskoden skall vara fyra siffror',
-    },
-    enhetskod: {
-      'minlength': 'Enhetskoden skall vara sex siffror',
-      'maxlength': 'Enhetskoden skall vara sex siffror',
-    },
-
-  };
 
   getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -381,20 +379,26 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
 
     this.exampleData.forEach(element => {
-      if (element.previewObject.details.medverkanfamiljecentral === "")
-        element.notification = { message: 'Information saknas, medverkan i familjecentral ej ifylld', icon: NotificationIcon.ExclamationRed, type: NotificationType.Permanent } as RowNotification
+      if (element.previewObject.details.medverkanfamiljecentral === '') {
+        element.notification = {
+          message: 'Information saknas, medverkan i familjecentral ej ifylld',
+          icon: 'vgr-icon-exclamation--red',
+          type: NotificationType.Permanent
+        } as RowNotification;
+      }
     });
 
   }
 
   onSelectedChangedVersion(selectedItem: string, row: ExampleUnit) {
     if (this.saveCancelComponent) {
-      if (selectedItem === (row.details.versions.length).toString())
+      if (selectedItem === (row.details.versions.length).toString()) {
         this.saveCancelComponent.hideLock = false;
-      else
-        this.saveCancelComponent.hideLock = true;
+      else {
+          this.saveCancelComponent.hideLock = true;
+        }
+      }
     }
-
   }
 
   onSelectedChangedUnit(selectedItem: string) {
@@ -438,21 +442,21 @@ export class ExamplesListwithcardsComponent implements OnInit {
       row.previewObject.details.utbetalningsssätt = this.editprivateOwnerForm.controls.utbetalningssatt.value;
       row.previewObject.details.kontonummer = this.editprivateOwnerForm.controls.kontonummer.value;
 
-    }
-    else {
+    } else {
       row.previewObject.details.organisationsnummer = '';
       row.previewObject.details.utbetalningsssätt = '';
       row.previewObject.details.kontonummer = '';
     }
 
-    //öka versionen
+    // Öka versionen
     row.previewObject.details.versions.push(row.previewObject.details.versions.length + 1)
   }
 
 
   updateCardForm(item: ExampleUnit) {
-    if (!item.vald)
+    if (!item.vald) {
       return;
+    }
 
     this.editUnitForm.reset();
 
