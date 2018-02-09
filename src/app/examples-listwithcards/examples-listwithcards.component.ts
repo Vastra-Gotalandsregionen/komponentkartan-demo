@@ -354,7 +354,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
       }
 
       if (1 === this.getRandomInt(1, 20)) {
-        details.medverkanfamiljecentral = "";
+        details.medverkanfamiljecentral = '';
       }
 
       details.avtalsperiod_start = new Date(year, 0, 1);
@@ -394,9 +394,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     if (this.saveCancelComponent) {
       if (selectedItem === (row.details.versions.length).toString()) {
         this.saveCancelComponent.hideLock = false;
-      else {
-          this.saveCancelComponent.hideLock = true;
-        }
+      } else {
+        this.saveCancelComponent.hideLock = true;
       }
     }
   }
@@ -449,7 +448,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
 
     // Öka versionen
-    row.previewObject.details.versions.push(row.previewObject.details.versions.length + 1)
+    row.previewObject.details.versions.push(row.previewObject.details.versions.length + 1);
   }
 
 
@@ -469,17 +468,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
       avtalsperiod_slut: item.details.avtalsperiod_slut,
       enhetschef: item.details.enhetschef,
       leverantorsid: item.details.leverantorsid_RD,
-      enhetschef_telefon: item.details.enhetschef_telefon ? item.details.enhetschef_telefon : "",
-      enhetschef_epost: item.details.enhetschef_epost ? item.details.enhetschef_epost : "",
+      enhetschef_telefon: item.details.enhetschef_telefon ? item.details.enhetschef_telefon : '',
+      enhetschef_epost: item.details.enhetschef_epost ? item.details.enhetschef_epost : '',
       agare: item.agare,
       agarkod: item.details.agare_kod,
       agarform: item.details.agare_form,
-      kundreferens: item.details.kundreferens ? item.details.kundreferens : "",
-      regionsovergripandegrupper: item.details.regionsovergripandegrupper ? item.details.regionsovergripandegrupper : "",
-      medverkanIFamiljecentral: item.details.medverkanfamiljecentral ? item.details.medverkanfamiljecentral : ""
-    })
+      kundreferens: item.details.kundreferens ? item.details.kundreferens : '',
+      regionsovergripandegrupper: item.details.regionsovergripandegrupper ? item.details.regionsovergripandegrupper : '',
+      medverkanIFamiljecentral: item.details.medverkanfamiljecentral ? item.details.medverkanfamiljecentral : ''
+    });
 
-    if (item.details.agare_form === "Privat") {
+    if (item.details.agare_form === 'Privat') {
       this.editprivateOwnerForm.controls.organisationsnummer.setValue(item.details.organisationsnummer);
       this.editprivateOwnerForm.controls.utbetalningssatt.setValue(item.details.utbetalningsssätt);
       this.editprivateOwnerForm.controls.kontonummer.setValue(item.details.kontonummer);
@@ -488,47 +487,44 @@ export class ExamplesListwithcardsComponent implements OnInit {
       Object.keys(this.editprivateOwnerForm.controls).forEach(key => {
         this.editprivateOwnerForm.controls[key].setValidators([Validators.required]);
         this.editprivateOwnerForm.controls[key].updateValueAndValidity();
-
-      })
-    }
-    else {
+      });
+    } else {
       Object.keys(this.editprivateOwnerForm.controls).forEach(key => {
         this.editprivateOwnerForm.controls[key].setValidators(null);
         this.editprivateOwnerForm.controls[key].updateValueAndValidity();
-
-      })
+      });
     }
     this.editUnitForm.updateValueAndValidity();
   }
 
   updateNewCardForm() {
-    const agare = this.newUnit.agare ? this.newUnit.agare : "";
+    const agare = this.newUnit.agare ? this.newUnit.agare : '';
     this.agarOwnerForm.controls.agare.setValue(agare);
 
     this.newUnitForm.setValue({
       hsaid: this.newUnit.hsaid,
-      avtalskod: this.newUnit.details.avtalskod ? this.newUnit.details.avtalskod : "",
-      enhetskod: this.newUnit.enhetskod ? this.newUnit.enhetskod : "",
-      enhetschef: this.newUnit.details.enhetschef ? this.newUnit.details.enhetschef : "",
-      leverantorsid: this.newUnit.details.leverantorsid_RD ? this.newUnit.details.leverantorsid_RD : "",
-      enhetschef_telefon: this.newUnit.details.enhetschef_telefon ? this.newUnit.details.enhetschef_telefon : "",
-      enhetschef_epost: this.newUnit.details.enhetschef_epost ? this.newUnit.details.enhetschef_epost : "",
+      avtalskod: this.newUnit.details.avtalskod ? this.newUnit.details.avtalskod : '',
+      enhetskod: this.newUnit.enhetskod ? this.newUnit.enhetskod : '',
+      enhetschef: this.newUnit.details.enhetschef ? this.newUnit.details.enhetschef : '',
+      leverantorsid: this.newUnit.details.leverantorsid_RD ? this.newUnit.details.leverantorsid_RD : '',
+      enhetschef_telefon: this.newUnit.details.enhetschef_telefon ? this.newUnit.details.enhetschef_telefon : '',
+      enhetschef_epost: this.newUnit.details.enhetschef_epost ? this.newUnit.details.enhetschef_epost : '',
 
-      agarkod: this.newUnit.details.agare_kod ? this.newUnit.details.agare_kod : "",
-      agarform: this.newUnit.details.agare_form ? this.newUnit.details.agare_form : "",
-      kundreferens: this.newUnit.details.kundreferens ? this.newUnit.details.kundreferens : "",
-      regionsovergripandegrupper: this.newUnit.details.regionsovergripandegrupper ? this.newUnit.details.regionsovergripandegrupper : "",
-      medverkanIFamiljecentral: this.newUnit.details.medverkanfamiljecentral ? this.newUnit.details.medverkanfamiljecentral : ""
-    })
+      agarkod: this.newUnit.details.agare_kod ? this.newUnit.details.agare_kod : '',
+      agarform: this.newUnit.details.agare_form ? this.newUnit.details.agare_form : '',
+      kundreferens: this.newUnit.details.kundreferens ? this.newUnit.details.kundreferens : '',
+      regionsovergripandegrupper: this.newUnit.details.regionsovergripandegrupper ? this.newUnit.details.regionsovergripandegrupper : '',
+      medverkanIFamiljecentral: this.newUnit.details.medverkanfamiljecentral ? this.newUnit.details.medverkanfamiljecentral : ''
+    });
 
     this.onChangeForm.setValue({
-      namnd: this.newUnit.namnd ? this.newUnit.namnd : "",
-      avtalsperiod_start: this.newUnit.details.avtalsperiod_start ? this.newUnit.details.avtalsperiod_start : "",
-      avtalsperiod_slut: this.newUnit.details.avtalsperiod_slut ? this.newUnit.details.avtalsperiod_slut : "",
+      namnd: this.newUnit.namnd ? this.newUnit.namnd : '',
+      avtalsperiod_start: this.newUnit.details.avtalsperiod_start ? this.newUnit.details.avtalsperiod_start : '',
+      avtalsperiod_slut: this.newUnit.details.avtalsperiod_slut ? this.newUnit.details.avtalsperiod_slut : '',
 
     });
 
-    if (this.newUnit.details.agare_form === "Privat") {
+    if (this.newUnit.details.agare_form === 'Privat') {
       this.privateOwnerForm.controls.organisationsnummer.setValue(this.newUnit.details.organisationsnummer);
       this.privateOwnerForm.controls.utbetalningssatt.setValue(this.newUnit.details.utbetalningsssätt);
       this.privateOwnerForm.controls.kontonummer.setValue(this.newUnit.details.kontonummer);
@@ -537,15 +533,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
       Object.keys(this.privateOwnerForm.controls).forEach(key => {
         this.privateOwnerForm.controls[key].setValidators([Validators.required]);
         this.privateOwnerForm.controls[key].updateValueAndValidity();
-
-      })
-    }
-    else {
+      });
+    } else {
       Object.keys(this.privateOwnerForm.controls).forEach(key => {
         this.privateOwnerForm.controls[key].setValidators(null);
         this.privateOwnerForm.controls[key].updateValueAndValidity();
-
-      })
+      });
 
       this.newUnitForm.updateValueAndValidity();
     }
@@ -570,7 +563,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   onCardCancel(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
 
-    row.notifyOnCollapse('Redigering av ' + row.previewObject.enhet + ' avbröts', NotificationIcon.Exclamation);
+    row.notifyOnCollapse('Redigering av ' + row.previewObject.enhet + ' avbröts', 'vgr-icon-exclamation');
   }
 
   onCardSave(event: Event, row: ExpandableRow<ExampleUnit, any>) {
@@ -583,7 +576,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.updateRowValues(row);
 
     this.cardLocked = true;
-    row.notifyOnCollapse(row.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
+    row.notifyOnCollapse(row.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green');
   }
 
   onCardUnlocked() {
@@ -652,8 +645,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.details.versions = [1];
     this.newUnit.isActive = true;
 
-    let newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
-    newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', NotificationIcon.OkGreen);
+    const newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
+    newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', 'vgr-icon-check-green');
     this.exampleData.push(newRow);
 
     this.actionPanelClose();
