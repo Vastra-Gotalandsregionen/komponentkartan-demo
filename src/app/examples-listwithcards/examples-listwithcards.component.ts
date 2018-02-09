@@ -354,9 +354,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
         year = (new Date().getFullYear());
       }
 
-      // if (1 === this.getRandomInt(1, 20)) {
-      //   details.medverkanfamiljecentral = "";
-      // }
+      if (1 === this.getRandomInt(1, 20)) {
+        details.medverkanfamiljecentral = "";
+      }
 
       details.avtalsperiod_start = new Date(year, 0, 1);
       details.avtalsperiod_slut = new Date(year, 11, 0);
@@ -379,10 +379,10 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
 
-    // this.exampleData.forEach(element => {
-    //   if (element.previewObject.details.medverkanfamiljecentral === "")
-    //     element.notification = { message: 'Information saknas, medverkan i familjecentral ej ifylld', icon: NotificationIcon.ExclamationRed, type: NotificationType.Permanent } as RowNotification
-    // });
+    this.exampleData.forEach(element => {
+      if (element.previewObject.details.medverkanfamiljecentral === "")
+        element.notification = { message: 'Information saknas, medverkan i familjecentral ej ifylld', icon: NotificationIcon.ExclamationRed, type: NotificationType.Permanent } as RowNotification
+    });
 
   }
 
