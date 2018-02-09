@@ -20,8 +20,10 @@ export class IconsComponent implements OnInit {
   messageCode: string;
   trashcan = `<div class="vgr-icon-trashcan"></div>`;
   trashcanCode: string;
-  green = `<div class="vgr-icon-ok-check-green"></div>`;
-  greenCode: string;
+  ok = `<div class="vgr-icon-ok-check"></div>`;
+  okCode: string;
+  okGreen = `<div class="vgr-icon-ok-check-green"></div>`;
+  okGreenCode: string;
   exclamation = `<div class="vgr-icon-exclamation"></div>`;
   exclamationCode: string;
   exclamationRed = `<div class="vgr-icon-exclamation--red"></div>`;
@@ -36,7 +38,8 @@ export class IconsComponent implements OnInit {
     this.editCode = htmlEncoder.prepareHighlightedSection(this.edit, 'html');
     this.messageCode = htmlEncoder.prepareHighlightedSection(this.message, 'html');
     this.trashcanCode = htmlEncoder.prepareHighlightedSection(this.trashcan, 'html');
-    this.greenCode = htmlEncoder.prepareHighlightedSection(this.green, 'html');
+    this.okCode = htmlEncoder.prepareHighlightedSection(this.ok, 'html');
+    this.okGreenCode = htmlEncoder.prepareHighlightedSection(this.okGreen, 'html');
     this.exclamationCode = htmlEncoder.prepareHighlightedSection(this.exclamation, 'html');
     this.exclamationRedCode = htmlEncoder.prepareHighlightedSection(this.exclamationRed, 'html');
     this.questionCode = htmlEncoder.prepareHighlightedSection(this.question, 'html');
