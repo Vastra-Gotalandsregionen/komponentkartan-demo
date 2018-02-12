@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, NotificationIcon } from 'vgr-komponentkartan';
+import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
@@ -11,7 +11,7 @@ import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.
 export class ExamplesListwithcardsComponent implements OnInit {
   exampleDetail: ExampleUnitDetails;
   sortDirections = SortDirection;
-  notificationIcon = NotificationIcon;
+
   exampleData: ExpandableRow<ExampleUnit, any>[] = [];
   filtertext = '';
   newUnits: DropdownItem<any>[] = [];

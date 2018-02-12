@@ -303,7 +303,7 @@ export class Examples {
     import { HtmlEncodeService } from '../../../html-encode.service';
     import { Examples } from '../examples';
     import {
-        ModalService, ModalButtonConfiguration, NotificationIcon, ExpandableRow,
+        ModalService, ModalButtonConfiguration, ExpandableRow,
         SortDirection, SortChangedArgs
     } from 'vgr-komponentkartan/';
 
@@ -358,7 +358,7 @@ export class Examples {
         removeRow(row: any) {
             this.modalService.openDialog('Ta bort raden', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
                 new ModalButtonConfiguration('Ja', () => {
-                    row.notifyOnRemove(row.previewObject.firstName + ' togs bort', NotificationIcon.Ok);
+                    row.notifyOnRemove(row.previewObject.firstName + ' togs bort', 'vgr-icon-ok-check');
                     row.previewObject.selected = false;
                     row.previewObject.deleted = true;
 
