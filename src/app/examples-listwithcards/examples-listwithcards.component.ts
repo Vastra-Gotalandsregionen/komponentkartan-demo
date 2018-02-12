@@ -34,6 +34,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   newExempelMedverkanIfamiljecentral: DropdownItem<string>[];
 
   cardLocked: boolean;
+  newCardLocked: boolean;
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
@@ -132,6 +133,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.initExampleData();
 
     this.cardLocked = true;
+    this.newCardLocked = true;
     this.includeInactiveUnits = false;
   }
 
@@ -605,13 +607,14 @@ export class ExamplesListwithcardsComponent implements OnInit {
         kommun: 'Mölndal', kommunkod: 123,
       }
     } as ExampleUnit;
-    this.cardLocked = false;
+    this.newCardLocked = false;
     this.updateNewCardForm();
+
   }
 
   onNewUnitCancel() {
     this.actionPanelClose();
-    this.cardLocked = true;
+    this.newCardLocked = true;
     this.newUnit = null;
   }
 
@@ -662,7 +665,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.addNewUnit = false;
     this.newUnits.forEach(u => u.selected = false);
     this.itemSelected = false;
-    this.cardLocked = true;
+    this.newCardLocked = true;
     this.newUnitForm.reset();
     this.onChangeForm.reset();
     this.privateOwnerForm.reset();
