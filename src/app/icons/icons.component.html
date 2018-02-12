@@ -3,18 +3,18 @@
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
-      <h2>Ikoner i komponentkartan</h2>
+      <h2>Dokumentation för tillgängliga koner i komponentkartan</h2>
       <p>För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn representerade
         i tabellen nedanför.
         <br> svg-bilderna är kopplade till en background-image för samtliga klasser i komponentkartans ikon-bibliotek.
       </p>
       <br>
-      <h3>Ikoner</h3>
-      <table class="property-table">
+      <h2>Ikoner</h2>
+      <br>
+      <table class="property-table" style="width:50%">
         <tr>
           <th>Klassnamn</th>
           <th>Ikon</th>
-          <th>Exempel</th>
         </tr>
         <tr>
           <td>
@@ -22,9 +22,6 @@
           </td>
           <td>
             <div class="vgr-icon-plus"></div>
-          </td>
-          <td>
-            <section [innerHTML]="plusCode" highlight-js-content=".highlight"></section>
           </td>
         </tr>
         <tr>
@@ -34,9 +31,6 @@
           <td>
             <div class="vgr-icon-minus"></div>
           </td>
-          <td>
-            <section [innerHTML]="minusCode" highlight-js-content=".highlight"></section>
-          </td>
         </tr>
         <tr>
           <td>
@@ -44,9 +38,6 @@
           </td>
           <td>
             <div class="vgr-icon-edit"></div>
-          </td>
-          <td>
-            <section [innerHTML]="editCode" highlight-js-content=".highlight"></section>
           </td>
         </tr>
         <tr>
@@ -56,9 +47,6 @@
           <td>
             <div class="vgr-icon-message"></div>
           </td>
-          <td>
-            <section [innerHTML]="messageCode" highlight-js-content=".highlight"></section>
-          </td>
         </tr>
         <tr>
           <td>
@@ -66,9 +54,6 @@
           </td>
           <td>
             <div class="vgr-icon-trashcan"></div>
-          </td>
-          <td>
-            <section [innerHTML]="trashcanCode" highlight-js-content=".highlight"></section>
           </td>
         </tr>
         <tr>
@@ -78,9 +63,6 @@
           <td>
             <div class="vgr-icon-ok-check-green"></div>
           </td>
-          <td>
-            <section [innerHTML]="okGreenCode" highlight-js-content=".highlight"></section>
-          </td>
         </tr>
         <tr>
           <td>
@@ -88,9 +70,6 @@
           </td>
           <td>
             <div class="vgr-icon-ok-check"></div>
-          </td>
-          <td>
-            <section [innerHTML]="okCode" highlight-js-content=".highlight"></section>
           </td>
         </tr>
         <tr>
@@ -100,9 +79,6 @@
           <td>
             <div class="vgr-icon-exclamation"></div>
           </td>
-          <td>
-            <section [innerHTML]="exclamationCode" highlight-js-content=".highlight"></section>
-          </td>
         </tr>
         <tr>
           <td>
@@ -110,9 +86,6 @@
           </td>
           <td>
             <div class="vgr-icon-exclamation--red"></div>
-          </td>
-          <td>
-            <section [innerHTML]="exclamationRedCode" highlight-js-content=".highlight"></section>
           </td>
         </tr>
         <tr>
@@ -122,11 +95,19 @@
           <td>
             <div class="vgr-icon-question"></div>
           </td>
-          <td>
-            <section [innerHTML]="questionCode" highlight-js-content=".highlight"></section>
-          </td>
         </tr>
       </table>
+      <br>
+      <h2>Exempel</h2>
+      <br> Lägga till en ikon i html:
+      <section style="width:50%" [innerHTML]="iconExamplesHTML" highlight-js-content=".highlight"></section>
+
+      <br> När man vill skicka med en ikon till en notifiering i typescript:
+      <br>
+      <section style="width:70%" [innerHTML]="iconExamplesTS" highlight-js-content=".highlight"></section>
+
+
+
     </vgr-page-block>
   </vgr-page-body>
 
