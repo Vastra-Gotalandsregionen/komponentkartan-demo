@@ -649,8 +649,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.isActive = true;
 
     const newRow = new ExpandableRow<ExampleUnit, ExampleUnit>(this.newUnit);
-    newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', 'vgr-icon-check-green');
-    this.exampleData.push(newRow);
+    newRow.notifyOnCollapse(newRow.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green');
+    this.exampleData.unshift(newRow);
 
     this.actionPanelClose();
     this.newUnit = null;

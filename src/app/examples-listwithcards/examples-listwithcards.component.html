@@ -55,7 +55,7 @@
                     [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="newCardLocked"></vgr-dropdown>
                 </vgr-title-value>
                 <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="newCardLocked">
-                  <div class="row-layout">
+                  <div class="row-layout row-layout--tight">
                     <vgr-monthpicker formControlName="avtalsperiod_start" [showValidation]="onChangeForm.controls.avtalsperiod_start.touched || submitted"
                       [readonly]="newCardLocked"></vgr-monthpicker>
                     <vgr-monthpicker formControlName="avtalsperiod_slut" [showValidation]="onChangeForm.controls.avtalsperiod_slut.touched || submitted"
@@ -224,7 +224,7 @@
                             [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
                         </vgr-title-value>
                         <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
-                          <div class="row-layout">
+                          <div class="row-layout  row-layout--tight">
                             <vgr-monthpicker formControlName="avtalsperiod_start" [showValidation]="editUnitForm.controls.avtalsperiod_start.touched || submitted"
                               [readonly]="cardLocked"></vgr-monthpicker>
                             <vgr-monthpicker formControlName="avtalsperiod_slut" [showValidation]="editUnitForm.controls.avtalsperiod_slut.touched || submitted"
