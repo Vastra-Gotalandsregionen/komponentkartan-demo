@@ -7,42 +7,22 @@ import { HtmlEncodeService } from '../html-encode.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
+  html = `<div class="vgr-icon-edit"></div>`;
+  code = `row.notifyOnCollapse(row.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green');`;
+  code2 = `this.row.notification = {
+  message: 'Ett meddelande', icon: 'vgr-icon-message',
+  type: NotificationType.Permanent
+} as RowNotification;`;
+  iconExamplesHTML: string;
 
-  varning = `<div class="icon-varning"></div>`;
-  varningCode: string;
-  plus = `<div class="vgr-icon-plus"></div>`;
-  plusCode: string;
-  minus = `<div class="vgr-icon-minus"></div>`;
-  minusCode: string;
-  edit = `<div class="vgr-icon-edit"></div>`;
-  editCode: string;
-  message = `<div class="vgr-icon-message"></div>`;
-  messageCode: string;
-  trashcan = `<div class="vgr-icon-trashcan"></div>`;
-  trashcanCode: string;
-  ok = `<div class="vgr-icon-ok-check"></div>`;
-  okCode: string;
-  okGreen = `<div class="vgr-icon-ok-check-green"></div>`;
-  okGreenCode: string;
-  exclamation = `<div class="vgr-icon-exclamation"></div>`;
-  exclamationCode: string;
-  exclamationRed = `<div class="vgr-icon-exclamation--red"></div>`;
-  exclamationRedCode: string;
-  question = `<div class="vgr-icon-question"></div>`;
-  questionCode: string;
+  iconExamplesTS: string;
+  iconExamplesTS2: string;
 
   constructor(htmlEncoder: HtmlEncodeService) {
-    this.varningCode = htmlEncoder.prepareHighlightedSection(this.varning, 'html');
-    this.plusCode = htmlEncoder.prepareHighlightedSection(this.plus, 'html');
-    this.minusCode = htmlEncoder.prepareHighlightedSection(this.minus, 'html');
-    this.editCode = htmlEncoder.prepareHighlightedSection(this.edit, 'html');
-    this.messageCode = htmlEncoder.prepareHighlightedSection(this.message, 'html');
-    this.trashcanCode = htmlEncoder.prepareHighlightedSection(this.trashcan, 'html');
-    this.okCode = htmlEncoder.prepareHighlightedSection(this.ok, 'html');
-    this.okGreenCode = htmlEncoder.prepareHighlightedSection(this.okGreen, 'html');
-    this.exclamationCode = htmlEncoder.prepareHighlightedSection(this.exclamation, 'html');
-    this.exclamationRedCode = htmlEncoder.prepareHighlightedSection(this.exclamationRed, 'html');
-    this.questionCode = htmlEncoder.prepareHighlightedSection(this.question, 'html');
+
+    this.iconExamplesTS = htmlEncoder.prepareHighlightedSection(this.code, 'typescript')
+    this.iconExamplesTS2 = htmlEncoder.prepareHighlightedSection(this.code2, 'typescript')
+    this.iconExamplesHTML = htmlEncoder.prepareHighlightedSection(this.html, 'html')
   }
 
   ngOnInit() {
