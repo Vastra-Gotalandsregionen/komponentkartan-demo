@@ -1,4 +1,6 @@
-import { Component, AfterViewInit, ViewChild, HostBinding } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, HostBinding, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+
 import { ModalService, IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan';
 
 @Component({
@@ -6,8 +8,18 @@ import { ModalService, IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan'
     templateUrl: 'app.component.html'
 })
 
-export class KomponentkartanApplicationComponent {
-    constructor() { }
+export class KomponentkartanApplicationComponent implements OnInit {
+    constructor(private router: Router) { }
+
+    ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+        });
+
+    }
 
 }
 
