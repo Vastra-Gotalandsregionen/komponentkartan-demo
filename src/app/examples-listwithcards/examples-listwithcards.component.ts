@@ -568,6 +568,15 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
   }
 
+  openActionPanel() {
+    this.showActionPanel = true;
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
   onNewUnitClick() {
     this.addNewUnit = true;
 

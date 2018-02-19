@@ -5,7 +5,7 @@
       <h3>Filtrera enheter</h3>
       <div class="row-layout row-layout--equal-height">
         <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
-        <vgr-button (click)="showActionPanel = true">Lägg till ny enhet</vgr-button>
+        <vgr-button (click)="openActionPanel()">Lägg till ny enhet</vgr-button>
       </div>
       <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
     </div>
