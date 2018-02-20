@@ -156,8 +156,9 @@
             </vgr-title-value>
           </vgr-title-value-layout>
         </vgr-card-section>
-        <form [formGroup]="newUnitForm">
-          <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="newCardLocked">
+
+        <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="newCardLocked">
+          <form [formGroup]="newUnitForm">
             <vgr-title-value-layout>
               <vgr-title-value [title]=" 'Medverkan i familjecentral'" [slim]="newCardLocked">
                 <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
@@ -167,8 +168,9 @@
                 <vgr-input formControlName="regionsovergripandegrupper" [readonly]="newCardLocked"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
-          </vgr-card-section>
-        </form>
+          </form>
+        </vgr-card-section>
+
       </vgr-card-column>
     </vgr-card>
   </vgr-action-panel>
