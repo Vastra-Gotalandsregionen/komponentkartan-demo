@@ -169,6 +169,10 @@ export class ReactiveformsexampleComponent implements OnInit {
     onResetUpdateOnChangeForm() {
         this.updateOnChangeForm.reset();
     }
+
+    onSubmitUpdateOnBlurForm() {
+        console.log(this.updateOnBlurForm.value);
+    }
 }
 
 // Custom validator

@@ -51,7 +51,7 @@
               </vgr-title-value>
             </vgr-title-value-layout>
             <vgr-button (click)="onResetUpdateOnBlurForm()">Reset form</vgr-button>
-            <vgr-button [disabled]="false">Skapa användare</vgr-button>
+            <vgr-button (click)="onSubmitUpdateOnBlurForm()" [disabled]="false">Skapa användare</vgr-button>
           </form>
         </vgr-card-column>
         <vgr-card-column>
