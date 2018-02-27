@@ -7,5 +7,6 @@ import { NotificationType } from 'vgr-komponentkartan';
 })
 export class ActionPanelsComponent {
 
+  expanded = true;
 
 }
