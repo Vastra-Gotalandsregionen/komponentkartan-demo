@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'vgr-komponentkartan';
-import { AppModalComponent } from './modals/app-modal.component';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modaldialog',
@@ -8,10 +8,22 @@ import { AppModalComponent } from './modals/app-modal.component';
   styleUrls: ['./modaldialog.component.scss']
 })
 export class ModaldialogComponent implements OnInit {
-  constructor(private modalService: ModalService) { }
-  lastModalAnswer: string;
+  vardvalForm: FormGroup;
+  vardvalForm2: FormGroup;
+  vardval1Answer: string;
+  vardval2Answer: string;
+  dropdownItems = [];
+
+  constructor(private modalService: ModalService) {
+    this.dropdownItems = [
+      { displayName: 'Vårdcentral 1', value: '1' },
+      { displayName: 'Vårdcentral 2', value: '2' },
+      { displayName: 'Vårdcentral 3', value: '3' }
+    ];
+  }
 
   ngOnInit() {
+    this.createForms();
   }
 
   showOneButtonModal() {
@@ -53,5 +65,46 @@ export class ModaldialogComponent implements OnInit {
 
   showCommentModal() {
     this.modalService.openDialog('commentModal');
+  }
+
+  createForms() {
+    this.vardvalForm = new FormGroup({
+      vardval: new FormControl(null, { validators: [Validators.required] }),
+    }, { updateOn: 'change' });
+
+    this.vardvalForm2 = new FormGroup({
+      vardval: new FormControl(null, { validators: [Validators.required] }),
+    }, { updateOn: 'change' });
+  }
+
+  selectVardval1() {
+    const index = this.vardvalForm.controls.vardval.value - 1;
+    this.vardval1Answer = this.dropdownItems[index] ? this.dropdownItems[index].displayName : '';
+    this.modalService.closeDialog('vardvalWithTextModal');
+    this.vardvalForm.reset();
+
+  }
+
+  selectVardval2() {
+    const index = this.vardvalForm2.controls.vardval.value - 1;
+    this.vardval2Answer = this.dropdownItems[index] ? this.dropdownItems[index].displayName : '';
+    this.modalService.closeDialog('vardvalWithoutTextModal');
+    this.vardvalForm2.reset();
+  }
+
+  closeSelectVardval1() {
+    this.modalService.closeDialog('vardvalWithTextModal');
+    this.vardval1Answer = '';
+    this.vardvalForm.reset();
+  }
+
+  closeSelectVardval2() {
+    this.modalService.closeDialog('vardvalWithoutTextModal');
+    this.vardval2Answer = '';
+    this.vardvalForm2.reset();
+  }
+
+  closeModal(elementId: string): void {
+    this.modalService.closeDialog(elementId);
   }
 }
