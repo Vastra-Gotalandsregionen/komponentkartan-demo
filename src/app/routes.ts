@@ -36,6 +36,7 @@ import { ExpandableDivComponent } from './expandable-div/expandable-div.componen
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { IconsComponent } from './icons/icons.component';
+import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 
 export const appRoutes: Routes = [
 
@@ -72,6 +73,6 @@ export const appRoutes: Routes = [
     { path: 'expandablediv', component: ExpandableDivComponent },
     { path: 'listexample-expandable-div', component: ListexamplewithexpandabledivComponent },
     { path: 'examples-listwithcards', component: ExamplesListwithcardsComponent },
-    { path: 'icons', component: IconsComponent },
+    { path: 'actionPanels', component: ActionPanelsComponent },
     { path: '**', redirectTo: '/' }
 ];
