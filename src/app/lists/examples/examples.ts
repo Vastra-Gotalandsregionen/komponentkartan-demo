@@ -188,7 +188,7 @@ export class Examples {
   typeScriptAdvancedListMarkup = `import { Component, OnInit } from '@angular/core';
   import {
     ExpandableRow, RowNotification, NotificationType, ModalService,
-    ModalButtonConfiguration, SortChangedArgs, ListHeaderComponent, SortDirection
+    SortChangedArgs, ListHeaderComponent, SortDirection
   } from 'vgr-komponentkartan';
   import { Examples } from '../examples';
   import { HtmlEncodeService } from '../../../html-encode.service';
@@ -297,13 +297,34 @@ export class Examples {
   </vgr-list-item>
 </vgr-list>
 <br>
-<p>Du har valt {{ getSelectedRows() }} rader</p>`;
+<p>Du har valt {{ getSelectedRows() }} rader</p>
+
+<vgr-modal id="notifyDeleteModal">
+  <vgr-modal-header>Info</vgr-modal-header>
+  <vgr-modal-content>
+    <p>Du tog bort detta objektet {{removedObjectString}}</p>
+  </vgr-modal-content>
+  <vgr-modal-footer>
+    <vgr-button [secondary]="true" (click)="modalService.closeModal('notifyDeleteModal')">Stäng</vgr-button>
+  </vgr-modal-footer>
+</vgr-modal>
+<vgr-modal id="removeRowModal">
+  <vgr-modal-header>Ta bort raden</vgr-modal-header>
+  <vgr-modal-content>
+    <p>Vill du verkligen ta bort {{!rowToRemove || rowToRemove.previewObject.firstName}}?</p>
+  </vgr-modal-content>
+  <vgr-modal-footer>
+    <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
+    <vgr-button (click)="modalService.closeModal('removeRowModal')">Nej</vgr-button>
+  </vgr-modal-footer>
+</vgr-modal>
+`;
 
   typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
     import { HtmlEncodeService } from '../../../html-encode.service';
     import { Examples } from '../examples';
     import {
-        ModalService, ModalButtonConfiguration, ExpandableRow,
+        ModalService, ExpandableRow,
         SortDirection, SortChangedArgs
     } from 'vgr-komponentkartan/';
 
@@ -349,24 +370,23 @@ export class Examples {
         }
 
         notifyOnDelete(row: any) {
-          this.modalService.openDialog('Info', 'Du tog bort detta objektet: ' + JSON.stringify(row, null, "\\t"),
-              new ModalButtonConfiguration('Stäng', () => {
-              })
-          );
+          this.removedObjectString = JSON.stringify(row);
+          this.modalService.openDialog('notifyDeleteModal');
         }
 
-        removeRow(row: any) {
-            this.modalService.openDialog('Ta bort raden', 'Vill du verkligen ta bort ' + row.previewObject.firstName + '?',
-                new ModalButtonConfiguration('Ja', () => {
-                    row.notifyOnRemove(row.previewObject.firstName + ' togs bort', 'vgr-icon-ok-check');
-                    row.previewObject.selected = false;
-                    row.previewObject.deleted = true;
+        removeRow(row: ExpandableRow<ExamplePerson, any>) {
+            this.rowToRemove = row;
+            this.modalService.openDialog('removeRowModal');
+        }
 
-                    /*
-                      Remove for real...
-                    */
-                }),
-                new ModalButtonConfiguration('Nej', () => { }));
+        removeSelectedRow() {
+            this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.firstName + ' togs bort', 'vgr-icon-ok-check');
+            this.rowToRemove.previewObject.selected = false;
+            this.rowToRemove.previewObject.deleted = true;
+            /*
+              Remove for real...
+            */
+            this.modalService.closeDialog('removeRowModal');
         }
 
         getSelectedRows(): number {
