@@ -305,7 +305,7 @@ export class Examples {
     <p>Du tog bort detta objektet {{removedObjectString}}</p>
   </vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button [secondary]="true" (click)="modalService.closeModal('notifyDeleteModal')">Stäng</vgr-button>
+    <vgr-button [secondary]="true" (click)="closeModal('notifyDeleteModal')">Stäng</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
 <vgr-modal id="removeRowModal">
@@ -315,7 +315,7 @@ export class Examples {
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
-    <vgr-button (click)="modalService.closeModal('removeRowModal')">Nej</vgr-button>
+    <vgr-button (click)="closeModal('removeRowModal')">Nej</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
 `;
@@ -391,6 +391,10 @@ export class Examples {
 
         getSelectedRows(): number {
             return this.peopleRows && this.peopleRows.filter(r => r.previewObject.selected).length;
+        }
+
+        closeModal(modalId: string) {
+          this.modalService.closeDialog(modalId);
         }
 
         onSortChanged(event: SortChangedArgs) {

@@ -106,6 +106,10 @@ export class ListExampleWithActionButtonsComponent {
         }
     }
 
+    closeModal(modalId: string) {
+        this.modalService.closeDialog(modalId);
+    }
+
 }
 
 export interface ExamplePerson {
