@@ -106,7 +106,6 @@ import { IconsComponent } from './icons/icons.component';
         ExamplesListwithcardsComponent,
         IconsComponent,
         UnitFilterPipe,
-        AppModalComponent,
         ActionPanelsComponent
     ],
     exports: [UnitFilterPipe],
