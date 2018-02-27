@@ -67,7 +67,7 @@
 <vgr-modal id="removeRowModal">
   <vgr-modal-header>Ta bort raden</vgr-modal-header>
   <vgr-modal-content>
-    <p>Vill du verkligen ta bort {{!rowToRemove || rowToRemove.previewObject.firstName}}?</p>
+    <p *ngIf="rowToRemove">Vill du verkligen ta bort {{rowToRemove.previewObject.firstName}}?</p>
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
