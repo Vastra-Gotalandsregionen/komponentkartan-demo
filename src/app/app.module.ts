@@ -31,6 +31,8 @@ import { FormattemplateComponent } from './formattemplate/formattemplate.compone
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
+import { ClosebuttonComponent } from './closebutton/closebutton.component';
+
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
 import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
@@ -106,7 +108,8 @@ import { IconsComponent } from './icons/icons.component';
         ExamplesListwithcardsComponent,
         IconsComponent,
         UnitFilterPipe,
-        ActionPanelsComponent
+        ActionPanelsComponent,
+        ClosebuttonComponent
     ],
     exports: [UnitFilterPipe],
     providers: [
