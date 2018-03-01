@@ -44,14 +44,8 @@ export class ListexampleComponent {
 
     this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
 
-    this.peopleRows[0].notification = {
-      message: 'Meddelande: Text', icon: 'vgr-icon-message',
-      type: NotificationType.Permanent
-    } as RowNotification;
-    this.peopleRows[4].notification = {
-      message: 'Personen är inaktiv', icon: 'vgr-icon-exclamation--red',
-      type: NotificationType.Permanent
-    } as RowNotification;
+    this.peopleRows[0].setNotification('Meddelande: Text', 'vgr-icon-message');
+    this.peopleRows[4].setNotification('Personen är inaktiv', 'vgr-icon-exclamation--red');
   }
 
   deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {

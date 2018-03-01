@@ -360,11 +360,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     this.exampleData.forEach(element => {
       if (element.previewObject.details.medverkanfamiljecentral === '') {
-        element.notification = {
-          message: 'Information saknas, medverkan i familjecentral ej ifylld',
-          icon: 'vgr-icon-exclamation--red',
-          type: NotificationType.Permanent
-        } as RowNotification;
+        element.setNotification('Information saknas, medverkan i familjecentral ej ifylld', 'vgr-icon-exclamation--red');
       }
     });
 
