@@ -358,15 +358,15 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
 
-    this.exampleData.forEach(element => {
-      // if (element.previewObject.details.medverkanfamiljecentral === '') {
-      //   element.notification = {
-      //     message: 'Information saknas, medverkan i familjecentral ej ifylld',
-      //     icon: 'vgr-icon-exclamation--red',
-      //     type: NotificationType.Permanent
-      //   } as RowNotification;
-      // }
-    });
+    // this.exampleData.forEach(element => {
+    //   if (element.previewObject.details.medverkanfamiljecentral === '') {
+    //     element.notification = {
+    //       message: 'Information saknas, medverkan i familjecentral ej ifylld',
+    //       icon: 'vgr-icon-exclamation--red',
+    //       type: NotificationType.Permanent
+    //     } as RowNotification;
+    //   }
+    // });
 
   }
 
