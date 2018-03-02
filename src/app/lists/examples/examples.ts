@@ -224,14 +224,8 @@ export class Examples {
 
       this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
 
-      this.peopleRows[0].notification = {
-        message: 'Meddelande: Text', icon: 'vgr-icon-message',
-        type: NotificationType.Permanent
-      } as RowNotification;
-      this.peopleRows[4].notification = {
-        message: 'Personen är inaktiv', icon: 'vgr-icon-exclamation--red',
-        type: NotificationType.Permanent
-      } as RowNotification;
+      this.peopleRows[0].setNotification('Meddelande: Text', 'vgr-icon-message');
+      this.peopleRows[4].setNotification('Personen är inaktiv', 'vgr-icon-exclamation--red');
     }
 
     deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
@@ -241,6 +235,10 @@ export class Examples {
 
     updateRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
       row.notifyOnCollapse(row.previewObject.firstName + ' sparades', 'vgr-icon-ok-check-green');
+    }
+
+    updateRow2(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
+      row.notifyOnCollapse(row.previewObject.firstName + ' sparades', 'vgr-icon-ok-check-green', true);
     }
 
     onSortChanged(event: SortChangedArgs) {
@@ -269,6 +267,7 @@ export class Examples {
     </vgr-list-item-header>
     <vgr-list-item-content>
       <vgr-button [secondary]="true" (click)="updateRow(row)">Uppdatera</vgr-button>
+      <vgr-button [secondary]="true" (click)="updateRow2(row)">Uppdatera och rensa meddelande</vgr-button>
       <vgr-button [secondary]="true" (click)="deleteRow(row)">Ta bort</vgr-button>
     </vgr-list-item-content>
   </vgr-list-item>
