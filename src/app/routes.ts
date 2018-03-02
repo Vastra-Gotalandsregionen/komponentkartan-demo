@@ -14,6 +14,7 @@ import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
+import { ClosebuttonComponent } from './closebutton/closebutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
 import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
@@ -41,9 +42,11 @@ import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
+    { path: 'icons', component: IconsComponent },
     { path: 'textbuttons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
     { path: 'checkbox', component: CheckboxComponent },
+    { path: 'closebutton', component: ClosebuttonComponent },
     { path: 'colours', component: ColoursComponent },
     { path: 'dropdownmultiselect', component: DropdownmultiselectComponent },
     { path: 'dropdowns', component: DropdownsComponent },

@@ -1,7 +1,7 @@
 <vgr-page class="no-sort">
   <vgr-page-header title="Action panel">
   </vgr-page-header>
-  <vgr-action-panel [expanded]="expanded" [title]="'Ett exempel på en action panel'">
+  <vgr-action-panel [showCloseButton]="true" (expandedChanged)="expanded=$event" [expanded]="expanded" [title]="'Ett exempel på en action panel'">
     <vgr-button>En knapp</vgr-button>
     <p>Lite text...</p>
   </vgr-action-panel>
@@ -25,11 +25,22 @@
               <vgr-button *ngIf="expanded" (click)="expanded=!expanded">Stäng panel</vgr-button>
               <vgr-button *ngIf="!expanded" (click)="expanded=!expanded">Öppna panel</vgr-button>
               <br>
+              <br>
               <p>Förändras med tema:
                 <strong>nej</strong>
               </p>
             </div>
             <!-- Översikt -->
+          </vgr-list-item-content>
+        </vgr-list-item>
+        <vgr-list-item [expanded]=" false ">
+          <vgr-list-item-header>
+            <h4>Exempel</h4>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            <h2>HTML</h2>
+            <section [innerHTML]="exampleCodeMarkup" highlight-js-content=".highlight"></section>
+            <!-- Exempel -->
           </vgr-list-item-content>
         </vgr-list-item>
         <vgr-list-item [expanded]=" false ">
@@ -53,6 +64,11 @@
                 <td>expanded: boolean</td>
                 <td>Angerom panelen ska vara öppen eller stängd.</td>
                 <td>[expanded]="true"</td>
+              </tr>
+              <tr>
+                <td>showCloseButton: boolean</td>
+                <td>Anger huruvida en stänga-knapp ska visas i övre högra hörnet av panelen. Default är false.</td>
+                <td>[showCloseButton]="true"</td>
               </tr>
             </table>
           </vgr-list-item-content>
