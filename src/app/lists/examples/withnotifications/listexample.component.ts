@@ -61,6 +61,10 @@ export class ListexampleComponent {
     row.notifyOnCollapse(row.previewObject.firstName + ' sparades', 'vgr-icon-ok-check-green');
   }
 
+  updateRow2(row: ExpandableRow<ExamplePerson, ExamplePerson>) {
+    row.notifyOnCollapse(row.previewObject.firstName + ' sparades', 'vgr-icon-ok-check-green', true);
+  }
+
   onSortChanged(event: SortChangedArgs) {
     this.peopleRows = this.peopleRows.sort((row1, row2) => {
       return row1.previewObject[event.key] > row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
