@@ -1,0 +1,38 @@
+<vgr-page>
+  <vgr-page-header [title]="'Enheter'">
+
+    <div class="column-layout column-layout--pull-left">
+      <h3>Filtrera enheter</h3>
+      <div class="row-layout row-layout--equal-height">
+        <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
+      </div>
+      <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
+    </div>
+  </vgr-page-header>
+  <vgr-page-body>
+    <vgr-page-block>
+      <vgr-list (sortChanged)="onSortChanged($event)">
+        <vgr-list-header>
+          <vgr-list-column-header text="Enhet" width="10" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
+          <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
+          <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
+        </vgr-list-header>
+        <vgr-list-item *ngFor="let row of exampleData | unitfilter2:filtertext: includeInactiveUnits" [notification]="row.notification"
+          (expandedChanged)="onExpandedChanged($event,row)">
+          <vgr-list-item-header>
+            <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.belopp" width="3" align="right"></vgr-list-column>
+            <vgr-list-column-trashcan width="1" align="center"></vgr-list-column-trashcan>
+            <vgr-list-column-checkbox width="1" align="center"></vgr-list-column-checkbox>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            content
+          </vgr-list-item-content>
+        </vgr-list-item>
+      </vgr-list>
+    </vgr-page-block>
+  </vgr-page-body>
+</vgr-page>

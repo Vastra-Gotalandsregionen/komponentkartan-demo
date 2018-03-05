@@ -15,6 +15,8 @@ import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 // Pipe
 import { UnitFilterPipe } from './examples-listwithcards/UnitFilterPipe';
+import { UnitFilter2Pipe } from './examples-listwithlists/UnitFilterPipe';
+
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
@@ -59,6 +61,8 @@ import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
+import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
+
 import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
@@ -106,12 +110,14 @@ import { IconsComponent } from './icons/icons.component';
         ExpandableDivComponent,
         ListexamplewithexpandabledivComponent,
         ExamplesListwithcardsComponent,
+        ExamplesListwithlistsComponent,
         IconsComponent,
         UnitFilterPipe,
+        UnitFilter2Pipe,
         ActionPanelsComponent,
         ClosebuttonComponent
     ],
-    exports: [UnitFilterPipe],
+    exports: [UnitFilterPipe, UnitFilter2Pipe],
     providers: [
         CityService,
         HighlightJsService,

@@ -36,6 +36,8 @@ import { ReactiveformsexampleComponent } from './reactiveforms-example/reactivef
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
+import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
+
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 
@@ -76,6 +78,7 @@ export const appRoutes: Routes = [
     { path: 'expandablediv', component: ExpandableDivComponent },
     { path: 'listexample-expandable-div', component: ListexamplewithexpandabledivComponent },
     { path: 'examples-listwithcards', component: ExamplesListwithcardsComponent },
+    { path: 'examples-listwithlists', component: ExamplesListwithlistsComponent },
     { path: 'actionPanels', component: ActionPanelsComponent },
     { path: '**', redirectTo: '/' }
 ];
