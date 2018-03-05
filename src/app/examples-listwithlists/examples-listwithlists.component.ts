@@ -4,7 +4,9 @@ import { ExampleUnit } from './unit.model';
 
 @Component({
   selector: 'app-examples-listwithlists',
-  templateUrl: './examples-listwithlists.component.html'
+  templateUrl: './examples-listwithlists.component.html',
+  styleUrls: ['./examples-listwithlists.component.scss']
+
 })
 export class ExamplesListwithlistsComponent implements OnInit {
   sortDirections = SortDirection;
@@ -13,6 +15,8 @@ export class ExamplesListwithlistsComponent implements OnInit {
   filtertext = '';
   itemSelected = false;
   selectedUnit = '';
+
+  loading = true;
 
   includeInactiveUnits = false;
   startdate: Date;
@@ -75,6 +79,12 @@ export class ExamplesListwithlistsComponent implements OnInit {
     }
 
     this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
+
+    this.exampleData.forEach(element => {
+      if (this.getRandomInt(0, 5) === 2) {
+        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
+      }
+    });
   }
 
   onSelectedChangedUnit(selectedItem: string) {

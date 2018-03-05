@@ -11,7 +11,19 @@
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
-      <vgr-list (sortChanged)="onSortChanged($event)">
+      <vgr-list (sortChanged)="onSortChanged($event)" *ngIf="loading">
+        <vgr-list-header>
+          <vgr-list-column-header text="Enhet" width="10" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
+          <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
+          <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
+        </vgr-list-header>
+      </vgr-list>
+      <div class="loader-container">
+        <vgr-loader [active]="loading"></vgr-loader>
+      </div>
+      <vgr-list (sortChanged)="onSortChanged($event)" *ngIf="!loading">
         <vgr-list-header>
           <vgr-list-column-header text="Enhet" width="10" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
           <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
