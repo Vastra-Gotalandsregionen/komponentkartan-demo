@@ -615,7 +615,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.details.avtalsperiod_start = this.onChangeForm.controls.avtalsperiod_start.value;
 
     this.newUnit.agare = this.agarOwnerForm.controls.agare.value;
-
+    this.newUnit.details.agare_kod = this.newUnitForm.controls.agarkod.value;
+    this.newUnit.details.agare_form = this.newUnitForm.controls.agarform.value;
     if (this.newUnit.details.agare_form === 'Privat') {
 
       this.newUnit.details.organisationsnummer = this.privateOwnerForm.controls.organisationsnummer.value;
@@ -627,7 +628,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
     this.newUnit.enhet = this.selectedUnit;
     this.newUnit.details.enhetschef = this.newUnitForm.controls.enhetschef.value;
-
+    this.newUnit.details.medverkanfamiljecentral = this.newUnitForm.controls.medverkanIFamiljecentral.value;
     this.newUnit.details.versions = [1];
     this.newUnit.isActive = true;
 
