@@ -86,8 +86,15 @@
               <tr>
                 <td>notification : RowNotification</td>
                 <td>Ger möjligheten att lägga en notifiering på raden. En
-                  <code>RowNotification</code> har en icon property (string) och en typ. Notifieringar kan visas hela tiden. Ikoner
-                  att välja mellan finns angivna på sidan för ikoner.
+                  <code>RowNotification</code> har en icon property (string), removeWhenDone property (boolean) och en typ.
+                  <br>
+                  <i>-Icon</i> finns angivna på sidan för
+                  <a href="/icons">ikoner</a>
+                  <br>
+                  <i>-removeWhenDone</i> anger om notifieringen ska försvinna efter kollapsanimationen för notifiering är klar.
+                  Default är att notifieringen som är permanent är kvar efter att en annan notifering visats.
+                  <br>
+                  <i>-Notifcation.Type</i> att välja på är:
                   <code>NotificationType.Permanent</code>, visas i samband med att raden minimeras -
                   <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
                   <code>NotificationType.ShowOnRemove</code>
