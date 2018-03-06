@@ -32,7 +32,7 @@
           <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of exampleData | unitfilter2:filtertext: includeInactiveUnits" [notification]="row.notification"
-          (expandedChanged)="onExpandedChanged($event,row)">
+          (expandedChanged)="onExpandedChanged($event,row)" [indentContent]="false">
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
@@ -41,10 +41,26 @@
             <vgr-list-column-checkbox width="1" align="center"></vgr-list-column-checkbox>
           </vgr-list-item-header>
           <vgr-list-item-content>
-            content
+            <vgr-button [secondary]="true">Text</vgr-button>
+            <vgr-expandable-div *ngFor="let i of items">
+              <vgr-expandable-div-header>
+                {{ row.previewObject.enhet }}
+              </vgr-expandable-div-header>
+              <vgr-expandable-div-content>
+                content
+              </vgr-expandable-div-content>
+            </vgr-expandable-div>
           </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>
     </vgr-page-block>
   </vgr-page-body>
 </vgr-page>
+<vgr-modal id="printModal">
+  <vgr-modal-header>Skriva ut</vgr-modal-header>
+  <vgr-modal-content>Vill du skriva ut XXX?</vgr-modal-content>
+  <vgr-modal-footer>
+    <vgr-button [secondary]="true">Avbryt</vgr-button>
+    <vgr-button [secondary]="true">Skriv ut</vgr-button>
+  </vgr-modal-footer>
+</vgr-modal>

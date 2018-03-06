@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
+import { ModalService } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-examples-listwithlists',
@@ -10,7 +11,7 @@ import { ExampleUnit } from './unit.model';
 })
 export class ExamplesListwithlistsComponent implements OnInit {
   sortDirections = SortDirection;
-
+  items = [];
   exampleData: ExpandableRow<ExampleUnit, any>[] = [];
   filtertext = '';
   itemSelected = false;
@@ -33,13 +34,15 @@ export class ExamplesListwithlistsComponent implements OnInit {
     }
   };
 
-  constructor(private changeDetector: ChangeDetectorRef) {
+  constructor(private changeDetector: ChangeDetectorRef, private modalService: ModalService) {
     this.includeInactiveUnits = false;
+    this.items = Array(3).fill(0).map((x, i) => i);
   }
 
   ngOnInit() {
     this.initExampleData();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
+    // this.modalService.openDialog('printModal');
   }
 
   getRandomInt(min, max) {
