@@ -5,4 +5,5 @@ export interface ExampleUnit {
     belopp: number;
     vald: boolean;
     isActive: boolean;
+    deleted: boolean;
 }

@@ -16,7 +16,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   filtertext = '';
   itemSelected = false;
   selectedUnit = '';
-
+  rowToRemove: ExpandableRow<ExampleUnit, any>;
   loading = false;
 
   includeInactiveUnits = false;
@@ -40,7 +40,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initExampleData();
+    // this.initExampleData();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
     // this.modalService.openDialog('printModal');
   }
@@ -51,7 +51,14 @@ export class ExamplesListwithlistsComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  initExampleData() {
+  get allChecked() {
+    if (this.exampleData.length === 0)
+      return false;
+
+    return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
+  }
+
+  loadExampleData(value: string) {
     const items: ExampleUnit[] = [];
     const exampleNames: string[] = ['Närhälsan Mellerud', 'Närhälsan Lunden', 'Närhälsan Kungälv',
       'Närhälsan psykologenheten för mödravård', 'BB-mottagningen Östra', 'Kalle Karlssons fotvårdsenhet',
@@ -90,18 +97,60 @@ export class ExamplesListwithlistsComponent implements OnInit {
     });
   }
 
+  searchForUnits() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.loadExampleData(this.filtertext)
+    }, 1500);
+  }
+
+  onListCheckedChanged(event: boolean) {
+    console.log(event);
+    if (this.exampleData)
+      this.exampleData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
+
+  }
+
+  onSelectRowChanged(row: any, checked: boolean) {
+    row.previewObject.vald = checked;
+  }
+
   onSelectedChangedUnit(selectedItem: string) {
     this.itemSelected = true;
   }
 
-  onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
-    if (expanded && !item.previewObject.vald) {
-      item.previewObject.vald = true;
-    } else {
-      item.previewObject.vald = false;
-    }
-    this.changeDetector.detectChanges();
+  onDeleteRow(row: any) {
+    this.removeRow(row);
   }
+  removeRow(row: ExpandableRow<ExampleUnit, any>) {
+    this.rowToRemove = row;
+    this.modalService.openDialog('deleteRowModal');
+  }
+
+  removeSelectedRow() {
+    this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
+    this.rowToRemove.previewObject.vald = false;
+    this.rowToRemove.previewObject.deleted = true;
+    /*
+      Remove for real...
+    */
+    this.modalService.closeDialog('deleteRowModal');
+  }
+
+
+  closeModal(modalId: string) {
+    this.modalService.closeDialog(modalId);
+  }
+
+  // onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
+  //   if (expanded && !item.previewObject.vald) {
+  //     item.previewObject.vald = true;
+  //   } else {
+  //     item.previewObject.vald = false;
+  //   }
+  //   this.changeDetector.detectChanges();
+  // }
 
   onSortChanged(event: SortChangedArgs) {
     this.exampleData = this.exampleData.sort((row1, row2) => {

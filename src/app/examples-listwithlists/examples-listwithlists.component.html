@@ -3,8 +3,15 @@
 
     <div class="column-layout column-layout--pull-left">
       <h3>Filtrera enheter</h3>
-      <div class="row-layout row-layout--equal-height">
-        <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
+      <div class="row-layout">
+        <div class="row-layout">
+          <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
+          <vgr-button secondary=true (click)="searchForUnits()">Sök</vgr-button>
+        </div>
+        <div class="row-layout row-layout--tight" style="padding-left:400px">
+          <vgr-button secondary=true>Skriv ut</vgr-button>
+          <vgr-button secondary=true>Arkivera</vgr-button>
+        </div>
       </div>
       <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
     </div>
@@ -17,7 +24,7 @@
           <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
           <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
-          <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
+          <vgr-list-column-header-checkbox width="1" align="center" [checked]="false"></vgr-list-column-header-checkbox>
         </vgr-list-header>
       </vgr-list>
       <div class="loader-container" *ngIf="loading">
@@ -29,7 +36,7 @@
           <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
           <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
-          <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
+          <vgr-list-column-header-checkbox width="1" align="center" [checked]="allChecked" (checkedChanged)="onListCheckedChanged($event)"></vgr-list-column-header-checkbox>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of exampleData | unitfilter2:filtertext: includeInactiveUnits" [notification]="row.notification"
           (expandedChanged)="onExpandedChanged($event,row)" [indentContent]="false">
@@ -37,11 +44,16 @@
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.belopp" width="3" align="right"></vgr-list-column>
-            <vgr-list-column-trashcan width="1" align="center"></vgr-list-column-trashcan>
-            <vgr-list-column-checkbox width="1" align="center"></vgr-list-column-checkbox>
+            <vgr-list-column-trashcan width="1" align="center" [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
+            <vgr-list-column-checkbox width="1" align="center" [disabled]="row.previewObject.deleted" [checked]="row.previewObject.vald"
+              (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
           </vgr-list-item-header>
           <vgr-list-item-content>
-            <vgr-button [secondary]="true">Text</vgr-button>
+            <div class="row-layout">
+              <div class="flex-right" style="padding:20px">
+                <vgr-button [secondary]="true">Text</vgr-button>
+              </div>
+            </div>
             <vgr-expandable-div *ngFor="let i of items">
               <vgr-expandable-div-header>
                 {{ row.previewObject.enhet }}
@@ -62,5 +74,15 @@
   <vgr-modal-footer>
     <vgr-button [secondary]="true">Avbryt</vgr-button>
     <vgr-button [secondary]="true">Skriv ut</vgr-button>
+  </vgr-modal-footer>
+</vgr-modal>
+<vgr-modal id="deleteRowModal">
+  <vgr-modal-header>Ta bort enheten</vgr-modal-header>
+  <vgr-modal-content>
+    <p *ngIf="rowToRemove">Vill du verkligen ta bort {{rowToRemove.previewObject.enhet}}?</p>
+  </vgr-modal-content>
+  <vgr-modal-footer>
+    <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
+    <vgr-button (click)="closeModal('deleteRowModal')">Nej</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
