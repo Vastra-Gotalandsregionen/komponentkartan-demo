@@ -23,18 +23,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   startdate: Date;
   enddate: Date;
 
-  validationMessages = {
-    avtalskod: {
-      'minlength': 'Avtalskoden skall vara fyra siffror',
-      'maxlength': 'Avtalskoden skall vara fyra siffror',
-    },
-    enhetskod: {
-      'minlength': 'Enhetskoden skall vara sex siffror',
-      'maxlength': 'Enhetskoden skall vara sex siffror',
-    }
-  };
-
-  constructor(private changeDetector: ChangeDetectorRef, private modalService: ModalService) {
+  constructor(private changeDetector: ChangeDetectorRef, public modalService: ModalService) {
     this.includeInactiveUnits = false;
     this.items = Array(3).fill(0).map((x, i) => i);
   }
@@ -56,6 +45,10 @@ export class ExamplesListwithlistsComponent implements OnInit {
       return false;
 
     return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
+  }
+
+  get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
+    return this.exampleData.filter(r => r.previewObject.vald)
   }
 
   loadExampleData(value: string) {
@@ -106,7 +99,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   onListCheckedChanged(event: boolean) {
-    console.log(event);
+
     if (this.exampleData)
       this.exampleData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
 
@@ -128,6 +121,23 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.modalService.openDialog('deleteRowModal');
   }
 
+  getSelectedRows(): string {
+    let result;
+    if (this.exampleData.length === 0) {
+      return '';
+    } else {
+      result = this.exampleData.filter(r => r.previewObject.vald).map(u => u.previewObject.enhet);
+      if (result.length === 1)
+        return result;
+      else
+        return [result.slice(0, -1).join(', '), result.slice(-1)[0]].join(result.length < 2 ? ', ' : ' och ');
+
+
+
+
+    }
+  }
+
   removeSelectedRow() {
     this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
     this.rowToRemove.previewObject.vald = false;
@@ -138,19 +148,17 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.modalService.closeDialog('deleteRowModal');
   }
 
+  printSelectedRows() {
 
-  closeModal(modalId: string) {
-    this.modalService.closeDialog(modalId);
+    this.exampleData.forEach(element => element.previewObject.vald = false);
+    this.modalService.closeDialog('printModal');
   }
 
-  // onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
-  //   if (expanded && !item.previewObject.vald) {
-  //     item.previewObject.vald = true;
-  //   } else {
-  //     item.previewObject.vald = false;
-  //   }
-  //   this.changeDetector.detectChanges();
-  // }
+
+  closeModal(modalId: string) {
+
+    this.modalService.closeDialog(modalId);
+  }
 
   onSortChanged(event: SortChangedArgs) {
     this.exampleData = this.exampleData.sort((row1, row2) => {

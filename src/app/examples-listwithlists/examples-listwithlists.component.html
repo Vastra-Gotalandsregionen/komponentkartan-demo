@@ -9,7 +9,7 @@
           <vgr-button secondary=true (click)="searchForUnits()">Sök</vgr-button>
         </div>
         <div class="row-layout row-layout--tight" style="padding-left:400px">
-          <vgr-button secondary=true>Skriv ut</vgr-button>
+          <vgr-button secondary=true [disabled]="selectedRows.length === 0" (click)="modalService.openDialog('printModal')">Skriv ut</vgr-button>
           <vgr-button secondary=true>Arkivera</vgr-button>
         </div>
       </div>
@@ -69,11 +69,11 @@
   </vgr-page-body>
 </vgr-page>
 <vgr-modal id="printModal">
-  <vgr-modal-header>Skriva ut</vgr-modal-header>
-  <vgr-modal-content>Vill du skriva ut XXX?</vgr-modal-content>
+  <vgr-modal-header>Skriv ut</vgr-modal-header>
+  <vgr-modal-content>Vill du skriva ut {{getSelectedRows()}}?</vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button [secondary]="true">Avbryt</vgr-button>
-    <vgr-button [secondary]="true">Skriv ut</vgr-button>
+    <vgr-button [secondary]="true" (click)="closeModal('printModal')">Avbryt</vgr-button>
+    <vgr-button [secondary]="true" (click)="printSelectedRows()">Skriv ut</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
 <vgr-modal id="deleteRowModal">
