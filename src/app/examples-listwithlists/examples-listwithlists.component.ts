@@ -16,7 +16,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   itemSelected = false;
   selectedUnit = '';
 
-  loading = true;
+  loading = false;
 
   includeInactiveUnits = false;
   startdate: Date;
@@ -34,11 +34,11 @@ export class ExamplesListwithlistsComponent implements OnInit {
   };
 
   constructor(private changeDetector: ChangeDetectorRef) {
-    this.initExampleData();
     this.includeInactiveUnits = false;
   }
 
   ngOnInit() {
+    this.initExampleData();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
   }
 

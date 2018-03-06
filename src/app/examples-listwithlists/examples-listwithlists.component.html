@@ -20,7 +20,7 @@
           <vgr-list-column-header-checkbox width="1" align="center"></vgr-list-column-header-checkbox>
         </vgr-list-header>
       </vgr-list>
-      <div class="loader-container">
+      <div class="loader-container" *ngIf="loading">
         <vgr-loader [active]="loading"></vgr-loader>
       </div>
       <vgr-list (sortChanged)="onSortChanged($event)" *ngIf="!loading">
