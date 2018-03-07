@@ -50,8 +50,8 @@
           </vgr-list-item-header>
           <vgr-list-item-content>
             <div class="row-layout">
-              <div class="flex-right" style="padding:20px">
-                <vgr-button [secondary]="true">Text</vgr-button>
+              <div class="flex-right button-container">
+                <vgr-button [secondary]="false">Text</vgr-button>
               </div>
             </div>
             <vgr-expandable-div *ngFor="let i of items">
@@ -82,7 +82,7 @@
     <p *ngIf="rowToRemove">Vill du verkligen ta bort {{rowToRemove.previewObject.enhet}}?</p>
   </vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
-    <vgr-button (click)="closeModal('deleteRowModal')">Nej</vgr-button>
+    <vgr-button [secondary]="true" (click)="removeSelectedRow()">Ja</vgr-button>
+    <vgr-button [secondary]="true" (click)="closeModal('deleteRowModal')">Nej</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>

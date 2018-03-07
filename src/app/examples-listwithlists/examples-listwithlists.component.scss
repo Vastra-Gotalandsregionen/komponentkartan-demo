@@ -3,3 +3,13 @@
   display: flex;
   justify-content: center;
 }
+
+.button-container {
+  padding: 10px;
+}
+
+@media screen and (min-width: 1459px) {
+  .button-container {
+    padding: 20px;
+  }
+}
