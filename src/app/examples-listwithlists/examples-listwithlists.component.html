@@ -6,11 +6,11 @@
       <div class="row-layout">
         <div class="row-layout">
           <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
-          <vgr-button secondary=true (click)="searchForUnits()">Sök</vgr-button>
+          <vgr-button (click)="searchForUnits()">Sök</vgr-button>
         </div>
         <div class="row-layout row-layout--tight" style="padding-left:400px">
-          <vgr-button secondary=true [disabled]="selectedRows.length === 0" (click)="modalService.openDialog('printModal')">Skriv ut</vgr-button>
-          <vgr-button secondary=true>Arkivera</vgr-button>
+          <vgr-button [disabled]="selectedRows.length === 0" (click)="modalService.openDialog('printModal')">Skriv ut</vgr-button>
+          <vgr-button [disabled]="selectedRows.length === 0" (click)="removeSelectedRows()">Arkivera</vgr-button>
         </div>
       </div>
       <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
@@ -38,8 +38,7 @@
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
           <vgr-list-column-header-checkbox width="1" align="center" [checked]="allChecked" (checkedChanged)="onListCheckedChanged($event)"></vgr-list-column-header-checkbox>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of exampleData | unitfilter2:filtertext: includeInactiveUnits" [notification]="row.notification"
-          (expandedChanged)="onExpandedChanged($event,row)">
+        <vgr-list-item *ngFor="let row of exampleData | unitfilter2:filtertext: includeInactiveUnits" [notification]="row.notification">
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>

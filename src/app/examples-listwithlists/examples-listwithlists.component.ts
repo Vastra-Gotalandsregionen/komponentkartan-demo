@@ -29,9 +29,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.initExampleData();
     this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
-    // this.modalService.openDialog('printModal');
   }
 
   getRandomInt(min, max) {
@@ -41,14 +39,15 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   get allChecked() {
-    if (this.exampleData.length === 0)
+    if (this.exampleData.length === 0) {
       return false;
+    }
 
     return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
   }
 
   get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
-    return this.exampleData.filter(r => r.previewObject.vald)
+    return this.exampleData.filter(r => r.previewObject.vald);
   }
 
   loadExampleData(value: string) {
@@ -94,15 +93,15 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-      this.loadExampleData(this.filtertext)
+      this.loadExampleData(this.filtertext);
     }, 1500);
   }
 
   onListCheckedChanged(event: boolean) {
-
-    if (this.exampleData)
+    if (this.exampleData) {
       this.exampleData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
 
+    }
   }
 
   onSelectRowChanged(row: any, checked: boolean) {
@@ -126,15 +125,12 @@ export class ExamplesListwithlistsComponent implements OnInit {
     if (this.exampleData.length === 0) {
       return '';
     } else {
-      result = this.exampleData.filter(r => r.previewObject.vald).map(u => u.previewObject.enhet);
-      if (result.length === 1)
+      result = this.selectedRows.map(u => u.previewObject.enhet);
+      if (result.length === 1) {
         return result;
-      else
+      } else {
         return [result.slice(0, -1).join(', '), result.slice(-1)[0]].join(result.length < 2 ? ', ' : ' och ');
-
-
-
-
+      }
     }
   }
 
@@ -148,8 +144,15 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.modalService.closeDialog('deleteRowModal');
   }
 
-  printSelectedRows() {
+  removeSelectedRows() {
+    this.selectedRows.forEach(x => {
+      x.notifyOnRemove(x.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
+      x.previewObject.vald = false;
+      x.previewObject.deleted = true;
+    });
+  }
 
+  printSelectedRows() {
     this.exampleData.forEach(element => element.previewObject.vald = false);
     this.modalService.closeDialog('printModal');
   }
