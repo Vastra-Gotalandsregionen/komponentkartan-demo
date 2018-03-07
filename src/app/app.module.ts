@@ -66,14 +66,6 @@ import { ExamplesListwithlistsComponent } from './examples-listwithlists/example
 import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
-    imports: [
-        KomponentkartanModule,
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HighlightJsModule,
-        RouterModule.forRoot(appRoutes)
-    ],
     declarations: [
         KomponentkartanApplicationComponent,
         InputfieldsComponent,
@@ -117,14 +109,20 @@ import { IconsComponent } from './icons/icons.component';
         ActionPanelsComponent,
         ClosebuttonComponent
     ],
-    exports: [UnitFilterPipe, UnitFilter2Pipe],
+    imports: [
+        KomponentkartanModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HighlightJsModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    exports: [UnitFilterPipe],
     providers: [
         CityService,
         HighlightJsService,
         HtmlEncodeService
     ],
-    schemas: [NO_ERRORS_SCHEMA],
-
     bootstrap: [KomponentkartanApplicationComponent]
 })
 export class AppModule { }
