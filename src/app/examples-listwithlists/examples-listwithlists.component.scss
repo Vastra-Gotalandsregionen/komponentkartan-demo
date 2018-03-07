@@ -1,3 +1,4 @@
+@import '../../../node_modules/vgr-komponentkartan/assets/partials/_settings.sizes.scss';
 .loader-container {
   padding-top: 40px;
   display: flex;
@@ -8,7 +9,7 @@
   padding: 10px;
 }
 
-@media screen and (min-width: 1459px) {
+@media screen and (min-width : $desktop-width--medium) {
   .button-container {
     padding: 20px;
   }
