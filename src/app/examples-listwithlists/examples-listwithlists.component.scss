@@ -6,20 +6,24 @@
 }
 
 .action-panel-buttons {
-  padding-left: 400px;
+  position: absolute;
+  right: $margin--slim;
 }
 
 .button-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  padding-right: $margin--slim;
+  padding-bottom: $margin--slim;
 }
 
 @media screen and (min-width: $desktop-width--medium) {
   .button-container {
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-right: $margin--fat;
+    padding-bottom: $margin--fat;
+  }
+  .action-panel-buttons {
+    right: $margin--fat;
   }
 }
