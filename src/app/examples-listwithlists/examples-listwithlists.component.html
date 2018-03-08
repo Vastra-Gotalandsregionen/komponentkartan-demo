@@ -45,7 +45,7 @@
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.belopp" width="3" align="right"></vgr-list-column>
+            <vgr-list-column [text]="row.previewObject.belopp | number : '1.2-2'" width="3" align="right"></vgr-list-column>
             <vgr-list-column-trashcan width="1" align="center" [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)"></vgr-list-column-trashcan>
             <vgr-list-column-checkbox width="1" align="center" [disabled]="row.previewObject.deleted" [checked]="row.previewObject.vald"
               (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
@@ -70,7 +70,7 @@
 </vgr-page>
 <vgr-modal id="printModal">
   <vgr-modal-header>Skriv ut</vgr-modal-header>
-  <vgr-modal-content>Vill du skriva ut {{getSelectedRows()}}?</vgr-modal-content>
+  <vgr-modal-content>Vill du skriva ut {{getPrintText()}}?</vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button [secondary]="true" (click)="closeModal('printModal')">Avbryt</vgr-button>
     <vgr-button [secondary]="true" (click)="printSelectedRows()">Skriv ut</vgr-button>

@@ -91,17 +91,19 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.modalService.openDialog('deleteRowModal');
   }
 
-  getSelectedRows(): string {
+  getPrintText(): string {
     let result;
-    if (this.exampleData.length === 0) {
-      return '';
-    } else {
+    if (this.selectedRows.length < 10) {
       result = this.selectedRows.map(u => u.previewObject.enhet);
       if (result.length === 1) {
         return result;
       } else {
         return [result.slice(0, -1).join(', '), result.slice(-1)[0]].join(result.length < 2 ? ', ' : ' och ');
       }
+    } else if (this.allChecked) {
+      return 'alla enheter';
+    } else {
+      return 'valda enheter';
     }
   }
 
