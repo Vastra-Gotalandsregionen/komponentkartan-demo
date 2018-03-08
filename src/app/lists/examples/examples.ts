@@ -94,14 +94,14 @@ export class Examples {
     <vgr-list-column-header text="Yrke" width="5" sortKey="occupation"></vgr-list-column-header>
     <vgr-list-column-header text="Inkomst" align="right" width="5" sortKey="income"></vgr-list-column-header>
   </vgr-list-header>
-  <vgr-list-item *ngFor="let row of peopleRowsSimpleList" [indentContent]="false">
+  <vgr-list-item *ngFor="let row of peopleRowsSimpleList">
     <vgr-list-item-header>
       <vgr-list-column [text]="row.firstName" width="5"></vgr-list-column>
       <vgr-list-column [text]="row.lastName" width="5"></vgr-list-column>
       <vgr-list-column [text]="row.occupation" width="5"></vgr-list-column>
       <vgr-list-column [text]="row.income| number:'2.2-2':'sv-SE'" width="5" align="right"></vgr-list-column>
     </vgr-list-item-header>
-    <vgr-list-item-content>
+    <vgr-list-item-content [indentContent]="false">
       <vgr-expandable-div *ngFor="let row of row.children" [expanded]="false">
         <vgr-expandable-div-header>
           <h2>Barn</h2>
