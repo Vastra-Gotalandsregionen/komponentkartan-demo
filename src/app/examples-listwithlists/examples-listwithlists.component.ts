@@ -67,6 +67,11 @@ export class ExamplesListwithlistsComponent implements OnInit {
 
   private mapToListItems(enheter: ExampleUnit[]) {
     this.exampleData = enheter.map(x => new ExpandableRow<ExampleUnit, any>(x));
+    this.exampleData.forEach(element => {
+      if (this.getRandomInt(0, 5) === 2) {
+        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
+      }
+    });
   }
 
   onListCheckedChanged(event: boolean) {
