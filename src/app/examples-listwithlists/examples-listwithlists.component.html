@@ -8,7 +8,7 @@
           <vgr-filter-textbox (keyup.enter)="searchForUnits()" (valueChanged)="filtertext = $event" (focusin)="noSearchResult = false"></vgr-filter-textbox>
           <vgr-button (click)="searchForUnits()">Sök</vgr-button>
         </div>
-        <div class="row-layout row-layout--tight" style="padding-left:400px">
+        <div class="row-layout action-panel-buttons">
           <vgr-button [disabled]="selectedRows.length === 0" (click)="modalService.openDialog('printModal')">Skriv ut</vgr-button>
           <vgr-button [disabled]="selectedRows.length === 0" (click)="removeSelectedRows()">Arkivera</vgr-button>
         </div>
@@ -21,7 +21,7 @@
       <vgr-list (sortChanged)="onSortChanged($event)" *ngIf="loading || noSearchResult">
         <vgr-list-header>
           <vgr-list-column-header text="Enhet" width="10" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-id" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
           <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
           <vgr-list-column-header-checkbox width="1" align="center" [checked]="false"></vgr-list-column-header-checkbox>
@@ -36,12 +36,12 @@
       <vgr-list (sortChanged)="onSortChanged($event)" *ngIf="!loading && !noSearchResult">
         <vgr-list-header>
           <vgr-list-column-header text="Enhet" width="10" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
+          <vgr-list-column-header text="HSA-id" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
           <vgr-list-column-header text="Belopp" width="3" align="right" sortKey="belopp"></vgr-list-column-header>
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
           <vgr-list-column-header-checkbox width="1" align="center" [checked]="allChecked" (checkedChanged)="onListCheckedChanged($event)"></vgr-list-column-header-checkbox>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of exampleData | unitfilter2: includeInactiveUnits" [notification]="row.notification">
+        <vgr-list-item *ngFor="let row of listData | unitfilter2: includeInactiveUnits" [notification]="row.notification">
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
@@ -83,6 +83,6 @@
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button [secondary]="true" (click)="removeSelectedRow()">Ja</vgr-button>
-    <vgr-button [secondary]="true" (click)="closeModal('deleteRowModal')">Nej</vgr-button>
+    <vgr-button [secondary]="true" default="true" (click)="closeModal('deleteRowModal')">Nej</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>

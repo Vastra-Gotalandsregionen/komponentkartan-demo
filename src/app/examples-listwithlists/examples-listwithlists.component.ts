@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { Component, Output, ChangeDetectorRef } from '@angular/core';
 import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
 import { ModalService } from 'vgr-komponentkartan';
@@ -10,10 +10,10 @@ import { UnitService } from './unitService';
   styleUrls: ['./examples-listwithlists.component.scss']
 
 })
-export class ExamplesListwithlistsComponent implements OnInit {
+export class ExamplesListwithlistsComponent {
   sortDirections = SortDirection;
   items = [];
-  exampleData: ExpandableRow<ExampleUnit, any>[] = [];
+  listData: ExpandableRow<ExampleUnit, any>[] = [];
   filtertext = '';
   itemSelected = false;
   selectedUnit = '';
@@ -30,18 +30,14 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.items = Array(3).fill(0).map((x, i) => i);
   }
   get allChecked() {
-    if (this.exampleData.length === 0) {
+    if (this.listData.length === 0 || this.listData.every(r => r.previewObject.deleted)) {
       return false;
     }
-    return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
+    return !this.listData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
   }
 
   get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
-    return this.exampleData.filter(r => r.previewObject.vald);
-  }
-
-  ngOnInit() {
-    this.onSortChanged({ key: 'enhet', direction: SortDirection.Ascending } as SortChangedArgs);
+    return this.listData.filter(r => r.previewObject.vald);
   }
 
   getRandomInt(min, max) {
@@ -58,6 +54,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
       .subscribe(units => {
         if (units.length > 0) {
           this.mapToListItems(units);
+          this.sortlistData('enhet', SortDirection.Ascending);
         } else {
           this.noSearchResult = true;
         }
@@ -66,8 +63,8 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   private mapToListItems(enheter: ExampleUnit[]) {
-    this.exampleData = enheter.map(x => new ExpandableRow<ExampleUnit, any>(x));
-    this.exampleData.forEach(element => {
+    this.listData = enheter.filter(x => !x.deleted).map(x => new ExpandableRow<ExampleUnit, any>(x));
+    this.listData.forEach(element => {
       if (this.getRandomInt(0, 5) === 2) {
         element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
       }
@@ -75,8 +72,8 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   onListCheckedChanged(event: boolean) {
-    if (this.exampleData) {
-      this.exampleData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
+    if (this.listData) {
+      this.listData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
     }
   }
 
@@ -91,6 +88,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   onDeleteRow(row: any) {
     this.removeRow(row);
   }
+
   removeRow(row: ExpandableRow<ExampleUnit, any>) {
     this.rowToRemove = row;
     this.modalService.openDialog('deleteRowModal');
@@ -116,9 +114,6 @@ export class ExamplesListwithlistsComponent implements OnInit {
     this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
     this.rowToRemove.previewObject.vald = false;
     this.rowToRemove.previewObject.deleted = true;
-    /*
-      Remove for real...
-    */
     this.modalService.closeDialog('deleteRowModal');
   }
 
@@ -131,7 +126,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   printSelectedRows() {
-    this.exampleData.forEach(element => element.previewObject.vald = false);
+    this.listData.forEach(element => element.previewObject.vald = false);
     this.modalService.closeDialog('printModal');
   }
 
@@ -142,9 +137,13 @@ export class ExamplesListwithlistsComponent implements OnInit {
   }
 
   onSortChanged(event: SortChangedArgs) {
-    this.exampleData = this.exampleData.sort((row1, row2) => {
-      return row1.previewObject[event.key] > row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? 1 : -1) :
-        row1.previewObject[event.key] < row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+    this.sortlistData(event.key, event.direction);
+  }
+
+  sortlistData(key: string, direction: SortDirection) {
+    this.listData = this.listData.sort((row1, row2) => {
+      return row1.previewObject[key] > row2.previewObject[key] ? (direction === SortDirection.Ascending ? 1 : -1) :
+        row1.previewObject[key] < row2.previewObject[key] ? (direction === SortDirection.Ascending ? -1 : 1) : 0;
     });
   }
 }
