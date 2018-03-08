@@ -2,7 +2,7 @@ import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
 import { ModalService } from 'vgr-komponentkartan';
-import { UnitService } from './unitService'
+import { UnitService } from './unitService';
 
 @Component({
   selector: 'app-examples-listwithlists',
@@ -19,6 +19,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   selectedUnit = '';
   rowToRemove: ExpandableRow<ExampleUnit, any>;
   loading = false;
+  noSearchResult = false;
 
   includeInactiveUnits = false;
   startdate: Date;
@@ -27,6 +28,16 @@ export class ExamplesListwithlistsComponent implements OnInit {
   constructor(private changeDetector: ChangeDetectorRef, private unitService: UnitService, public modalService: ModalService) {
     this.includeInactiveUnits = false;
     this.items = Array(3).fill(0).map((x, i) => i);
+  }
+  get allChecked() {
+    if (this.exampleData.length === 0) {
+      return false;
+    }
+    return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
+  }
+
+  get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
+    return this.exampleData.filter(r => r.previewObject.vald);
   }
 
   ngOnInit() {
@@ -39,75 +50,28 @@ export class ExamplesListwithlistsComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  private getUnits() {
-    this.unitService.getUnits()
-      .subscribe(units => {
-        this.mapToListItems(units);
-      });
-  }
-  mapToListItems(enheter: ExampleUnit[]) {
-    this.exampleData = enheter.map(x => new ExpandableRow<ExampleUnit, any>(x));
-  }
-  get allChecked() {
-    if (this.exampleData.length === 0) {
-      return false;
-    }
-
-    return this.exampleData && !this.exampleData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
-  }
-
-  get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
-    return this.exampleData.filter(r => r.previewObject.vald);
-  }
-
-  loadExampleData(value: string) {
-    const items: ExampleUnit[] = [];
-    const exampleNames: string[] = ['Närhälsan Mellerud', 'Närhälsan Lunden', 'Närhälsan Kungälv',
-      'Närhälsan psykologenheten för mödravård', 'BB-mottagningen Östra', 'Kalle Karlssons fotvårdsenhet',
-      'Närhälsan rehabmottagning', 'Närhälsan Kristinedal', 'Janne Karlssons hudvårdsspecialist',
-      'Hälsoakuten Mölndal', 'Hälsoakuten Göteborg', 'Hälsoakuten Alingsås',
-      'Rehabmottagningen Hemma'];
-    const examplehsaid = 'SE2321000131-E000000011';
-    const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
-    let item: ExampleUnit;
-    for (let i = 1; i <= 200; i++) {
-      const indexForNames = this.getRandomInt(0, 12);
-      const indexForAgare = this.getRandomInt(0, 4);
-      const indexForEnhetskod = this.getRandomInt(0, 12);
-      const indexForNamnd = this.getRandomInt(0, 4);
-      const isActive = Math.random() >= 0.5;
-      const amout = this.getRandomInt(1, 99) * 100;
-
-      item = {
-        vald: false,
-        id: i,
-        enhet: exampleNames[indexForNames] + ' ' + i.toString(),
-        hsaid: examplehsaid + (200 + i).toString(),
-        belopp: amout,
-        isActive: isActive
-      } as ExampleUnit;
-
-      items.push(item);
-    }
-
-    this.exampleData = items.map(x => new ExpandableRow<ExampleUnit, ExampleUnit>(x));
-
-    this.exampleData.forEach(element => {
-      if (this.getRandomInt(0, 5) === 2) {
-        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
-      }
-    });
-  }
-
   searchForUnits() {
     this.loading = true;
-    this.getUnits();
+    this.noSearchResult = false;
+
+    this.unitService.getUnits(this.filtertext)
+      .subscribe(units => {
+        if (units.length > 0) {
+          this.mapToListItems(units);
+        } else {
+          this.noSearchResult = true;
+        }
+        this.loading = false;
+      });
+  }
+
+  private mapToListItems(enheter: ExampleUnit[]) {
+    this.exampleData = enheter.map(x => new ExpandableRow<ExampleUnit, any>(x));
   }
 
   onListCheckedChanged(event: boolean) {
     if (this.exampleData) {
       this.exampleData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
-
     }
   }
 

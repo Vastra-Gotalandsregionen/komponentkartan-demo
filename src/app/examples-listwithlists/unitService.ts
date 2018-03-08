@@ -3,8 +3,6 @@ import { Observable } from 'rxjs/Rx';
 import { ExampleUnit } from './unit.model';
 
 @Injectable()
-
-@Injectable()
 export class UnitService {
     private items: ExampleUnit[] = [];
     constructor() {
@@ -40,20 +38,25 @@ export class UnitService {
                 vald: false,
                 id: i,
                 enhet: exampleNames[indexForNames] + ' ' + i.toString(),
-                hsaid: examplehsaid + (200 + i).toString(),
+                hsaid: examplehsaid + (200 + i + 1).toString(),
                 belopp: amout,
                 isActive: isActive
             } as ExampleUnit;
 
             this.items.push(item);
         }
-
     }
 
-    getUnits(): Observable<ExampleUnit[]> {
-        // setTimeout(() => {
-        return Observable.of(this.items);
-        //}, 1500);
-
+    getUnits(searchString: string): Observable<ExampleUnit[]> {
+        searchString = searchString.toLowerCase();
+        return Observable.of(
+            this.items.filter(item => {
+                return (
+                    (item.enhet.toLowerCase().indexOf(searchString) !== -1 ||
+                        item.hsaid.toLowerCase().indexOf(searchString) !== -1 ||
+                        item.belopp.toString().indexOf(searchString) !== -1)
+                );
+            })
+        ).delay(1500);
     }
 }

@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class UnitFilter2Pipe implements PipeTransform {
-    transform(items: ExpandableRow<ExampleUnit, any>[], searchword: string, includeInactiveUnits: boolean): any {
+    transform(items: ExpandableRow<ExampleUnit, any>[], includeInactiveUnits: boolean): any {
 
         if (!items) {
             return items;
@@ -17,8 +17,6 @@ export class UnitFilter2Pipe implements PipeTransform {
             items = items.filter(x => x.previewObject.isActive);
         }
 
-        return items.filter(item => (item.previewObject.enhet.toLowerCase().indexOf(searchword.toLowerCase()) !== -1) ||
-            (item.previewObject.hsaid.toLowerCase().indexOf(searchword.toLowerCase()) !== -1));
-
+        return items;
     }
 }
