@@ -62,6 +62,7 @@ import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
+import { UnitService } from './examples-listwithlists/unitService';
 
 import { IconsComponent } from './icons/icons.component';
 
@@ -121,7 +122,8 @@ import { IconsComponent } from './icons/icons.component';
     providers: [
         CityService,
         HighlightJsService,
-        HtmlEncodeService
+        HtmlEncodeService,
+        UnitService
     ],
     bootstrap: [KomponentkartanApplicationComponent]
 })

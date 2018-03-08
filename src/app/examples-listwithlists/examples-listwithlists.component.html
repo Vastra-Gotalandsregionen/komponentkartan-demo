@@ -2,7 +2,7 @@
   <vgr-page-header [title]="'Enheter'">
 
     <div class="column-layout column-layout--pull-left">
-      <h3>Filtrera enheter</h3>
+      <h3>Sök enheter</h3>
       <div class="row-layout">
         <div class="row-layout">
           <vgr-filter-textbox (valueChanged)="filtertext = $event"></vgr-filter-textbox>
@@ -48,11 +48,11 @@
               (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-list-column-checkbox>
           </vgr-list-item-header>
           <vgr-list-item-content [indentContent]="false">
-            <div class="row-layout">
-              <div class="flex-right button-container">
-                <vgr-button [secondary]="false">Text</vgr-button>
-              </div>
+
+            <div class="button-container">
+              <vgr-button [secondary]="false">Text</vgr-button>
             </div>
+
             <vgr-expandable-div *ngFor="let i of items">
               <vgr-expandable-div-header>
                 {{ row.previewObject.enhet }}

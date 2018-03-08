@@ -2,6 +2,7 @@ import { Component, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
 import { ModalService } from 'vgr-komponentkartan';
+import { UnitService } from './unitService'
 
 @Component({
   selector: 'app-examples-listwithlists',
@@ -23,7 +24,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
   startdate: Date;
   enddate: Date;
 
-  constructor(private changeDetector: ChangeDetectorRef, public modalService: ModalService) {
+  constructor(private changeDetector: ChangeDetectorRef, private unitService: UnitService, public modalService: ModalService) {
     this.includeInactiveUnits = false;
     this.items = Array(3).fill(0).map((x, i) => i);
   }
@@ -38,6 +39,15 @@ export class ExamplesListwithlistsComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  private getUnits() {
+    this.unitService.getUnits()
+      .subscribe(units => {
+        this.mapToListItems(units);
+      });
+  }
+  mapToListItems(enheter: ExampleUnit[]) {
+    this.exampleData = enheter.map(x => new ExpandableRow<ExampleUnit, any>(x));
+  }
   get allChecked() {
     if (this.exampleData.length === 0) {
       return false;
@@ -91,10 +101,7 @@ export class ExamplesListwithlistsComponent implements OnInit {
 
   searchForUnits() {
     this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-      this.loadExampleData(this.filtertext);
-    }, 1500);
+    this.getUnits();
   }
 
   onListCheckedChanged(event: boolean) {
