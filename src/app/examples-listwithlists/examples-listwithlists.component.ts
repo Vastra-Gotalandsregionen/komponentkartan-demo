@@ -33,7 +33,7 @@ export class ExamplesListwithlistsComponent {
     if (this.listData.length === 0 || this.listData.every(r => r.previewObject.deleted)) {
       return false;
     }
-    return !this.listData.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.vald);
+    return !this.listData.filter(r => !r.previewObject.deleted && this.includeInactiveUnits ? true : r.previewObject.isActive).find(x => !x.previewObject.vald);
   }
 
   get selectedRows(): ExpandableRow<ExampleUnit, any>[] {
@@ -73,7 +73,7 @@ export class ExamplesListwithlistsComponent {
 
   onListCheckedChanged(event: boolean) {
     if (this.listData) {
-      this.listData.filter(r => !r.previewObject.deleted).forEach(element => element.previewObject.vald = event);
+      this.listData.filter(r => (!r.previewObject.deleted && this.includeInactiveUnits ? true : r.previewObject.isActive)).forEach(element => element.previewObject.vald = event);
     }
   }
 
