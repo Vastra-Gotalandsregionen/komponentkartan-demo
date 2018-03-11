@@ -56,6 +56,7 @@ export class ExamplesListwithlistsComponent {
           this.mapToListItems(units);
           this.sortlistData('enhet', SortDirection.Ascending);
         } else {
+          this.listData = [];
           this.noSearchResult = true;
         }
         this.loading = false;

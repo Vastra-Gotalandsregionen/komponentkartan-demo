@@ -5,7 +5,7 @@
       <h3>Sök enheter</h3>
       <div class="row-layout">
         <div class="row-layout">
-          <vgr-filter-textbox (keyup.enter)="searchForUnits()" (valueChanged)="filtertext = $event" (focusin)="noSearchResult = false"></vgr-filter-textbox>
+          <vgr-filter-textbox (keyup.enter)="searchForUnits()" (valueChanged)="filtertext = $event;noSearchResult = false;" (focusin)="noSearchResult = false"></vgr-filter-textbox>
           <vgr-button (click)="searchForUnits()">Sök</vgr-button>
         </div>
         <div class="row-layout action-panel-buttons">
