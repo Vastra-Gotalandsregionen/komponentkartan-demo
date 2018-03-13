@@ -52,9 +52,9 @@
           </vgr-list-item-header>
           <vgr-list-item-content [indentContent]="false">
             <div class="button-container">
-              <vgr-button [secondary]="false">Text</vgr-button>
+              <vgr-button [secondary]="true">Text</vgr-button>
             </div>
-            <vgr-expandable-div *ngFor="let i of items">
+            <vgr-expandable-div *ngFor="let i of items" class="adjust-chevron">
               <vgr-expandable-div-header>
                 {{ row.previewObject.enhet }}
               </vgr-expandable-div-header>
