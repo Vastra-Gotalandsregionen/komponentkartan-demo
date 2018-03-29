@@ -6,7 +6,8 @@ $primary-color--green:#334455;
   margin-left: $margin--fat;
 }
 
-ul {
+ol {
+  list-style-type: decimal;
   li {
     margin: 1em;
   }
