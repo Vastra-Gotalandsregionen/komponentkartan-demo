@@ -27,7 +27,7 @@
           <a href="https://nodejs.org/en/" target="new"> https://nodejs.org/en/</a>
           <br/>Verifiera att node och npm är installerat genom att köra
           <code>node -v</code> samt
-          <code>npm -v</code> i en kommandoprompt.
+          <code>npm -v</code> i en kommandoprompt (eller terminalen i VS Code).
         </li>
         <li>
           (Rekommenderat) Installera IDE Visual Studio Code.
@@ -48,16 +48,15 @@
           <code>ng new ProjectName</code>
         </li>
         <li>För att lägga till Komponentkartan i projektet, ställ dig i projektets root. Navigera till
-          <a href="https://github.com/Vastra-Gotalandsregionen/komponentkartan">Komponentkartans GitHub-sida</a> i din webbläsare.
-          <br/>Följ steg 1-2.
+          <a href="https://github.com/Vastra-Gotalandsregionen/komponentkartan">Komponentkartans GitHub-sida</a> i din webbläsare och följ steg 1-2 på den sidan.
           <li>
             Kör
             <code>ng -s -o</code> för att köra igång din applikation lokalt och öppna i ett webbläsarfönster.
           </li>
       </ol>
-      <p>Nu är det dags att börja bygga din applikation! Alla komponenter som finns i Komponentkartan finns dokumenterade under
-        'Komponenter' till vänster. Var särskilt noga med att
-        <a href="./pagestructure">sidstrukturen</a> blir korrekt.</p>
+      <p>Nu är det dags att börja bygga din applikation. Alla komponenter som finns i Komponentkartan finns dokumenterade under
+        'Komponenter' till vänster. Var noga med att
+        <a href="./pagestructure">sidstrukturen</a> blir korrekt när du skapar nya sidor.</p>
 
       <h2>Följ dessa steg om du ska börja arbeta i ett befintligt projekt</h2>
       <ol>
@@ -78,11 +77,14 @@
 
     <vgr-page-block>
       <h1>Versionshantering</h1>
-      <p>Text</p>
-    </vgr-page-block>
-    <vgr-page-block>
-      <h1>Troubleshooting</h1>
-      <p>Text</p>
+      <p>Versionsnummer för komponentkartan ska anges enligt
+        <a href="https://semver.org/">Semantic Versioning</a>
+      </p>
+      <p>MAJOR: Breaking changes</p>
+      <p>MINOR: Features</p>
+      <p>PATCH: Buggfixar</p>
+      <p>Under arbetetet med en story ska beta-version användas tills dess att storyn är helt klar och godkänd. Då ska en stable
+        version releasas.</p>
     </vgr-page-block>
     <vgr-page-block>
       <h1>Nice to have</h1>
@@ -94,6 +96,13 @@
         <li>SCSS Intellisence</li>
         <li>Wallaby.js</li>
       </ul>
+    </vgr-page-block>
+    <vgr-page-block>
+      <h1>Troubleshooting</h1>
+      <p>Problem med med npm-paket kan ibland lösas genom att ta bort katalogen node_modules samt package-lock.json och sen
+        köra om
+        <code>npm i</code>
+      </p>
     </vgr-page-block>
   </vgr-page-body>
 </vgr-page>
