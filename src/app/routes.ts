@@ -38,6 +38,7 @@ import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpa
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
 import { TableComponent } from './table/table.component';
+import { TextareafieldComponent } from './textareaField/textareafield.component';
 
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
@@ -67,6 +68,7 @@ export const appRoutes: Routes = [
     { path: 'backtotop', component: BacktotopComponent },
     { path: '', component: StartComponent },
     { path: 'table', component: TableComponent },
+    { path: 'textarea', component: TextareafieldComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },

@@ -58,6 +58,7 @@ import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
+import { TextareafieldComponent } from './textareaField/textareafield.component'
 
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
@@ -110,7 +111,8 @@ import { TableComponent } from './table/table.component';
         UnitFilter2Pipe,
         ActionPanelsComponent,
         ClosebuttonComponent,
-        TableComponent
+        TableComponent,
+        TextareafieldComponent
     ],
     imports: [
         KomponentkartanModule,
