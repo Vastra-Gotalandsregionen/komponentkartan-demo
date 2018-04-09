@@ -51,7 +51,7 @@
         <div style="width:200px">
           <p>Med min- och maxdatum innan innevarande datum.</p>
 
-          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" (selectedDateChanged)="lastselectedDate=$event" noDateSelectedLabel="Välj dag"></vgr-datepicker>
         </div>
         <div>
           <p>Här är
@@ -147,6 +147,14 @@
         <td>
           [selectedDateFormat]=yyyymmDD
         </td>
+      </tr>
+      <tr>
+        <td>
+          noDateSelectedLabel : string
+        </td>
+        <td>Värde för att sätta vilken text det skall stå i datepickern då man inte valt något värde
+        </td>
+        <td>noDateSelectedLabel="Välj dag"</td>
       </tr>
       <tr>
         <td>minDate: Date</td>
