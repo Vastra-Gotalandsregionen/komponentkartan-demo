@@ -53,7 +53,7 @@
         <div style="width:200px">
           <p>Med min- och maxdatum</p>
 
-          <vgr-monthpicker [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" (selectedDateChanged)="lastSelectedDate=$event"></vgr-monthpicker>
+          <vgr-monthpicker [minDate]="firstOfMay2015" [maxDate]="lastOfMarch2016" (selectedDateChanged)="lastSelectedDate=$event" noMonthSelectedLabel="Välj period"></vgr-monthpicker>
         </div>
         <div>
           <p>Här är
@@ -110,7 +110,6 @@
         </div>
         <div>
           <p>Här är kalendern satt i readonly-läge och inget datum valt</p>
-
         </div>
       </div>
     </div>
@@ -146,6 +145,14 @@
         <td>toolTipDateFormat : string</td>
         <td>defaultvärde: 'MMMM yyyy', här kan man sätta hur datumet skall presenteras när man hovrar över det</td>
         <td>[toolTipDateFormat]="'MMMM'"</td>
+      </tr>
+      <tr>
+        <td>
+          noMonthSelectedLabel : string
+        </td>
+        <td>Värde för att sätta vilken text det skall stå i monthpickern då man inte valt något värde
+        </td>
+        <td>noMonthSelectedLabel="Välj period"</td>
       </tr>
       <tr>
         <td>minDate : Date</td>
@@ -194,6 +201,23 @@
     </table>
   </div>
   <div class="docs__wcag">
-    <i>Under utveckling</i>
+    <ul>
+      <li>
+        <strong>Enter</strong> och
+        <strong>Space</strong> öppnar kalendern. När kalendern öppnas så sätts fokus på vald månad, annars på nuvarande månad.</li>
+      <li>
+        <strong>Escape</strong> stänger kalendern utan att göra något val.</li>
+      <li>Navigera mellan månader med hjälp av piltangenterna.</li>
+      <li>
+        <strong>Home</strong> och
+        <strong>End</strong> navigerar till årets första respektive sista månad.</li>
+      <li>
+        <strong>PageUp</strong> och
+        <strong>PageDown</strong> navigerar till föregående respektive nästa år.</li>
+      <li>
+        <strong>Enter</strong> och
+        <strong>Space</strong> väljer fokuserad månad och stänger kalendern.</li>
+    </ul>
+
   </div>
 </app-component-docs>
