@@ -6,11 +6,10 @@ $primary-color--green:#334455;
   margin-left: $margin--fat;
 }
 
-app-start {
-  ol {
-    list-style-type: decimal;
-    li {
-      margin: 1em;
-    }
+ol {
+  list-style-type: decimal;
+  li {
+    margin: 1em;
+    max-width: 600px;
   }
 }
