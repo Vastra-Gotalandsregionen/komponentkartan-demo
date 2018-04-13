@@ -160,17 +160,8 @@ export class ReactiveformsexampleComponent implements OnInit {
         this.formSubmitted = true;
     }
 
-    onResetUpdateOnBlurForm() {
-        this.updateOnBlurForm.reset();
-    }
-
     onResetUpdateOnSubmitForm() {
-        this.updateOnSubmitForm.reset();
         this.formSubmitted = false;
-    }
-
-    onResetUpdateOnChangeForm() {
-        this.updateOnChangeForm.reset();
     }
 
     onSubmitUpdateOnBlurForm() {
