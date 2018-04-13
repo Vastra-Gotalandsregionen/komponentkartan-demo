@@ -24,6 +24,7 @@ export class ExamplesListwithlistsComponent {
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
+  removedObject: String;
 
   constructor(private changeDetector: ChangeDetectorRef, private unitService: UnitService, public modalService: ModalService) {
     this.includeInactiveUnits = false;
@@ -95,6 +96,11 @@ export class ExamplesListwithlistsComponent {
     this.modalService.openDialog('deleteRowModal');
   }
 
+  notifyOnDelete(row: any) {
+    this.removedObject = row;
+    this.listData = this.listData.filter(i => i !== row);
+  }
+
   getPrintText(): string {
     let result;
     if (this.allChecked) {
@@ -118,12 +124,18 @@ export class ExamplesListwithlistsComponent {
     this.modalService.closeDialog('deleteRowModal');
   }
 
+  archiveSelecteRows() {
+    this.modalService.openDialog('arkiveraRowModal');
+  }
+
   removeSelectedRows() {
     this.selectedRows.forEach(x => {
       x.notifyOnRemove(x.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
       x.previewObject.vald = false;
       x.previewObject.deleted = true;
     });
+
+    this.modalService.closeDialog('arkiveraRowModal');
   }
 
   printSelectedRows() {
@@ -133,7 +145,6 @@ export class ExamplesListwithlistsComponent {
 
 
   closeModal(modalId: string) {
-
     this.modalService.closeDialog(modalId);
   }
 

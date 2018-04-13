@@ -10,7 +10,7 @@
         </div>
         <div class="row-layout action-panel-buttons">
           <vgr-button [disabled]="selectedRows.length === 0" (click)="modalService.openDialog('printModal')">Skriv ut</vgr-button>
-          <vgr-button [disabled]="selectedRows.length === 0" (click)="removeSelectedRows()">Arkivera</vgr-button>
+          <vgr-button [disabled]="selectedRows.length === 0" (click)="archiveSelecteRows()">Arkivera</vgr-button>
         </div>
       </div>
       <vgr-checkbox (checkedChanged)="includeInactiveUnits = $event" [checked]="includeInactiveUnits" [label]="'Inkludera stängda enheter'"></vgr-checkbox>
@@ -41,7 +41,7 @@
           <vgr-list-column-header width="1" align="center"></vgr-list-column-header>
           <vgr-list-column-header-checkbox width="1" align="center" [checked]="allChecked" (checkedChanged)="onListCheckedChanged($event)"></vgr-list-column-header-checkbox>
         </vgr-list-header>
-        <vgr-list-item *ngFor="let row of listData | unitfilter2: includeInactiveUnits" [notification]="row.notification">
+        <vgr-list-item *ngFor="let row of listData | unitfilter2: includeInactiveUnits" [notification]="row.notification" (deleted)="notifyOnDelete(row)">
           <vgr-list-item-header>
             <vgr-list-column [text]="row.previewObject.enhet" width="10"></vgr-list-column>
             <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
@@ -205,5 +205,14 @@
   <vgr-modal-footer>
     <vgr-button [secondary]="true" (click)="removeSelectedRow()">Ja</vgr-button>
     <vgr-button [secondary]="true" default="true" (click)="closeModal('deleteRowModal')">Nej</vgr-button>
+  </vgr-modal-footer>
+</vgr-modal>
+
+<vgr-modal id="arkiveraRowModal">
+  <vgr-modal-header>Arkivera</vgr-modal-header>
+  <vgr-modal-content>Vill du arkivera {{getPrintText()}}?</vgr-modal-content>
+  <vgr-modal-footer>
+    <vgr-button [secondary]="true" (click)="removeSelectedRows()">Ja</vgr-button>
+    <vgr-button [secondary]="true" default="true" (click)="closeModal('arkiveraRowModal')">Nej</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
