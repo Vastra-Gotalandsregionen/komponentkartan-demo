@@ -132,7 +132,7 @@ export class ExamplesListwithlistsComponent {
     this.selectedRows.forEach(x => {
       x.notifyOnRemove(x.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
       x.previewObject.vald = false;
-      x.previewObject.deleted = true;
+      x.previewObject.isActive = false;
     });
 
     this.modalService.closeDialog('arkiveraRowModal');
