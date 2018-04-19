@@ -32,7 +32,7 @@ export class RadiobuttonsComponent implements OnInit {
   }
 
   rensaVal() {
-    this.form.get('optional').setValue('Val 1');
+    this.form.get('optional').reset();
   }
 
 }
