@@ -552,7 +552,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.updateRowValues(row);
 
     this.cardLocked = true;
-    row.notifyOnCollapse(row.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green', true);
+    row.notifyOnCollapse(row.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green');
+  }
+
+  removeNotification(event, row) {
+    if (event === null) {
+      row.removeNotification();
+    }
   }
 
   onCardUnlocked() {
