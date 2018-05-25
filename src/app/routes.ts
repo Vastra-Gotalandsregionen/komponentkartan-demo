@@ -40,6 +40,7 @@ import { ExamplesListwithcardsComponent } from './examples-listwithcards/example
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
 import { TableComponent } from './table/table.component';
 import { TextareafieldComponent } from './textareaField/textareafield.component';
+import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
@@ -86,5 +87,6 @@ export const appRoutes: Routes = [
     { path: 'examples-listwithcards', component: ExamplesListwithcardsComponent },
     { path: 'examples-listwithlists', component: ExamplesListwithlistsComponent },
     { path: 'actionPanels', component: ActionPanelsComponent },
+    { path: 'ring-with-text', component: RingWithTextComponent },
     { path: '**', redirectTo: '/' }
 ];

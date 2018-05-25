@@ -70,6 +70,7 @@ import { UnitService } from './examples-listwithlists/unitService';
 
 import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
+import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 
 @NgModule({
     declarations: [
@@ -116,7 +117,8 @@ import { TableComponent } from './table/table.component';
         ActionPanelsComponent,
         ClosebuttonComponent,
         TableComponent,
-        TextareafieldComponent
+        TextareafieldComponent,
+        RingWithTextComponent
     ],
     imports: [
         KomponentkartanModule,
