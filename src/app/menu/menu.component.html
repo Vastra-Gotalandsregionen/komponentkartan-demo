@@ -1,5 +1,5 @@
 <vgr-page class="no-sort">
-  <vgr-page-header [title]="'Menu'">
+  <vgr-page-header [title]="'List'">
   </vgr-page-header>
   <vgr-page-body>
     <vgr-page-block>
@@ -45,7 +45,7 @@
                   <vgr-menu-item link="/menu" text="Menu item 4" notification="422" notificationTooltip="Detta är en tooltip" notificationColor="default"></vgr-menu-item>
                   <vgr-menu-item link="#" text="Menu item 5" [disabled]="!browserIsIE" disabledTooltip="Endast tillgängligt i IE"></vgr-menu-item>
                   <vgr-menu-item link="#" text="Menu item 6" collapsable="true"></vgr-menu-item>
-                  <vgr-menu-item link="#" text="Menu item 7" disabled="true" disabledTooltip="Alltid inaktivt" notification="12" notificationTooltip="Detta är ytterligare en tooltip"
+                  <vgr-menu-item link="/dummy" text="Menu item 7" [disabled]="true" disabledTooltip="Alltid inaktivt" notification="12" notificationTooltip="Detta är ytterligare en tooltip"
                     notificationColor="error"></vgr-menu-item>
                   <vgr-menu-separator></vgr-menu-separator>
                   <vgr-submenu text="Submenu">
@@ -64,7 +64,7 @@
             </div>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
             <h4>API - vgr-menu</h4>
           </vgr-list-item-header>
@@ -83,7 +83,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
             <h4>API - vgr-menu-item</h4>
           </vgr-list-item-header>
@@ -132,7 +132,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
             <h4>API - vgr-menu-separator</h4>
           </vgr-list-item-header>
@@ -149,7 +149,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
             <h4>API - vgr-submenu</h4>
           </vgr-list-item-header>
@@ -174,7 +174,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item [expanded]="false ">
           <vgr-list-item-header>
             <h4>API - vgr-sidebar-menu</h4>
           </vgr-list-item-header>
@@ -190,32 +190,6 @@
                 </td>
               </tr>
             </table>
-          </vgr-list-item-content>
-        </vgr-list-item>
-        <vgr-list-item [expanded]="false">
-          <vgr-list-item-header>
-            <h4>Tillgänglighet</h4>
-          </vgr-list-item-header>
-          <vgr-list-item-content>
-            <div class="docs__wcag">
-              <ul>
-                <li>
-                  <strong>Enter</strong> och
-                  <strong>Space</strong> navigerar till fokuserat menyval. Om fokuserat menyval har undermenyer ändras fokuserat menyval till
-                  första underliggande menyvalet.</li>
-                <li>
-                  <strong>Pil upp</strong> och
-                  <strong>Pil ner</strong> fokuserar föregående respektive nästa menyval.</li>
-                <li>
-                  <strong>Home</strong> och
-                  <strong>End</strong> fokuserar menyns första respektive sista menyval.</li>
-                <li>
-                  <strong>Shift + Tab</strong> och
-                  <strong>Tab</strong> fokuserar föregående respektive nästa menyval.</li>
-                <li>
-                  <strong>Escape</strong> stänger fokuserat undermenyval och fokuserar menygruppens huvudmenyval.</li>
-              </ul>
-            </div>
           </vgr-list-item-content>
         </vgr-list-item>
       </vgr-list>

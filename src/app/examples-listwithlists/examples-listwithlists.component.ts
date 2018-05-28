@@ -1,7 +1,6 @@
 import { Component, Output, ChangeDetectorRef } from '@angular/core';
-import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow } from 'vgr-komponentkartan';
+import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow, ModalService } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
-import { ModalService } from 'vgr-komponentkartan';
 import { UnitService } from './unitService';
 
 @Component({
@@ -24,12 +23,16 @@ export class ExamplesListwithlistsComponent {
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
-  removedObject: String;
 
   constructor(private changeDetector: ChangeDetectorRef, private unitService: UnitService, public modalService: ModalService) {
     this.includeInactiveUnits = false;
     this.items = Array(3).fill(0).map((x, i) => i);
   }
+
+  ngOnInit() {
+    // this.searchForUnits();
+  }
+
   get allChecked() {
     if (this.listData.length === 0 || this.listData.every(r => r.previewObject.deleted)) {
       return false;
@@ -60,16 +63,18 @@ export class ExamplesListwithlistsComponent {
           this.listData = [];
           this.noSearchResult = true;
         }
-        this.loading = false;
+        setTimeout(() => {
+          this.loading = false;
+        }, 400);
       });
   }
 
   private mapToListItems(enheter: ExampleUnit[]) {
     this.listData = enheter.filter(x => !x.deleted).map(x => new ExpandableRow<ExampleUnit, any>(x));
     this.listData.forEach(element => {
-      if (this.getRandomInt(0, 5) === 2) {
-        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
-      }
+      // if (this.getRandomInt(0, 5) === 2) {
+      //   element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
+      // }
     });
   }
 
@@ -96,11 +101,6 @@ export class ExamplesListwithlistsComponent {
     this.modalService.openDialog('deleteRowModal');
   }
 
-  notifyOnDelete(row: any) {
-    this.removedObject = row;
-    this.listData = this.listData.filter(i => i !== row);
-  }
-
   getPrintText(): string {
     let result;
     if (this.allChecked) {
@@ -124,18 +124,12 @@ export class ExamplesListwithlistsComponent {
     this.modalService.closeDialog('deleteRowModal');
   }
 
-  archiveSelecteRows() {
-    this.modalService.openDialog('arkiveraRowModal');
-  }
-
   removeSelectedRows() {
     this.selectedRows.forEach(x => {
       x.notifyOnRemove(x.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
       x.previewObject.vald = false;
-      x.previewObject.isActive = false;
+      x.previewObject.deleted = true;
     });
-
-    this.modalService.closeDialog('arkiveraRowModal');
   }
 
   printSelectedRows() {
@@ -145,6 +139,7 @@ export class ExamplesListwithlistsComponent {
 
 
   closeModal(modalId: string) {
+
     this.modalService.closeDialog(modalId);
   }
 

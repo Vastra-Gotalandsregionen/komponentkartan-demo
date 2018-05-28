@@ -1,12 +1,9 @@
 // Core
 import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Core
 import { appRoutes } from './routes';
 
 // Komponentkartan
@@ -61,13 +58,13 @@ import { SizesComponent } from './sizes/sizes.component';
 import { MenuComponent } from './menu/menu.component';
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
-import { TextareafieldComponent } from './textareaField/textareafield.component';
+import { FilterTagComponent } from './filter-tag/filter-tag.component';
 
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
 import { UnitService } from './examples-listwithlists/unitService';
-
+import { TextareafieldComponent } from './textareaField/textareafield.component';
 import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
@@ -118,6 +115,7 @@ import { RingWithTextComponent } from './ring-with-text/ring-with-text.component
         ClosebuttonComponent,
         TableComponent,
         TextareafieldComponent,
+        FilterTagComponent,
         RingWithTextComponent
     ],
     imports: [

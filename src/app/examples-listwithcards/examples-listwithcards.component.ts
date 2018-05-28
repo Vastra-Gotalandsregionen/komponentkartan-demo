@@ -43,6 +43,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   agarOwnerForm: FormGroup;
   onChangeForm: FormGroup;
   userFormSubmitted = false;
+  listNotification = null;
 
   @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
   @ViewChild(ListComponent) listComponent: ListComponent;
@@ -547,7 +548,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.submitted = true;
 
     if (!this.editprivateOwnerForm.valid || !this.editUnitForm.valid) {
-      this.saveCancelComponent.unlocked = true;
+      this.saveCancelComponent.locked = false;
       return;
     }
     this.updateRowValues(row);
@@ -556,7 +557,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     row.notifyOnCollapse(row.previewObject.enhet + ' sparades', 'vgr-icon-ok-check-green');
   }
 
-  removeNotification(event, row) {
+  removeNotification(event, row){
     if (event === null) {
       row.removeNotification();
     }

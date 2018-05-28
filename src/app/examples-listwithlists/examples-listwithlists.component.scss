@@ -3,6 +3,7 @@
   padding-top: 20px;
   display: flex;
   justify-content: center;
+  &[hidden] { display: none !important;}
 }
 
 .action-panel-buttons {
@@ -18,10 +19,9 @@
   padding-bottom: $margin--slim;
 }
 
-/deep/ .adjust-chevron .expandable-div-header .expandable-div-chevron {
-  top: -3px;
-}
-
+// /deep/ .adjust-chevron .expandable-div-header .expandable-div-chevron {
+//   top: -3px;
+// }
 @media screen and (min-width: $desktop-width--medium) {
   .loader-container {
     padding-top: 40px;
@@ -32,8 +32,7 @@
   }
   .action-panel-buttons {
     right: $margin--fat;
-  }
-  /deep/ .adjust-chevron .expandable-div-header .expandable-div-chevron {
-    top: 0px;
-  }
+  } // /deep/ .adjust-chevron .expandable-div-header .expandable-div-chevron {
+  //   top: 0px;
+  // }
 }

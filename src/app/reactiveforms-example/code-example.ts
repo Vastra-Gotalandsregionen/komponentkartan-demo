@@ -48,7 +48,7 @@ export class Examples {
           <vgr-textarea formControlName="textarea" [showValidation]="updateOnChangeForm.controls.textarea.dirty"></vgr-textarea>
         </vgr-title-value>
       </vgr-title-value-layout>
-      <vgr-button type="reset" (click)="onResetUpdateOnChangeForm()">Reset form</vgr-button>
+      <vgr-button (click)="onResetUpdateOnChangeForm()">Reset form</vgr-button>
       <vgr-button [disabled]="false">Skapa användare</vgr-button>
     </form>`;
   htmlOnSubmitFormMarkup = ` <h1>On Submit</h1>
@@ -96,8 +96,8 @@ export class Examples {
           <vgr-textarea formControlName="textarea" [showValidation]="formSubmitted"></vgr-textarea>
         </vgr-title-value>
       </vgr-title-value-layout>
-      <vgr-button type="reset" (click)="onResetUpdateOnSubmitForm()">Reset form</vgr-button>
-      <vgr-button type="submit" (click)="onSubmit()">Submit</vgr-button>
+      <vgr-button (click)="onResetUpdateOnSubmitForm()">Reset form</vgr-button>
+      <button type="submit" (click)="onSubmit()">Submit</button>
     </form>`;
 
   htmlOnBlurFormMarkup = `
@@ -149,7 +149,7 @@ export class Examples {
           <vgr-textarea formControlName="textarea" [showValidation]="updateOnBlurForm.controls.textarea.touched"></vgr-textarea>
         </vgr-title-value>
       </vgr-title-value-layout>
-      <vgr-button type="reset" (click)="onResetUpdateOnBlurForm()">Reset form</vgr-button>
+      <vgr-button (click)="onResetUpdateOnBlurForm()">Reset form</vgr-button>
       <vgr-button [disabled]="false">Skapa användare</vgr-button>
     </form>`;
 
@@ -344,7 +344,7 @@ function validateNumber(control: AbstractControl) {
     return { invalidNumber: true };
 }
 
-
+    
     `;
 }
 

@@ -53,7 +53,7 @@
                 <vgr-textarea formControlName="textarea" [showValidation]="updateOnBlurForm.controls.textarea.touched"></vgr-textarea>
               </vgr-title-value>
             </vgr-title-value-layout>
-            <vgr-button type="reset">Reset form</vgr-button>
+            <vgr-button (click)="onResetUpdateOnBlurForm()">Reset form</vgr-button>
             <vgr-button (click)="onSubmitUpdateOnBlurForm()" [disabled]="false">Skapa användare</vgr-button>
           </form>
         </vgr-card-column>
@@ -103,7 +103,7 @@
                 <vgr-textarea formControlName="textarea" [showValidation]="formSubmitted"></vgr-textarea>
               </vgr-title-value>
             </vgr-title-value-layout>
-            <vgr-button type="reset" (click)="onResetUpdateOnSubmitForm()">Reset form</vgr-button>
+            <vgr-button (click)="onResetUpdateOnSubmitForm()">Reset form</vgr-button>
             <vgr-button type="submit" (click)="onSubmit()">Submit</vgr-button>
           </form>
         </vgr-card-column>
@@ -135,7 +135,8 @@
                   [items]="dropdownItems"></vgr-dropdown>
               </vgr-title-value>
               <vgr-title-value title="Intressen">
-                <vgr-dropdown-multiselect formControlName="interests" [items]="dropdownItemsMulti" [showValidation]="updateOnChangeForm.controls.interests.dirty"></vgr-dropdown-multiselect>
+                <vgr-dropdown-multiselect formControlName="interests" [items]="dropdownItemsMulti" [showValidation]="updateOnChangeForm.controls.interests.dirty">
+                </vgr-dropdown-multiselect>
               </vgr-title-value>
               <vgr-title-value title="Du måste kryssa i mig!">
                 <vgr-checkbox formControlName="check" [label]=" 'Ok!' "></vgr-checkbox>
@@ -158,7 +159,7 @@
                 <vgr-textarea formControlName="textarea" [showValidation]="updateOnChangeForm.controls.textarea.dirty"></vgr-textarea>
               </vgr-title-value>
             </vgr-title-value-layout>
-            <vgr-button type="reset">Reset form</vgr-button>
+            <vgr-button (click)="onResetUpdateOnChangeForm()">Reset form</vgr-button>
             <vgr-button [disabled]="false">Skapa användare</vgr-button>
           </form>
         </vgr-card-column>

@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 
 // Domain
 import { InputfieldsComponent } from './inputfields/inputfields.component';
+import { TextareafieldComponent } from './textareaField/textareafield.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { ColoursComponent } from './colours/colours.component';
@@ -39,15 +40,16 @@ import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpa
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
 import { TableComponent } from './table/table.component';
-import { TextareafieldComponent } from './textareaField/textareafield.component';
-import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
+import { FilterTagComponent } from './filter-tag/filter-tag.component';
 
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
+import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
+    { path: 'textareaField', component: TextareafieldComponent },
     { path: 'icons', component: IconsComponent },
     { path: 'textbuttons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
@@ -62,8 +64,8 @@ export const appRoutes: Routes = [
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
     { path: 'lists', component: ListsComponent },
-    { path: 'listexample-notifications', component: ListexamplewithrownotificationComponent },
     { path: 'listexample-notification', component: ListexampleComponent },
+    { path: 'listexample-notifications', component: ListexamplewithrownotificationComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
@@ -71,7 +73,6 @@ export const appRoutes: Routes = [
     { path: 'backtotop', component: BacktotopComponent },
     { path: '', component: StartComponent },
     { path: 'table', component: TableComponent },
-    { path: 'textarea', component: TextareafieldComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
@@ -87,6 +88,7 @@ export const appRoutes: Routes = [
     { path: 'examples-listwithcards', component: ExamplesListwithcardsComponent },
     { path: 'examples-listwithlists', component: ExamplesListwithlistsComponent },
     { path: 'actionPanels', component: ActionPanelsComponent },
+    { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },
     { path: '**', redirectTo: '/' }
 ];

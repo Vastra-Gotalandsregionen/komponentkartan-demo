@@ -51,7 +51,7 @@
         <div style="width:200px">
           <p>Med min- och maxdatum innan innevarande datum.</p>
 
-          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" (selectedDateChanged)="lastselectedDate=$event" noDateSelectedLabel="Välj dag"></vgr-datepicker>
+          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" (selectedDateChanged)="lastselectedDate=$event" noDateSelectedLabel="Välj ett datum"></vgr-datepicker>
         </div>
         <div>
           <p>Här är
@@ -116,7 +116,7 @@
     <div>
       <br>
       <p>Växla readonly och disabled</p>
-      <vgr-lock-button [unlocked]="false" (lockChanged)="isReadonlyAndDisabled = !isReadonlyAndDisabled;"></vgr-lock-button>
+      <vgr-lock-button (lockChanged)="isReadonlyAndDisabled = !isReadonlyAndDisabled;"></vgr-lock-button>
     </div>
     <div style="margin-top:20px">
       <span>Senast valt datum: </span>
@@ -147,14 +147,6 @@
         <td>
           [selectedDateFormat]=yyyymmDD
         </td>
-      </tr>
-      <tr>
-        <td>
-          noDateSelectedLabel : string
-        </td>
-        <td>Värde för att sätta vilken text det skall stå i datepickern då man inte valt något värde
-        </td>
-        <td>noDateSelectedLabel="Välj dag"</td>
       </tr>
       <tr>
         <td>minDate: Date</td>
@@ -216,28 +208,8 @@
     </table>
   </div>
   <div class="docs__wcag">
-    <ul>
-      <li>
-        <strong>Enter</strong> och
-        <strong>Space</strong> öppnar kalendern. När kalendern öppnas så sätts fokus på vald dag, annars på dagens datum.</li>
-      <li>
-        <strong>Escape</strong> stänger kalendern utan att göra något val.</li>
-      <li>Navigera mellan dagar med hjälp av piltangenterna.</li>
-      <li>
-        <strong>Home</strong> och
-        <strong>End</strong> navigerar till månadens första respektive sista dag.</li>
-      <li>
-        <strong>Ctrl + Home</strong> och
-        <strong>Ctrl + End</strong> navigerar till årets första respektive sista dag.</li>
-      <li>
-        <strong>PageUp</strong> och
-        <strong>PageDown</strong> navigerar till föregående respektive nästa månad.</li>
-      <li>
-        <strong>Shift + PageUp</strong> och
-        <strong>Shift + PageDown</strong> navigerar till samma datum föregående repsktive nästkommande år.</li>
-      <li>
-        <strong>Enter</strong> och
-        <strong>Space</strong> väljer fokuserad dag och stänger kalendern.</li>
-    </ul>
+    <p>
+      <i>Under utveckling</i>
+    </p>
   </div>
 </app-component-docs>
