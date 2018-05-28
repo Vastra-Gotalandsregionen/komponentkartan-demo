@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow } from 'vgr-komponentkartan';
+import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, ListComponent } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
@@ -45,6 +45,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
   userFormSubmitted = false;
 
   @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
+  @ViewChild(ListComponent) listComponent: ListComponent;
   @ViewChild('unitVersions') unitVersions: DropdownComponent;
 
   validationMessages = {
@@ -644,6 +645,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     this.actionPanelClose();
     this.newUnit = null;
+    this.listComponent.animateHeader();
   }
 
   onActionPanelClose() {
