@@ -9,6 +9,9 @@ import { ModalService, IHeaderMenu, IHeaderMenuItem } from 'vgr-komponentkartan'
 })
 
 export class KomponentkartanApplicationComponent implements OnInit {
+
+    currentVersion: string;
+
     constructor(private router: Router) { }
 
     ngOnInit() {
