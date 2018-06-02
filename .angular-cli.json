@@ -28,7 +28,7 @@
         "../node_modules/vgr-komponentkartan/assets/"
       ]
     },
-    "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/scripts/_objects.back-to-top.js"],
+    "scripts": ["../node_modules/jquery/dist/jquery.min.js", "../node_modules/vgr-komponentkartan/lib/scripts/_objects.back-to-top.js"],
     "environmentSource": "environments/environment.ts",
     "environments": {
       "dev": "environments/environment.ts",
