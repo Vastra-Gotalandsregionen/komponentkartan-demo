@@ -1,10 +1,7 @@
 <app-component-docs [componentName]="'back to top'">
   <div class=" docs__overview ">
     <p>Knapp som vid klick för användaren tillbaka till toppen på sidan. När man scrollar neråt visas back-to-top komponenten
-      och ger en genväg till toppen av sidan. Back to top aktiveras om en sida använder komponenten
-      <a href="/lists ">
-        <code> &lt;vgr-list&gt;</code>
-      </a>
+      och ger en genväg till toppen av sidan. Back to top aktiveras när man scrollat ner några pixlar från toppen av sidan.
     </p>
     <br>
     <div class="back-to-top back-to-top--inline "></div>
@@ -62,12 +59,12 @@
       lorem non, gravida tempor elit. Vestibulum at accumsan lectus, nec gravida neque. Vivamus ornare a lacus a elementum.</i>
   </div>
   <div class="docs__api ">
-    <p> För att aktivera funktionen måste ett script inkluderas via index.html eller angular-cli.json:</p>
-    <code>angular-cli.json => "scripts ": ["../node_modules/jquery/dist/jquery.min.js ", "../node_modules/vgr-komponentkartan//scripts/_objects.back-to-top.js
-      "]
-    </code>
+    <p>För att aktivera funktionen måste man inkudera
+      <code>&lt;vgr-scroll-to-top&gt;&lt;/vgr-scroll-to-top&gt;</code> i app.component.html eller på en specifik sida om man inte
+      vill att den skall ligga globalt.
+    </p>
   </div>
   <div class="docs__wcag ">
-    <i>Ej aktuellt, då detta enbart är javascript</i>
+    <i>Ej aktuellt.</i>
   </div>
 </app-component-docs>
