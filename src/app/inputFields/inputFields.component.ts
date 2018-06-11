@@ -1,13 +1,14 @@
+
+import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
 import { ErrorHandler, InputComponent } from 'vgr-komponentkartan';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-inputfields',
@@ -158,9 +159,9 @@ function validateAsyncCityName(): AsyncValidatorFn {
   const service = new CityService();
 
   return (control: AbstractControl) => {
-    return service.getAsyncCities().map(cities => {
+    return service.getAsyncCities().pipe(map(cities => {
       return cities.filter(x => x.city === control.value).length > 0 ? null : { 'invalidCity': { value: control.value } };
-    });
+    }));
   };
 }
 
