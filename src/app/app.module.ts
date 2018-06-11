@@ -13,8 +13,8 @@ import { KomponentkartanModule } from 'vgr-komponentkartan';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 // Pipe
-import { UnitFilterPipe } from './examples-listwithcards/UnitFilterPipe';
-import { UnitFilter2Pipe } from './examples-listwithlists/UnitFilterPipe';
+import { UnitFilterPipe } from './examples-listwithcards/unitfilterpipe';
+import { UnitFilter2Pipe } from './examples-listwithlists/unitfilterpipe';
 
 
 // Domain
