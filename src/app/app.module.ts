@@ -70,6 +70,11 @@ import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 
+// Locale registration
+import { registerLocaleData } from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
+registerLocaleData(localeSv);
+
 @NgModule({
     declarations: [
         KomponentkartanApplicationComponent,
