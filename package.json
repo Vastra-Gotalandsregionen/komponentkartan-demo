@@ -32,9 +32,9 @@
     "ngx-perfect-scrollbar": "^5.3.5",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
+    "vgr-komponentkartan": "^3.0.0-beta10",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.26",
-    "vgr-komponentkartan": "^3.0.0-beta9"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.6.7",
