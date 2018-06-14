@@ -1,18 +1,27 @@
 <app-component-docs [componentName]="'Toggle button'">
   <div class="docs__overview">
-    <div>
-      <vgr-toggle-button-group [width]="'500px'">
-        <vgr-toggle-button *ngFor="let state of states" [pressed]="state.state" (click)="toggleStates(state)">{{state.text}}</vgr-toggle-button>
-      </vgr-toggle-button-group>
-    </div>
+    <p>
+      <code>&lt;vgr-toggle-button&gt;</code> är avsedd att användas för att växla mellan olika states.
+      <br> I kombination med
+      <code>&lt;vgr-toggle-button-group&gt;</code>&nbsp;kan knappsegmenten navigeras med piltangenterna.
+    </p>
+    <br>
+    <vgr-toggle-button-group [width]="'200px'">
+      <vgr-toggle-button [pressed]="!active" (click)="active=false">Av</vgr-toggle-button>
+      <vgr-toggle-button [pressed]="active" (click)="active=true">På</vgr-toggle-button>
+    </vgr-toggle-button-group>
+    <br>
+    <p>Förändras med tema:
+      <strong>ja</strong>
+    </p>
   </div>
   <div class="docs__examples">
-    <vgr-toggle-button [pressed]="state" (click)="toggle()">Single toggle button</vgr-toggle-button>
-    <vgr-toggle-button [disabled]="true">Disabled toggle button</vgr-toggle-button>
+    <vgr-toggle-button [pressed]="state" [ariaLabel]="'Av och på toggle button'" (click)="toggle()">{{ state ? 'På' : 'Av'}}</vgr-toggle-button>&nbsp;
+    <vgr-toggle-button [disabled]="true">Disabled</vgr-toggle-button>
     <br>
     <br>
-    <div style="width: 400px;">
-      <vgr-toggle-button-group>
+    <div>
+      <vgr-toggle-button-group [width]="'400px'">
         <vgr-toggle-button *ngFor="let state of states" [pressed]="state.state" (click)="toggleStates(state)">{{state.text}}</vgr-toggle-button>
       </vgr-toggle-button-group>
     </div>
@@ -25,7 +34,12 @@
         <th>Exempel</th>
       </tr>
       <tr>
-        <td>disabled: boolean</td>
+        <td colspan="3">
+          <code>&lt;vgr-toggle-button&gt;</code>
+        </td>
+      </tr>
+      <tr>
+        <td>disabled:&nbsp;boolean</td>
         <td>Inaktivera toggle button. Förvalt värde är
           <code>false</code>.</td>
         <td>[disabled]="true"</td>
@@ -33,11 +47,33 @@
       <tr>
         <td>ariaLabel: string</td>
         <td>Värde för
-          <code>aria-label</code>. Förvalt värde är "Aktivera [text]", där [text] är text content för
+          <code>aria-label</code>. Förvalt värde är "[text] toggle button", där [text] är text content för
           <code>&lt;vgr-toggle-button&gt;</code>.</td>
         <td>[ariaLabel]="En alternativ beskrivning."</td>
       </tr>
+      <tr>
+        <td>pressed: boolean</td>
+        <td>Värde för <code>pressed</code> (knappens state). Förvalt värde är <code>false</code>.</td>
+        <td>[pressed]="false"</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <code>&lt;vgr-toggle-button-group&gt;</code>
+        </td>
+      </tr>
+      <tr>
+        <td>width:&nbsp;string</td>
+        <td>Värde för den totala bredd för alla segment i gruppen. Förvalt värde är "" vilket innebär fullbredd.</td>
+        <td>[width]="'200px'"</td>
+      </tr>
     </table>
   </div>
-  <div class="docs__wcag"></div>
+  <div class="docs__wcag">
+    <p>
+      <code>&lt;vgr-toggle-button&gt;</code> har ett intern element av typen button och har alla dess WSAG egenskaper.  
+      Internt sätts <code>attr.aria-pressed</code> till värdet av input variabeln [pressed]. 
+      Default sätts <code>attr.aria-label</code> till "[text] toggle button", där [text] är content för <code>&lt;vgr-toggle-button&gt;</code>. 
+      Om input variabeln [disabled] sätts till <code>true</code> sätts även <code> aria.aria-disabled</code> till <code>true</code>
+  </p>
+  </div>
 </app-component-docs>
