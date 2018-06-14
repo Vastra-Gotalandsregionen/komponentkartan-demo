@@ -80,7 +80,7 @@
             ],
             "assets": [
               "src/assets",
-              "src/favicon.ico",
+              "src/assets/fav.ico",
               "src/web.config"
             ]
           }
