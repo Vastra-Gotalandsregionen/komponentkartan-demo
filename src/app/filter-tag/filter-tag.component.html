@@ -38,9 +38,9 @@
       </li>
     </ul>
     <br>
-    <br> Avanserat exempel
+    <br> Avancerat exempel
+    <form [formGroup]="searchForm" (ngSubmit)="extendedFilter()" novalidate>
     <div style="margin-bottom: 20px">
-      <form [formGroup]="searchForm" (ngSubmit)="extendedFilter()" novalidate>
         <div style="display: flex; align-items: flex-end">
           <div>
             <div>Namn:</div>
@@ -66,11 +66,11 @@
           <vgr-button (click)="extendedFilter()" style="margin-left: 20px;">Filtrera</vgr-button>
           <vgr-button (click)="removeAllExtendedFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
         </div>
-      </form>
-    </div>
-    <div style="margin-bottom: 20px" *ngIf="extendedFilters.length">
+      </div>
+    </form>
+    <div style="display: block; margin-bottom: 20px" *ngIf="extendedFilters.length">
       <vgr-filter-tag-group>
-        <vgr-filter-tag *ngFor="let filter of extendedFilters" (remove)="removeExtendedFilter(filter)">{{filter.text}}</vgr-filter-tag>
+        <vgr-filter-tag *ngFor="let filter of extendedFilters" (remove)="filter.remove()">{{filter.text}}</vgr-filter-tag>
       </vgr-filter-tag-group>
     </div>
     <ul>

@@ -88,7 +88,7 @@ export class FilterTagComponent implements OnInit {
   extendedFilter() {
     this.extendedFilters = [];
     const name = this.searchForm.get('name');
-    if (name) {
+    if (name.value) {
       const tag = {
         text: `${name.value}`,
         remove: () => this.removeExtendedFilter(name)
@@ -96,7 +96,7 @@ export class FilterTagComponent implements OnInit {
       this.extendedFilters.push(tag);
     }
     const minimumAge = this.searchForm.get('minimumAge');
-    if (minimumAge) {
+    if (minimumAge.value) {
       const tag = {
         text: `Ålder > ${minimumAge.value}`,
         remove: () => this.removeExtendedFilter(minimumAge)
@@ -106,8 +106,8 @@ export class FilterTagComponent implements OnInit {
 
     if (this.extendedFilters.length) {
       this.extendedFilteredValues = this.extendedValues.filter(x =>
-        (minimumAge ? x.age >= minimumAge.value : true) &&
-        (name ? x.firstName.toLowerCase().includes(name.value.toLowerCase())
+        (minimumAge.value ? x.age >= minimumAge.value : true) &&
+        (name.value ? x.firstName.toLowerCase().includes(name.value.toLowerCase())
           || x.surname.toLowerCase().includes(name.value.toLowerCase()) : true)
       );
     } else {
@@ -121,7 +121,7 @@ export class FilterTagComponent implements OnInit {
   }
 
   removeAllExtendedFilters() {
-    this.extendedFilters = [];
-    this.extendedFilteredValues = this.extendedValues.slice();
+    this.searchForm.reset();
+    this.extendedFilter();
   }
 }
