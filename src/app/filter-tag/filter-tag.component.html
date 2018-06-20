@@ -22,7 +22,7 @@
     </div>
     <div style="margin-bottom: 20px" *ngIf="filters.length">
       <vgr-filter-tag-group>
-        <vgr-filter-tag *ngFor="let filter of filters" (remove)="removeFilter()" [disabled]="filter.disabled">{{filter.text}}</vgr-filter-tag>
+        <vgr-filter-tag *ngFor="let filter of filters" (remove)="removeFilter(filter)" [disabled]="filter.disabled">{{filter.text}}</vgr-filter-tag>
       </vgr-filter-tag-group>
     </div>
     <ul>
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div>
-            <div>Ålder:</div>
+            <div>Minimiålder:</div>
             <div>
               <vgr-input formControlName="minimumAge" [small]="true"></vgr-input>
             </div>

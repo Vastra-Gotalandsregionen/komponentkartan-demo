@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, AbstractControl } from '@angular/forms';
+import { Guid } from 'vgr-komponentkartan';
 
 interface FilterTag {
+  id: string;
   text: string;
   remove: () => void;
   disabled: boolean;
@@ -50,8 +52,8 @@ export class FilterTagComponent implements OnInit {
     const name = filterName;
     if (name) {
       const tag = {
-        text: `${name}`,
-        remove: () => this.removeFilter(name)
+        id: Guid.newGuid(),
+        text: `${name}`
       } as FilterTag;
       this.filters.push(tag);
     }
@@ -59,7 +61,7 @@ export class FilterTagComponent implements OnInit {
     this.filterValues();
   }
 
-  removeFilter(filter: any) {
+  removeFilter(filter: FilterTag) {
     this.filters.splice(this.filters.indexOf(filter), 1);
     this.filterValues();
   }
@@ -90,6 +92,7 @@ export class FilterTagComponent implements OnInit {
     const name = this.searchForm.get('name');
     if (name.value) {
       const tag = {
+        id: Guid.newGuid(),
         text: `${name.value}`,
         remove: () => this.removeExtendedFilter(name)
       } as FilterTag;
@@ -98,6 +101,7 @@ export class FilterTagComponent implements OnInit {
     const minimumAge = this.searchForm.get('minimumAge');
     if (minimumAge.value) {
       const tag = {
+        id: Guid.newGuid(),
         text: `Ålder > ${minimumAge.value}`,
         remove: () => this.removeExtendedFilter(minimumAge)
       } as FilterTag;
@@ -107,6 +111,7 @@ export class FilterTagComponent implements OnInit {
     if (women.value) {
       if (women.value) {
         const tag = {
+          id: Guid.newGuid(),
           text: 'Kvinnor',
           remove: () => this.removeExtendedFilter(women)
         } as FilterTag;
@@ -117,6 +122,7 @@ export class FilterTagComponent implements OnInit {
     if (men.value) {
       if (men.value) {
         const tag = {
+          id: Guid.newGuid(),
           text: 'Män',
           remove: () => this.removeExtendedFilter(men)
         } as FilterTag;
