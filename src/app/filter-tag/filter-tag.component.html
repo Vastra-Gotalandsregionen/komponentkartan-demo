@@ -14,17 +14,74 @@
   </div>
   <div class="docs__examples">
     <div style="margin-bottom: 20px">
-      <vgr-input style="display: inline-block" #filterInput></vgr-input>
-      <vgr-button (click)="addFilter(filterInput.value)">Lägg till filter</vgr-button>
-      <vgr-button (click)="removeAllFilters()">Ta bort alla filter</vgr-button>      
+      <div style="font-weight: bold">Simpelt exempel</div>
+      <vgr-input [small]="true" style="display: inline-block; " #filterInput></vgr-input>
+      <vgr-button (click)="addFilter(filterInput.value)" style="margin-left: 10px;">Lägg till filter</vgr-button>
+      <vgr-button (click)="removeAllFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
+      <vgr-button (click)="disableFilters(disabled)" style="margin-left: 20px;">{{disabled ? 'Aktivera' : 'Inaktivera'}} filtertaggar</vgr-button>
     </div>
     <div style="margin-bottom: 20px" *ngIf="filters.length">
       <vgr-filter-tag-group>
-        <vgr-filter-tag *ngFor="let filter of filters" (remove)="removeFilter(filter)">{{filter}}</vgr-filter-tag>
+        <vgr-filter-tag *ngFor="let filter of filters" (remove)="removeFilter(filter)" [disabled]="filter.disabled">{{filter.text}}</vgr-filter-tag>
       </vgr-filter-tag-group>
     </div>
     <ul>
-      <li *ngFor="let value of filteredValues">{{value}}</li>
+      <div *ngIf="filteredValues.length > 0" class="list-row">
+        <div class="list-column" style="font-weight: bold;">Förnamn</div>
+        <div class="list-column" style="font-weight: bold;">Efternamn</div>
+      </div>
+      <li *ngFor="let value of filteredValues">
+        <div class="list-row">
+          <div class="list-column">{{value.firstName}}</div>
+          <div class="list-column">{{value.surname}}</div>
+        </div>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <span style="font-weight: bold">Avancerat exempel</span>
+    <form [formGroup]="searchForm" (ngSubmit)="extendedFilter()" novalidate>
+      <div style="margin-bottom: 20px">
+        <div style="display: flex; align-items: flex-end">
+          <div>
+            <div>Namn:</div>
+            <div>
+              <vgr-input formControlName="name"></vgr-input>
+            </div>
+          </div>
+          <div>
+            <div>Ålder:</div>
+            <div>
+              <vgr-input formControlName="minimumAge" [small]="true"></vgr-input>
+            </div>
+          </div>
+          <div>            
+            <vgr-checkbox formControlName="women" [label]="'Kvinnor'" style="display: inline-block;"></vgr-checkbox>
+            <vgr-checkbox formControlName="men" [label]="'Män'" style="display: inline-block; margin-left: 10px;"></vgr-checkbox>
+          </div>
+          <vgr-button (click)="extendedFilter()" style="margin-left: 20px;">Filtrera</vgr-button>
+          <vgr-button (click)="removeAllExtendedFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
+        </div>
+      </div>
+    </form>
+    <div style="display: block; margin-bottom: 20px" *ngIf="extendedFilters.length">
+      <vgr-filter-tag-group>
+        <vgr-filter-tag *ngFor="let filter of extendedFilters" (remove)="filter.remove()">{{filter.text}}</vgr-filter-tag>
+      </vgr-filter-tag-group>
+    </div>
+    <ul style="margin-bottom: 20px;">
+      <div *ngIf="extendedFilteredValues.length > 0" class="list-row">
+        <div class="list-column" style="font-weight: bold;">Förnamn</div>
+        <div class="list-column" style="font-weight: bold;">Efternamn</div>
+        <div class="list-column" style="font-weight: bold;">Ålder</div>
+      </div>
+      <li *ngFor="let value of extendedFilteredValues">
+        <div class="list-row">
+          <div class="list-column">{{value.firstName}}</div>
+          <div class="list-column">{{value.surname}}</div>
+          <div class="list-column">{{value.age}}</div>
+        </div>
+      </li>
     </ul>
   </div>
   <div class="docs__api">
