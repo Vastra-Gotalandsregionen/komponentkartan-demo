@@ -103,12 +103,34 @@ export class FilterTagComponent implements OnInit {
       } as FilterTag;
       this.extendedFilters.push(tag);
     }
+    const women = this.searchForm.get('women');
+    if (women.value) {
+      if (women.value) {
+        const tag = {
+          text: 'Kvinnor',
+          remove: () => this.removeExtendedFilter(women)
+        } as FilterTag;
+        this.extendedFilters.push(tag);
+      }
+    }
+    const men = this.searchForm.get('men');
+    if (men.value) {
+      if (men.value) {
+        const tag = {
+          text: 'Män',
+          remove: () => this.removeExtendedFilter(men)
+        } as FilterTag;
+        this.extendedFilters.push(tag);
+      }
+    }
 
     if (this.extendedFilters.length) {
       this.extendedFilteredValues = this.extendedValues.filter(x =>
         (minimumAge.value ? x.age >= minimumAge.value : true) &&
         (name.value ? x.firstName.toLowerCase().includes(name.value.toLowerCase())
-          || x.surname.toLowerCase().includes(name.value.toLowerCase()) : true)
+          || x.surname.toLowerCase().includes(name.value.toLowerCase()) : true) &&
+        (women.value && !men.value ? x.gender === 'w' : true) &&
+        (men.value && !women.value ? x.gender === 'm' : true)
       );
     } else {
       this.extendedFilteredValues = this.extendedValues.slice();
