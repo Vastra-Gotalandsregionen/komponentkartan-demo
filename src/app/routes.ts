@@ -45,6 +45,7 @@ import { FilterTagComponent } from './filter-tag/filter-tag.component';
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
+import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 
 export const appRoutes: Routes = [
 
@@ -90,5 +91,6 @@ export const appRoutes: Routes = [
     { path: 'actionPanels', component: ActionPanelsComponent },
     { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },
+    { path: 'togglebutton', component: ToggleButtonComponent },
     { path: '**', redirectTo: '/' }
 ];

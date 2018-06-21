@@ -13,8 +13,8 @@ import { KomponentkartanModule } from 'vgr-komponentkartan';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 // Pipe
-import { UnitFilterPipe } from './examples-listwithcards/UnitFilterPipe';
-import { UnitFilter2Pipe } from './examples-listwithlists/UnitFilterPipe';
+import { UnitFilterPipe } from './examples-listwithcards/unitfilterpipe';
+import { UnitFilter2Pipe } from './examples-listwithlists/unitfilterpipe';
 
 
 // Domain
@@ -68,6 +68,12 @@ import { TextareafieldComponent } from './textareaField/textareafield.component'
 import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
+import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+
+// Locale registration
+import { registerLocaleData } from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
+registerLocaleData(localeSv);
 
 @NgModule({
     declarations: [
@@ -116,7 +122,8 @@ import { RingWithTextComponent } from './ring-with-text/ring-with-text.component
         TableComponent,
         TextareafieldComponent,
         FilterTagComponent,
-        RingWithTextComponent
+        RingWithTextComponent,
+        ToggleButtonComponent
     ],
     imports: [
         KomponentkartanModule,
@@ -131,7 +138,10 @@ import { RingWithTextComponent } from './ring-with-text/ring-with-text.component
         CityService,
         HighlightJsService,
         HtmlEncodeService,
-        UnitService
+        UnitService,
+        {
+            provide: LOCALE_ID, useValue: 'sv-SE'
+        },
     ],
     bootstrap: [KomponentkartanApplicationComponent]
 })
