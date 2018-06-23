@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://vastra-gotalandsregionen.github.io/komponentkartan-demo/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
