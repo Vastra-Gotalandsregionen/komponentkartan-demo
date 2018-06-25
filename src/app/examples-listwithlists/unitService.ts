@@ -26,7 +26,7 @@ export class UnitService {
             'Närhälsan rehabmottagning', 'Närhälsan Kristinedal', 'Janne Karlssons hudvårdsspecialist',
             'Hälsoakuten Mölndal', 'Hälsoakuten Göteborg', 'Hälsoakuten Alingsås',
             'Rehabmottagningen Hemma'];
-        const examplehsaid = 'SE2321000131-E000000011';
+        const examplehsaid = 'SE2329999131-E000000011';
         const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
         let item: ExampleUnit;
 

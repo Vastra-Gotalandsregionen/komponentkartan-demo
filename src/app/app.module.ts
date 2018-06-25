@@ -73,6 +73,7 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 // Locale registration
 import { registerLocaleData } from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
+import { SearchResultComponent } from './search-result/search-result.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -123,7 +124,8 @@ registerLocaleData(localeSv);
         TextareafieldComponent,
         FilterTagComponent,
         RingWithTextComponent,
-        ToggleButtonComponent
+        ToggleButtonComponent,
+        SearchResultComponent
     ],
     imports: [
         KomponentkartanModule,
