@@ -11,7 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 To publish site to github pages install this tool: 
 > `npm i -g angular-cli-ghpages`
 Then run follwing commands in terminal: 
-> `ng build --public`
+> `ng build --configuration=public`
 and `ngh`
 
 ## Code scaffolding
