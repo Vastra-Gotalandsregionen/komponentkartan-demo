@@ -12,7 +12,7 @@ To publish site to github pages install this tool:
 > `npm i -g angular-cli-ghpages`
 Then run follwing commands in terminal: 
 > `ng build --prod`
-> `ngh`
+and `ngh`
 
 ## Code scaffolding
 
