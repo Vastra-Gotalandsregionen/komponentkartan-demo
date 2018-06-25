@@ -63,7 +63,6 @@ export class SearchResultComponent implements OnInit {
       this.dropdownVisible_e1 = false;
       return;
     }
-    console.log('filtersearch: ' + this.items_e2.filter(item => item.displayName.toString().toLowerCase()));
     this.filteredItems = this.items.filter(item => item.displayName.toString().toLowerCase().indexOf(searchText.toLowerCase()) !== -1);
     this.searchDescription_e1 = this.filteredItems.length + ' träffar i "VGR" KIV.';
     this.dropdownVisible_e1 = true;
@@ -71,7 +70,6 @@ export class SearchResultComponent implements OnInit {
 
   filterSearch_e2(event) {
     const searchText = this.filterBoxValue_e2;
-    console.log('hej: ' + searchText);
     this.filteredItems_e2 = this.items_e2.filter(item => item.displayName.toString().toLowerCase().indexOf(searchText.toLowerCase()) !== -1);
     this.dropdownVisible_e2 = true;
   }
