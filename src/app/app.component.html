@@ -1,6 +1,7 @@
 <div id="theme-root" class="theme--neutral">
   <vgr-scroll-to-top></vgr-scroll-to-top>
   <vgr-modal></vgr-modal>
+  <vgr-header [userName]="userName" [systemText]="systemText" textColor="black" circleColor="#f9dede"></vgr-header>
   <vgr-sidebar-menu>
     <vgr-menu title="Innehåll {{currentVersion}}">
       <vgr-menu-item link="/" text="Start"></vgr-menu-item>
@@ -56,6 +57,5 @@
       </vgr-submenu>
     </vgr-menu>
   </vgr-sidebar-menu>
-  <vgr-header></vgr-header>
   <router-outlet></router-outlet>
 </div>

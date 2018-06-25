@@ -8,21 +8,9 @@ declare var require: any;
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent implements OnInit {
-  currentVersion: string;
-  angularVersion: string;
-  angularCliVersion: string;
 
   constructor() {
-    const { dependencies: appVersion } = require('../../../package.json');
-    this.currentVersion = appVersion['vgr-komponentkartan'];
-    this.currentVersion = this.currentVersion.replace('^', '');
 
-    const { version: angularVersion } = require('../../../node_modules/@angular/core/package.json');
-    this.angularVersion = angularVersion;
-
-    const { devDependencies: cliVersion } = require('../../../package.json');
-    this.angularCliVersion = cliVersion['@angular/cli'];
-    this.angularCliVersion = this.angularCliVersion ? this.angularCliVersion.replace('^', '') : this.angularCliVersion;
   }
 
   ngOnInit() {
