@@ -9,7 +9,10 @@ Demo can be found here: https://vastra-gotalandsregionen.github.io/komponentkart
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 To publish site to github pages install this tool: 
-`npm i -g angular-cli-ghpages`
+> `npm i -g angular-cli-ghpages`
+Then run follwing commands in terminal: 
+> `ng build --prod`
+> `ngh`
 
 ## Code scaffolding
 
