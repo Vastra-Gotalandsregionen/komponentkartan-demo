@@ -8,6 +8,9 @@ Demo can be found here: https://vastra-gotalandsregionen.github.io/komponentkart
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+To publish site to github pages install this tool: 
+`npm i -g angular-cli-ghpages`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
