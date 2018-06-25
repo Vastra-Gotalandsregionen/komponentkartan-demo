@@ -46,6 +46,7 @@ import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 export const appRoutes: Routes = [
 
@@ -92,5 +93,6 @@ export const appRoutes: Routes = [
     { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },
     { path: 'togglebutton', component: ToggleButtonComponent },
+    { path: 'search-result', component: SearchResultComponent },
     { path: '**', redirectTo: '/' }
 ];
