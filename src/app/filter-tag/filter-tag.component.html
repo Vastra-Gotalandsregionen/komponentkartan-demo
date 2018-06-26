@@ -14,7 +14,7 @@
   </div>
   <div class="docs__examples">
     <div style="margin-bottom: 20px">
-      <div style="font-weight: bold">Enkelt exempel</div>
+      <div><span style="font-weight: bold">Enkelt exempel</span> - den filtrerade texten finns i För- eller Efternamn.</div>
       <vgr-input [small]="true" style="display: inline-block; " #filterInput></vgr-input>
       <vgr-button (click)="addFilter(filterInput.value)">Lägg till filter</vgr-button>
       <vgr-button (click)="removeAllFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
@@ -38,7 +38,7 @@
       </li>
     </ul>
     <br>
-    <span style="font-weight: bold">Avancerat exempel</span>
+    <div><span style="font-weight: bold">Avancerat exempel</span> - Filtrera på Namn (För- eller Efternamn) samt möjlighet att filtrera på minimiålder och kön.</div>
     <form [formGroup]="searchForm" (ngSubmit)="extendedFilter()" novalidate>
       <div style="margin-bottom: 20px">
         <div style="display: flex; align-items: flex-end">
