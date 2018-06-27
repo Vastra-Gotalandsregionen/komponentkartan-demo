@@ -62,9 +62,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   constructor(private changeDetector: ChangeDetectorRef) {
 
-    this.newUnits = [{ displayName: 'Närhälsan Lerum', value: 'SE2321000131-E000000011801' } as DropdownItem<any>,
-    { displayName: 'Fredriks Rehab/Massage', value: 'SE2321000131-E000000011802' } as DropdownItem<any>,
-    { displayName: 'Bvc för alla', value: 'SE2321000131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.newUnits = [{ displayName: 'Offentlig verksamhet Lerum', value: 'SE2329999131-E000000011801' } as DropdownItem<any>,
+    { displayName: 'Fredriks verksamhet', value: 'SE2328888131-E000000011802' } as DropdownItem<any>,
+    { displayName: 'Verksamhet för alla', value: 'SE2327777131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
 
     this.exampleDetail = {
       enhetschef: 'Sarah Larsson',
@@ -92,17 +92,17 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     } as ExampleUnitDetails;
 
-    this.exampleagare = [{ displayName: 'Närhälsan', value: 'Närhälsan' } as DropdownItem<string>,
-    { displayName: 'Hälsoakuten', value: 'Hälsoakuten' } as DropdownItem<any>,
+    this.exampleagare = [{ displayName: 'Offentlig verksamhet', value: 'Offentlig verksamhet' } as DropdownItem<string>,
+    { displayName: 'Privat verksamhet', value: 'Privat verksamhet' } as DropdownItem<any>,
     { displayName: 'Kalle Karlsson', value: 'Kalle Karlsson' } as DropdownItem<any>,
-    { displayName: 'Närhälsan Rehab', value: 'Närhälsan Rehab' } as DropdownItem<any>,
+    { displayName: 'Offentlig verksamhet Specialist', value: 'Offentlig verksamhet Specialist' } as DropdownItem<any>,
     { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
 
-    this.examplenamnd = [{ displayName: 'Göteborgs hälso- och sjukvårdsnämnden', value: 'Göteborgs hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
-    { displayName: 'Norra hälso- och sjukvårdsnämnden', value: 'Norra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
-    { displayName: 'Södra hälso- och sjukvårdsnämnden', value: 'Södra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
-    { displayName: 'Västra hälso- och sjukvårdsnämnden', value: 'Västra hälso- och sjukvårdsnämnden' } as DropdownItem<string>,
-    { displayName: 'Östra hälso- och sjukvårdsnämnden', value: 'Östra hälso- och sjukvårdsnämnden' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.examplenamnd = [{ displayName: 'Göteborgsnämnden', value: 'Göteborgsnämnden' } as DropdownItem<string>,
+    { displayName: 'Norra nämnden', value: 'Norra nämnden' } as DropdownItem<string>,
+    { displayName: 'Södra nämnden', value: 'Södra nämnden' } as DropdownItem<string>,
+    { displayName: 'Västra nämnden', value: 'Västra nämnden' } as DropdownItem<string>,
+    { displayName: 'Östra nämnden', value: 'Östra nämnden' } as DropdownItem<string>] as DropdownItem<string>[];
 
     this.exempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
     { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
@@ -208,7 +208,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   setAgareDetaljer(unit: ExampleUnit) {
     switch (unit.agare) {
-      case 'Närhälsan': {
+      case 'Offentlig verksamhet': {
         unit.details.agare_form = 'Offentlig';
         unit.details.agare_kod = 1000;
         break;
@@ -223,12 +223,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
         unit.details.agare_kod = 1002;
         break;
       }
-      case 'Närhälsan Rehab': {
+      case 'Offentlig verksamhet Specialist': {
         unit.details.agare_form = 'Offentlig';
         unit.details.agare_kod = 1003;
         break;
       }
-      case 'Hälsoakuten': {
+      case 'Privat verksamhet': {
         unit.details.agare_form = 'Privat';
         unit.details.agare_kod = 1004;
         break;
@@ -242,7 +242,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     let agareform: string;
     let agarekod: number;
     switch (agare) {
-      case 'Närhälsan': {
+      case 'Offentlig verksamhet': {
         agareform = 'Offentlig';
         agarekod = 1000;
         break;
@@ -257,12 +257,12 @@ export class ExamplesListwithcardsComponent implements OnInit {
         agarekod = 1002;
         break;
       }
-      case 'Närhälsan Rehab': {
+      case 'Offentlig verksamhet Specialist': {
         agareform = 'Offentlig';
         agarekod = 1003;
         break;
       }
-      case 'Hälsoakuten': {
+      case 'Privat verksamhet': {
         agareform = 'Privat';
         agarekod = 1004;
         break;
@@ -307,13 +307,13 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   initExampleData() {
     const items: ExampleUnit[] = [];
-    const exampleNames: string[] = ['Närhälsan Mellerud', 'Närhälsan Lunden', 'Närhälsan Kungälv',
-      'Närhälsan psykologenheten för mödravård', 'BB-mottagningen Östra', 'Kalle Karlssons fotvårdsenhet',
-      'Närhälsan rehabmottagning', 'Närhälsan Kristinedal', 'Janne Karlssons hudvårdsspecialist',
-      'Hälsoakuten Mölndal', 'Hälsoakuten Göteborg', 'Hälsoakuten Alingsås',
-      'Rehabmottagningen Hemma'];
+    const exampleNames: string[] = ['Offentlig verksamhet Mellerud', 'Offentlig verksamhet Lunden', 'Offentlig verksamhet Kungälv',
+      'Offentlig verksamhet för mödravård', 'Mottagningen Östra', 'Kalle Karlssons Enhet',
+      'Offentlig verksamhet mottagning', 'Offentlig verksamhet Kristinedal', 'Janne Karlssons Specialist',
+      'Privat verksamhet Mölndal', 'Privat verksamhet Göteborg', 'Privat verksamhet Alingsås',
+      'Mottagningen Hemma'];
     const examplehsaid = 'SE2329999131-E000000011';
-    const examplehenhetskod: number[] = [802200, 663300, 663200, 623300, 627600, 432300, 435600, 806600, 834500, 678500, 458700, 648900, 804500];
+    const examplehenhetskod: number[] = [832203, 693305, 673203, 673303, 627641, 432338, 438900, 936600, 899500, 678599, 998700, 648220, 809999];
     let item: ExampleUnit;
     for (let i = 1; i <= 200; i++) {
       const indexForNames = this.getRandomInt(0, 12);

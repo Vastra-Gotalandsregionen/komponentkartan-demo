@@ -159,11 +159,11 @@
         <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="newCardLocked">
           <form [formGroup]="newUnitForm">
             <vgr-title-value-layout>
-              <vgr-title-value [title]=" 'Medverkan i familjecentral* '" [slim]="newCardLocked">
+              <vgr-title-value [title]=" 'Medverkan i något register* '" [slim]="newCardLocked">
                 <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                   [noItemSelectedLabel]=" 'Välj'" [readonly]="newCardLocked"></vgr-dropdown>
               </vgr-title-value>
-              <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="newCardLocked">
+              <vgr-title-value [title]=" 'Prenumerant på tidning (kr/månad)'" [slim]="newCardLocked">
                 <vgr-input formControlName="regionsovergripandegrupper" [readonly]="newCardLocked"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
@@ -201,8 +201,7 @@
                     <vgr-dropdown #unitVersions (selectedChanged)="onSelectedChangedVersion($event, row.previewObject)" [items]="exempelVersions"></vgr-dropdown>
                   </div>
                   <div class="flex-right">
-                    <vgr-save-cancel [secondary]="true" [locked]="cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)"
-                      (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
+                    <vgr-save-cancel [secondary]="true" [locked]="cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
                   </div>
                 </vgr-card-header>
                 <vgr-card-column>
@@ -326,11 +325,11 @@
                   <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="false" [readonly]="cardLocked">
                     <form [formGroup]="editUnitForm">
                       <vgr-title-value-layout>
-                        <vgr-title-value [title]=" 'Medverkan i familjecentral*'" [slim]="cardLocked">
+                        <vgr-title-value [title]=" 'Medverkan i något register*'" [slim]="cardLocked">
                           <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="editUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                             [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
                         </vgr-title-value>
-                        <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
+                        <vgr-title-value [title]=" 'Prenumerant på tidning (kr/månad)'" [slim]="cardLocked">
                           <vgr-input formControlName="regionsovergripandegrupper" [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
                       </vgr-title-value-layout>
