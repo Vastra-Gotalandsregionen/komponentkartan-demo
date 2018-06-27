@@ -362,7 +362,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     this.exampleData.forEach(element => {
       if (element.previewObject.details.medverkanfamiljecentral === '') {
-        element.setNotification('Information saknas, medverkan i familjecentral ej ifylld', 'vgr-icon-exclamation--red');
+        element.setNotification('Information saknas, medverkan i något register ej ifylld', 'vgr-icon-exclamation--red');
       }
     });
 
