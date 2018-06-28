@@ -64,7 +64,7 @@ import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpa
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
 import { UnitService } from './examples-listwithlists/unitService';
-import { TextareafieldComponent } from './textareaField/textareafield.component';
+import { TextareafieldComponent } from './textareafield/textareafield.component';
 import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';

@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 
 // Domain
 import { InputfieldsComponent } from './inputfields/inputfields.component';
-import { TextareafieldComponent } from './textareaField/textareafield.component';
+import { TextareafieldComponent } from './textareafield/textareafield.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { ColoursComponent } from './colours/colours.component';
@@ -51,7 +51,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
-    { path: 'textareaField', component: TextareafieldComponent },
+    { path: 'textareafield', component: TextareafieldComponent },
     { path: 'icons', component: IconsComponent },
     { path: 'textbuttons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
