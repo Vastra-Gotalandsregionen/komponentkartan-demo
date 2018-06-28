@@ -12,7 +12,10 @@ To publish site to github pages install this tool:
 > `npm i -g angular-cli-ghpages`
 Then run follwing commands in terminal: 
 > `ng build --configuration=public`
-and `ngh`
+and then `ngh`.
+
+Make sure you have your Github credentials setup correctly before you run the command to push.
+git remote set-url origin https://<Username>:<password>@github.com/Vastra-Gotalandsregionen/komponentkartan-demo.git
 
 ## Code scaffolding
 
