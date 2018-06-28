@@ -15,7 +15,7 @@ Then run follwing commands in terminal:
 and then `ngh`.
 
 Make sure you have your Github credentials setup correctly before you run the command to push.
-git remote set-url origin https://<Username>:<password>@github.com/Vastra-Gotalandsregionen/komponentkartan-demo.git
+> `git remote set-url origin https://<Username>:<password>@github.com/Vastra-Gotalandsregionen/komponentkartan-demo.git`
 
 ## Code scaffolding
 
