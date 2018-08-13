@@ -159,11 +159,11 @@
         <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="true" [readonly]="newCardLocked">
           <form [formGroup]="newUnitForm">
             <vgr-title-value-layout>
-              <vgr-title-value [title]=" 'Medverkan i något register* '" [slim]="newCardLocked">
+              <vgr-title-value [title]=" 'Medverkan i familjecentral* '" [slim]="newCardLocked">
                 <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                   [noItemSelectedLabel]=" 'Välj'" [readonly]="newCardLocked"></vgr-dropdown>
               </vgr-title-value>
-              <vgr-title-value [title]=" 'Prenumerant på tidning (kr/månad)'" [slim]="newCardLocked">
+              <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="newCardLocked">
                 <vgr-input formControlName="regionsovergripandegrupper" [readonly]="newCardLocked"></vgr-input>
               </vgr-title-value>
             </vgr-title-value-layout>
@@ -177,20 +177,20 @@
     <vgr-page-block>
       <vgr-list (sortChanged)="onSortChanged($event)" [notification]="listNotification">
         <vgr-list-header>
-          <vgr-list-column-header text="Enhet" width="5" sortKey="enhet" [sortDirection]="sortDirections.Ascending"></vgr-list-column-header>
-          <vgr-list-column-header text="HSA-ID" width="5" align="left" sortKey="hsaid"></vgr-list-column-header>
-          <vgr-list-column-header text="Ägare" width="3" sortKey="agare"></vgr-list-column-header>
-          <vgr-list-column-header text="Enhetskod" align="right" width="2" sortKey="enhetskod"></vgr-list-column-header>
-          <vgr-list-column-header text="Nämnd" width="5" sortKey="namnd"></vgr-list-column-header>
+          <vgr-list-column-header width="5" sortKey="enhet" [sortDirection]="sortDirections.Ascending">Enhet</vgr-list-column-header>
+          <vgr-list-column-header width="5" align="left" sortKey="hsaid">HSA-ID</vgr-list-column-header>
+          <vgr-list-column-header width="3" sortKey="agare">Ägare</vgr-list-column-header>
+          <vgr-list-column-header align="right" width="2" sortKey="enhetskod">Enhetskod</vgr-list-column-header>
+          <vgr-list-column-header width="5" sortKey="namnd">Nämnd</vgr-list-column-header>
         </vgr-list-header>
         <vgr-list-item *ngFor="let row of exampleData | unitfilter:filtertext: includeInactiveUnits" [notification]="row.notification"
           (expandedChanged)="onExpandedChanged($event,row)" (notificationChanged)="removeNotification($event,row)">
           <vgr-list-item-header>
-            <vgr-list-column [text]="row.previewObject.enhet" width="5"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.hsaid" width="5"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.agare" width="3"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.enhetskod" align="right" width="2"></vgr-list-column>
-            <vgr-list-column [text]="row.previewObject.namnd" width="5"></vgr-list-column>
+            <vgr-list-column width="5">{{row.previewObject.enhet}}</vgr-list-column>
+            <vgr-list-column width="5">{{row.previewObject.hsaid}}</vgr-list-column>
+            <vgr-list-column width="3">{{row.previewObject.agare}}</vgr-list-column>
+            <vgr-list-column align="right" width="2">{{row.previewObject.enhetskod}}</vgr-list-column>
+            <vgr-list-column width="5">{{row.previewObject.namnd}}</vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
             <div *ngIf="row.previewObject.vald">
@@ -201,7 +201,8 @@
                     <vgr-dropdown #unitVersions (selectedChanged)="onSelectedChangedVersion($event, row.previewObject)" [items]="exempelVersions"></vgr-dropdown>
                   </div>
                   <div class="flex-right">
-                    <vgr-save-cancel [secondary]="true" [locked]="cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
+                    <vgr-save-cancel [secondary]="true" [locked]="cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)"
+                      (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
                   </div>
                 </vgr-card-header>
                 <vgr-card-column>
@@ -325,11 +326,11 @@
                   <vgr-card-section [title]=" 'Ersättningsgrundande information'" [expanded]="false" [readonly]="cardLocked">
                     <form [formGroup]="editUnitForm">
                       <vgr-title-value-layout>
-                        <vgr-title-value [title]=" 'Medverkan i något register*'" [slim]="cardLocked">
+                        <vgr-title-value [title]=" 'Medverkan i familjecentral*'" [slim]="cardLocked">
                           <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="editUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
                             [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
                         </vgr-title-value>
-                        <vgr-title-value [title]=" 'Prenumerant på tidning (kr/månad)'" [slim]="cardLocked">
+                        <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
                           <vgr-input formControlName="regionsovergripandegrupper" [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
                       </vgr-title-value-layout>
