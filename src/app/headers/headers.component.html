@@ -39,7 +39,7 @@
       <h3>Header med user utan "swosh" (temad röd)</h3>
       <vgr-header class="header--inline theme--red" hideSwosh="true"></vgr-header>
       <h3>Header med egen logotyp utan "swosh" (temad grön)</h3>
-      <vgr-header class="header--inline theme--green" hideSwosh="true" logoImage="https://static1.squarespace.com/static/55368b6de4b0c01655b5cc75/t/5588f942e4b087a1e0957130/1528293301964/"></vgr-header>
+      <vgr-header class="header--inline theme--green" hideSwosh="true" logoImage="/assets/images/Annanlogotyp.svg"></vgr-header>
     </div>
   </div>
   <div class="docs__api">
@@ -80,6 +80,16 @@
         <td>systemText : string</td>
         <td>Text för att påvisa vilken miljö man befinner sig i. Ska inte visas i produktion. Upp till immplementatören. </td>
         <td>[systemtext]="'development'"</td>
+      </tr>
+      <tr>
+        <td>hideSwosh : boolean</td>
+        <td>Möjlighet att dölja "swoshen" som ligger till höger bakom informationen om vem som är inloggad.</td>
+        <td>hideSwosh="true"</td>
+      </tr>
+      <tr>
+        <td>logoImage : string</td>
+        <td>Möjlighet att välja en egen logotyp genom att skicka in en URL till en bildfil.</td>
+        <td>logoImage="http://url.to/logo.png"</td>
       </tr>
     </table>
     <br>
