@@ -19,7 +19,8 @@ export class TableComponent implements OnInit {
     <!-- Lägg rubriktext i kolumn-header här -->
     </vgr-table-header-column>
    </vgr-table-header>
-   <vgr-table-row>
+   <!-- Vill man att det skall gå att nå alla rader genom att tabba med tangentbordet måste man sätta tabindex="0" på vgr-table-row som nedan -->
+   <vgr-table-row tabindex="0">
    <!-- Motsvarar en rad -->
     <vgr-table-row-column>
     <!-- Lägg kolumntext här -->
