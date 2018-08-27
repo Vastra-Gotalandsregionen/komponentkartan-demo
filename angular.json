@@ -83,7 +83,7 @@
             "browserTarget": "komponentkartan-demo:build"
           }
         },
-       
+
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -97,32 +97,8 @@
           }
         }
       }
-    },
-    "komponentkartan-demo-e2e": {
-      "root": "",
-      "sourceRoot": "e2e",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "komponentkartan-demo:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
+
   },
   "defaultProject": "komponentkartan-demo",
   "schematics": {
