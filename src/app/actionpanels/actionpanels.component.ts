@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NotificationType } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
 
@@ -9,10 +8,12 @@ import { HtmlEncodeService } from '../html-encode.service';
 })
 export class ActionPanelsComponent {
 
-  expanded = false;
+  open1 = false;
+  showCloseButton1 = true;
+  open2 = false;
 
   exampleCode = `
-  <vgr-action-panel [showCloseButton]="true" (expandedChanged)="expanded=$event" [expanded]="expanded"
+  <vgr-action-panel [showCloseButton]="true" (openChanged)="open=$event" [open]="open"
     [title]="'Ett exempel på en action panel'">
     <vgr-button>En knapp</vgr-button>
     <p>Lite text...</p>

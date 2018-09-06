@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  ExpandableRow, RowNotification, NotificationType, ModalService,
+  ExpandableRow, ModalService,
   SortChangedArgs, ListHeaderComponent, SortDirection
 } from 'vgr-komponentkartan';
 import { Examples } from '../examples';
@@ -21,18 +21,12 @@ export class ListexamplewithrownotificationComponent {
   readOnly = true;
   actionsVisible: boolean;
   readonly: boolean;
-  panelNotification: RowNotification;
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.typeScriptAdvancedListMarkup =
       htmlEncoder.prepareHighlightedSection(this.examples.typeScriptAdvancedListMarkup, 'typescript');
     this.htmlAdvancedListMarkup =
       htmlEncoder.prepareHighlightedSection(this.examples.htmlAdvancedListMarkup);
-
-    this.panelNotification = {
-      message: 'Panelinformation', icon: 'vgr-icon-message',
-      type: NotificationType.Permanent
-    } as RowNotification;
 
     this.examplePeople = [
       { id: '1', firstName: 'Adam', lastName: 'Andersson' } as ExamplePerson,

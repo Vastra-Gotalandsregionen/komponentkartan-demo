@@ -668,9 +668,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }, 1100);
   }
 
-
-  onPanelExpandedChanged(expanded: boolean) {
-    if (!expanded) {
+  onActionPanelOpenChanged(open: boolean) {
+    if (!open) {
       this.actionPanelClose();
     }
   }
@@ -681,7 +680,4 @@ export class ExamplesListwithcardsComponent implements OnInit {
         row1.previewObject[event.key] < row2.previewObject[event.key] ? (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
     });
   }
-
-
-
 }
