@@ -14,6 +14,7 @@ interface FilterTag {
   styleUrls: ['./filter-tag.component.scss']
 })
 export class FilterTagComponent implements OnInit {
+
   values = [
     { 'firstName': 'Johanna', 'surname': 'Andersson' },
     { 'firstName': 'Anders', 'surname': 'Johansson' },
@@ -27,7 +28,8 @@ export class FilterTagComponent implements OnInit {
   filters: FilterTag[] = [];
   disabled = false;
 
-  extendedValues = [
+  /*** Advanced example *****/
+  advancedExampleValues = [
     { 'firstName': 'Johanna', 'surname': 'Andersson', 'age': 25, 'gender': 'w' },
     { 'firstName': 'Anders', 'surname': 'Johansson', 'age': 51, 'gender': 'm' },
     { 'firstName': 'Elsa', 'surname': 'Andreasson', 'age': 15, 'gender': 'w' },
@@ -35,12 +37,14 @@ export class FilterTagComponent implements OnInit {
     { 'firstName': 'John', 'surname': 'Stark', 'age': 30, 'gender': 'm' },
     { 'firstName': 'Lisa', 'surname': 'Lindgren', 'age': 19, 'gender': 'w' }
   ];
-  extendedFilteredValues = this.extendedValues.slice();
-  extendedFilters: FilterTag[] = [];
-  searchForm: FormGroup;
+  advancedFilteredValues = this.advancedExampleValues.slice();
+  advancedFilterTags: FilterTag[] = [];
+  advancedSearchForm: FormGroup;
+
+  /*****/
 
   ngOnInit() {
-    this.searchForm = new FormGroup({
+    this.advancedSearchForm = new FormGroup({
       name: new FormControl(),
       minimumAge: new FormControl(),
       women: new FormControl(),
@@ -53,7 +57,8 @@ export class FilterTagComponent implements OnInit {
     if (name) {
       const tag = {
         id: Guid.newGuid(),
-        text: `${name}`
+        text: `${name}`,
+        remove: () => this.removeFilter(tag)
       } as FilterTag;
       this.filters.push(tag);
     }
@@ -87,51 +92,53 @@ export class FilterTagComponent implements OnInit {
     this.filters.forEach(x => x.disabled = this.disabled);
   }
 
-  extendedFilter() {
-    this.extendedFilters = [];
-    const name = this.searchForm.get('name');
+  /********** Advanced example withe reactive forms  **********/
+
+  advancedFilter() {
+    this.advancedFilterTags = [];
+    const name = this.advancedSearchForm.get('name');
     if (name.value) {
       const tag = {
         id: Guid.newGuid(),
         text: `${name.value}`,
-        remove: () => this.removeExtendedFilter(name)
+        remove: () => this.removeAdvancedFilter(name)
       } as FilterTag;
-      this.extendedFilters.push(tag);
+      this.advancedFilterTags.push(tag);
     }
-    const minimumAge = this.searchForm.get('minimumAge');
+    const minimumAge = this.advancedSearchForm.get('minimumAge');
     if (minimumAge.value) {
       const tag = {
         id: Guid.newGuid(),
         text: `Ålder > ${minimumAge.value}`,
-        remove: () => this.removeExtendedFilter(minimumAge)
+        remove: () => this.removeAdvancedFilter(minimumAge)
       } as FilterTag;
-      this.extendedFilters.push(tag);
+      this.advancedFilterTags.push(tag);
     }
-    const women = this.searchForm.get('women');
+    const women = this.advancedSearchForm.get('women');
     if (women.value) {
       if (women.value) {
         const tag = {
           id: Guid.newGuid(),
           text: 'Kvinnor',
-          remove: () => this.removeExtendedFilter(women)
+          remove: () => this.removeAdvancedFilter(women)
         } as FilterTag;
-        this.extendedFilters.push(tag);
+        this.advancedFilterTags.push(tag);
       }
     }
-    const men = this.searchForm.get('men');
+    const men = this.advancedSearchForm.get('men');
     if (men.value) {
       if (men.value) {
         const tag = {
           id: Guid.newGuid(),
           text: 'Män',
-          remove: () => this.removeExtendedFilter(men)
+          remove: () => this.removeAdvancedFilter(men)
         } as FilterTag;
-        this.extendedFilters.push(tag);
+        this.advancedFilterTags.push(tag);
       }
     }
 
-    if (this.extendedFilters.length) {
-      this.extendedFilteredValues = this.extendedValues.filter(x =>
+    if (this.advancedFilterTags.length) {
+      this.advancedFilteredValues = this.advancedExampleValues.filter(x =>
         (minimumAge.value ? x.age >= minimumAge.value : true) &&
         (name.value ? x.firstName.toLowerCase().includes(name.value.toLowerCase())
           || x.surname.toLowerCase().includes(name.value.toLowerCase()) : true) &&
@@ -139,17 +146,17 @@ export class FilterTagComponent implements OnInit {
         (men.value && !women.value ? x.gender === 'm' : true)
       );
     } else {
-      this.extendedFilteredValues = this.extendedValues.slice();
+      this.advancedFilteredValues = this.advancedExampleValues.slice();
     }
   }
 
-  removeExtendedFilter(control: AbstractControl) {
+  removeAdvancedFilter(control: AbstractControl) {
     control.reset();
-    this.extendedFilter();
+    this.advancedFilter();
   }
 
-  removeAllExtendedFilters() {
-    this.searchForm.reset();
-    this.extendedFilter();
+  removeAllAdvancedFilters() {
+    this.advancedSearchForm.reset();
+    this.advancedFilter();
   }
 }

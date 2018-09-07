@@ -39,14 +39,17 @@ import { ExpandableDivComponent } from './expandable-div/expandable-div.componen
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
+import { ExamplesListwithpageblockComponent } from './examples-listwithpageblock/examples-listwithpageblock.component';
 import { TableComponent } from './table/table.component';
 import { FilterTagComponent } from './filter-tag/filter-tag.component';
-
 import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
+import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
+import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
 
 export const appRoutes: Routes = [
 
@@ -79,6 +82,9 @@ export const appRoutes: Routes = [
     { path: 'titlevalue', component: TitleValueComponent },
     { path: 'filtertextbox', component: FiltertexboxComponent },
     { path: 'pagestructure', component: PageStructureComponent },
+    { path: 'pageheader', component: PageHeaderDocumentationComponent },
+    { path: 'pageblock', component: PageBlockDocumentationComponent },
+    { path: 'pagebody', component: PageBodyDocumentationComponent },
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
@@ -89,6 +95,7 @@ export const appRoutes: Routes = [
     { path: 'listexample-expandable-div', component: ListexamplewithexpandabledivComponent },
     { path: 'examples-listwithcards', component: ExamplesListwithcardsComponent },
     { path: 'examples-listwithlists', component: ExamplesListwithlistsComponent },
+    { path: 'examples-listwithpageblock', component: ExamplesListwithpageblockComponent },
     { path: 'actionPanels', component: ActionPanelsComponent },
     { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },

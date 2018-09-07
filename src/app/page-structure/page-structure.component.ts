@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './page-structure.component.html',
   styleUrls: ['./page-structure.component.scss']
 })
-export class PageStructureComponent implements OnInit {
+export class PageStructureComponent {
 
   samplePageStructure: string;
   samplePage = `
@@ -14,33 +14,20 @@ export class PageStructureComponent implements OnInit {
     <vgr-page-header>
       <!-- Lägg innehåll i header här -->
     </vgr-page-header>
-    <vgr-action-panel [expanded]="actionPanelVisible">
-      <!--
-          Om sidan skall ha en action-panel, som kan öppnas från header, definiera dess innehåll här.
-          Öppna genom att sätta expanded = true
-      -->
-    </vgr-action-panel>
     <vgr-page-body>
       <!--Detta är en container för sidans olika block -->
       <vgr-page-block>
         <!--Sidans första block-->
       </vgr-page-block>
+      <vgr-action-panel>
+        <!--Sidans första action panel-->
+      </vgr-action-panel>
       <vgr-page-block>
         <!--Sidans andra block-->
-      </vgr-page-block>
-      <vgr-page-block>
-        <!--Sidans n:te block -->
       </vgr-page-block>
     </vgr-page-body>
   </vgr-page>`;
   constructor(private htmlEncoder: HtmlEncodeService) {
     this.samplePageStructure = htmlEncoder.prepareHighlightedSection(this.samplePage);
   }
-
-  ngOnInit() {
-  }
-
-
-
-
 }

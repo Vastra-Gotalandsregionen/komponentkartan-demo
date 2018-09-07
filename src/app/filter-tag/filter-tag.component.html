@@ -22,7 +22,7 @@
     </div>
     <div style="margin-bottom: 20px" *ngIf="filters.length">
       <vgr-filter-tag-group>
-        <vgr-filter-tag *ngFor="let filter of filters" (remove)="removeFilter(filter)" [disabled]="filter.disabled">{{filter.text}}</vgr-filter-tag>
+        <vgr-filter-tag *ngFor="let filter of filters" (remove)="filter.remove(filter)" [disabled]="filter.disabled">{{filter.text}}</vgr-filter-tag>
       </vgr-filter-tag-group>
     </div>
     <ul>
@@ -39,7 +39,7 @@
     </ul>
     <br>
     <div><span style="font-weight: bold">Avancerat exempel</span> - Filtrera på Namn (För- eller Efternamn) samt möjlighet att filtrera på minimiålder och kön.</div>
-    <form [formGroup]="searchForm" (ngSubmit)="extendedFilter()" novalidate>
+    <form [formGroup]="advancedSearchForm" (ngSubmit)="advancedFilter()" novalidate>
       <div style="margin-bottom: 20px">
         <div style="display: flex; align-items: flex-end">
           <div>
@@ -58,23 +58,23 @@
             <vgr-checkbox formControlName="women" [label]="'Kvinnor'" style="display: inline-block;"></vgr-checkbox>
             <vgr-checkbox formControlName="men" [label]="'Män'" style="display: inline-block; margin-left: 10px;"></vgr-checkbox>
           </div>
-          <vgr-button (click)="extendedFilter()" style="margin-left: 20px;">Filtrera</vgr-button>
-          <vgr-button (click)="removeAllExtendedFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
+          <vgr-button (click)="advancedFilter()" style="margin-left: 20px;">Filtrera</vgr-button>
+          <vgr-button (click)="removeAllAdvancedFilters()" style="margin-left: 20px;">Ta bort alla filter</vgr-button>
         </div>
       </div>
     </form>
-    <div style="margin-bottom: 20px" *ngIf="extendedFilters.length">
+    <div style="margin-bottom: 20px" *ngIf="advancedFilterTags.length">
       <vgr-filter-tag-group>
-        <vgr-filter-tag *ngFor="let filter of extendedFilters" (remove)="filter.remove()">{{filter.text}}</vgr-filter-tag>
+        <vgr-filter-tag *ngFor="let tag of advancedFilterTags" (remove)="tag.remove()">{{tag.text}}</vgr-filter-tag>
       </vgr-filter-tag-group>
     </div>
     <ul style="margin-bottom: 20px;">
-      <div *ngIf="extendedFilteredValues.length > 0" class="list-row">
+      <div *ngIf="advancedFilteredValues.length > 0" class="list-row">
         <div class="list-column list-header">Förnamn</div>
         <div class="list-column list-header">Efternamn</div>
         <div class="list-column list-header">Ålder</div>
       </div>
-      <li *ngFor="let value of extendedFilteredValues">
+      <li *ngFor="let value of advancedFilteredValues">
         <div class="list-row">
           <div class="list-column">{{value.firstName}}</div>
           <div class="list-column">{{value.surname}}</div>

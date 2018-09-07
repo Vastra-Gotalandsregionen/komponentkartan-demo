@@ -63,6 +63,7 @@ import { FilterTagComponent } from './filter-tag/filter-tag.component';
 import { ListexamplewithexpandabledivComponent } from './lists/examples/withexpandablediv/listexamplewithexpandablediv.component';
 import { ExamplesListwithcardsComponent } from './examples-listwithcards/examples-listwithcards.component';
 import { ExamplesListwithlistsComponent } from './examples-listwithlists/examples-listwithlists.component';
+import { ExamplesListwithpageblockComponent } from './examples-listwithpageblock/examples-listwithpageblock.component';
 import { UnitService } from './examples-listwithlists/unitService';
 import { TextareafieldComponent } from './textareafield/textareafield.component';
 import { IconsComponent } from './icons/icons.component';
@@ -74,6 +75,9 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { registerLocaleData } from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
+import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
+import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -115,6 +119,7 @@ registerLocaleData(localeSv);
         ListexamplewithexpandabledivComponent,
         ExamplesListwithcardsComponent,
         ExamplesListwithlistsComponent,
+        ExamplesListwithpageblockComponent,
         IconsComponent,
         UnitFilterPipe,
         UnitFilter2Pipe,
@@ -125,7 +130,11 @@ registerLocaleData(localeSv);
         FilterTagComponent,
         RingWithTextComponent,
         ToggleButtonComponent,
-        SearchResultComponent
+        SearchResultComponent,
+        PageHeaderDocumentationComponent,
+        PageBlockDocumentationComponent,
+        PageBodyDocumentationComponent
+
     ],
     imports: [
         KomponentkartanModule,
