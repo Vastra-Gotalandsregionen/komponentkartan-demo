@@ -7,7 +7,7 @@
       <vgr-datepicker></vgr-datepicker>
     </vgr-action-panel>
     <vgr-page-block>
-      <vgr-list [allowMultipleExpandedItems]="true">
+      <vgr-list [allowMultipleExpandedItems]="true" [flexibleHeader]="true">
         <vgr-list-header>
           <vgr-list-column-header [width]="20">Dokumentation för Action panel</vgr-list-column-header>
         </vgr-list-header>
@@ -33,7 +33,7 @@
               <vgr-button *ngIf="!open2" (click)="open2 = !open2">Öppna panel 2</vgr-button>
               <br>
               <p>Förändras med tema:
-                <strong>nej</strong>
+                <strong>ja</strong>
               </p>
             </div>
             <!-- Översikt -->
