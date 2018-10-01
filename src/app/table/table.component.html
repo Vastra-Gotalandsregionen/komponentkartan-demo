@@ -14,7 +14,7 @@
           <vgr-list-item-content>
             <div class="content-overview">
               <p>
-                <code>&lt;vgr-table&gt;</code> består av 
+                <code>&lt;vgr-table&gt;</code> består av
                 <code>&lt;vgr-table-header&gt;</code> och <code>&lt;vgr-table-row&gt;</code>
                 Headern är alltid synlig och kan vid klick visa/dölja tabellens rader.
                 En vgr-table kan även innehålla en vgr-table i sig.
@@ -135,6 +135,13 @@
                   <vgr-table-row-column [width]="3" [align]="'right'">Row Column</vgr-table-row-column>
                 </vgr-table-row>
               </vgr-table>
+              <vgr-table [expandable]="false">
+                <vgr-table-header>
+                  <vgr-table-header-column [width]="10">Ej</vgr-table-header-column>
+                  <vgr-table-header-column [width]="5">Expanderbar</vgr-table-header-column>
+                  <vgr-table-header-column [width]="3" [align]="'right'">Header</vgr-table-header-column>
+                </vgr-table-header>
+              </vgr-table>
               <p> Förändras med tema:
                 <strong>ja</strong>
               </p>
@@ -164,6 +171,11 @@
                 <td>expanded: boolean</td>
                 <td>Anger om sektionen är expanderad eller ej</td>
                 <td>[expanded]="true"</td>
+              </tr>
+              <tr>
+                <td>expandable: boolean (default: true)</td>
+                <td>Genom att sätta [expandable]="false" på tabellen så kan kan raden inte expanderas och har ingen chevron.</td>
+                <td>[expandable]="false"</td>
               </tr>
               <tr>
                 <td>expandedChanged: EventEmitter&lt;boolean&gt;
