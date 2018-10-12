@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
-import { Observable } from 'rxjs/Observable';
+import { of as observableOf } from 'rxjs';
+import { delay } from 'rxjs/operators';
 declare var require: any;
 
 @Component({
@@ -34,7 +32,7 @@ export class KomponentkartanApplicationComponent implements OnInit {
     }
 
     ngOnInit() {
-        Observable.of('Göte Borg').delay(1000).subscribe(x => { this.userName = x; });
+        observableOf('Göte Borg').pipe(delay(1000)).subscribe(x => { this.userName = x; });
 
         this.systemText = `DEMO vgr-komponentkartan version: ${this.komponentkartanVersion}, Angular: ${this.angularVersion} och Angular-Cli: ${this.angularCliVersion}`;
 
