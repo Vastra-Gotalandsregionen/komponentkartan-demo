@@ -29,7 +29,7 @@
     "eslint": "^4.14.0",
     "rxjs": "^6.2.0",
     "smoothscroll-polyfill": "^0.4.3",
-    "vgr-komponentkartan": "^3.2.2-beta2",
+    "vgr-komponentkartan": "^4.0.0-beta1",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
