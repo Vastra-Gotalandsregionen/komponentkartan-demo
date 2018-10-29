@@ -29,11 +29,7 @@ export class ExamplesListwithlistsComponent {
     this.items = Array(3).fill(0).map((x, i) => i);
   }
 
-  ngOnInit() {
-    // this.searchForUnits();
-  }
-
-  get allChecked() {
+   get allChecked() {
     if (this.listData.length === 0 || this.listData.every(r => r.previewObject.deleted)) {
       return false;
     }
@@ -72,9 +68,9 @@ export class ExamplesListwithlistsComponent {
   private mapToListItems(enheter: ExampleUnit[]) {
     this.listData = enheter.filter(x => !x.deleted).map(x => new ExpandableRow<ExampleUnit, any>(x));
     this.listData.forEach(element => {
-      // if (this.getRandomInt(0, 5) === 2) {
-      //   element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
-      // }
+      if (this.getRandomInt(0, 5) === 2) {
+        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
+      }
     });
   }
 
