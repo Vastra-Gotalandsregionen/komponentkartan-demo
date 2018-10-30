@@ -69,7 +69,7 @@
             <vgr-list-column [width]="10">{{row.previewObject.firstName}}</vgr-list-column>
             <vgr-list-column [width]="10">{{row.previewObject.lastName}}</vgr-list-column>
           </vgr-list-item-header>
-          <vgr-list-item-content [indentContent]="false">
+          <vgr-list-item-content>
             <vgr-button [buttonStyle]="'secondary'" (click)="updateRow(row)">Uppdatera</vgr-button>
             <vgr-button [buttonStyle]="'secondary'" (click)="updateRow2(row)">Uppdatera och rensa meddelande</vgr-button>
             <vgr-button [buttonStyle]="'secondary'" (click)="deleteRow(row)">Ta bort</vgr-button>
