@@ -49,7 +49,6 @@ Task("Restore-NpmPackages")
 	});
 
 Task("Build-Frontend")
-.IsDependentOn("Install-Latest-KomponentkartanPackage")
 .IsDependentOn("Restore-NpmPackages")
 .Does(() => {
       NpmRunScript(new NpmRunScriptSettings
