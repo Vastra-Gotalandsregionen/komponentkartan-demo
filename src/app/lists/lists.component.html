@@ -86,7 +86,12 @@
                 <td>activePage : number</td>
                 <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
                 <td>[activePage]="1"</td>
-              </tr>                           
+              </tr>
+              <tr>
+                <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
+                <td>Event som triggas när aktiv sida ändras.</td>
+                <td>(pageChanged)="onPageChanged($event)"</td>
+              </tr>                                              
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
