@@ -77,6 +77,16 @@
                   meddelande.</td>
                 <td>[notification]="{{'{'}} message: 'Här är texten i notifikationen', icon: 'vgr-icon-message'{{'}'}}"</td>
               </tr>
+              <tr>
+                <td>pages : number</td>
+                <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större. Paginering visas endast om värdet är strörre än ett.</td>
+                <td>[pages]="10"</td>
+              </tr>    
+              <tr>
+                <td>activePage : number</td>
+                <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
+                <td>[activePage]="1"</td>
+              </tr>                           
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
