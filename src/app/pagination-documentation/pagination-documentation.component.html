@@ -1,0 +1,48 @@
+<app-component-docs [componentName]="'Pagination'">
+
+  <div class="docs__overview">
+    <p>
+      <code>&lt;vgr-pagination&gt; </code>
+      Beskrivning av komponenten....<br>
+    </p>
+    <br>
+    <p> Förändras med tema:
+      <strong>ja</strong>
+    </p>
+  </div>
+  <div class="docs__examples">
+    <div class="column-layout">
+      <h2></h2>
+    </div>
+  </div>
+
+  <div class="docs__api">
+    <table class="property-table ">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>pages : number</td>
+        <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större. Paginering
+          visas endast om värdet är strörre än ett.</td>
+        <td>[pages]="10"</td>
+      </tr>
+      <tr>
+        <td>activePage : number</td>
+        <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
+        <td>[activePage]="1"</td>
+      </tr>
+      <tr>
+        <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
+        <td>Event som triggas när aktiv sida ändras.</td>
+        <td>(pageChanged)="onPageChanged($event)"</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="docs__wcag">
+    
+  </div>
+</app-component-docs>

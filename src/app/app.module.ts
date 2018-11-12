@@ -78,6 +78,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
 import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
+import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -133,7 +134,8 @@ registerLocaleData(localeSv);
         SearchResultComponent,
         PageHeaderDocumentationComponent,
         PageBlockDocumentationComponent,
-        PageBodyDocumentationComponent
+        PageBodyDocumentationComponent,
+        PaginationDocumentationComponent
 
     ],
     imports: [

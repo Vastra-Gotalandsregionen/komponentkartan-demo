@@ -50,6 +50,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
 import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
+import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
 
 export const appRoutes: Routes = [
 
@@ -101,5 +102,6 @@ export const appRoutes: Routes = [
     { path: 'ring-with-text', component: RingWithTextComponent },
     { path: 'togglebutton', component: ToggleButtonComponent },
     { path: 'search-result', component: SearchResultComponent },
+    { path: 'pagination-documentation', component: PaginationDocumentationComponent},
     { path: '**', redirectTo: '/' }
 ];
