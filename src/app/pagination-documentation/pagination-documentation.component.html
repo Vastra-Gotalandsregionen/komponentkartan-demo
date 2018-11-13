@@ -3,16 +3,22 @@
   <div class="docs__overview">
     <p>
       <code>&lt;vgr-pagination&gt; </code>
-      Beskrivning av komponenten....<br>
+      beskrivning av komponenten....<br>
+      Max sju sidnummer visas, sedan punktas sidor i mitten.<br>
+      Första och sista sidnumret visas alltid.<br>
+      Piltangenterna används för att förflytta sig inom pagineringen.<br>
+      Enter/space byter sida. <br>
     </p>
     <br>
     <p> Förändras med tema:
       <strong>ja</strong>
     </p>
   </div>
+
   <div class="docs__examples">
     <div class="column-layout">
-      <h2></h2>
+      <p><b>Kodexempel: </b></p>
+      <section [innerHTML]="samplePagination" highlight-js-content=".highlight"></section><br>
     </div>
   </div>
 
@@ -43,6 +49,10 @@
   </div>
 
   <div class="docs__wcag">
-    
+    <p>
+      <code>&lt;vgr-pagination&gt;</code> består internt av ett antal element av typen button och har alla dess WCAG egenskaper.  
+      Internt sätts <code>attr.aria-label</code> för de olika knapparna exempelvis till "Du är på sidan x av y" 
+      eller om man navigerar med piltangenterna "Gå till sida x av y". 
+    </p>
   </div>
 </app-component-docs>

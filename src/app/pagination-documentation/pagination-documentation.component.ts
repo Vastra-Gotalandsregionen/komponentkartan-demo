@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-pagination-documentation',
   templateUrl: './pagination-documentation.component.html',
   styleUrls: ['./pagination-documentation.component.scss']
 })
-export class PaginationDocumentationComponent implements OnInit {
+export class PaginationDocumentationComponent {
 
-  constructor() { }
+  samplePagination = `
+  <div *ngIf="pages > 1">
+    <vgr-pagination [pages]="pages" [activePage]="activePage" (pageChanged)="onPageChanged($event)"></vgr-pagination>
+  </div>`;
 
-  ngOnInit() {
+  constructor(private htmlEncoder: HtmlEncodeService) {
+    this.samplePagination = htmlEncoder.prepareHighlightedSection(this.samplePagination);
   }
+
 
 }
