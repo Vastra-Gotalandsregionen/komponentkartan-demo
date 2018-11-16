@@ -8,8 +8,8 @@ export interface ExampleUnit {
     enhetskod: number;
     details: ExampleUnitDetails;
     isActive: boolean;
-
 }
+
 export interface ExampleUnitDetails {
     versions: number[];
     avtalskod: number;

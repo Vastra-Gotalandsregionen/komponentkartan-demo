@@ -8,8 +8,6 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { ColoursComponent } from './colours/colours.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
-import { DropdownmultiselectComponent } from './dropdownmultiselect/dropdownmultiselect.component';
-import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
@@ -52,6 +50,7 @@ import { PageHeaderDocumentationComponent } from './page-header-documentation/pa
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
 import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
 import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
+import { DropdownSelectDocumentationComponent } from './dropdown-select-documentation/dropdown-select-documentation.component';
 
 export const appRoutes: Routes = [
 
@@ -63,8 +62,6 @@ export const appRoutes: Routes = [
     { path: 'checkbox', component: CheckboxComponent },
     { path: 'closebutton', component: ClosebuttonComponent },
     { path: 'colours', component: ColoursComponent },
-    { path: 'dropdownmultiselect', component: DropdownmultiselectComponent },
-    { path: 'dropdowns', component: DropdownsComponent },
     { path: 'datepicker', component: DatepickerComponent },
     { path: 'monthpicker', component: MonthpickerComponent },
     { path: 'formattemplate', component: FormattemplateComponent },
@@ -105,5 +102,6 @@ export const appRoutes: Routes = [
     { path: 'togglebutton', component: ToggleButtonComponent },
     { path: 'search-result', component: SearchResultComponent },
     { path: 'pagination-documentation', component: PaginationDocumentationComponent},
+    { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },
     { path: '**', redirectTo: '/' }
 ];

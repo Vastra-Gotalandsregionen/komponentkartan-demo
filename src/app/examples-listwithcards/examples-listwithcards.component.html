@@ -16,8 +16,10 @@
       <div *ngIf="!addNewUnit">
         <div class="row-layout">
           <label style="width: 150px">Välj enhet</label>
-          <vgr-dropdown [items]="newUnits" (selectedChanged)="onSelectedChangedUnit($event)"></vgr-dropdown>
-          <vgr-button secondary=true [disabled]="!itemSelected" (click)="onNewUnitClick()">Lägg till</vgr-button>
+          <vgr-dropdown-select [formControl]="unitCandidateForm">
+            <vgr-dropdown-item *ngFor="let unit of unitCandidates" [value]="unit.hsaid">{{unit.name}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+          <vgr-button [buttonStyle]="'secondary'" [disabled]="!unitCandidateForm.value" (click)="onNewUnitClick()">Lägg till</vgr-button>
         </div>
       </div>
       <vgr-card *ngIf="addNewUnit">
@@ -50,8 +52,9 @@
               <form [formGroup]="onChangeForm">
                 <vgr-title-value-layout>
                   <vgr-title-value [title]=" 'Nämnd*'" [slim]="newCardLocked">
-                    <vgr-dropdown formControlName="namnd" [showValidation]="onChangeForm.controls.namnd.touched || submitted" [items]="examplenamnd"
-                      [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="newCardLocked"></vgr-dropdown>
+                    <vgr-dropdown-select formControlName="namnd" [showValidation]="onChangeForm.controls.namnd.touched || submitted" [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="newCardLocked">
+                      <vgr-dropdown-item *ngFor="let namnd of examplenamnd" [value]="namnd">{{namnd}}</vgr-dropdown-item>
+                    </vgr-dropdown-select>
                   </vgr-title-value>
                   <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="newCardLocked">
                     <div class="row-layout row-layout--tight">
@@ -66,12 +69,6 @@
             </vgr-card-section>
             <vgr-card-section [title]=" 'Enhetschef'" [expanded]="true" [readonly]="newCardLocked">
               <vgr-title-value-layout>
-                <!-- <vgr-title-value [title]=" 'Lägg till enhetschef*'" *ngIf="!cardLocked">
-                  <div class="column-layout column-layout--pull-left column-layout--component">
-                    <vgr-filter-textbox></vgr-filter-textbox>
-                    <vgr-button style="padding-left:63%" [secondary]="true" (click)="onAddEnhetschef(newUnit)">Lägg till</vgr-button>
-                  </div>
-                </vgr-title-value> -->
                 <vgr-title-value [title]=" 'Enhetschef*'" [slim]="newCardLocked">
                   <vgr-input formControlName="enhetschef" [showValidation]="newUnitForm.controls.enhetschef.touched || submitted" [readonly]="newCardLocked"></vgr-input>
                 </vgr-title-value>
@@ -87,8 +84,9 @@
               <form [formGroup]="agarOwnerForm">
                 <vgr-title-value-layout>
                   <vgr-title-value [title]=" 'Ägare*'" [slim]="newCardLocked">
-                    <vgr-dropdown formControlName="agare" [showValidation]="agarOwnerForm.controls.agare.touched || submitted" [items]="exampleagare"
-                      [noItemSelectedLabel]="'Välj ägare'" [readonly]="newCardLocked"></vgr-dropdown>
+                    <vgr-dropdown-select formControlName="agare" [showValidation]="agarOwnerForm.controls.agare.touched || submitted" [noItemSelectedLabel]="'Välj ägare'" [readonly]="newCardLocked">
+                      <vgr-dropdown-item *ngFor="let agare of exampleagare" [value]="agare">{{agare}}</vgr-dropdown-item>
+                    </vgr-dropdown-select>
                   </vgr-title-value>
                 </vgr-title-value-layout>
               </form>
@@ -107,8 +105,10 @@
                       [readonly]="newCardLocked"></vgr-input>
                   </vgr-title-value>
                   <vgr-title-value *ngIf="newUnitForm.controls.agarform.value==='Privat'" [title]=" 'Utbetalningssätt*'" [slim]="newCardLocked">
-                    <vgr-dropdown formControlName="utbetalningssatt" [showValidation]="privateOwnerForm.controls.utbetalningssatt.touched || submitted"
-                      [items]="exempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="newCardLocked"></vgr-dropdown>
+                    <vgr-dropdown-select formControlName="utbetalningssatt" [showValidation]="privateOwnerForm.controls.utbetalningssatt.touched || submitted" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="newCardLocked">
+                      <vgr-dropdown-item [value]="'BG'">BG</vgr-dropdown-item>
+                      <vgr-dropdown-item [value]="'PG'">PG</vgr-dropdown-item>
+                    </vgr-dropdown-select>
                   </vgr-title-value>
                   <vgr-title-value *ngIf="newUnitForm.controls.agarform.value==='Privat'" [title]=" 'Kontonummer*'" [slim]="newCardLocked">
                     <vgr-input formControlName="kontonummer" [showValidation]="privateOwnerForm.controls.kontonummer.touched || submitted" [readonly]="newCardLocked"></vgr-input>
@@ -160,8 +160,10 @@
             <form [formGroup]="newUnitForm">
               <vgr-title-value-layout>
                 <vgr-title-value [title]=" 'Medverkan i familjecentral* '" [slim]="newCardLocked">
-                  <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
-                    [noItemSelectedLabel]=" 'Välj'" [readonly]="newCardLocked"></vgr-dropdown>
+                  <vgr-dropdown-select formControlName="medverkanIFamiljecentral" [showValidation]="newUnitForm.controls.medverkanIFamiljecentral.touched || submitted" [noItemSelectedLabel]=" 'Välj'" [readonly]="newCardLocked">
+                    <vgr-dropdown-item [value]="'ja'">Ja</vgr-dropdown-item>
+                    <vgr-dropdown-item [value]="'nej'">Nej</vgr-dropdown-item>
+                  </vgr-dropdown-select>
                 </vgr-title-value>
                 <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="newCardLocked">
                   <vgr-input formControlName="regionsovergripandegrupper" [readonly]="newCardLocked"></vgr-input>
@@ -197,7 +199,9 @@
                 <vgr-card-header>
                   <div class="row-layout">
                     <label style="width:189px">Version</label>
-                    <vgr-dropdown #unitVersions (selectedChanged)="onSelectedChangedVersion($event, row.previewObject)" [items]="exempelVersions"></vgr-dropdown>
+                    <vgr-dropdown-select [readonly]="!cardLocked" [formControl]="versionForm" (selectedChanged)="onSelectedChangedVersion($event, row.previewObject)">
+                      <vgr-dropdown-item *ngFor="let version of row.previewObject.details.versions" [value]="version">{{version}}</vgr-dropdown-item>
+                    </vgr-dropdown-select>
                   </div>
                   <div class="flex-right">
                     <vgr-save-cancel [secondary]="true" [locked]="cardLocked" (cancel)="onCardCancel(row)" (save)="onCardSave($event, row)" (unlock)="onCardUnlocked(row)"></vgr-save-cancel>
@@ -219,8 +223,9 @@
                             [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
                         <vgr-title-value [title]=" 'Nämnd*'" [slim]="cardLocked">
-                          <vgr-dropdown formControlName="namnd" [showValidation]="editUnitForm.controls.namnd.touched || submitted" [items]="examplenamnd"
-                            [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked"></vgr-dropdown>
+                          <vgr-dropdown-select formControlName="namnd" [showValidation]="editUnitForm.controls.namnd.touched || submitted" [noItemSelectedLabel]=" 'Välj nämnd'" [readonly]="cardLocked">
+                            <vgr-dropdown-item *ngFor="let namnd of examplenamnd" [value]="namnd">{{namnd}}</vgr-dropdown-item>
+                          </vgr-dropdown-select>
                         </vgr-title-value>
                         <vgr-title-value [title]=" 'Avtalsperiod*'" [slim]="cardLocked">
                           <div class="row-layout  row-layout--tight">
@@ -234,12 +239,6 @@
                     </vgr-card-section>
                     <vgr-card-section [title]=" 'Enhetschef'" [expanded]="false" [readonly]="cardLocked">
                       <vgr-title-value-layout>
-                        <!-- <vgr-title-value [title]=" 'Lägg till enhetschef*'" *ngIf="!cardLocked">
-                          <div class="column-layout column-layout--pull-left column-layout--component">
-                            <vgr-filter-textbox></vgr-filter-textbox>
-                            <vgr-button style="padding-left:63%" [buttonStyle]="'secondary'" (click)="onAddEnhetschef(newUnit)">Lägg till</vgr-button>
-                          </div>
-                        </vgr-title-value> -->
                         <vgr-title-value [title]=" 'Enhetschef*'" [slim]="cardLocked">
                           <vgr-input formControlName="enhetschef" [showValidation]="editUnitForm.controls.enhetschef.touched || submitted" [readonly]="cardLocked"></vgr-input>
                         </vgr-title-value>
@@ -254,8 +253,9 @@
                     <vgr-card-section [title]=" 'Avtalspart'" [expanded]="false" [readonly]="cardLocked">
                       <vgr-title-value-layout>
                         <vgr-title-value [title]=" 'Ägare*'" [slim]="cardLocked">
-                          <vgr-dropdown formControlName="agare" [showValidation]="editUnitForm.controls.agare.touched || submitted" [items]="exampleagare"
-                            [noItemSelectedLabel]="'Välj ägare'" [readonly]="cardLocked"></vgr-dropdown>
+                          <vgr-dropdown-select formControlName="agare" [showValidation]="editUnitForm.controls.agare.touched || submitted" [noItemSelectedLabel]="'Välj ägare'" [readonly]="cardLocked">
+                            <vgr-dropdown-item *ngFor="let agare of exampleagare" [value]="agare">{{agare}}</vgr-dropdown-item>
+                          </vgr-dropdown-select>
                         </vgr-title-value>
                         <vgr-title-value [title]=" 'Ägarkod'" [slim]="cardLocked">
                           <vgr-input [readonly]="true" formControlName="agarkod"></vgr-input>
@@ -272,8 +272,10 @@
                               [readonly]="cardLocked"></vgr-input>
                           </vgr-title-value>
                           <vgr-title-value *ngIf="editUnitForm.controls.agarform.value==='Privat'" [title]=" 'Utbetalningssätt*'" [slim]="cardLocked">
-                            <vgr-dropdown formControlName="utbetalningssatt" [showValidation]="editprivateOwnerForm.controls.utbetalningssatt.touched || submitted"
-                              [items]="exempelUtbetalningssatt" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="cardLocked"></vgr-dropdown>
+                            <vgr-dropdown-select formControlName="utbetalningssatt" [showValidation]="editprivateOwnerForm.controls.utbetalningssatt.touched || submitted" [noItemSelectedLabel]=" 'Välj Utbetalningssätt'" [readonly]="cardLocked">
+                              <vgr-dropdown-item [value]="'PG'">PG</vgr-dropdown-item>
+                              <vgr-dropdown-item [value]="'BG'">BG</vgr-dropdown-item>
+                            </vgr-dropdown-select>
                           </vgr-title-value>
                           <vgr-title-value *ngIf="editUnitForm.controls.agarform.value==='Privat'" [title]=" 'Kontonummer*'" [slim]="cardLocked">
                             <vgr-input formControlName="kontonummer" [showValidation]="editprivateOwnerForm.controls.kontonummer.touched || submitted"
@@ -325,8 +327,10 @@
                     <form [formGroup]="editUnitForm">
                       <vgr-title-value-layout>
                         <vgr-title-value [title]=" 'Medverkan i familjecentral*'" [slim]="cardLocked">
-                          <vgr-dropdown formControlName="medverkanIFamiljecentral" [items]="exempelMedverkanIfamiljecentral" [showValidation]="editUnitForm.controls.medverkanIFamiljecentral.touched || submitted"
-                            [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked"></vgr-dropdown>
+                          <vgr-dropdown-select formControlName="medverkanIFamiljecentral" [showValidation]="editUnitForm.controls.medverkanIFamiljecentral.touched || submitted" [noItemSelectedLabel]=" 'Välj'" [readonly]="cardLocked">
+                            <vgr-dropdown-item [value]="'ja'">Ja</vgr-dropdown-item>
+                            <vgr-dropdown-item [value]="'nej'">Nej</vgr-dropdown-item>
+                          </vgr-dropdown-select>
                         </vgr-title-value>
                         <vgr-title-value [title]=" 'Regionsövergripande grupper (kr/månad)'" [slim]="cardLocked">
                           <vgr-input formControlName="regionsovergripandegrupper" [readonly]="cardLocked"></vgr-input>

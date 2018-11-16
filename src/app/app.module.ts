@@ -26,8 +26,6 @@ import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColoursComponent } from './colours/colours.component';
-import { DropdownmultiselectComponent } from './dropdownmultiselect/dropdownmultiselect.component';
-import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { ListsComponent } from './lists/lists.component';
@@ -80,6 +78,7 @@ import { PageHeaderDocumentationComponent } from './page-header-documentation/pa
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
 import { PageBodyDocumentationComponent } from './page-body-documentation/page-body-documentation.component';
 import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
+import { DropdownSelectDocumentationComponent } from './dropdown-select-documentation/dropdown-select-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -92,8 +91,6 @@ registerLocaleData(localeSv);
         SavecancelComponent,
         CheckboxComponent,
         ColoursComponent,
-        DropdownmultiselectComponent,
-        DropdownsComponent,
         FormattemplateComponent,
         HeadersComponent,
         ListsComponent,
@@ -137,7 +134,8 @@ registerLocaleData(localeSv);
         PageHeaderDocumentationComponent,
         PageBlockDocumentationComponent,
         PageBodyDocumentationComponent,
-        PaginationDocumentationComponent
+        PaginationDocumentationComponent,
+        DropdownSelectDocumentationComponent
 
     ],
     imports: [

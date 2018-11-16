@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { RowNotification, NotificationType, DropdownComponent, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, DropdownItem, ExpandableRow, ListComponent } from 'vgr-komponentkartan';
+import { RowNotification, NotificationType, SaveCancelComponent, SortDirection, SortChangedArgs, SelectableItem, ExpandableRow, ListComponent } from 'vgr-komponentkartan';
 import { ExampleUnit, ExampleUnitDetails, ExampleUnitJusteringar } from './unit.model';
 
 @Component({
@@ -14,27 +14,21 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   exampleData: ExpandableRow<ExampleUnit, any>[] = [];
   filtertext = '';
-  newUnits: DropdownItem<any>[] = [];
-  itemSelected = false;
+  unitCandidates: any[];
+  unitCandidateForm = new FormControl();
+  versionForm = new FormControl();
   addNewUnit = false;
   newUnit: ExampleUnit;
   showActionPanel = false;
-  selectedUnit = '';
 
-  examplenamnd: DropdownItem<string>[];
-
-  exampleagare: DropdownItem<string>[];
-
-  exempelUtbetalningssatt: DropdownItem<string>[];
-
-  exempelMedverkanIfamiljecentral: DropdownItem<string>[];
+  examplenamnd: string[];
+  exampleagare: string[];
 
   cardLocked: boolean;
   newCardLocked: boolean;
   includeInactiveUnits = false;
   startdate: Date;
   enddate: Date;
-  exempelVersions: DropdownItem<string>[] = [];
   submitted = false;
   newUnitForm: FormGroup;
   privateOwnerForm: FormGroup;
@@ -47,7 +41,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   @ViewChild(SaveCancelComponent) saveCancelComponent: SaveCancelComponent;
   @ViewChild(ListComponent) listComponent: ListComponent;
-  @ViewChild('unitVersions') unitVersions: DropdownComponent;
 
   validationMessages = {
     avtalskod: {
@@ -62,9 +55,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   constructor(private changeDetector: ChangeDetectorRef) {
 
-    this.newUnits = [{ displayName: 'Offentlig verksamhet Lerum', value: 'SE2329999131-E000000011801' } as DropdownItem<any>,
-    { displayName: 'Fredriks verksamhet', value: 'SE2328888131-E000000011802' } as DropdownItem<any>,
-    { displayName: 'Verksamhet för alla', value: 'SE2327777131-E000000011803' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.unitCandidates = [
+      { name: 'Offentlig verksamhet Lerum', hsaid: 'SE2329999131-E000000011801' },
+      { name: 'Fredriks verksamhet', hsaid: 'SE2328888131-E000000011802' },
+      { name: 'Verksamhet för alla', hsaid: 'SE2327777131-E000000011803' }
+    ];
 
     this.exampleDetail = {
       enhetschef: 'Sarah Larsson',
@@ -92,23 +87,21 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
     } as ExampleUnitDetails;
 
-    this.exampleagare = [{ displayName: 'Offentlig verksamhet', value: 'Offentlig verksamhet' } as DropdownItem<string>,
-    { displayName: 'Privat verksamhet', value: 'Privat verksamhet' } as DropdownItem<any>,
-    { displayName: 'Kalle Karlsson', value: 'Kalle Karlsson' } as DropdownItem<any>,
-    { displayName: 'Offentlig verksamhet Specialist', value: 'Offentlig verksamhet Specialist' } as DropdownItem<any>,
-    { displayName: 'Hemmabolaget', value: 'Hemmabolaget' } as DropdownItem<any>] as DropdownItem<any>[];
+    this.exampleagare = [
+      'Offentlig verksamhet',
+      'Privat verksamhet',
+      'Kalle Karlsson',
+      'Offentlig verksamhet Specialist',
+      'Hemmabolaget'
+    ];
 
-    this.examplenamnd = [{ displayName: 'Göteborgsnämnden', value: 'Göteborgsnämnden' } as DropdownItem<string>,
-    { displayName: 'Norra nämnden', value: 'Norra nämnden' } as DropdownItem<string>,
-    { displayName: 'Södra nämnden', value: 'Södra nämnden' } as DropdownItem<string>,
-    { displayName: 'Västra nämnden', value: 'Västra nämnden' } as DropdownItem<string>,
-    { displayName: 'Östra nämnden', value: 'Östra nämnden' } as DropdownItem<string>] as DropdownItem<string>[];
-
-    this.exempelUtbetalningssatt = [{ displayName: 'BG', value: 'BG' } as DropdownItem<string>,
-    { displayName: 'PG', value: 'PG' } as DropdownItem<string>] as DropdownItem<string>[];
-
-    this.exempelMedverkanIfamiljecentral = [{ value: 'ja', displayName: 'Ja' } as DropdownItem<string>,
-    { value: 'nej', displayName: 'Nej' } as DropdownItem<string>] as DropdownItem<string>[];
+    this.examplenamnd = [
+      'Göteborgsnämnden',
+      'Norra nämnden',
+      'Södra nämnden',
+      'Västra nämnden',
+      'Östra nämnden'
+    ];
 
     this.initExampleData();
 
@@ -347,9 +340,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
         id: i,
         enhet: exampleNames[indexForNames] + ' ' + i.toString(),
         hsaid: examplehsaid + (200 + i).toString(),
-        agare: this.exampleagare[indexForAgare].displayName,
+        agare: this.exampleagare[indexForAgare],
         enhetskod: examplehenhetskod[indexForEnhetskod],
-        namnd: this.examplenamnd[indexForNamnd].displayName,
+        namnd: this.examplenamnd[indexForNamnd],
         isActive: isActive,
         details: details
       } as ExampleUnit;
@@ -368,9 +361,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   }
 
-  onSelectedChangedVersion(selectedItem: string, row: ExampleUnit) {
+  onSelectedChangedVersion(selectedItem: number, row: ExampleUnit) {
     if (this.saveCancelComponent) {
-      if (selectedItem === (row.details.versions.length).toString()) {
+      if (selectedItem === row.details.versions.length) {
         this.saveCancelComponent.hideLock = false;
       } else {
         this.saveCancelComponent.hideLock = true;
@@ -378,16 +371,11 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
   }
 
-  onSelectedChangedUnit(selectedItem: string) {
-    this.itemSelected = true;
-    this.selectedUnit = this.newUnits.find(u => u.value === selectedItem).displayName;
-  }
-
   onExpandedChanged(expanded: boolean, item: ExpandableRow<ExampleUnit, ExampleUnit>) {
 
     if (expanded && !item.previewObject.vald) {
       item.previewObject.vald = true;
-      this.updateCardDropdowns(item.previewObject);
+      this.versionForm.setValue(item.previewObject.details.versions.length);
       this.updateCardForm(item.previewObject);
     } else {
       item.previewObject.vald = false;
@@ -522,22 +510,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     }
   }
 
-  updateCardDropdowns(item: ExampleUnit) {
-
-    this.exempelVersions = [];
-    item.details.versions.forEach(x => {
-
-      this.exempelVersions.push({
-        displayName: x.toString(),
-        value: x.toString(),
-        marked: x === item.details.versions.length,
-        selected: x === item.details.versions.length
-      } as DropdownItem<any>);
-    });
-
-    this.changeDetector.detectChanges();
-  }
-
   onCardCancel(row: ExpandableRow<ExampleUnit, any>) {
     this.cardLocked = true;
 
@@ -566,12 +538,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
   }
 
   onCardUnlocked() {
-
     this.cardLocked = false;
     this.changeDetector.detectChanges();
-    if (this.unitVersions) {
-      this.unitVersions.readonly = true;
-    }
   }
 
   openActionPanel() {
@@ -587,9 +555,9 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.addNewUnit = true;
 
     this.newUnit = {
-      hsaid: this.newUnits.find(u => u.displayName === this.selectedUnit).value,
+      hsaid: this.newUnitForm.value.hsaid,
       details: {
-        enhet: this.selectedUnit,
+        enhet: this.newUnitForm.value.name,
         postadress_stad: 'Vänersborg',
         postadress_gata: 'Regeringsgatan 12',
         postadress_postnummer: '12345',
@@ -602,7 +570,6 @@ export class ExamplesListwithcardsComponent implements OnInit {
     } as ExampleUnit;
     this.newCardLocked = false;
     this.updateNewCardForm();
-
   }
 
   onNewUnitCancel() {
@@ -636,7 +603,7 @@ export class ExamplesListwithcardsComponent implements OnInit {
     this.newUnit.details.leverantorsid_RD = this.newUnitForm.controls.leverantorsid.value;
 
     this.newUnit.enhetskod = this.newUnitForm.controls.enhetskod.value;
-    this.newUnit.enhet = this.selectedUnit;
+    this.newUnit.enhet = this.unitCandidateForm.value.name;
     this.newUnit.details.enhetschef = this.newUnitForm.controls.enhetschef.value;
     this.newUnit.details.medverkanfamiljecentral = this.newUnitForm.controls.medverkanIFamiljecentral.value;
     this.newUnit.details.versions = [1];
@@ -657,9 +624,8 @@ export class ExamplesListwithcardsComponent implements OnInit {
 
   actionPanelClose() {
     this.showActionPanel = false;
-    this.newUnits.forEach(u => u.selected = false);
-    this.itemSelected = false;
     this.newCardLocked = true;
+    this.unitCandidateForm.reset();
     this.newUnitForm.reset();
     this.onChangeForm.reset();
     this.privateOwnerForm.reset();

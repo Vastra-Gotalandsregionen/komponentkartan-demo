@@ -13,7 +13,6 @@ export class ModaldialogComponent implements OnInit {
   vardvalForm2: FormGroup;
   vardval1Answer: string;
   vardval2Answer: string;
-  dropdownItems = [];
   validateOnSubmit: boolean;
 
   exampleCodeHtml = `
@@ -37,24 +36,15 @@ export class ModaldialogComponent implements OnInit {
   constructor(modalService: ModalService) {}
 `;
 
-
   exampleCodeMarkup: string;
   exampleCodeTypescript: string;
   form: FormGroup;
 
   constructor(public modalService: ModalService, htmlEncoder: HtmlEncodeService) {
-    this.dropdownItems = [
-      { displayName: 'Vårdcentral 1', value: '1' },
-      { displayName: 'Vårdcentral 2', value: '2' },
-      { displayName: 'Vårdcentral 3', value: '3' }
-    ];
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCodeHtml, 'HTML');
     this.exampleCodeTypescript =
       htmlEncoder.prepareHighlightedSection(this.exampleCodeTs, 'typescript');
-
-
-
   }
 
   ngOnInit() {
@@ -116,33 +106,6 @@ export class ModaldialogComponent implements OnInit {
     }, { updateOn: 'blur' });
   }
 
-  selectVardval1() {
-    const index = this.vardvalForm.controls.vardval.value - 1;
-    this.vardval1Answer = this.dropdownItems[index] ? this.dropdownItems[index].displayName : '';
-    this.modalService.closeDialog('vardvalWithTextModal');
-    this.vardvalForm.reset();
-
-  }
-
-  selectVardval2() {
-    const index = this.vardvalForm2.controls.vardval.value - 1;
-    this.vardval2Answer = this.dropdownItems[index] ? this.dropdownItems[index].displayName : '';
-    this.modalService.closeDialog('vardvalWithoutTextModal');
-    this.vardvalForm2.reset();
-  }
-
-  closeSelectVardval1() {
-    this.modalService.closeDialog('vardvalWithTextModal');
-    this.vardval1Answer = '';
-    this.vardvalForm.reset();
-  }
-
-  closeSelectVardval2() {
-    this.modalService.closeDialog('vardvalWithoutTextModal');
-    this.vardval2Answer = '';
-    this.vardvalForm2.reset();
-  }
-
   closeModal(elementId: string): void {
     this.modalService.closeDialog(elementId);
   }
@@ -159,5 +122,4 @@ export class ModaldialogComponent implements OnInit {
     this.form.reset();
     this.modalService.closeDialog(elementId);
   }
-
 }

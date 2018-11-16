@@ -7,7 +7,7 @@ import { Examples } from '../examples';
 import { HtmlEncodeService } from '../../../html-encode.service';
 
 @Component({
-  selector: 'app-listexample',
+  selector: 'app-listexamplewithrownotification',
   templateUrl: './listexamplewithrownotification.component.html',
   styleUrls: ['./listexamplewithrownotification.component.scss']
 })

@@ -44,22 +44,6 @@
         <vgr-button (click)="showCommentModal()">Kommentar 3</vgr-button>
       </div>
     </div>
-    <div class="row-layout" style="margin-top: 10px;">
-      <div>
-        <vgr-button (click)="showChooseVardvalWithTextModal()">Vårdval 1</vgr-button>
-      </div>
-      <div>
-        Du valde: {{vardval1Answer}}
-      </div>
-    </div>
-    <div class="row-layout" style="margin-top: 10px;">
-      <div>
-        <vgr-button (click)="showChooseVardvalWithoutTextModal()">Vårdval 2</vgr-button>
-      </div>
-      <div>
-        Du valde: {{vardval2Answer}}
-      </div>
-    </div>
     <br>
     <h2>HTML</h2>
     <section [innerHTML]="exampleCodeMarkup" highlight-js-content=".highlight"></section>
@@ -156,7 +140,14 @@
     <p>Här kan du välja i en fin dropdownlista.</p>
     <br />
     <h3 style="margin-bottom: 10px;">Välj här nedan</h3>
-    <vgr-dropdown [values]="['hej', 'på', 'dig', 'din', 'kodapa', ':)']"></vgr-dropdown>
+    <vgr-dropdown-select>
+      <vgr-dropdown-item>hej</vgr-dropdown-item>
+      <vgr-dropdown-item>på</vgr-dropdown-item>
+      <vgr-dropdown-item>dig</vgr-dropdown-item>
+      <vgr-dropdown-item>din</vgr-dropdown-item>
+      <vgr-dropdown-item>kodapa</vgr-dropdown-item>
+      <vgr-dropdown-item>:)</vgr-dropdown-item>
+    </vgr-dropdown-select>
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal1')">Knapp</vgr-button>
@@ -209,37 +200,6 @@
     <vgr-button [buttonStyle]="'secondary'" default="true" (click)="closeModal('modal4')">Avbryt</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
-<form [formGroup]="vardvalForm">
-  <vgr-modal id="vardvalWithTextModal">
-    <vgr-modal-header>Välj vårdcentral</vgr-modal-header>
-    <vgr-modal-content>
-      <p>Du har behörighet att registrera vårdval på flera olika vårdcentraler</p>
-      <br />
-      <p>För att vårdvalet skall bli rätt för invånaren så måste du ange vilken vårdcentral som invånaren har valt.</p>
-      <br />
-      <h3 style="margin-bottom: 10px;">Välj vårdcentral</h3>
-      <vgr-dropdown formControlName="vardval" [showValidation]="false" [items]="dropdownItems"></vgr-dropdown>
-    </vgr-modal-content>
-    <vgr-modal-footer>
-      <vgr-button [buttonStyle]="'secondary'" (click)="closeSelectVardval1()">Avbryt</vgr-button>
-      <vgr-button [buttonStyle]="'secondary'" [disabled]="vardvalForm.invalid" (click)="selectVardval1()">Skriv ut</vgr-button>
-    </vgr-modal-footer>
-  </vgr-modal>
-</form>
-<form [formGroup]="vardvalForm2">
-
-  <vgr-modal id="vardvalWithoutTextModal">
-    <vgr-modal-header>Välj vårdcentral</vgr-modal-header>
-    <vgr-modal-content>
-      <h3 style="margin-bottom: 10px;">Välj vårdcentral</h3>
-      <vgr-dropdown formControlName="vardval" [showValidation]="false" [items]="dropdownItems"></vgr-dropdown>
-    </vgr-modal-content>
-    <vgr-modal-footer>
-      <vgr-button [buttonStyle]="'secondary'" (click)="closeSelectVardval2()">Avbryt</vgr-button>
-      <vgr-button [buttonStyle]="'secondary'" [disabled]="vardvalForm2.invalid" (click)="selectVardval2()">Skriv ut</vgr-button>
-    </vgr-modal-footer>
-  </vgr-modal>
-</form>
 <vgr-modal id="commentAnswerWithTextModal">
   <vgr-modal-header>Ann-Christin Berglund har skrivit en kommentar på utbetalningsunderlaget</vgr-modal-header>
   <vgr-modal-content>
