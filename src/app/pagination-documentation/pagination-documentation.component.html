@@ -2,17 +2,34 @@
 
   <div class="docs__overview">
     <p>
-      <code>&lt;vgr-pagination&gt; </code>
-      beskrivning av komponenten....<br>
-      Max sju sidnummer visas, sedan punktas sidor i mitten.<br>
-      Första och sista sidnumret visas alltid.<br>
-      Piltangenterna används för att förflytta sig inom pagineringen.<br>
-      Enter/space byter sida. <br>
+      Paging <code>&lt;vgr-pagination&gt;</code> är en grupp av kontroller
+      som används för att dela upp innehåll på flera sidor och navigera mellan dem.<br>
     </p>
     <br>
-    <p> Förändras med tema:
+    <!-- (lägg till som ny sektion) -->
+    <vgr-expandable-div [expanded]="true">
+      <vgr-expandable-div-header>
+        <span style="font-weight: bold">Design</span>
+      </vgr-expandable-div-header>
+      <vgr-expandable-div-content>
+        <p>
+          Paging används för att dela upp innehåll i flera sidor och får användas oavsett vilken typ av innehåll det
+          är.
+          Det är ett alternativ till andra sätt att dela upp innehåll såsom lazy loading.<br><br>
+
+          Paging visar max 7 sidnummer åt gången för att komponenten ska bli överblickbar.
+          Om det är fler än 7 sidor visas steg som inte syns som punkter (...). Första och sista sidnumret visas alltid
+          för att man snabbt ska kunna gå till första och sista sidan.
+          Det går att navigera mellan sidorna med antingen siffrorna eller knapparna längst ut. <br><br>
+
+          Antalet sidor sätts av implementatören.
+        </p>
+      </vgr-expandable-div-content>
+    </vgr-expandable-div>
+    <p> 
+      <br>Förändras med tema:
       <strong>ja</strong>
-    </p>
+    </p> 
   </div>
 
   <div class="docs__examples">
@@ -20,6 +37,9 @@
       <p><b>Kodexempel: </b></p>
       <section [innerHTML]="samplePagination" highlight-js-content=".highlight"></section><br>
     </div>
+    <p>
+      <a href="/listexample-pagination">Exempel på lista med paginering.</a>
+    </p>
   </div>
 
   <div class="docs__api">
@@ -50,9 +70,17 @@
 
   <div class="docs__wcag">
     <p>
-      <code>&lt;vgr-pagination&gt;</code> består internt av ett antal element av typen button och har alla dess WCAG egenskaper.  
-      Internt sätts <code>attr.aria-label</code> för de olika knapparna exempelvis till "Du är på sidan x av y" 
-      eller om man navigerar med piltangenterna "Gå till sida x av y". 
+      Paging <code>&lt;vgr-pagination&gt;</code> består internt av ett antal element av typen button och har alla de
+      WCAG-egenskaper som
+      den typen har.<br><br>
+
+      Paging nås med tab och inom komponenten används piltangenterna för att förflytta fokus. Enter/space byter sida.
+      Det går inte att navigera till de punktade stegen.<br><br>
+
+      Internt sätts attributet aria-label för de olika knapparna för att förklara vilken sida som är aktiv och var
+      man hamnar om man byter sida. På det sidnummer som är aktivt ska aria-label sättas till “Du är på sida x av y”.
+      På ett inaktivt sidnummer ska aria-label sättas till “Gå till sida x av y”. På sista och första sidnumret ska
+      aria-label sättas till “Gå till första/sista sidan, sida x av y”
     </p>
   </div>
 </app-component-docs>
