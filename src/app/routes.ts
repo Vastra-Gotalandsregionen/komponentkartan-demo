@@ -33,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ListexampleComponent } from './lists/examples/withnotification/listexample.component';
 import { ListexamplewithrownotificationComponent } from './lists/examples/withrownotifications/listexamplewithrownotification.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
+import { ListwithpaginationcodeexampleComponent } from './lists/examples/withpagination/listwithpaginationcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
 import { ExpandableDivComponent } from './expandable-div/expandable-div.component';
@@ -90,6 +91,7 @@ export const appRoutes: Routes = [
     { path: 'sizes', component: SizesComponent },
     { path: 'menu', component: MenuComponent },
     { path: 'listexample-simple', component: ListcodeexampleComponent },
+    { path: 'listexample-pagination', component: ListwithpaginationcodeexampleComponent },
     { path: 'listexample-actionbuttons', component: ListExampleWithActionButtonsComponent },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
     { path: 'expandablediv', component: ExpandableDivComponent },

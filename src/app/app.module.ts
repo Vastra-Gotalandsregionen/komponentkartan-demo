@@ -46,6 +46,7 @@ import { ThemingComponent } from './theming/theming.component';
 import { ListexampleComponent } from './lists/examples/withnotification/listexample.component';
 import { ListexamplewithrownotificationComponent } from './lists/examples/withrownotifications/listexamplewithrownotification.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
+import { ListwithpaginationcodeexampleComponent } from './lists/examples/withpagination/listwithpaginationcodeexample.component';
 import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
@@ -106,6 +107,7 @@ registerLocaleData(localeSv);
         ThemingComponent,
         ListexampleComponent,
         ListexamplewithrownotificationComponent,
+        ListwithpaginationcodeexampleComponent,
         ComponentDocsComponent,
         TitleValueComponent,
         FiltertexboxComponent,

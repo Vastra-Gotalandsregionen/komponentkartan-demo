@@ -10,7 +10,7 @@ export class PaginationDocumentationComponent {
 
   samplePagination = `
   <div *ngIf="pages > 1">
-    <vgr-pagination [pages]="pages" [activePage]="activePage" (pageChanged)="onPageChanged($event)"></vgr-pagination>
+    <vgr-pagination [pages]="pages" (pageChanged)="onPageChanged($event)"></vgr-pagination>
   </div>`;
 
   constructor(private htmlEncoder: HtmlEncodeService) {
