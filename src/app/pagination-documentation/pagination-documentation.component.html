@@ -6,6 +6,9 @@
       som används för att dela upp innehåll på flera sidor och navigera mellan dem.<br>
     </p>
     <br>
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+      <vgr-pagination [pages]="pageCount" (pageChanged)="onPageChanged($event)"></vgr-pagination>
+    </div>
     <!-- (lägg till som ny sektion) -->
     <vgr-expandable-div [expanded]="true">
       <vgr-expandable-div-header>
@@ -26,10 +29,10 @@
         </p>
       </vgr-expandable-div-content>
     </vgr-expandable-div>
-    <p> 
+    <p>
       <br>Förändras med tema:
       <strong>ja</strong>
-    </p> 
+    </p>
   </div>
 
   <div class="docs__examples">

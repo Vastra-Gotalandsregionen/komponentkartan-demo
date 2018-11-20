@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { HtmlEncodeService } from '../html-encode.service';
 })
 export class PaginationDocumentationComponent {
 
+  pageCount = 10;
+  activePage = 1;
   samplePagination = `
   <div *ngIf="pages > 1">
     <vgr-pagination [pages]="pages" (pageChanged)="onPageChanged($event)"></vgr-pagination>
@@ -17,5 +19,8 @@ export class PaginationDocumentationComponent {
     this.samplePagination = htmlEncoder.prepareHighlightedSection(this.samplePagination);
   }
 
+  onPageChanged(page: number) {
+    this.activePage = page;
+  }
 
 }
