@@ -1,222 +1,303 @@
 <app-component-docs [componentName]="'Dropdown select'">
-    <div class="docs__overview">
-      <p>Dropdown select finns i två bredder, har en rad olika alternativ och följer temafärg.</p>
-      <p>
-        <vgr-dropdown-select>
-          <vgr-dropdown-item>Apelsin</vgr-dropdown-item>
-          <vgr-dropdown-item>Banan</vgr-dropdown-item>
-          <vgr-dropdown-item>Citron</vgr-dropdown-item>
-        </vgr-dropdown-select>
-      </p>
-      <p>Detta händer automatiskt:</p>
-      <ul>
-        <li>Scroll visas när listan blir för lång (ca. 8 alternativ). Den krymper för att passa antalet alternativ, om de
-          är få.</li>
-        <li>Sökfält för filtrering visas vid över 20 val.</li>
-        <li>Om alternativets text är lång, bryts texten på flera rader.</li>
-      </ul>
-      <p>Detta kan ställas in vid implementation:</p>
-      <ul>
-        <li>Val av ett alternativ åt gången eller flera (multiselect).</li>
-        <li>Visning av valda alternativ antingen i klartext eller antal valda alternativ. Om klartext väljs, skapas en
-          lista av alla valda alternativ som är synlig i sin helhet i tooltip på hover. Om det är lämpligt att ställa in
-          en annan visningstext för den listan, går det att lägga in per alternativ.</li>
-        <li>Alternativen kan utformas så som är lämpligt för det specifika fallet. T.ex. kan varje alternativ kan ha
-          flera informationsbitar, om en stödinformation behövs för att göra valet.</li>
-        <li>Texten som visas innan val gjorts kan ställas in fritt.</li>
-      </ul>
-      <p> Förändras med tema:
-        <strong>ja</strong>
-      </p>
-    </div>
-    <div class="docs__examples">
-      <div style="display: flex">
-        <div style="margin-right: 20px">
-          <div>
-            Liten, 5 alternativ
-          </div>
-          <div>
-            <vgr-dropdown-select [small]="true" [deselectable]="true">
-              <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
-        </div>
-        <div style="margin-right: 20px">
-          <div>
-            Stor, 50 alternativ
-          </div>
-          <div>
-            <vgr-dropdown-select>
-              <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
-        </div>
-        <div style="margin-right: 20px">
-          <div>
-            Val av flera alternativ
-          </div>
-          <div>
-            <vgr-dropdown-select [multi]="true" [simpleLabel]="true">
-              <vgr-dropdown-item *ngFor="let item of items10">{{item}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
+  <div class="docs__overview">
+    <p>Dropdown select finns i två bredder, har en rad olika alternativ och följer temafärg.</p>
+    <p>
+      <vgr-dropdown-select>
+        <vgr-dropdown-item>Apelsin</vgr-dropdown-item>
+        <vgr-dropdown-item>Banan</vgr-dropdown-item>
+        <vgr-dropdown-item>Citron</vgr-dropdown-item>
+      </vgr-dropdown-select>
+    </p>
+    <p>Detta händer automatiskt:</p>
+    <ul>
+      <li>Scroll visas när listan blir för lång (ca. 8 alternativ). Den krymper för att passa antalet alternativ, om de
+        är få.</li>
+      <li>Sökfält för filtrering visas vid över 20 val.</li>
+      <li>Om alternativets text är lång, bryts texten på flera rader.</li>
+    </ul>
+    <p>Detta kan ställas in vid implementation:</p>
+    <ul>
+      <li>Val av ett alternativ åt gången eller flera (multiselect).</li>
+      <li>Visning av valda alternativ antingen i klartext eller antal valda alternativ. Om klartext väljs, skapas en
+        lista av alla valda alternativ som är synlig i sin helhet i tooltip på hover. Om det är lämpligt att ställa in
+        en annan visningstext för den listan, går det att lägga in per alternativ.</li>
+      <li>Alternativen kan utformas så som är lämpligt för det specifika fallet. T.ex. kan varje alternativ kan ha
+        flera informationsbitar, om en stödinformation behövs för att göra valet.</li>
+      <li>Texten som visas innan val gjorts kan ställas in fritt.</li>
+    </ul>
+    <p> Förändras med tema:
+      <strong>ja</strong>
+    </p>
+  </div>
+  <div class="docs__examples">
+    <div style="display: flex">
+      <div style="margin-right: 20px">
+        <div>
+          Liten, 5 alternativ
         </div>
         <div>
-          <div>
-            Alternativ med extra information
-          </div>
-          <div>
-            <vgr-dropdown-select [multi]="true">
-              <vgr-dropdown-item *ngFor="let item of items50" [selectedLabel]="item">
-                <div>{{item}}</div>
-                <div style="font-style: italic">Information</div>
-              </vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
+          <vgr-dropdown-select [small]="true" [deselectable]="true">
+            <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
         </div>
       </div>
-      <div style="display: flex; margin-top: 20px">
-        <div style="margin-right: 20px">
-          <div>
-            Aktiv
-          </div>
-          <div>
-            <vgr-dropdown-select [small]="true" [formControl]="form">
-                <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
-        </div>
-        <div style="margin-right: 20px">
-          <div>
-            Endast visning
-          </div>
-          <div>
-            <vgr-dropdown-select [small]="true" [readonly]="true" [formControl]="form">
-                <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
+      <div style="margin-right: 20px">
+        <div>
+          Stor, många alternativ
         </div>
         <div>
-          <div>
-            Inaktiv
-          </div>
-          <div>
-            <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
-              <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-            </vgr-dropdown-select>
-          </div>
+          <vgr-dropdown-select>
+              <vgr-dropdown-item>Adam</vgr-dropdown-item>
+              <vgr-dropdown-item>Alva</vgr-dropdown-item>
+              <vgr-dropdown-item>Bea</vgr-dropdown-item>
+              <vgr-dropdown-item>Bertil</vgr-dropdown-item>
+              <vgr-dropdown-item>Cesar</vgr-dropdown-item>
+              <vgr-dropdown-item>Collin</vgr-dropdown-item>
+              <vgr-dropdown-item>David</vgr-dropdown-item>
+              <vgr-dropdown-item>Doris</vgr-dropdown-item>
+              <vgr-dropdown-item>Erika</vgr-dropdown-item>
+              <vgr-dropdown-item>Erik</vgr-dropdown-item>
+              <vgr-dropdown-item>Filip</vgr-dropdown-item>
+              <vgr-dropdown-item>Filippa</vgr-dropdown-item>
+              <vgr-dropdown-item>Gunilla</vgr-dropdown-item>
+              <vgr-dropdown-item>Gustav</vgr-dropdown-item>
+              <vgr-dropdown-item>Helena</vgr-dropdown-item>
+              <vgr-dropdown-item>Helge</vgr-dropdown-item>
+              <vgr-dropdown-item>Ivanka</vgr-dropdown-item>
+              <vgr-dropdown-item>Ivar</vgr-dropdown-item>
+              <vgr-dropdown-item>Jasmina</vgr-dropdown-item>
+              <vgr-dropdown-item>Johan</vgr-dropdown-item>
+              <vgr-dropdown-item>Kalle</vgr-dropdown-item>
+              <vgr-dropdown-item>Kim</vgr-dropdown-item>
+              <vgr-dropdown-item>Lovisa</vgr-dropdown-item>
+              <vgr-dropdown-item>Ludvig</vgr-dropdown-item>
+              <vgr-dropdown-item>Malin</vgr-dropdown-item>
+              <vgr-dropdown-item>Martin</vgr-dropdown-item>
+              <vgr-dropdown-item>Niklas</vgr-dropdown-item>
+              <vgr-dropdown-item>Nora</vgr-dropdown-item>
+              <vgr-dropdown-item>Ofelia</vgr-dropdown-item>
+              <vgr-dropdown-item>Olof</vgr-dropdown-item>
+              <vgr-dropdown-item>Paula</vgr-dropdown-item>
+              <vgr-dropdown-item>Petter</vgr-dropdown-item>
+              <vgr-dropdown-item>Qvintus</vgr-dropdown-item>
+              <vgr-dropdown-item>Rita</vgr-dropdown-item>
+              <vgr-dropdown-item>Rudolf</vgr-dropdown-item>
+              <vgr-dropdown-item>Sigurd</vgr-dropdown-item>
+              <vgr-dropdown-item>Siv</vgr-dropdown-item>
+              <vgr-dropdown-item>Tora</vgr-dropdown-item>
+              <vgr-dropdown-item>Tore</vgr-dropdown-item>
+              <vgr-dropdown-item>Urban</vgr-dropdown-item>
+              <vgr-dropdown-item>Ulla</vgr-dropdown-item>
+              <vgr-dropdown-item>Viktor</vgr-dropdown-item>
+              <vgr-dropdown-item>Vivvi</vgr-dropdown-item>
+              <vgr-dropdown-item>Wilhelm</vgr-dropdown-item>
+              <vgr-dropdown-item>Xerxes</vgr-dropdown-item>
+              <vgr-dropdown-item>Yngve</vgr-dropdown-item>
+              <vgr-dropdown-item>Zäta</vgr-dropdown-item>
+              <vgr-dropdown-item>Åke</vgr-dropdown-item>
+              <vgr-dropdown-item>Åsa</vgr-dropdown-item>
+              <vgr-dropdown-item>Ärlig</vgr-dropdown-item>
+              <vgr-dropdown-item>Östen</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </div>
+      <div style="margin-right: 20px">
+        <div>
+          Val av flera alternativ
+        </div>
+        <div>
+          <vgr-dropdown-select [multi]="true" [simpleLabel]="true">
+            <vgr-dropdown-item *ngFor="let item of items10">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </div>
+      <div>
+        <div>
+          Alternativ med extra information
+        </div>
+        <div>
+          <vgr-dropdown-select [multi]="true">
+            <vgr-dropdown-item *ngFor="let item of items50" [selectedLabel]="item">
+              <div>{{item}}</div>
+              <div style="font-style: italic">Information</div>
+            </vgr-dropdown-item>
+          </vgr-dropdown-select>
         </div>
       </div>
     </div>
-    <div class="docs__api">
-      <h2>DropdownSelect</h2>
-      <table class="property-table">
-        <tr>
-          <th>Namn</th>
-          <th>Beskrivning</th>
-          <th>Exempel</th>
-        </tr>
-        <tr>
-          <td>multi: boolean</td>
-          <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[multi]="true"</td>
-        </tr>
-        <tr>
-          <td>small: string</td>
-          <td>Gör det valda alternativet kortare. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[small]="true"</td>
-        </tr>
-        <tr>
-          <td>deselectable: boolean</td>
-          <td>Visar en knapp som gör det möjligt att återställa till inget val efter att ett val gjorts. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[deselectable]="true"</td>
-        </tr>
-        <tr>
-          <td>simpleLabel: boolean</td>
-          <td>Gör texten för valda alternativ kortare vid multi. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[simpleLabel]="true"</td>
-        </tr>
-        <tr>
-          <td>noItemSelectedLabel: string</td>
-          <td>Ändrar texten som visas då inget val gjorts. Förvalt värde är
-            <code>Välj</code>.</td>
-          <td>[noItemSelectedLabel]="'Gör ett val'"</td>
-        </tr>
-        <tr>
-          <td>readonly: boolean</td>
-          <td>Gör att textfält med valt värde visas. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[readonly]="true"</td>
-        </tr>
-        <tr>
-          <td>disabled: boolean</td>
-          <td>Förhindrar interaktion. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[disabled]="true"</td>
-        </tr>
-        <tr>
-          <td>showValidation: boolean</td>
-          <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[showValidation]="true"</td>
-        </tr>
-        <tr>
-          <td>compareWith: (o1: any, o2: any) => boolean</td>
-          <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
-            värden, till exempel då de hämtas via ett fjärranrop till servern och detta upprepas. Förvalt värde jämför
-            med vanlig equality.</td>
-          <td>[showValidation]="true"</td>
-        </tr>
-        <tr>
-          <td>selectedChanged: EventEmitter&lt;any&gt;</td>
-          <td>Event som triggas när val ändras av användaren. Värdet är det nya valet.</td>
-          <td>(selectedChanged)="doSomething($event)"</td>
-        </tr>
-      </table>
-      <br>
-      <h2>DropdownItem</h2>
-      <table class="property-table">
-        <tr>
-          <th>Namn</th>
-          <th>Beskrivning</th>
-          <th>Exempel</th>
-        </tr>
-        <tr>
-          <td>selectedLabel: string</td>
-          <td>Ger möjlighet att visa en annan text när alternativet är valt.</td>
-          <td>[selectedLabel]="'Ett kortare namn'"</td>
-        </tr>
-        <tr>
-          <td>value: any</td>
-          <td>Värde att binda till för reactive forms.</td>
-          <td>[value]="someObject"</td>
-        </tr>
-        <tr>
-          <td>deselectable: boolean</td>
-          <td>Visar en knapp som gör det möjligt att återställa till inget val efter att ett val gjorts. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[deselectable]="true"</td>
-        </tr>
-        <tr>
-          <td>selectedChanged: EventEmitter&lt;any&gt;</td>
-          <td>Event som triggas när val ändras av användaren. Värdet är <code>true</code> om alternativet valts och <code>false</code>
-            om det avvalts. Används av <code>&lt;vgr-dropdown-select&gt;</code>.</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>previous: EventEmitter</td>
-          <td>Event som triggas av pil-upptangenten. Används av <code>&lt;vgr-dropdown-select&gt;</code>.</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>next: EventEmitter</td>
-          <td>Event som triggas av pil-nedtangenten. Används av <code>&lt;vgr-dropdown-select&gt;</code>.</td>
-          <td></td>
-        </tr>
-      </table>
+    <div style="display: flex; margin-top: 20px">
+      <div style="margin-right: 20px">
+        <div>
+          Aktiv
+        </div>
+        <div>
+          <vgr-dropdown-select [small]="true" [formControl]="form">
+            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </div>
+      <div style="margin-right: 20px">
+        <div>
+          Endast visning
+        </div>
+        <div>
+          <vgr-dropdown-select [small]="true" [readonly]="true" [formControl]="form">
+            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </div>
+      <div>
+        <div>
+          Inaktiv
+        </div>
+        <div>
+          <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
+            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </div>
     </div>
-  </app-component-docs>
+  </div>
+  <div class="docs__api">
+    <h2>DropdownSelect</h2>
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>multi: boolean</td>
+        <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[multi]="true"</td>
+      </tr>
+      <tr>
+        <td>small: string</td>
+        <td>Gör det valda alternativet kortare. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[small]="true"</td>
+      </tr>
+      <tr>
+        <td>deselectable: boolean</td>
+        <td>Visar en knapp som gör det möjligt att återställa till inget val efter att ett val gjorts. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[deselectable]="true"</td>
+      </tr>
+      <tr>
+        <td>simpleLabel: boolean</td>
+        <td>Gör texten för valda alternativ kortare vid multi. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[simpleLabel]="true"</td>
+      </tr>
+      <tr>
+        <td>noItemSelectedLabel: string</td>
+        <td>Ändrar texten som visas då inget val gjorts. Förvalt värde är
+          <code>Välj</code>.</td>
+        <td>[noItemSelectedLabel]="'Gör ett val'"</td>
+      </tr>
+      <tr>
+        <td>readonly: boolean</td>
+        <td>Gör att textfält med valt värde visas. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[readonly]="true"</td>
+      </tr>
+      <tr>
+        <td>disabled: boolean</td>
+        <td>Förhindrar interaktion. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[disabled]="true"</td>
+      </tr>
+      <tr>
+        <td>showValidation: boolean</td>
+        <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[showValidation]="true"</td>
+      </tr>
+      <tr>
+        <td>compareWith: (o1: any, o2: any) => boolean</td>
+        <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
+          värden, till exempel då de hämtas via ett fjärranrop till servern och detta upprepas. Förvalt värde jämför
+          med vanlig equality.</td>
+        <td>[showValidation]="true"</td>
+      </tr>
+      <tr>
+          <td>labelId: string</td>
+          <td>ID för det element som är rubrik. Används av skärmläsare.</td>
+          <td>[labelId]="'someLabelId'"</td>
+        </tr>
+      <tr>
+        <td>selectedChanged: EventEmitter&lt;any&gt;</td>
+        <td>Event som triggas när val ändras av användaren. Värdet är det nya valet.</td>
+        <td>(selectedChanged)="doSomething($event)"</td>
+      </tr>
+    </table>
+    <br>
+    <h2>DropdownItem</h2>
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>selectedLabel: string</td>
+        <td>Ger möjlighet att visa en annan text när alternativet är valt.</td>
+        <td>[selectedLabel]="'Ett kortare namn'"</td>
+      </tr>
+      <tr>
+        <td>value: any</td>
+        <td>Värde att binda till för reactive forms.</td>
+        <td>[value]="someObject"</td>
+      </tr>
+    </table>
+  </div>
+  <div class="docs__wcag">
+    <p>
+      Viktigt att tänka på, är att lägga in en tydlig etikett som skärmläsare kan läsa upp när dropdownen kommer i
+      fokus. Smartast är att sätta en rubrik över dropdownen och sedan programmatiskt använda den som etikett för
+      dropdownen.
+    </p>
+    <p>
+      Det är bra om alternativen i en dropdowns lista är tydligt urskiljbara och att de inledande tecknen är
+      signifikanta. Det gör det lättare att hitta. Fundera över hur användarna letar i listan när du gör design för
+      dess innehåll.
+    </p>
+    <p>
+      Dropdownen är byggd att följa WCAG-kraven för listbox (<a href="https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox">https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox</a>).
+    </p>
+    <p>
+      Summerat innebär det:
+    </p>
+    <ul>
+      <li>När dropdownen är i fokus, öppnas listan med Enter eller pil upp/ner.</li>
+      <li>Enter väljer ett fokuserat alternativ och stänger listan.</li>
+      <li>Esc stänger listan utan att göra ett val. Pil upp och ner bläddrar i listan.</li>
+      <li>Om en teckentangent, eller en snabb följd av tecken trycks in, fokuseras det första alternativet med den
+        angivna teckenkombinationen.</li>
+      <li>Home respektive End går till listans första respektive sista alternativ.</li>
+    </ul>
+    <p>
+      För multi-select gäller också att:
+    </p>
+    <ul>
+      <li>Mellanslag kryssar för ett fokuserat alternativ utan att stänga listan.</li>
+      <li>Ctrl + A kryssar för alla alternativ.</li>
+    </ul>
+    <div id="label">Frukt</div>
+    <vgr-dropdown-select [labelId]="'label'">
+      <vgr-dropdown-item> Äpple</vgr-dropdown-item>
+      <vgr-dropdown-item> Banan</vgr-dropdown-item>
+      <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
+    </vgr-dropdown-select>
+    <p>
+      Ett alternativ, som är mindre bra, är att lägga in en tydlig defaulttext i dropdownens ruta. Det får dock följden
+      att etikett saknas när ett alternativ är valt.
+    </p>
+    <vgr-dropdown-select [noItemSelectedLabel]="'Välj frukt'">
+      <vgr-dropdown-item> Äpple</vgr-dropdown-item>
+      <vgr-dropdown-item> Banan</vgr-dropdown-item>
+      <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
+    </vgr-dropdown-select>
+  </div>
+</app-component-docs>
