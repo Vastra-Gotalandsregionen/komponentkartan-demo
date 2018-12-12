@@ -4,12 +4,87 @@
   <vgr-page-body>
     <vgr-page-block>
       <h2>Dokumentation för tillgängliga ikoner i komponentkartan</h2>
-      <p>För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn representerade
-        i tabellen nedanför.
+      <p>
+        Det finns nu stöd för att använda Font Awsome (free).
+        Genom att använda komponenten vgr-icon kan dessa ikoner användas
+        <a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a>.
+        För implementation se <a href="/icons">dokumentation for vgr-icon</a>.
+      </p>
+      <br>
+      <div><strong>Exempel på Font Awsome ikoner</strong></div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'coffee'" [size]="'xs'" [ariaLabel]="'min kaffekopp'" [color]="'text'"></vgr-icon>
+        <span>[icon]="'coffee'" [size]="'xs'" [color]="'text'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'coffee'" [disabled]="true"></vgr-icon>
+        <span>[icon]="'star'" [disabled]="true"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'star'"></vgr-icon>
+        <span>[icon]="'star'" [solid]="true"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'star'" [solid]="false"></vgr-icon>
+        <span>[icon]="'star'" [solid]="false"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [color]="'text'" [icon]="'plus'" [size]="'xs'"></vgr-icon>
+        <span>[icon]="'plus'" [color]="'text'" [size]="'xs'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [color]="'text'" [icon]="'minus'" [size]="'xs'"></vgr-icon>
+        <span>[icon]="'minus'" [color]="'text'" [size]="'xs'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [color]="'text'" [icon]="'pen'"></vgr-icon>
+        <span>[icon]="'pen'" [color]="'text'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'comment-dots'" [solid]="false" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'comment-dots'" [solid]="false" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'trash-alt'" [solid]="false" [color]="'text'" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'trash-alt'" [solid]="false" [color]="'text'" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'check-circle'" [color]="'success'" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'check-circle'" [color]="'success'" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'check-circle'" [color]="'text'" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'check-circle'" [color]="'text'" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'question-circle'" [color]="'text'" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'question-circle'" [color]="'text'" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'exclamation-circle'" [color]="'text'" [size]="'lg'"></vgr-icon>
+        <span>[icon]="'exclamation-circle'" [color]="'text'" [size]="'lg'"</span>
+      </div>
+      <div class="fa-icons">
+        <vgr-icon [icon]="'exclamation-circle'" [size]="'lg'" [color]="'error'"></vgr-icon>
+        <span>[icon]="'exclamation-circle'" [size]="'lg'" [color]="'error'"</span>
+      </div>
+      <div>
+        <br>
+        <strong>Diskreta knappar med ikon</strong><br>
+        <vgr-button [buttonStyle]="'discreet'" (click)="favoriteValue = !favoriteValue">
+          <vgr-icon [icon]="'star'" [solid]="favoriteValue"></vgr-icon>
+          Min favoritknapp
+        </vgr-button>
+      </div>
+      <br>
+      <p>
+        <i> Man kan fortfarande använda sig av de gamla gamla ikonerna nedan men dessa kommmar att ersättas av Font
+        Awsome ikoner.</i><br><br>
+        För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn
+        representerade i tabellen nedanför.
         <br>
         <br>Svg-bilderna är kopplade till en background-image för samtliga klasser i komponentkartans ikon-bibliotek.
       </p>
-      <br>
       <br>
       <table class="property-table" style="width:50%">
         <tr>

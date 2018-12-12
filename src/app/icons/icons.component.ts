@@ -18,11 +18,14 @@ export class IconsComponent implements OnInit {
   iconExamplesTS: string;
   iconExamplesTS2: string;
 
+  favorite = false;
+  favoriteValue = false;
+
   constructor(htmlEncoder: HtmlEncodeService) {
 
-    this.iconExamplesTS = htmlEncoder.prepareHighlightedSection(this.code, 'typescript')
-    this.iconExamplesTS2 = htmlEncoder.prepareHighlightedSection(this.code2, 'typescript')
-    this.iconExamplesHTML = htmlEncoder.prepareHighlightedSection(this.html, 'html')
+    this.iconExamplesTS = htmlEncoder.prepareHighlightedSection(this.code, 'typescript');
+    this.iconExamplesTS2 = htmlEncoder.prepareHighlightedSection(this.code2, 'typescript');
+    this.iconExamplesHTML = htmlEncoder.prepareHighlightedSection(this.html, 'html');
   }
 
   ngOnInit() {

@@ -1,0 +1,147 @@
+<app-component-docs [componentName]="'Icon'">
+
+  <div class="docs__overview">
+    <p>
+      <code>&lt;vgr-icon&gt; </code> används för att visuellt förstärka en handling eller ett meddelande.<br><br>
+      Komponenten icon &lt;vgr-icon&gt; använder sig av ikonerna som kommer från Font Awesome (free).
+      Komponenten är en anpassad variant av Font Awesomes Angular-komponent och stöder dens <b>Basic</b> funktionalitet
+      <a href="https://www.npmjs.com/package/@fortawesome/angular-fontawesome#basic">angular-fontawesome features
+        (basic)</a>. När &lt;vgr-icon&gt; används ska dock implementationen följa API nedan.<br><br>
+      De ikoner som går att använda hittar du här: <a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a>.
+    </p><br>
+    <vgr-icon [icon]="'star'"></vgr-icon><br><br>
+    <p> Förändras med tema:
+      <strong>ja</strong>
+    </p>
+  </div>
+  <div class="docs__examples">
+    <div class="column-layout">
+      <div class="icons-exemple">
+        <vgr-icon [icon]="'coffee'" [color]="'text'" [ariaLabel]="'min kaffekopp'"></vgr-icon>
+        <span>[icon]="'coffee'" [color]="'text'" [ariaLabel]="'min kaffekopp'" </span>
+      </div>
+      <div class="icons-exemple">
+        <vgr-icon [icon]="'coffee'" [disabled]="true"></vgr-icon>
+        <span>[icon]="'coffee'" [disabled]="true"</span>
+      </div>
+      <div class="icons-exemple">
+        <vgr-icon [icon]="'comment-dots'" [solid]="false" [size]="'lg'" [color]="'text'"></vgr-icon>
+        <span>[icon]="'comment-dots'" [solid]="false" [size]="'lg'" [color]="'text'"</span>
+      </div>
+      <div class="icons-exemple">
+        <vgr-icon [icon]="'exclamation-circle'" [size]="'lg'" [color]="'error'"></vgr-icon>
+        <span>[icon]="'exclamation-circle'" [size]="'lg'" [color]="'error'"</span>
+      </div>
+      <div class="icons-exemple">
+        <vgr-icon [icon]="'star'"></vgr-icon>
+        <span>[icon]="'star'"</span>
+      </div>
+      <strong>Diskret knapp med ikon</strong>
+      <div>
+        <vgr-button [buttonStyle]="'discreet'" (click)="isMyFavorite = !isMyFavorite">
+          <vgr-icon [icon]="'star'" [solid]="isMyFavorite"></vgr-icon>
+          Min favoritknapp
+        </vgr-button>
+      </div>
+      <div>
+        <section [innerHTML]="buttonHtmlExample" highlight-js-content=".highlight"></section>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs__api">
+    <table class="property-table ">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>icon: string</td>
+        <td>Ikonens textkod. Möjliga värden är koder enligt Font Awsomes dokumetation för gratisikoner. Default inget
+          värde.</td>
+        <td>[icon]="'star'"</td>
+      </tr>
+      <tr>
+        <td>solid: boolean</td>
+        <td>Sätter om ikonen skall vara solid. Möjliga värden är true (solid) eller false (regular). Default är true.</td>
+        <td>[solid]="false"</td>
+      </tr>
+      <tr>
+        <td>size: string</td>
+        <td>Ikonens storlek. Möjliga värden är 'xs' (.75em), 'sm' (.875em), 'lg' (1.33em), '[n]x' ([n]em) etc där [n]
+          är ett tal ex '2x' (2em).
+          Default tom sträng (följer fontstorleken).</td>
+        <td>[size]="'xs'"</td>
+      </tr>
+      <tr>
+        <td>color: string</td>
+        <td>Sätter ikonens färg. Möjliga värden är 'primary' (följer temat), 'text' (följer textfärgen), 'success',
+          'error'.
+          Defaultvärde är 'primary'. </td>
+        <td>[color]="'text'"</td>
+      </tr>
+      <tr>
+        <td>disabled: boolean</td>
+        <td>Visar ikon i som inaktiv. Default är false.</td>
+        <td>[disabled]="true"</td>
+      </tr>
+      <tr>
+        <td>ariaLabel: string</td>
+        <td>Möjlighet att sätta en eget röstmeddelande på ikonens area-label. Default tom sträng .</td>
+        <td>[ariaLabel]="'min favorit'"</td>
+      </tr>
+      <tr>
+        <td>fixedWidth: boolean</td>
+        <td>Låser storleken till ett fast värde. Default är false.</td>
+        <td>[fixedWidth]="true"</td>
+      </tr>
+      <tr>
+        <td>rotate: number</td>
+        <td>Roterar ikonen i antal grader. Tillåtna värden är 90, 180 och 270. Default är 0.</td>
+        <td>[rotate]="90"</td>
+      </tr>
+      <tr>
+        <td>flip: string</td>
+        <td>Spegelvänder ikonen. Tillåtna värden är 'horizontal', 'vertical' och 'both'. Default är tom sträng.</td>
+        <td>[flip]="'vertical'"</td>
+      </tr>
+      <tr>
+        <td>spin: bolean</td>
+        <td>Gör att ikonen spinner. Tillåtna värden är true eller false. Default är false.</td>
+        <td>[spin]="true"</td>
+      </tr>
+      <tr>
+        <td>pulse: bolean</td>
+        <td>Gör att ikonen spinner på ett snabbare och pulserande sätt. Tillåtna värden är true eller false. Default är
+          false.</td>
+        <td>[pulse]="true"</td>
+      </tr>
+      <tr>
+        <td>border: bolean</td>
+        <td>Lägger på en tunn border runt ikonen. Tillåtna värden är true eller false. Default är
+          false.</td>
+        <td>[border]="true"</td>
+      </tr>
+      <tr>
+        <td>pull: string</td>
+        <td>Skuter ikonen åt vänster eller höger. Tillåtna värden är 'left' och 'right'. Default är tom sträng.</td>
+        <td>[pull]="'right'"</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="docs__wcag">
+    <p>
+      När ikonen används för att förstärka en text behöver skärmläsaren inte läsa upp ikonen, eftersom den är redundant. 
+      I de fall då ikonen används själv behöver aria-label sättas för att skärmläsaren ska kunna läsa upp den. 
+      <br><br>
+      Enligt WCAG 2.1 ska icke-textelement ha en hög kontrast mot sin bakgrund så att personer med nedsatt syn kan läsa och tolka dem. 
+      För att uppnå detta kriterie ska ikonerna endast ha färger med god kontrast mot bakgrunden. 
+      I Komponentkartans färgkarta är dessa färger de primära färgerna, success, fail och textfärgen. 
+      <br><br>
+      Mer information om kontrast finns på: <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">
+        https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html</a>
+    </p>
+  </div>
+</app-component-docs>
