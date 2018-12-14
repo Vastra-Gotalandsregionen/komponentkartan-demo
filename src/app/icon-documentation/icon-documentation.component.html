@@ -10,6 +10,24 @@
       De ikoner som går att använda hittar du här: <a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a>.
     </p><br>
     <vgr-icon [icon]="'star'"></vgr-icon><br><br>
+    <vgr-expandable-div [expanded]="true">
+      <vgr-expandable-div-header>
+        <span style="font-weight: bold">Design</span>
+      </vgr-expandable-div-header>
+      <vgr-expandable-div-content>
+        <p>
+          Ikoner bör användas i kombination med text i första hand, då ikoner kan vara svåra att tolka när de står själva. 
+          De bör alltså användas för att förstärka ett budskap snarare än att förmedla det. <br><br>
+          I vissa fall är det lämpligt att använda ikonen självstående, t.ex. för att förmedla en status såsom “granskad” eller “godkänd”. 
+          Det är rekommenderat att använda tooltip för att förtydliga vad ikonen betyder. <br><br>
+          Ikoner som förmedlar information behöver ha en hög kontrast mot sin bakgrund för att kunna läsas av användare som tittar på skärmen. 
+          Därför är det endast tillåtet att använda de primära färgerna i färgkartan på ikonerna. 
+          Undantaget är när ikonen ska reflektera ett inaktivt läge, då är det tillåtet att ha en lägre kontrast. 
+          Färgerna som är tillåtna begränsas av komponenten.           
+        </p>
+      </vgr-expandable-div-content>
+    </vgr-expandable-div>
+    <br>
     <p> Förändras med tema:
       <strong>ja</strong>
     </p>
