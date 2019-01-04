@@ -274,20 +274,25 @@ export class Examples {
 
   htmlActionButtonsListMarkup = `<vgr-list [flexibleHeader]="true" (sortChanged)="onSortChanged($event)">
   <vgr-list-header>
-    <vgr-list-column-header width="8" sortKey="firstName" [sortDirection]="sortDirections.Ascending">Förnamn</vgr-list-column-header>
-    <vgr-list-column-header width="5" sortKey="lastName">Efternamn</vgr-list-column-header>
-    <vgr-list-column-header width="3" sortKey="amount">Årsbelopp</vgr-list-column-header>
+    <vgr-list-column-header width="7" sortKey="firstName">Förnamn</vgr-list-column-header>
+    <vgr-list-column-header width="4" sortKey="lastName">Efternamn</vgr-list-column-header>
+    <vgr-list-column-header width="3" align="right" sortKey="amount">Årsbelopp</vgr-list-column-header>
     <vgr-list-column-header width="1"></vgr-list-column-header>
-    <vgr-list-column-header-checkbox width="3" text="Markera alla" [checked]="allChecked" (checkedChanged)="onSelectAllChanged($event)"></vgr-list-column-header-checkbox>
+    <vgr-list-column-header width="4">
+      <vgr-checkbox [checked]="allChecked" (checkedChanged)="onSelectAllChanged($event)" label="Markera alla"></vgr-checkbox>
+    </vgr-list-column-header>
   </vgr-list-header>
   <vgr-list-item *ngFor="let row of peopleRows" [notification]="row.notification" (deleted)="notifyOnDelete(row)">
     <vgr-list-item-header>
-      <vgr-list-column width="5">{{row.firstName}}</vgr-list-column>
-      <vgr-list-column width="5">{{row.lastName}}</vgr-list-column>
-      <vgr-list-column width="5" align="right">{{row.income | number:'2.2-2':'sv-SE'}}</vgr-list-column>
-      <vgr-list-column-trashcan [disabled]="row.previewObject.deleted" (delete)="onDeleteRow(row)" width="1"></vgr-list-column-trashcan>
-      <vgr-list-column-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected" (checkedChanged)="onSelectRowChanged(row, $event)"
-        width="3"></vgr-list-column-checkbox>
+      <vgr-list-column width="7">{{row.previewObject.firstName}}</vgr-list-column>
+      <vgr-list-column width="4">{{row.previewObject.lastName}}</vgr-list-column>
+      <vgr-list-column width="3" align="right">{{row.previewObject.amount | number:'2.2-2':'sv'}}</vgr-list-column>
+      <vgr-list-column>
+        <vgr-icon icon="trash-alt" [solid]="false" color="text" size="lg" [disabled]="row.previewObject.deleted" (click)="onDeleteRow($event,row)"></vgr-icon>
+      </vgr-list-column>
+      <vgr-list-column width="3">
+        <vgr-checkbox [disabled]="row.previewObject.deleted" [checked]="row.previewObject.selected" (checkedChanged)="onSelectRowChanged(row, $event)"></vgr-checkbox>
+      </vgr-list-column>
     </vgr-list-item-header>
     <vgr-list-item-content>
       <span>Mer information</span>
@@ -309,7 +314,7 @@ export class Examples {
 <vgr-modal id="removeRowModal">
   <vgr-modal-header>Ta bort raden</vgr-modal-header>
   <vgr-modal-content>
-    <p>Vill du verkligen ta bort {{!rowToRemove || rowToRemove.previewObject.firstName}}?</p>
+    <p *ngIf="rowToRemove">Vill du verkligen ta bort {{rowToRemove.previewObject.firstName}}?</p>
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button (click)="removeSelectedRow()">Ja</vgr-button>
@@ -319,119 +324,131 @@ export class Examples {
 `;
 
   typeScriptActionButtonsListMarkup = `import { Component } from '@angular/core';
-    import { HtmlEncodeService } from '../../../html-encode.service';
-    import { Examples } from '../examples';
-    import {
-        ModalService, ExpandableRow,
-        SortDirection, SortChangedArgs
-    } from 'vgr-komponentkartan/';
-
-    @Component({
-        selector: 'app-listexamplewithactionbuttons',
-        templateUrl: './listexamplewithactionbuttons.component.html',
-        styleUrls: ['./listexamplewithactionbuttons.component.scss']
-    })
-    export class ListExampleWithActionButtonsComponent {
-
-        public peopleRows: ExpandableRow<ExamplePerson, any>[];
-
-        createExampleList(): ExpandableRow<ExamplePerson, any>[] {
-            return [
-                new ExpandableRow<ExamplePerson, any>({ id: '1', firstName: 'Git', lastName: 'Hubsson', amount: 125000 }),
-                new ExpandableRow<ExamplePerson, any>({ id: '2', firstName: 'Adam', lastName: 'Lind', amount: 235000 }),
-                new ExpandableRow<ExamplePerson, any>({ id: '3', firstName: 'Bjarne', lastName: 'Chi', amount: 25000 }),
-                new ExpandableRow<ExamplePerson, any>({ id: '4', firstName: 'Carola', lastName: 'Bengtsson', amount: 720000 }),
-                new ExpandableRow<ExamplePerson, any>({ id: '5', firstName: 'Erik', lastName: 'Karlsson', amount: 401200 }),
-            ];
-        }
-
-        get allChecked() {
-            return this.peopleRows && !this.peopleRows.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.selected);
-        }
-
-        loadData() {
-            this.peopleRows = this.createExampleList();
-        }
-
-        onSelectRowChanged(row: any, checked: boolean) {
-            row.previewObject.selected = checked;
-        }
-
-        onSelectAllChanged(checked: boolean) {
-            if (this.peopleRows) {
-                this.peopleRows.filter(r => !r.previewObject.deleted).forEach(x => x.previewObject.selected = checked);
-            }
-        }
-
-        onDeleteRow(row: any) {
-            this.removeRow(row);
-        }
-
-        notifyOnDelete(row: any) {
-          this.removedObjectString = JSON.stringify(row);
+  import { HtmlEncodeService } from '../../../html-encode.service';
+  import { Examples } from '../examples';
+  import {
+      ModalService, ExpandableRow,
+      SortDirection, SortChangedArgs
+  } from 'vgr-komponentkartan';
+  
+  @Component({
+      selector: 'app-listexamplewithactionbuttons',
+      templateUrl: './listexamplewithactionbuttons.component.html',
+      styleUrls: ['./listexamplewithactionbuttons.component.scss']
+  })
+  export class ListExampleWithActionButtonsComponent {
+  
+      public peopleRows: ExpandableRow<ExamplePerson, any>[];
+      typeScriptSimpleListMarkup: string;
+      htmlSimpleListMarkup: string;
+      examples: Examples = new Examples();
+      removedObjectString: string;
+      rowToRemove: ExpandableRow<ExamplePerson, any>;
+  
+      get allChecked() {
+          return this.peopleRows && !this.peopleRows.filter(r => !r.previewObject.deleted).find(x => !x.previewObject.selected);
+      }
+  
+      constructor(htmlEncoder: HtmlEncodeService, private modalService: ModalService) {
+  
+          this.typeScriptSimpleListMarkup =
+              htmlEncoder.prepareHighlightedSection(this.examples.typeScriptActionButtonsListMarkup, 'typescript');
+          this.htmlSimpleListMarkup =
+              htmlEncoder.prepareHighlightedSection(this.examples.htmlActionButtonsListMarkup);
+      }
+  
+      loadData() {
+          this.peopleRows = [
+              new ExpandableRow<ExamplePerson, any>({ id: '1', firstName: 'Git', lastName: 'Hubsson', amount: 125000 }),
+              new ExpandableRow<ExamplePerson, any>({ id: '2', firstName: 'Adam', lastName: 'Lind', amount: 235000 }),
+              new ExpandableRow<ExamplePerson, any>({ id: '3', firstName: 'Bjarne', lastName: 'Chi', amount: 25000 }),
+              new ExpandableRow<ExamplePerson, any>({ id: '4', firstName: 'Carola', lastName: 'Bengtsson', amount: 720000 }),
+              new ExpandableRow<ExamplePerson, any>({ id: '5', firstName: 'Erik', lastName: 'Karlsson', amount: 401200 }),
+          ];
+      }
+  
+      onSelectRowChanged(row: any, checked: boolean) {
+          row.previewObject.selected = checked;
+      }
+  
+      onSelectAllChanged(checked: boolean) {
+          if (this.peopleRows) {
+              this.peopleRows.filter(r => !r.previewObject.deleted).forEach(x => x.previewObject.selected = checked);
+          }
+      }
+  
+      onDeleteRow(event: Event, row: any) {
+          event.stopPropagation();
+          this.removeRow(row);
+      }
+  
+      notifyOnDelete(row: any) {
+          this.removedObjectString = JSON.stringify(row, null, '\t');
           this.peopleRows = this.peopleRows.filter(i => i !== row);
           this.modalService.openDialog('notifyDeleteModal');
-        }
-
-        removeRow(row: ExpandableRow<ExamplePerson, any>) {
-            this.rowToRemove = row;
-            this.modalService.openDialog('removeRowModal');
-        }
-
-        removeSelectedRow() {
-            this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.firstName + ' togs bort', 'vgr-icon-ok-check');
-            this.rowToRemove.previewObject.selected = false;
-            this.rowToRemove.previewObject.deleted = true;
-            /*
-              Remove for real...
-            */
-            this.modalService.closeDialog('removeRowModal');
-        }
-
-        getSelectedRows(): number {
-            return this.peopleRows && this.peopleRows.filter(r => r.previewObject.selected).length;
-        }
-
-        closeModal(modalId: string) {
+      }
+  
+      removeRow(row: ExpandableRow<ExamplePerson, any>) {
+          this.rowToRemove = row;
+          this.modalService.openDialog('removeRowModal');
+      }
+  
+      getSelectedRows(): number {
+          if (!this.peopleRows) {
+              return 0;
+          } else {
+              return this.peopleRows && this.peopleRows.filter(r => r.previewObject.selected).length;
+          }
+      }
+  
+      removeSelectedRow() {
+          this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.firstName + ' togs bort', 'vgr-icon-ok-check');
+          this.rowToRemove.previewObject.selected = false;
+          this.rowToRemove.previewObject.deleted = true;
+          /*
+            Remove for real...
+          */
+          this.modalService.closeDialog('removeRowModal');
+      }
+  
+      onSortChanged(event: SortChangedArgs) {
+  
+          if (event.key === 'selected') {
+              if (event.direction === SortDirection.Ascending) {
+                  this.peopleRows = this.peopleRows.sort(function (x, y) {
+                      return (x.previewObject.selected === y.previewObject.selected) ? 0 : x.previewObject.selected ? -1 : 1;
+                  });
+              } else {
+                  this.peopleRows = this.peopleRows.sort(function (x, y) {
+                      return (x.previewObject.selected === y.previewObject.selected) ? 0 : y.previewObject.selected ? -1 : 1;
+                  });
+              }
+          } else {
+              this.peopleRows = this.peopleRows.sort((row1, row2) => {
+                  return row1.previewObject[event.key] > row2.previewObject[event.key] ?
+                      (event.direction === SortDirection.Ascending ? 1 : -1) :
+                      row1.previewObject[event.key] < row2.previewObject[event.key] ?
+                          (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
+              });
+          }
+      }
+  
+      closeModal(modalId: string) {
           this.modalService.closeDialog(modalId);
-        }
-
-        onSortChanged(event: SortChangedArgs) {
-
-            if (event.key === 'selected') {
-                if (event.direction === SortDirection.Ascending) {
-                    this.peopleRows = this.peopleRows.sort(function (x, y) {
-                        return (x.previewObject.selected === y.previewObject.selected) ? 0 : x.previewObject.selected ? -1 : 1;
-                    });
-                } else {
-                    this.peopleRows = this.peopleRows.sort(function (x, y) {
-                        return (x.previewObject.selected === y.previewObject.selected) ? 0 : y.previewObject.selected ? -1 : 1;
-                    });
-                }
-            } else {
-                this.peopleRows = this.peopleRows.sort((row1, row2) => {
-                    return row1.previewObject[event.key] > row2.previewObject[event.key] ?
-                        (event.direction === SortDirection.Ascending ? 1 : -1) :
-                        row1.previewObject[event.key] < row2.previewObject[event.key] ?
-                            (event.direction === SortDirection.Ascending ? -1 : 1) : 0;
-                });
-            }
-        }
-
-
-        constructor(private modalService: ModalService) {}
-
-    }
-
-    export interface ExamplePerson {
-        id: string;
-        firstName: string;
-        lastName: string;
-        amount: number;
-        selected?: boolean;
-        deleted?: boolean;
-    }
-
+      }
+  
+  }
+  
+  export interface ExamplePerson {
+      id: string;
+      firstName: string;
+      lastName: string;
+      amount: number;
+      selected?: boolean;
+      deleted?: boolean;
+  }
+  
+  
     `;
 
   htmlListNotificationMarkup = `
