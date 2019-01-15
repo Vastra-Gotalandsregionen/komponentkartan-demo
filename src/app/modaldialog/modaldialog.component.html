@@ -25,12 +25,9 @@
       <div>
         <vgr-button (click)="showTwoButtonModal()">Två knappar med lång text</vgr-button>
       </div>
-      <div>
-        <vgr-button (click)="showThreeButtonModal()">Tre knappar</vgr-button>
-      </div>
       <div class="column-layout">
-        <vgr-button (click)="showSaveDontSaveCancelModal()">Spara-SparaInte-Avbryt</vgr-button>
-        Modal där avbryt är defaultknapp
+        <vgr-button (click)="showThreeButtonModal()">Tre knappar</vgr-button>
+        <span></span>
       </div>
     </div>
     <div class="row-layout">
@@ -63,7 +60,9 @@
     <code>&lt;vgr-modal-content&gt;</code>
     och
     <code>&lt;vgr-modal-footer&gt;</code>. Den andra delen är en
-    <code>modalService</code> som injectas i de komponenter som vill visa en dialog. För att visa en dialog, använd
+    <code>modalService</code> som injectas i de komponenter som vill visa en dialog. Bredden på dialogen kan i det lilla läget minst vara 450px och max 1080px 
+    alternativt i det stora läget minst 500px och max 1130px. För att sätta förvalt fokus på en 
+    <code>&lt;vgr-button&gt;</code> i ett modalt fönster anges attributet <code>default=true</code> för knappen. För att visa en dialog, använd
     <code>modalService.openDialog()</code> och för att stänga dialogen, använd
     <code>modalService.closeDialog()</code>. Se nedan.
     <br>
@@ -185,8 +184,8 @@
     </p>
   </vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal3')">Jag accepterar</vgr-button>
     <vgr-button [buttonStyle]="'secondary'" default="true" (click)="closeModal('modal3')">Avbryt</vgr-button>
+    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal3')">Jag accepterar</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
 <vgr-modal id="modal4">
@@ -195,9 +194,9 @@
     <p>Ändringarna går förlorade om du inte sparar dem</p>
   </vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal4')">Spara</vgr-button>
-    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal4')">Spara inte</vgr-button>
     <vgr-button [buttonStyle]="'secondary'" default="true" (click)="closeModal('modal4')">Avbryt</vgr-button>
+    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal4')">Spara inte</vgr-button>
+    <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal4')">Spara</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
 <vgr-modal id="commentAnswerWithTextModal">
@@ -248,7 +247,7 @@
     <p>Ändringarna går förlorade om du inte sparar dem</p>
   </vgr-modal-content>
   <vgr-modal-footer>
-    <vgr-button [buttonStyle]="'secondary'">Spara</vgr-button>
     <vgr-button [buttonStyle]="'secondary'" default="true" (click)="modalService.closeDialog('myModalId')">Avbryt</vgr-button>
+    <vgr-button [buttonStyle]="'secondary'">Spara</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
