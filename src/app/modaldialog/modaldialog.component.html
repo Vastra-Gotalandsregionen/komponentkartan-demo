@@ -49,10 +49,9 @@
     <h2>Resultat</h2>
     <vgr-button (click)="modalService.openDialog('myModalId')">Open Modal</vgr-button>
     <br>
-
   </div>
   <div class="docs__api">
-    Modal består av två delar. En komponent som läggs ytterst i DOM, med
+    Modal består av två delar. En komponent som läggs på samma nivå som <code>&lt;vgr-page&gt;</code>, med
     <code>&lt;vgr-modal&gt;</code>. Detta är en placeholder för det innehåll som sedan visas över applikationen. Den
     består i sin
     tur av tre delar,
@@ -130,9 +129,9 @@
     <br> It is strongly recommended that the tab sequence of all dialogs include a visible element with role button
     that closes
     the dialog, such as a close icon or cancel button.
-
   </div>
 </app-component-docs>
+
 <vgr-modal id="modal1">
   <vgr-modal-header>Välj i dropdown</vgr-modal-header>
   <vgr-modal-content>
@@ -152,6 +151,7 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal1')">Knapp</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
+
 <vgr-modal id="modal2">
   <vgr-modal-header>Här kan du trycka på knappar om du gillar det.</vgr-modal-header>
   <vgr-modal-content>
@@ -163,6 +163,7 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal2')">Knapp 2</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
+
 <vgr-modal id="modal3">
   <vgr-modal-header tabindex="0">Här kan du se en lång text</vgr-modal-header>
   <vgr-modal-content>
@@ -188,6 +189,7 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal3')">Jag accepterar</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
+
 <vgr-modal id="modal4">
   <vgr-modal-header>En header från app</vgr-modal-header>
   <vgr-modal-content>
@@ -199,6 +201,7 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('modal4')">Spara</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
+
 <vgr-modal id="commentAnswerWithTextModal">
   <vgr-modal-header>Ann-Christin Berglund har skrivit en kommentar på utbetalningsunderlaget</vgr-modal-header>
   <vgr-modal-content>
@@ -214,8 +217,8 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('commentAnswerWithTextModal')">Svara</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
-<vgr-modal id="commentAnswerWithoutTextModal">
 
+<vgr-modal id="commentAnswerWithoutTextModal">
   <vgr-modal-header>Ann-Christin Berglund har skrivit en kommentar på utbetalningsunderlaget</vgr-modal-header>
   <vgr-modal-content>
     <p>Ditt svar:</p>
@@ -227,8 +230,8 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModalCancel('commentAnswerWithoutTextModal')">Avbryt</vgr-button>
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModalSave('commentAnswerWithoutTextModal')">Svara</vgr-button>
   </vgr-modal-footer>
-
 </vgr-modal>
+
 <vgr-modal id="commentModal">
   <vgr-modal-header>Ann-Christin Berglund har skrivit en kommentar på utbetalningsunderlaget</vgr-modal-header>
   <vgr-modal-content>
@@ -241,6 +244,7 @@
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('commentModal')">Spara</vgr-button>
   </vgr-modal-footer>
 </vgr-modal>
+
 <vgr-modal id="myModalId">
   <vgr-modal-header>En header från app</vgr-modal-header>
   <vgr-modal-content>
