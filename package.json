@@ -35,7 +35,7 @@
     "npm": "^6.5.0",
     "rxjs": "^6.3.3",
     "smoothscroll-polyfill": "^0.4.3",
-    "vgr-komponentkartan": "^4.0.1-beta4",
+    "vgr-komponentkartan": "^4.0.1-beta5",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
