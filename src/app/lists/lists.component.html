@@ -114,7 +114,11 @@
                 <td>Anger om raden skall vara expanderad eller inte.</td>
                 <td>[expanded]="false"</td>
               </tr>
-
+              <tr>
+                <td>preventCollapse : boolean</td>
+                <td>Anger om raden tillåts att kollapsa.</td>
+                <td>[preventCollapse]="true"</td>
+              </tr>
               <tr>
                 <td>notification : RowNotification</td>
                 <td>Ger möjligheten att lägga en notifiering på raden. En
@@ -145,6 +149,16 @@
                 <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
                 <td>Event som triggas när raden expanderar</td>
                 <td>(expandedChanged)="onExpandedChanged($event)"</td>
+              </tr>
+              <tr>
+                <td>expandPrevented : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas när raden försöker expandera men hindras</td>
+                <td>(expandPrevented)="onExpandPrevented($event)"</td>
+              </tr>              
+              <tr>
+                <td>collapsePrevented : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas när raden försöker kollapsa men hindras</td>
+                <td>(collapsePrevented)="onCollapsePrevented($event)"</td>
               </tr>
               <tr>
                 <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
