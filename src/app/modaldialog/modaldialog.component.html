@@ -38,7 +38,7 @@
         <vgr-button (click)="showCommentAnswerWithoutTextModal()">Kommentar 2</vgr-button>
       </div>
       <div>
-        <vgr-button (click)="showCommentModal()">Kommentar 3</vgr-button>
+        <vgr-button (click)="showChangableModal()">Innehåll som varierar</vgr-button>
       </div>
     </div>
     <br>
@@ -81,6 +81,13 @@
       <tr>
         <td>closeDialog(elementId: string)</td>
         <td>Stänger den modal dialog som har det element id som skickats in -
+          <code>elementId</code>.
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>updateDialog(elementId: string)</td>
+        <td>Uppdaterar vilka tabstop som finns i modalen (används om man ändrar innehållet i modalen efter att man öppnat den) -
           <code>elementId</code>.
         </td>
         <td></td>
@@ -232,12 +239,12 @@
   </vgr-modal-footer>
 </vgr-modal>
 
-<vgr-modal id="commentModal">
-  <vgr-modal-header>Ann-Christin Berglund har skrivit en kommentar på utbetalningsunderlaget</vgr-modal-header>
+<vgr-modal id="changableModal">
+  <vgr-modal-header>Modal med innehåll som varierar</vgr-modal-header>
   <vgr-modal-content>
-    <p>Kommentar:
-      <br /> I beräkningssteg x har vi inte fått tillräcklig ersättning. Vi bör ha ersättning för 4 besök och inte 2.
-    </p>
+    <p>Om man ändrar innehåll i modalen så att det dyker upp en ny knapp eller annat formulärselement (eller döljer någon knapp som tidigare funnits), så behöver köra <code>modalService.updateDialog(elemntId)</code></p>
+    <button (click)="toggleTextarea()">Toggla textarea</button><br>
+    <textarea rows="5" *ngIf="textareaVisible"></textarea>
   </vgr-modal-content>
   <vgr-modal-footer class="buttons-right">
     <vgr-button [buttonStyle]="'secondary'" (click)="closeModal('commentModal')">Avbryt</vgr-button>

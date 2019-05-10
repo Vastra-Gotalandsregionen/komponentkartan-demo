@@ -14,6 +14,7 @@ export class ModaldialogComponent implements OnInit {
   vardval1Answer: string;
   vardval2Answer: string;
   validateOnSubmit: boolean;
+  textareaVisible = true;
 
   exampleCodeHtml = `
   <vgr-button (click)="modalService.openDialog('myModalId')">Open Modal</vgr-button>
@@ -63,6 +64,11 @@ export class ModaldialogComponent implements OnInit {
     this.modalService.openDialog('modal3');
   }
 
+  toggleTextarea() {
+    this.textareaVisible = !this.textareaVisible;
+    this.modalService.updateDialog('changableModal');
+  }
+
 
   showThreeButtonModal() {
     this.modalService.openDialog('modal4');
@@ -88,8 +94,8 @@ export class ModaldialogComponent implements OnInit {
     this.modalService.openDialog('commentAnswerWithoutTextModal');
   }
 
-  showCommentModal() {
-    this.modalService.openDialog('commentModal');
+  showChangableModal() {
+    this.modalService.openDialog('changableModal');
   }
 
   createForms() {
