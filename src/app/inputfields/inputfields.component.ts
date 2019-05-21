@@ -1,12 +1,10 @@
 
 import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { ErrorHandler, InputComponent } from 'vgr-komponentkartan';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import { Observable } from 'rxjs';
 
 
 
@@ -82,7 +80,7 @@ export class InputfieldsComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder, private errorHandler: ErrorHandler) {
+  constructor(private fb: FormBuilder) {
     this.cityName = 'Houstons';
     this.amount1 = 15000;
     this.amount2 = -25.5;
@@ -94,18 +92,8 @@ export class InputfieldsComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    const validateOnInit = true;
 
-    this.isSmall = true;
 
-    if (validateOnInit) {
-      this.errorHandler.getErrorMessagesReactiveForms(this.formErrors, this.validationMessages, this.form, this.isSmall);
-    }
-
-    this.form.valueChanges
-      .subscribe(data => {
-        this.errorHandler.getErrorMessagesReactiveForms(this.formErrors, this.validationMessages, this.form, this.isSmall);
-      });
 
   }
 

@@ -22,7 +22,6 @@ import { KomponentkartanApplicationComponent } from './app.component';
 
 import { InputfieldsComponent } from './inputfields/inputfields.component';
 import { CityService } from './inputfields/cityservice';
-import { MonthpickerComponent } from './monthpicker/monthpicker.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColoursComponent } from './colours/colours.component';
@@ -86,7 +85,6 @@ registerLocaleData(localeSv);
     declarations: [
         KomponentkartanApplicationComponent,
         InputfieldsComponent,
-        MonthpickerComponent,
         DatepickerComponent,
         BacktotopComponent,
         SavecancelComponent,
