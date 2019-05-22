@@ -1,51 +1,174 @@
 <app-component-docs [componentName]="'Datepicker'">
   <div class="docs__overview">
-    <div>
-      <div>Dag</div>
+    <p>
+      <code>&lt;vgr-datepicker&gt;</code> är en datumväljare som kan användas för att välja datum, månad och år.
+    </p>
+    <p>
+      <vgr-datepicker></vgr-datepicker>
+    </p>
+    <p>Förändras med tema: <strong>ja</strong></p>
+    <h2>Design</h2>
+    <p>
+      Datepickern består av ett inputfält och en knapp. Inputfältet används för att skriva in ett datum och knappen
+      öppnar en dropdownmeny med datum att välja mellan. Det går att hoppa mellan dag, månad och år i dropdownmenyn. Det
+      är också möjligt att konfigurera så att det bara går att välja datum (år, månad och dag), månad eller år. I
+      dropdownmenyn markeras dagens datum och valt datum. Det är möjligt att markera datum som inaktiva och de kan då
+      inte väljas i datepickern.
+    </p>
+    <p>
+      Det är rekommenderat att låta användarna skriva in datum från tangentbordet. Flera format på datum accepteras. Det
+      finns en placeholder-text i datepickern som är tänkt att leda användaren till att mata in på rätt format. Om
+      användaren matar in ett format som inte accepteras ges ett felmeddelande.
+    </p>
+  </div>
+  <div class="docs__examples">
+    <h2>Med textinmatning</h2>
+    <div style="display: flex; margin-bottom: 20px">
+      <div style="margin-right: 20px">
+        <div>Dag</div>
+        <div>
+          <vgr-datepicker [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly" [minDate]="minDate"
+            [maxDate]="maxDate"></vgr-datepicker>
+        </div>
+      </div>
+      <div style="margin-right: 20px">
+        <div>Månad</div>
+        <div>
+          <vgr-datepicker [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+        </div>
+      </div>
       <div>
-        <vgr-datepicker [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly" [minDate]="minDate" [maxDate]="maxDate"></vgr-datepicker>
+        <div>År</div>
+        <div>
+          <vgr-datepicker [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+        </div>
       </div>
     </div>
-    <div>
-      <div>Månad</div>
+    <h2>Utan textinmatning</h2>
+    <div style="display: flex; margin-bottom: 20px">
+      <div style="margin-right: 20px">
+        <div>Dag</div>
+        <div>
+          <vgr-datepicker [allowText]="false" [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly">
+          </vgr-datepicker>
+        </div>
+      </div>
+      <div style="margin-right: 20px">
+        <div>Månad</div>
+        <div>
+          <vgr-datepicker [allowText]="false" [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly">
+          </vgr-datepicker>
+        </div>
+      </div>
       <div>
-        <vgr-datepicker [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+        <div>År</div>
+        <div>
+          <vgr-datepicker [allowText]="false" [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly">
+          </vgr-datepicker>
+        </div>
       </div>
     </div>
-    <div>
-      <div>År</div>
+    <h2>Tillstånd</h2>
+    <div style="display: flex">
+      <div style="margin-right: 20px">
+        <div>Aktiv</div>
+        <div>
+          <vgr-datepicker [selectedDate]="today"></vgr-datepicker>
+        </div>
+      </div>
+      <div style="margin-right: 20px">
+        <div>Inaktiv</div>
+        <div>
+          <vgr-datepicker [selectedDate]="today" [disabled]="true"></vgr-datepicker>
+        </div>
+      </div>
       <div>
-        <vgr-datepicker [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+        <div>Endast visning</div>
+        <div>
+          <vgr-datepicker [selectedDate]="today" [readonly]="true"></vgr-datepicker>
+        </div>
       </div>
     </div>
-    <div>
-      <div> Dag utan textinmatning</div>
-      <div>
-        <vgr-datepicker [allowText]="false" [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
-      </div>
-    </div>
-    <div>
-      <div>Månad utan textinmatning</div>
-      <div>
-        <vgr-datepicker [allowText]="false" [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
-      </div>
-    </div>
-    <div>
-      <div>År utan textinmatning</div>
-      <div>
-        <vgr-datepicker [allowText]="false" [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
-      </div>
-    </div>
-    <div>
-      <div>Forms API</div>
-      <div>
-        <vgr-datepicker [formControl]="form" [readonly]="readonly"></vgr-datepicker>
-        <vgr-button (click)="changeFormValue()" style="margin-left: 20px">Change date</vgr-button>
-      </div>
-    </div>
-    <div style="margin-top: 20px;">
-      <vgr-button (click)="toggleDisabled()">Toggle Disabled</vgr-button>
-      <vgr-button (click)="toggleReadonly()">Toggle Readonly</vgr-button>
-    </div>
+  </div>
+  <div class="docs__api">
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th>Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>selectedDate: Date</td>
+        <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.</td>
+        <td>[value]="someDate"</td>
+      </tr>
+      <tr>
+        <td>minZoom: string</td>
+        <td>Sätter vilken typ av tidsenhet som kan väljas. För dag, använd "d", "day" eller "days". För månad, använd
+          "m", "month" eller "months". För år, använd "y", "year" eller "years". Förvalt värde är dag.</td>
+        <td>[minZoom]="'m'"</td>
+      </tr>
+      <tr>
+        <td>minDate: Date</td>
+        <td>Anger minsta valbara datum. Om inget anges finns ingen begränsing.</td>
+        <td>[minDate]="someDate"</td>
+      </tr>
+      <tr>
+        <td>maxDate: Date</td>
+        <td>Anger största valbara datum. Om inget anges finns ingen begränsing.</td>
+        <td>[maxDate]="someDate"
+      </tr>
+      <tr>
+        <td>allowText: boolean</td>
+        <td>Anger om textinmatning tillåts. Förvalt värde är
+          <code>true</code>.</td>
+        <td>[allowText]="false"</td>
+      </tr>
+      <tr>
+        <td>readonly: boolean</td>
+        <td>Gör att textfält med valt värde visas. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[readonly]="true"</td>
+      </tr>
+      <tr>
+        <td>disabled: boolean</td>
+        <td>Förhindrar interaktion. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[disabled]="true"</td>
+      </tr>
+      <tr>
+        <td>showValidation: boolean</td>
+        <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[showValidation]="true"</td>
+      </tr>
+      <tr>
+        <td>errorMessage: any</td>
+        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn.
+          Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
+        </td>
+        <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
+      </tr>
+      <tr>
+        <td>labelId: string</td>
+        <td>ID för det element som är rubrik. Används av skärmläsare.</td>
+        <td>[labelId]="'someLabelId'"</td>
+      </tr>
+      <tr>
+        <td>selectedDateChanged: EventEmitter&lt;Date&gt;</td>
+        <td>Event som triggas när val ändras. Värdet är det nya valet.</td>
+        <td>(selectedDateChanged)="doSomething($event)"</td>
+      </tr>
+    </table>
+  </div>
+  <div class="docs__wcag">
+    <p>
+      Det snabbaste sättet att välja ett datum är att skriva in det via tangentbordet men det är även möjligt att
+      navigera i datumvyn med endast tangentbord.
+    </p>
+    <p>
+      För att skärmläsare ska kunna läsa upp en rubrik till datepickern sätts [labelId] till det element som ska läsas
+      upp.
+    </p>
   </div>
 </app-component-docs>
