@@ -12,6 +12,8 @@ export class DatepickerComponent {
   form = new FormControl();
   minDate = new Date(2017, 4, 10);
   maxDate = new Date(2018, 4, 10);
+  today = Date.now();
+
 
   changeFormValue() {
     this.form.setValue(new Date(2018, 5, 15));
