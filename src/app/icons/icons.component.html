@@ -7,86 +7,96 @@
       <p>
         Det finns nu stöd för att använda Font Awsome (free).
         Genom att använda komponenten vgr-icon kan dessa ikoner användas
-        <a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a>.
+        <a href="https://fontawesome.com/icons?d=gallery&m=free"
+          target="_blank">https://fontawesome.com/icons?d=gallery&m=free</a>.
+        Per default så används temafärgen, detta kan överskridas med <strong>color</strong> attributet.<br>
         För implementation se <a href="/icons">dokumentation for vgr-icon</a>.
       </p>
-      <br>
-      <div><strong>Exempel på Font Awsome ikoner</strong></div>
+      <h2>Exempel på Font Awsome ikoner</h2>
+      <!-- Editera -->
       <div class="fa-icons">
-        <vgr-icon icon="pen" size="" color="text"></vgr-icon>
-        <span>icon="pen" size="" color="text"</span>
+        <vgr-icon [color]="'text'" [icon]="'pen'"></vgr-icon>
+        <span>[icon]="'pen'" [color]="'text'"</span>
       </div>
+      <!-- Meddelande -->
       <div class="fa-icons">
-        <vgr-icon icon="comment-dots" color="text" [solid]="false"></vgr-icon>
-        <span>icon="comment-dots" color="text" [solid]="false"</span>
+        <vgr-icon [icon]="'comment-dots'" [color]="'text'" [solid]="false"></vgr-icon>
+        <span>[icon]="'comment-dots'" [color]="'text'" [solid]="false"</span>
       </div>
+      <!-- Success -->
       <div class="fa-icons">
-        <vgr-icon icon="check-circle" color="success"></vgr-icon>
-        <span>icon="check-circle" color="success"</span>
+        <vgr-icon [icon]="'check-circle'" [color]="'success'"></vgr-icon>
+        <span>[icon]="'check-circle'" [color]="'success'"</span>
       </div>
+      <!-- Delete -->
       <div class="fa-icons">
-        <vgr-icon icon="trash-alt" color="text"></vgr-icon>
-        <span>icon="trash-alt" color="text"</span>
+        <vgr-icon [icon]="'trash-alt'" [solid]="false" [color]="'text'"></vgr-icon>
+        <span>[icon]="'trash-alt'" [solid]="false" [color]="'text'"</span>
       </div>
+      <!-- Plus Symbol -->
       <div class="fa-icons">
-        <vgr-icon icon="plus" color="text"></vgr-icon>
-        <span>icon="plus" color="text"</span>
+        <vgr-icon [icon]="'plus'" [size]="'xs'"></vgr-icon>
+        <span>[icon]="'plus'" [size]="'xs'"</span>
       </div>
+      <!-- Minus Symbol -->
       <div class="fa-icons">
-        <vgr-icon icon="minus" color="text"></vgr-icon>
-        <span>icon="minus" color="text"</span>
+        <vgr-icon [icon]="'minus'" [size]="'xs'"></vgr-icon>
+        <span>[icon]="'minus'" [size]="'xs'"</span>
       </div>
+      <!-- Check -->
       <div class="fa-icons">
-        <vgr-icon icon="check" color="text"></vgr-icon>
-        <span>icon="check" color="text"</span>
+        <vgr-icon [icon]="'check'"></vgr-icon>
+        <span>[icon]="'check'"</span>
       </div>
+      <!-- Användare -->
       <div class="fa-icons">
-        <vgr-icon icon="user-alt" color="text"></vgr-icon>
-        <span>icon="user-alt" color="text"</span>
+        <vgr-icon [icon]="'user-alt'" [color]="'text'"></vgr-icon>
+        <span>[icon]="'user-alt'" [color]="'text'"</span>
       </div>
+      <!-- Favorit icke vald -->
       <div class="fa-icons">
-        <vgr-icon icon="star" color="text" [solid]="false"></vgr-icon>
-        <span>icon="star" color="text" [solid]="false"</span>
+        <vgr-icon [icon]="'star'" [color]="'text'" [solid]="false"></vgr-icon>
+        <span>[icon]="'star'" [color]="'text'" [solid]="false"</span>
       </div>
+      <!-- Favorit vald -->
       <div class="fa-icons">
-        <vgr-icon icon="star" color="text"></vgr-icon>
-        <span>icon="star" color="text"</span>
+        <vgr-icon [icon]="'star'" [color]="'text'"></vgr-icon>
+        <span>[icon]="'star'" [color]="'text'"</span>
       </div>
+      <!-- Information -->
       <div class="fa-icons">
-        <vgr-icon icon="info-circle" color="text"></vgr-icon>
-        <span>icon="info-circle" color="text"</span>
+        <vgr-icon [icon]="'question-circle'" [color]="'text'"></vgr-icon>
+        <span>[icon]="'question-circle'" [color]="'text'"</span>
       </div>
+      <!-- Mail -->
       <div class="fa-icons">
-        <vgr-icon icon="envelope"></vgr-icon>
-        <span>icon="envelope"</span>
+        <vgr-icon [icon]="'envelope'" [solid]="false"></vgr-icon>
+        <span>[icon]="'envelope'" [solid]="false"</span>
       </div>
+      <!-- Print -->
       <div class="fa-icons">
-        <vgr-icon icon="print"></vgr-icon>
-        <span>icon="print"</span>
+        <vgr-icon [icon]="'print'"></vgr-icon>
+        <span>[icon]="'print'"</span>
       </div>
-      <div class="fa-icons">
-        <vgr-icon icon="question-circle" color="text"></vgr-icon>
-        <span>icon="question-circle" color="text"</span>
-      </div>
-      <div class="fa-icons">
-        <vgr-icon icon="exclamation-circle" color="error"></vgr-icon>
-        <span>icon="exclamation-circle" color="error"</span>
-      </div>
-      <div>
-        <h3>
-          Diskreta knappar med ikon
-        </h3>
-        <vgr-button [buttonStyle]="'discreet'" (click)="favoriteValue = !favoriteValue">
-          <vgr-icon [icon]="'star'" [solid]="favoriteValue"></vgr-icon>
-          Min favoritknapp
-        </vgr-button>
-      </div>
-      <h2>Exempel</h2>
-      <p> Lägga till en ikon i html:</p>
-      <section style="width:50%" [innerHTML]="iconExamplesHTML" highlight-js-content=".highlight"></section>
+
+
+      <h3>Diskreta knappar med ikon</h3>
+      <vgr-button [buttonStyle]="'discreet'" (click)="favoriteValue = !favoriteValue">
+        <vgr-icon [icon]="'star'" [solid]="favoriteValue"></vgr-icon>
+        Min favoritknapp
+      </vgr-button>
       <p>
-        Skapa en notifiering i typescript:
+        <i> Man kan fortfarande använda sig av de gamla gamla ikonerna nedan men dessa kommmar att ersättas av Font
+          Awsome ikoner.</i>
       </p>
+      <p>
+        För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn
+        representerade i tabellen nedanför.
+      </p>
+      <p>
+        Svg-bilderna är kopplade till en background-image för samtliga klasser i komponentkartans ikon-bibliotek.
+      </p>
+      <h2> Skapa en notifiering i typescript:</h2>
       <section style="width:70%" [innerHTML]="iconExamplesTS2" highlight-js-content=".highlight"></section>
       <p>
         När man vill skicka med en ikon till en notifiering i typescript:
@@ -94,5 +104,4 @@
       <section style="width:70%" [innerHTML]="iconExamplesTS" highlight-js-content=".highlight"></section>
     </vgr-page-block>
   </vgr-page-body>
-
 </vgr-page>
