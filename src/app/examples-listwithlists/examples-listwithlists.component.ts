@@ -69,7 +69,7 @@ export class ExamplesListwithlistsComponent {
     this.listData = enheter.filter(x => !x.deleted).map(x => new ExpandableRow<ExampleUnit, any>(x));
     this.listData.forEach(element => {
       if (this.getRandomInt(0, 5) === 2) {
-        element.setNotification('Meddelande om denna rad som ligger permanent', { name: 'exclamation-circle', solid: true  });
+        element.setNotification('Meddelande om denna rad som ligger permanent', { name: 'exclamation-circle', solid: true, color: 'error' });
       }
     });
   }
