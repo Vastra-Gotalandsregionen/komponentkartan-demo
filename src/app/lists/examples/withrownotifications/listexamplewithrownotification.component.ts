@@ -38,8 +38,8 @@ export class ListexamplewithrownotificationComponent {
 
     this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
 
-    this.peopleRows[0].setNotification('Meddelande: Text', { name: 'comment-dots' });
-    this.peopleRows[4].setNotification('Personen är inaktiv', { name: 'exclamation-circle', color: 'error' });
+    this.peopleRows[0].setNotification('Meddelande: Text', { name: 'comment-dots', color: 'text' });
+    this.peopleRows[4].setNotification('Personen är inaktiv', { name: 'exclamation-circle', color: 'error', solid: true });
   }
 
   deleteRow(row: ExpandableRow<ExamplePerson, ExamplePerson>) {

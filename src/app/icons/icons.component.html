@@ -10,7 +10,7 @@
         <a href="https://fontawesome.com/icons?d=gallery&m=free"
           target="_blank">https://fontawesome.com/icons?d=gallery&m=free</a>.
         Per default så används temafärgen, detta kan överskridas med <strong>color</strong> attributet.<br>
-        För implementation se <a href="/icons">dokumentation for vgr-icon</a>.
+        För implementation se <a [routerLink]="['/icons']">dokumentation for vgr-icon</a>.
       </p>
       <h2>Exempel på Font Awsome ikoner</h2>
       <!-- Editera -->
@@ -78,24 +78,11 @@
         <vgr-icon [icon]="'print'"></vgr-icon>
         <span>[icon]="'print'"</span>
       </div>
-
-
       <h3>Diskreta knappar med ikon</h3>
       <vgr-button [buttonStyle]="'discreet'" (click)="favoriteValue = !favoriteValue">
         <vgr-icon [icon]="'star'" [solid]="favoriteValue"></vgr-icon>
         Min favoritknapp
       </vgr-button>
-      <p>
-        <i> Man kan fortfarande använda sig av de gamla gamla ikonerna nedan men dessa kommmar att ersättas av Font
-          Awsome ikoner.</i>
-      </p>
-      <p>
-        För att kunna använda sig utav de ikoner (svg-bilder) som finns i komponentkartan, så finns deras klassnamn
-        representerade i tabellen nedanför.
-      </p>
-      <p>
-        Svg-bilderna är kopplade till en background-image för samtliga klasser i komponentkartans ikon-bibliotek.
-      </p>
       <h2> Skapa en notifiering i typescript:</h2>
       <section style="width:70%" [innerHTML]="iconExamplesTS2" highlight-js-content=".highlight"></section>
       <p>
