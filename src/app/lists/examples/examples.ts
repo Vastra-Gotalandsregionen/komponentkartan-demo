@@ -379,7 +379,7 @@ export class Examples {
         }
 
         removeSelectedRow() {
-            this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.firstName + ' togs bort', , { name: 'check-circle', color: 'success' });
+            this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.firstName + ' togs bort', { name: 'check-circle', color: 'success' });
             this.rowToRemove.previewObject.selected = false;
             this.rowToRemove.previewObject.deleted = true;
             /*
