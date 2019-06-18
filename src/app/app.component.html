@@ -1,7 +1,6 @@
 <div id="theme-root" class="theme--neutral">
   <vgr-scroll-to-top></vgr-scroll-to-top>
   <vgr-modal></vgr-modal>
-  <vgr-header [userName]="userName" [systemText]="systemText" textColor="black" circleColor="#f9dede" logoClass="demo-logo"></vgr-header>
   <vgr-sidebar-menu>
     <vgr-menu title="Innehåll">
       <vgr-menu-item link="/" text="Start"></vgr-menu-item>
@@ -32,14 +31,13 @@
         <vgr-menu-item link="/lockbutton" text="Lock button"></vgr-menu-item>
         <vgr-menu-item link="/menu" text="Menu"></vgr-menu-item>
         <vgr-menu-item link="/modaldialog" text="Modal dialog"></vgr-menu-item>
-        <vgr-menu-item link="/monthpicker" text="Monthpicker"></vgr-menu-item>
         <vgr-menu-item link="/panels" text="Panel/Dashboard"></vgr-menu-item>
         <vgr-menu-item link="/pageheader" text="Page header"></vgr-menu-item>
         <vgr-menu-item link="/pagebody" text="Page body"></vgr-menu-item>
         <vgr-menu-item link="/pageblock" text="Page block"></vgr-menu-item>
         <vgr-menu-item link="/pagination-documentation" text="Pagination"></vgr-menu-item>
         <vgr-menu-item link="/radioButtons" text="Radio Group"></vgr-menu-item>
-        <vgr-menu-item link="/ring-with-text" text="Ring med text (för ex. initialer)"></vgr-menu-item>        
+        <vgr-menu-item link="/ring-with-text" text="Ring med text (för ex. initialer)"></vgr-menu-item>
         <vgr-menu-item link="/savecancel" text="Save/Cancel"></vgr-menu-item>
         <vgr-menu-item link="/search-result" text="Search results"></vgr-menu-item>
         <vgr-menu-item link="/table" text="Table"></vgr-menu-item>
@@ -65,5 +63,9 @@
       </vgr-submenu>
     </vgr-menu>
   </vgr-sidebar-menu>
+  <vgr-header [systemText]="systemText" logoClass="demo-logo">
+    <vgr-header-menu [userName]="userName" textColor="black" circleColor="#f9dede">
+    </vgr-header-menu>
+  </vgr-header>
   <router-outlet></router-outlet>
 </div>

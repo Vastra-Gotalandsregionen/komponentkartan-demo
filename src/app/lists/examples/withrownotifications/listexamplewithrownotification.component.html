@@ -35,8 +35,8 @@
               </vgr-title-value>
               <vgr-title-value [title]=" 'Datum*' " [slim]="readonly">
                 <div class="row-layout ">
-                  <vgr-monthpicker></vgr-monthpicker>
-                  <vgr-monthpicker></vgr-monthpicker>
+                  <vgr-datepicker [minZoom]="'m'"></vgr-datepicker>
+                  <vgr-datepicker [minZoom]="'m'"></vgr-datepicker>                  
                 </div>
               </vgr-title-value>
             </vgr-title-value-layout>
@@ -62,7 +62,7 @@
       <p>Här har vi exempel på en lista med notifieringar. även bredden på kolumnerna är satta. För att se
         dokumentationen på
         komponenten, klicka
-        <a href="/lists">här.</a>
+        <a routerLink="/lists">här.</a>
       </p>
     </vgr-page-block>
     <vgr-page-block>

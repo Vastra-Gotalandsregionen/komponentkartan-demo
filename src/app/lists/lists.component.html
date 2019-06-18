@@ -28,28 +28,24 @@
             </div>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>Exempel</h4>
             </vgr-list-column>
           </vgr-list-item-header>
-
-
           <vgr-list-item-content>
             <section [innerHTML]="htmlBasicListStructureMarkup" highlight-js-content=".highlight"></section>
             <br> Under "kodexempel" finns flera exempel på listor:
             <br>
-            <a href="/listexample-simple">Enkel lista</a>
+            <a routerLink="/listexample-simple">Enkel lista</a>
             <br>
-            <a href="/listexample-notifications">Lista med notifieringar</a>
+            <a routerLink="/listexample-notifications">Lista med notifieringar</a>
             <br>
-            <a href="/listexample-actionbuttons">Lista med checkbox och papperskorg</a>
-            <br>
-            <a href="/listexample-pagination">Exempel på lista med paginering.</a>
+            <a routerLink="/listexample-actionbuttons">Lista med checkbox och papperskorg</a>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list</h4>
@@ -76,27 +72,26 @@
                 <td>notification : Notification</td>
                 <td>Sätter man om man vill visa en notifiering, t.ex. när listan ej kan laddas, default visas inget
                   meddelande.</td>
-                <td>[notification]="{{'{'}} message: 'Här är texten i notifikationen', icon: 'vgr-icon-message'{{'}'}}"</td>
+                <td>
+                  [notification]="
+                  {{'{'}} <br>
+                    <strong>message</strong>: 'Här är texten i notifikationen', <br>
+                    <strong>icon</strong>: 
+                    {{'{'}} <br>
+                      <strong>size</strong>?: string, <br>
+                      <strong>color</strong>?: 'success' | 'error', <br>
+                      <strong>solid</strong>?: boolean, <br>
+                      <strong>disabled</strong>?: boolean <br>
+                    {{'}'}}
+                  
+                  
+                  {{'}'}}"
+                </td>
               </tr>
-              <tr>
-                <td>pages : number</td>
-                <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större. Paginering visas endast om värdet är strörre än ett.</td>
-                <td>[pages]="10"</td>
-              </tr>    
-              <tr>
-                <td>activePage : number</td>
-                <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
-                <td>[activePage]="1"</td>
-              </tr>
-              <tr>
-                <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
-                <td>Event som triggas när aktiv sida ändras.</td>
-                <td>(pageChanged)="onPageChanged($event)"</td>
-              </tr>                                              
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-item</h4>
@@ -115,18 +110,13 @@
                 <td>[expanded]="false"</td>
               </tr>
               <tr>
-                <td>preventCollapse : boolean</td>
-                <td>Anger om raden tillåts att kollapsa.</td>
-                <td>[preventCollapse]="true"</td>
-              </tr>
-              <tr>
                 <td>notification : RowNotification</td>
                 <td>Ger möjligheten att lägga en notifiering på raden. En
                   <code>RowNotification</code> har en icon property (string), removeWhenDone property (boolean) och en
                   typ.
                   <br>
                   <i>-Icon</i> finns angivna på sidan för
-                  <a href="/icons">ikoner</a>
+                  <a routerLink="/icons">ikoner</a>
                   <br>
                   <i>-RemoveWhenDone</i> anger om notifieringen ska försvinna efter kollapsanimationen för notifiering
                   är klar.
@@ -137,7 +127,7 @@
                   <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
                   <code>NotificationType.ShowOnRemove</code>
                 </td>
-                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: 'vgr-icon-message', type:
+                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: {{'{'}} name: 'check-circle', color: 'success' {{'}'}}, type:
                   notificationTypes.Permanent{{'}'}}"
                   <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
                   enum som en
@@ -149,16 +139,6 @@
                 <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
                 <td>Event som triggas när raden expanderar</td>
                 <td>(expandedChanged)="onExpandedChanged($event)"</td>
-              </tr>
-              <tr>
-                <td>expandPrevented : EventEmitter&lt;boolean&gt;</td>
-                <td>Event som triggas när raden försöker expandera men hindras</td>
-                <td>(expandPrevented)="onExpandPrevented($event)"</td>
-              </tr>              
-              <tr>
-                <td>collapsePrevented : EventEmitter&lt;boolean&gt;</td>
-                <td>Event som triggas när raden försöker kollapsa men hindras</td>
-                <td>(collapsePrevented)="onCollapsePrevented($event)"</td>
               </tr>
               <tr>
                 <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
@@ -173,7 +153,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-item-header</h4>
@@ -192,7 +172,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-item-content</h4>
@@ -211,7 +191,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-column-header</h4>
@@ -269,19 +249,17 @@
                 <td>Event som triggas när sortering sker i kolumnen</td>
                 <td>(sortChanged)="onSortChanged($event)"</td>
               </tr>
-
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
-              <h4>API - vgr-list-column-header-checkbox <strong>(deprecated)</strong></h4>
+              <h4>API - vgr-list-column-header-checkbox</h4>
             </vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
-            En variant av vgr-list-column-header som innehåller en checkbox.<br><br>
-            <strong>OBS!</strong> Denna komponent kommer att tas bort, använd en vanlig vgr-list-column-header med en vgr-checkbox istället. se exempel här: <a href="/listexample-actionbuttons">Lista med papperskorg och checkbox</a><br><br>
+            En variant av vgr-list-column-header som innehåller en checkbox.
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -306,7 +284,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-header</h4>
@@ -320,17 +298,15 @@
                 <th style="width:600px">Beskrivning</th>
                 <th>Exempel</th>
               </tr>
-
               <tr>
                 <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
                 <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
                 <td>(sortChanged)="onSortChanged($event)"</td>
               </tr>
-
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>API - vgr-list-column</h4>
@@ -367,22 +343,20 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
-              <h4>API - vgr-list-column-trashcan <strong>(deprecated)</strong></h4>
+              <h4>API - vgr-list-column-trashcan</h4>
             </vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
-            En variant av vgr-list-column som innehåller en papperskorg.<br><br>
-            <strong>OBS!</strong> Denna komponent kommer att tas bort, använd en vanlig vgr-list-column med en vgr-icon istället. se exempel här: <a href="/listexample-actionbuttons">Lista med papperskorg och checkbox</a><br><br>
+            En variant av vgr-list-column som innehåller en papperskorg.
             <table class="property-table">
               <tr>
                 <th>Namn</th>
                 <th style="width:600px">Beskrivning</th>
                 <th>Exempel</th>
               </tr>
-
               <tr>
                 <td>disabled : boolean</td>
                 <td>Inaktiverar papperskorgen, den blir utgråad.</td>
@@ -396,15 +370,14 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false ">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
-              <h4>API - vgr-list-column-checkbox <strong>(deprecated)</strong></h4>
+              <h4>API - vgr-list-column-checkbox</h4>
             </vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
-            En variant av vgr-list-column som innehåller en vgr-checkbox.<br><br>
-            <strong>OBS!</strong> Denna komponent kommer att tas bort, använd en vanlig vgr-list-column med en vgr-checkbox istället. se exempel här: <a href="/listexample-actionbuttons">Lista med papperskorg och checkbox</a><br><br>
+            En variant av vgr-list-column som innehåller en vgr-checkbox.
             <table class="property-table">
               <tr>
                 <th>Namn</th>
@@ -429,7 +402,7 @@
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
-        <vgr-list-item [expanded]="false">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>Tillgänglighet</h4>

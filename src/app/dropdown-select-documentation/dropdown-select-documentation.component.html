@@ -1,5 +1,8 @@
 <app-component-docs [componentName]="'Dropdown select'">
   <div class="docs__overview">
+    <p>
+        <code>&lt;vgr-dropdown-select&gt; </code>
+    </p>
     <p>Dropdown select finns i två bredder, har en rad olika alternativ och följer temafärg.</p>
     <p>
       <vgr-dropdown-select>
@@ -167,6 +170,12 @@
         <th>Exempel</th>
       </tr>
       <tr>
+        <td>value: any</td>
+        <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används. 
+          Kan sättas till en array om flervalsläge är satt.</td>
+        <td>[value]="someObject"</td>
+      </tr>      
+      <tr>
         <td>multi: boolean</td>
         <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
           <code>false</code>.</td>
@@ -215,11 +224,18 @@
         <td>[showValidation]="true"</td>
       </tr>
       <tr>
+        <td>errorMessage: any</td>
+        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn. 
+            Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
+        </td>
+        <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
+      </tr>
+      <tr>
         <td>compareWith: (o1: any, o2: any) => boolean</td>
         <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
           värden, till exempel då de hämtas via ett fjärranrop till servern och detta upprepas. Förvalt värde jämför
           med vanlig equality.</td>
-        <td>[showValidation]="true"</td>
+        <td></td>
       </tr>
       <tr>
         <td>labelId: string</td>
@@ -231,7 +247,7 @@
         <td>Event som triggas när val ändras av användaren. Värdet är det nya valet. Detta är främst användbart när
           kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera ett formulär.</td>
         <td>(selectedChanged)="doSomething($event)"</td>
-      </tr>
+      </tr>   
     </table>
     <br>
     <h2>DropdownItem</h2>
@@ -248,7 +264,7 @@
       </tr>
       <tr>
         <td>value: any</td>
-        <td>Värdet som sätts på kopntrollen när alternativet väljs.</td>
+        <td>Värdet som sätts på kontrollen när alternativet väljs.</td>
         <td>[value]="someObject"</td>
       </tr>
       <tr>

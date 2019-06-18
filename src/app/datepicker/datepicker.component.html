@@ -1,215 +1,174 @@
 <app-component-docs [componentName]="'Datepicker'">
-  <div class="docs__overview">
-    <p>
-      <code>
-        &lt;vgr-datepicker&gt;</code> är en kalender där användaren kan välja ett datum. I kalendern visas valt datum (satt
-      av användaren eller av systemet) och dagens datum.
-      <br>
-    </p>
-    <br>
-    <div class="row-layout">
-      <vgr-datepicker></vgr-datepicker>
+    <div class="docs__overview">
+      <p>
+        <code>&lt;vgr-datepicker&gt;</code> är en datumväljare som kan användas för att välja datum, månad och år.
+      </p>
+      <p>
+        <vgr-datepicker></vgr-datepicker>
+      </p>
+      <p>Förändras med tema: <strong>ja</strong></p>
+      <h2>Design</h2>
+      <p>
+        Datepickern består av ett inputfält och en knapp. Inputfältet används för att skriva in ett datum och knappen
+        öppnar en dropdownmeny med datum att välja mellan. Det går att hoppa mellan dag, månad och år i dropdownmenyn. Det
+        är också möjligt att konfigurera så att det bara går att välja datum (år, månad och dag), månad eller år. I
+        dropdownmenyn markeras dagens datum och valt datum. Det är möjligt att markera datum som inaktiva och de kan då
+        inte väljas i datepickern.
+      </p>
+      <p>
+        Det är rekommenderat att låta användarna skriva in datum från tangentbordet. Flera format på datum accepteras. Det
+        finns en placeholder-text i datepickern som är tänkt att leda användaren till att mata in på rätt format. Om
+        användaren matar in ett format som inte accepteras ges ett felmeddelande.
+      </p>
     </div>
-    <br>
-    <p>Förändras med tema:
-      <strong>ja</strong>
-    </p>
-  </div>
-  <div class="docs__examples">
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Default formaterad</p>
-          <vgr-datepicker (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
+    <div class="docs__examples">
+      <h2>Med textinmatning</h2>
+      <div style="display: flex; margin-bottom: 20px">
+        <div style="margin-right: 20px">
+          <div>Dag</div>
+          <div>
+            <vgr-datepicker [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly" [minDate]="minDate"
+              [maxDate]="maxDate"></vgr-datepicker>
+          </div>
+        </div>
+        <div style="margin-right: 20px">
+          <div>Månad</div>
+          <div>
+            <vgr-datepicker [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+          </div>
         </div>
         <div>
-          Med defaultinställningar sätts min- och maxdatum till innevarande år.
+          <div>År</div>
+          <div>
+            <vgr-datepicker [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+          </div>
+        </div>
+      </div>
+      <h2>Utan textinmatning</h2>
+      <div style="display: flex; margin-bottom: 20px">
+        <div style="margin-right: 20px">
+          <div>Dag</div>
+          <div>
+            <vgr-datepicker [allowText]="false" [minZoom]="'d'" [disabled]="disabled" [readonly]="readonly">
+            </vgr-datepicker>
+          </div>
+        </div>
+        <div style="margin-right: 20px">
+          <div>Månad</div>
+          <div>
+            <vgr-datepicker [allowText]="false" [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly">
+            </vgr-datepicker>
+          </div>
+        </div>
+        <div>
+          <div>År</div>
+          <div>
+            <vgr-datepicker [allowText]="false" [minZoom]="'y'" [disabled]="disabled" [readonly]="readonly">
+            </vgr-datepicker>
+          </div>
+        </div>
+      </div>
+      <h2>Tillstånd</h2>
+      <div style="display: flex">
+        <div style="margin-right: 20px">
+          <div>Aktiv</div>
+          <div>
+            <vgr-datepicker [selectedDate]="today"></vgr-datepicker>
+          </div>
+        </div>
+        <div style="margin-right: 20px">
+          <div>Inaktiv</div>
+          <div>
+            <vgr-datepicker [selectedDate]="today" [disabled]="true"></vgr-datepicker>
+          </div>
+        </div>
+        <div>
+          <div>Endast visning</div>
+          <div>
+            <vgr-datepicker [selectedDate]="today" [readonly]="true"></vgr-datepicker>
+          </div>
         </div>
       </div>
     </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>yyyy MM dd</p>
-
-          <vgr-datepicker [selectedDateFormat]="'yyyy MM dd'" [selectedDate]="tomorrow" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är
-            <code>selectedDate</code> dagens datum + 1 dag.
-            <code>minDate</code> och
-            <code>maxDate</code> är ej satta, perioden blir då samma som exemplet ovan.
-            <br> Datumformat: yyyy MM dd
-          </p>
-        </div>
-      </div>
+    <div class="docs__api">
+      <table class="property-table">
+        <tr>
+          <th>Namn</th>
+          <th>Beskrivning</th>
+          <th>Exempel</th>
+        </tr>
+        <tr>
+          <td>selectedDate: Date</td>
+          <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.</td>
+          <td>[value]="someDate"</td>
+        </tr>
+        <tr>
+          <td>minZoom: string</td>
+          <td>Sätter vilken typ av tidsenhet som kan väljas. För dag, använd "d", "day" eller "days". För månad, använd
+            "m", "month" eller "months". För år, använd "y", "year" eller "years". Förvalt värde är dag.</td>
+          <td>[minZoom]="'m'"</td>
+        </tr>
+        <tr>
+          <td>minDate: Date</td>
+          <td>Anger minsta valbara datum. Om inget anges finns ingen begränsing.</td>
+          <td>[minDate]="someDate"</td>
+        </tr>
+        <tr>
+          <td>maxDate: Date</td>
+          <td>Anger största valbara datum. Om inget anges finns ingen begränsing.</td>
+          <td>[maxDate]="someDate"
+        </tr>
+        <tr>
+          <td>allowText: boolean</td>
+          <td>Anger om textinmatning tillåts. Förvalt värde är
+            <code>true</code>.</td>
+          <td>[allowText]="false"</td>
+        </tr>
+        <tr>
+          <td>readonly: boolean</td>
+          <td>Gör att textfält med valt värde visas. Förvalt värde är
+            <code>false</code>.</td>
+          <td>[readonly]="true"</td>
+        </tr>
+        <tr>
+          <td>disabled: boolean</td>
+          <td>Förhindrar interaktion. Förvalt värde är
+            <code>false</code>.</td>
+          <td>[disabled]="true"</td>
+        </tr>
+        <tr>
+          <td>showValidation: boolean</td>
+          <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
+            <code>false</code>.</td>
+          <td>[showValidation]="true"</td>
+        </tr>
+        <tr>
+          <td>errorMessage: any</td>
+          <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn.
+            Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
+          </td>
+          <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
+        </tr>
+        <tr>
+          <td>labelId: string</td>
+          <td>ID för det element som är rubrik. Används av skärmläsare.</td>
+          <td>[labelId]="'someLabelId'"</td>
+        </tr>
+        <tr>
+          <td>selectedDateChanged: EventEmitter&lt;Date&gt;</td>
+          <td>Event som triggas när val ändras. Värdet är det nya valet.</td>
+          <td>(selectedDateChanged)="doSomething($event)"</td>
+        </tr>
+      </table>
     </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Med min- och maxdatum innan innevarande datum.</p>
-
-          <vgr-datepicker [minDate]="minDate20160515" [maxDate]="maxDate20161225" (selectedDateChanged)="lastselectedDate=$event" noDateSelectedLabel="Välj ett datum"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är
-            <code>minDate</code> satt till 2016-05-15 och
-            <code>maxDate</code> är 2016-12-25. Notera att min och maxdatum är satt innan innevarande datum. Det går endast att
-            nagivera mellan maj 2016 och fram till nuvarande år och månad. Hela maj visas för 2016 även fast mindatumet är
-            satt 2016-05-15. Det går bara att välja de dagar som ingår i perioden mellan min och max.
-          </p>
-        </div>
-      </div>
+    <div class="docs__wcag">
+      <p>
+        Det snabbaste sättet att välja ett datum är att skriva in det via tangentbordet men det är även möjligt att
+        navigera i datumvyn med endast tangentbord.
+      </p>
+      <p>
+        För att skärmläsare ska kunna läsa upp en rubrik till datepickern sätts [labelId] till det element som ska läsas
+        upp.
+      </p>
     </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Disabled</p>
-          <vgr-datepicker [disabled]="isReadonlyAndDisabled" [selectedDate]="selectedDate" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är kalendern satt i disable-läge och
-            <code>selectedDate</code> satt till 2017-07-25</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Readonly</p>
-          <vgr-datepicker [selectedDate]="selectedDate" [readonly]="isReadonlyAndDisabled" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är kalendern satt i readonly-läge och
-            <code>selectedDate</code> satt till 2017-07-25</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Disabled inget valt datum</p>
-          <vgr-datepicker [disabled]="isReadonlyAndDisabled" [selectedDate]="" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är kalendern satt i disable-läge och inget datum valt</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="column-layout">
-      <div class="row-layout">
-        <div style="width:200px">
-          <p>Readonly inget valt datum</p>
-          <vgr-datepicker [selectedDate]="" [readonly]="isReadonlyAndDisabled" (selectedDateChanged)="lastselectedDate=$event"></vgr-datepicker>
-        </div>
-        <div>
-          <p>Här är kalendern satt i readonly-läge och inget datum valt</p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <br>
-      <p>Växla readonly och disabled</p>
-      <vgr-lock-button (lockChanged)="isReadonlyAndDisabled = !isReadonlyAndDisabled;"></vgr-lock-button>
-    </div>
-    <div style="margin-top:20px">
-      <span>Senast valt datum: </span>
-      <span>{{lastselectedDate | date : 'yyyy MMM dd'}}</span>
-    </div>
-    <br>
-    <br> Under "kodexempel" finns exempel på hur datepicker-komponenten kan användas i Angular Reactive Forms:
-    <br>
-    <a href="/reactiveformsexample">Reactive Forms exempel</a>
-  </div>
-  <div class="docs__api">
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>selectedDateFormat: string</td>
-        <td>Datumformatet på valt datum i dropdownen.</td>
-        <td>
-          [selectedDateFormat]=yyyymmDD
-        </td>
-      </tr>
-      <tr>
-        <td>tooltipDateFormat: string</td>
-        <td>Datumformatet på valt datum i dropdownens tooltip.</td>
-        <td>
-          [selectedDateFormat]=yyyymmDD
-        </td>
-      </tr>
-      <tr>
-        <td>minDate: Date</td>
-        <td>Sätter vilket datum kalendern börjar på. Sätts inget datum är standard första dagen i januari månad för innevarande
-          år.
-        </td>
-        <td>
-          [minDate]=someDate
-        </td>
-      </tr>
-      <tr>
-        <td>maxDate: Date</td>
-        <td>Sätter vilket datum kalendern slutar på. Sätts inget datum är standard sista dagen i december månad för innevarande
-          år.
-        </td>
-        <td>
-          [maxDate]=someDate
-        </td>
-      </tr>
-      <tr>
-        <td>selectedDate: Date</td>
-        <td> Valt datum som visas i kalendern. När kalendern instansieras och man öppnar den första gången så positioneras man
-          på den valda månaden. Om inget datum är valt så positioneras man på dagens datum.</td>
-        <td>
-          [selectedDate] = someDate
-        </td>
-      </tr>
-      <tr>
-        <td>disabled: boolean</td>
-        <td>Inaktiverar kalendern.</td>
-        <td>
-          [disabled]=true/false
-        </td>
-      </tr>
-      <tr>
-        <td>selectedDateChanged = EventEmitter&lt;date&gt;
-        </td>
-        <td>Event som trigas när man väljer ett datum i kalendern.</td>
-        <td>
-          (selectedDateChanged)="selectedDate=$event"
-        </td>
-      </tr>
-      <tr>
-        <td>readonly: boolean
-        </td>
-        <td>Om datepicker är satt som readonly så ska bara textfält med datum visas. Om datum är förvalt så visas det som är
-          satt i
-          <code>selectedDate</code> annars visas ingenting. Datumet är formaterat på
-          <code>selectedDateFormat</code>.</td>
-        <td>
-          [readonly]="true/false"
-        </td>
-      </tr>
-      <tr>
-        <td>showValidation: boolean</td>
-        <td>Anger om valideringsfel ska visas eller ej. Default = true.</td>
-        <td>[showValidation]="true"</td>
-      </tr>
-    </table>
-  </div>
-  <div class="docs__wcag">
-    <p>
-      <i>Under utveckling</i>
-    </p>
-  </div>
-</app-component-docs>
+  </app-component-docs>  

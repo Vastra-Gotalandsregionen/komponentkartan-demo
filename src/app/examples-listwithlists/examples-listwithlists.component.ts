@@ -69,7 +69,7 @@ export class ExamplesListwithlistsComponent {
     this.listData = enheter.filter(x => !x.deleted).map(x => new ExpandableRow<ExampleUnit, any>(x));
     this.listData.forEach(element => {
       if (this.getRandomInt(0, 5) === 2) {
-        element.setNotification('Meddelande om denna rad som ligger permanent', 'vgr-icon-exclamation');
+        element.setNotification('Meddelande om denna rad som ligger permanent', { name: 'exclamation-circle', solid: true, color: 'error' });
       }
     });
   }
@@ -114,7 +114,7 @@ export class ExamplesListwithlistsComponent {
   }
 
   removeSelectedRow() {
-    this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
+    this.rowToRemove.notifyOnRemove(this.rowToRemove.previewObject.enhet + ' togs bort', { name: 'check-circle', color: 'success' } );
     this.rowToRemove.previewObject.vald = false;
     this.rowToRemove.previewObject.deleted = true;
     this.modalService.closeDialog('deleteRowModal');
@@ -122,7 +122,7 @@ export class ExamplesListwithlistsComponent {
 
   removeSelectedRows() {
     this.selectedRows.forEach(x => {
-      x.notifyOnRemove(x.previewObject.enhet + ' togs bort', 'vgr-icon-ok-check');
+      x.notifyOnRemove(x.previewObject.enhet + ' togs bort', { name: 'check-circle', color: 'success' });
       x.previewObject.vald = false;
       x.previewObject.deleted = true;
     });

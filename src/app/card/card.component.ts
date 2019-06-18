@@ -29,11 +29,7 @@ export class CardComponent implements OnInit {
           <vgr-input [value]="'Berg'" [readonly]="!unlocked"></vgr-input>
         </vgr-title-value>
         <vgr-title-value [title]="'Boende'" [slim]="!unlocked">
-          <vgr-dropdown-select [readonly]="!unlocked">
-            <vgr-dropdown-item>Hus</vgr-dropdown-item>
-            <vgr-dropdown-item>Lägenhet</vgr-dropdown-item>
-            <vgr-dropdown-item>Kartong</vgr-dropdown-item>
-          </vgr-dropdown-select>
+          <vgr-dropdown [values]="['Hus','Lägenhet','Kartong']" [readonly]="!unlocked"></vgr-dropdown>
         </vgr-title-value>
         <vgr-title-value [title]="'Födelsedatum'" [slim]="!unlocked">
           <vgr-datepicker [selectedDate]="birthDate" [readonly]="!unlocked"></vgr-datepicker>
@@ -82,8 +78,9 @@ export class CardComponent implements OnInit {
   notification: RowNotification;
   constructor(htmlEncoder: HtmlEncodeService) {
     this.notification = {
-      message: 'Meddelande som visas här, visas även när kortet är öppet. Meddelande som visas här, visas även när kortet är öppet. Meddelande som visas här,', icon: 'vgr-icon-exclamation',
-      type: NotificationType.Permanent
+      message: 'Meddelande som visas här, visas även när kortet är öppet.',
+      icon: { name: 'exclamation-circle', solid: true, color: 'error' },
+      type: NotificationType.Permanent,
     } as RowNotification;
 
     this.cardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.cardExample);
