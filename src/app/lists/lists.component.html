@@ -75,18 +75,34 @@
                 <td>
                   [notification]="
                   {{'{'}} <br>
-                    <strong>message</strong>: 'Här är texten i notifikationen', <br>
-                    <strong>icon</strong>: 
-                    {{'{'}} <br>
-                      <strong>size</strong>?: string, <br>
-                      <strong>color</strong>?: 'success' | 'error', <br>
-                      <strong>solid</strong>?: boolean, <br>
-                      <strong>disabled</strong>?: boolean <br>
-                    {{'}'}}
-                  
-                  
+                  <strong>message</strong>: 'Här är texten i notifikationen', <br>
+                  <strong>icon</strong>:
+                  {{'{'}} <br>
+                  <strong>size</strong>?: string, <br>
+                  <strong>color</strong>?: 'success' | 'error', <br>
+                  <strong>solid</strong>?: boolean, <br>
+                  <strong>disabled</strong>?: boolean <br>
+                  {{'}'}}
+
+
                   {{'}'}}"
                 </td>
+              </tr>
+              <tr>
+                <td>pages : number</td>
+                <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större.
+                  Paginering visas endast om värdet är strörre än ett.</td>
+                <td>[pages]="10"</td>
+              </tr>
+              <tr>
+                <td>activePage : number</td>
+                <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
+                <td>[activePage]="1"</td>
+              </tr>
+              <tr>
+                <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
+                <td>Event som triggas när aktiv sida ändras.</td>
+                <td>(pageChanged)="onPageChanged($event)"</td>
               </tr>
             </table>
           </vgr-list-item-content>
@@ -110,6 +126,11 @@
                 <td>[expanded]="false"</td>
               </tr>
               <tr>
+                <td>preventCollapse : boolean</td>
+                <td>Anger om raden tillåts att kollapsa.</td>
+                <td>[preventCollapse]="true"</td>
+              </tr>
+              <tr>
                 <td>notification : RowNotification</td>
                 <td>Ger möjligheten att lägga en notifiering på raden. En
                   <code>RowNotification</code> har en icon property (string), removeWhenDone property (boolean) och en
@@ -127,7 +148,8 @@
                   <code>NotificationType.ShowOnCollapse</code> eller när raden tas bort -
                   <code>NotificationType.ShowOnRemove</code>
                 </td>
-                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: {{'{'}} name: 'check-circle', color: 'success' {{'}'}}, type:
+                <td>[notification]="{{'{'}} message: 'Personen är inaktiv', icon: {{'{'}} name: 'check-circle', color:
+                  'success' {{'}'}}, type:
                   notificationTypes.Permanent{{'}'}}"
                   <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
                   enum som en
@@ -139,6 +161,16 @@
                 <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
                 <td>Event som triggas när raden expanderar</td>
                 <td>(expandedChanged)="onExpandedChanged($event)"</td>
+              </tr>
+              <tr>
+                <td>expandPrevented : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas när raden försöker expandera men hindras</td>
+                <td>(expandPrevented)="onExpandPrevented($event)"</td>
+              </tr>
+              <tr>
+                <td>collapsePrevented : EventEmitter&lt;boolean&gt;</td>
+                <td>Event som triggas när raden försöker kollapsa men hindras</td>
+                <td>(collapsePrevented)="onCollapsePrevented($event)"</td>
               </tr>
               <tr>
                 <td>notificationChanged : EventEmitter&lt;RowNotification&gt;</td>
