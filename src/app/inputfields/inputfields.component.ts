@@ -116,8 +116,9 @@ export class InputfieldsComponent implements OnInit {
     });
   }
 
-  formatNumericValue(value: number) {
-    return isNaN(value) ? 'Inget' : value;
+  formatNumericValue(value) {
+    const number = value !== null && value.toString().replace(/,/g, '.').replace(/ /g, '');
+    return isNaN(number) ? 'Inget' : number;
   }
 
   toggleInputType(value: string) {
@@ -163,10 +164,11 @@ function validateCityName(control: AbstractControl) {
 }
 
 function validateNumber(control: AbstractControl) {
+  const number = control.value !== null && control.value.toString().replace(/,/g, '.').replace(/ /g, '').replace(/−/g, '-');
   const pattern = '^[-,−]{0,1}(\\d{1,3}([,\\s.]\\d{3})*|\\d+)([.,]\\d+)?$';
 
   const regexp = new RegExp(pattern);
-  if (regexp.test(control.value)) {
+  if (regexp.test(number)) {
     return null;
   }
 
