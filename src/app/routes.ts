@@ -51,6 +51,7 @@ import { PageBodyDocumentationComponent } from './page-body-documentation/page-b
 import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
 import { DropdownSelectDocumentationComponent } from './dropdown-select-documentation/dropdown-select-documentation.component';
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
+import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 
 export const appRoutes: Routes = [
 
@@ -103,5 +104,6 @@ export const appRoutes: Routes = [
     { path: 'search-result', component: SearchResultComponent },
     { path: 'pagination-documentation', component: PaginationDocumentationComponent},
     { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },
+    { path: 'grid-documentation', component: GridDocumentationComponent},
     { path: '**', redirectTo: '/' }
 ];

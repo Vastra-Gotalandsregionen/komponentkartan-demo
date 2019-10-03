@@ -79,6 +79,7 @@ import { PageBodyDocumentationComponent } from './page-body-documentation/page-b
 import { PaginationDocumentationComponent } from './pagination-documentation/pagination-documentation.component';
 import { DropdownSelectDocumentationComponent } from './dropdown-select-documentation/dropdown-select-documentation.component';
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
+import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -135,7 +136,8 @@ registerLocaleData(localeSv);
         PageBodyDocumentationComponent,
         PaginationDocumentationComponent,
         DropdownSelectDocumentationComponent,
-        IconDocumentationComponent
+        IconDocumentationComponent,
+        GridDocumentationComponent
 
     ],
     imports: [
