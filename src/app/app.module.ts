@@ -80,6 +80,7 @@ import { PaginationDocumentationComponent } from './pagination-documentation/pag
 import { DropdownSelectDocumentationComponent } from './dropdown-select-documentation/dropdown-select-documentation.component';
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
 import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
+import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -137,7 +138,8 @@ registerLocaleData(localeSv);
         PaginationDocumentationComponent,
         DropdownSelectDocumentationComponent,
         IconDocumentationComponent,
-        GridDocumentationComponent
+        GridDocumentationComponent,
+        NotificationDocumentationComponent
 
     ],
     imports: [

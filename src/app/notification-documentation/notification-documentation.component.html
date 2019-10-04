@@ -1,0 +1,40 @@
+<app-component-docs [componentName]="'Notification'">
+  <div class=" docs__overview ">
+    <p>
+      Notifiering som ex. kan placeras i grid.<br>
+      <code>&lt;vgr-notification&gt;</code>
+    </p>
+    <p>
+      Man kan välja att en ikon automatiskt läggs till enligt standardmall för hur notifieringar ser ut. 
+      Om man vill ha en speciell ikon som inte finns bland standardnotifieringarna kan man lägga in en egen ikon.<br><br>
+    </p>
+
+    <p> 
+      Förändras med tema:
+      <strong>nej</strong>
+    </p>
+  </div>
+  <div class="docs__api ">
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th style="width:600px">Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>autoAddTypeIcons : boolean</td>
+        <td>Anger om man vill att en ikon automatiskt läggs till. Defaultvärde är false.</td>
+        <td>[autoAddTypeIcons]="false"</td>
+      </tr>
+      <tr>
+        <td>type : string</td>
+        <td>Förutsatt att autoAddTypeIcons är true kan man välja typ av notifiering.
+          Tillåtna värden är 'success', 'error', 'comment' och 'default'. Default är 'default'.</td>
+        <td>[type]="'error'"</td>
+      </tr>
+    </table>
+  </div>
+  <div class="docs__wcag ">
+    <i>Ej aktuellt.</i>
+  </div>
+</app-component-docs>
