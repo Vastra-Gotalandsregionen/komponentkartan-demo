@@ -16,7 +16,11 @@
           <vgr-list-item-content>
             <div class="content-overview">
               <p>
-                En tabell med header och expanderbara rader.
+                En tabell med header och expanderbara rader med är möjlighet till sortering och paginering.<br><br>
+
+                Man kan lägga till notifieringar på radnivå samt i toolaren ovanför headern. 
+                Detta görs genom att deklarativt lägga till komponenten<code>vgr-notifiaction</code>.
+
               </p>
               <p>
                 <code>&lt;vgr-grid&gt;</code><br>
@@ -43,8 +47,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-grid-column&gt;</code><code>&lt;/vgr-grid-column&gt;</code><br>
             &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-notification&gt;</code>
             &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-notification&gt;</code><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-content&gt;</code>
-            &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-content&gt;</code><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-grid-content&gt;</code>
+            &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-grid-content&gt;</code><br>
             &nbsp;&nbsp;<code>&lt;vgr-grid-row&gt;</code><br>
             <code>&lt;vgr-grid&gt;</code><br>
             <br>            
@@ -77,7 +81,7 @@
               <tr>
                 <td>toggleAnimation: string</td>
                 <td>Anger hastigheten på anmimationen för expanderad och kollapsa innehållet.
-                  Tillåtna värden 'none' | 'slow' | 'medium' | 'fast' = 'medium' </td>
+                  Tillåtna värden 'none' | 'slow' | 'medium' | 'fast', default är 'medium' </td>
                 <td>[toggleAnimation]="'slow'"</td>
               </tr>
               <tr>
@@ -147,12 +151,13 @@
               </tr>
               <tr>
                 <td>width : number</td>
-                <td>vgr-list är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av
-                  width ska
-                  vara 20 för vgr-list.
+                <td>
+                  Kolumners bredd anges som proportioner i heltal, 
+                  där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
+                  Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
                 </td>
                 <td>
-                  [width]="20"
+                  [width]="200"
                 </td>
               </tr>
               <tr>
@@ -173,15 +178,15 @@
               <tr>
                 <td>sortDirection : GridSortDirection</td>
                 <td>Anger åt vilket håll kolumnen sorteras vid initiering
-                  <code>SortDirection.None</code>, default - ingen sortering
-                  <code>SortDirection.Ascending</code> sortera stigande
-                  <code>SortDirection.Descending</code> sortera fallande
+                  <code>GridSortDirection.None</code>, default - ingen sortering
+                  <code>GridSortDirection.Ascending</code> sortera stigande
+                  <code>GridSortDirection.Descending</code> sortera fallande
                 </td>
                 <td>[sortDirection]="sortDirection.Ascending"
                   <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
                   enum som en
                   property. T.ex:
-                  <code>sortDirection = SortDirection</code>
+                  <code>sortDirection = GridSortDirection</code>
                 </td>
               </tr>
               <tr>
@@ -249,8 +254,9 @@
               </tr>
               <tr>
                 <td>width : number</td>
-                <td>vgr-grid är baserad på en n kolumns layout. Varje kolumn måste ha en width satt och summan av
-                  width ska vara 100% av brädden.
+                <td>Kolumners bredd anges som proportioner i heltal, 
+                  där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
+                  Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
                 </td>
                 <td>
                   [width]="18"

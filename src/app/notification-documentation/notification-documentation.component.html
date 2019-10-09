@@ -1,38 +1,33 @@
 <app-component-docs [componentName]="'Notification'">
   <div class=" docs__overview ">
     <p>
+      <code>&lt;vgr-notification&gt;</code><br>
       Notifiering som ex. kan placeras i <a href="/grid-documentation">grid</a>.<br>
-      <code>&lt;vgr-notification&gt;</code>
     </p>
     <p>
-      Man kan välja att en ikon automatiskt läggs till enligt standardmall för hur notifieringar ser ut. 
-      Om man vill ha en speciell ikon som inte finns bland standardnotifieringarna kan man lägga in en egen ikon.<br><br>
+      Man kan välja att en ikon automatiskt läggs till enligt standardmall för hur notifieringar ser ut.
+      Om man vill ha en egenkomponerad notifiering kan man göra detta gemom att deklarativt lägga till en vgr-icon
+      samt sätta ett giltig värde på [borderColor].
+      <br><br>
     </p>
 
-    <p> 
+    <p>
       Förändras med tema:
       <strong>nej</strong>
     </p>
   </div>
   <div class="docs__examples ">
-      <code>&lt;vgr-grid&gt;</code><br>
-      &nbsp;&nbsp;<code>&lt;vgr-grid-header-toolbar&gt;</code><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>&lt;vgr-notification&gt;</code>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-notification&gt;</code><br></strong>
-      &nbsp;&nbsp;<code>&lt;vgr-grid-header-toolbar&gt;</code><br>
-      &nbsp;&nbsp;<code>&lt;vgr-grid-header&gt;</code><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-grid-header-column&gt;</code><code>&lt;/vgr-grid-header-column&gt;</code><br>            
-      &nbsp;&nbsp;<code>&lt;/vgr-grid-header&gt;</code><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-grid-column&gt;</code><code>&lt;/vgr-grid-column&gt;</code><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>&lt;vgr-notification&gt;</code>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-notification&gt;</code><br></strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;vgr-content&gt;</code>
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;/vgr-content&gt;</code><br>
-      &nbsp;&nbsp;<code>&lt;vgr-grid-row&gt;</code><br>
-      <code>&lt;vgr-grid&gt;</code><br>
-      <br>            
-      <br>
-  </div>  
+    Standardnotifiering<br>
+    <code><strong>&lt;vgr-notification [type]="'error'" &gt;</strong>Ett felmeddelande.
+    <strong>&lt;/vgr-notification&gt;</strong></code>
+    <br>
+    <br>
+    Egenkomponerad<br>
+    <code><strong>&lt;vgr-notification [borderColor]="'secondary'" &gt;<br>
+     &nbsp;&nbsp;&lt;vgr-icon [icon]="'star'"&gt;&lt;/vgr-icon&gt;</strong>
+     Ett annat meddelande<br>
+    <strong>&lt;/vgr-notification&gt;</strong></code>
+  </div>
   <div class="docs__api ">
     <table class="property-table">
       <tr>
@@ -41,16 +36,19 @@
         <th>Exempel</th>
       </tr>
       <tr>
-        <td>autoAddTypeIcons : boolean</td>
-        <td>Anger om man vill att en ikon automatiskt läggs till. Defaultvärde är false.</td>
-        <td>[autoAddTypeIcons]="false"</td>
-      </tr>
-      <tr>
         <td>type : string</td>
-        <td>Förutsatt att autoAddTypeIcons är true kan man välja typ av notifiering.
-          Tillåtna värden är 'success', 'error', 'comment' och 'default'. Default är 'default'.</td>
+        <td>Styr vilken standardnotifiering man vill ha (ikon och färg som automatiskt läggs till).
+          Tillåtna värden är 'success', 'error' och 'comment'. 
+          standardnotifiering läggs ändast till om [type] har ett giltigt värde.</td>
         <td>[type]="'error'"</td>
       </tr>
+      <tr>
+        <td>borderColor : string</td>
+        <td>Om man vill lägga till en egenkomponerad notifiering måste man välja färg bordern manuellt. 
+          Tillåtna värden är 'text', 'success', 'error', 'error-secondary', 'primary', 'secondary', 'dimmed', 'light', 'disabled' .</td>
+        <td>[borderColor]="'disabled'"</td>
+      </tr>
+
     </table>
   </div>
   <div class="docs__wcag ">
