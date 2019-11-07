@@ -17,14 +17,14 @@ export class PageStructureComponent {
     <vgr-page-body>
       <!--Detta är en container för sidans olika block -->
       <vgr-page-block>
-        <!--Sidans första block-->
+        <!--Sidan kan innehålla en eller flera block-->
       </vgr-page-block>
       <vgr-action-panel>
-        <!--Sidans första action panel-->
+        <!--Sidan kan innehålla en eller flera action paneler-->
       </vgr-action-panel>
-      <vgr-page-block>
-        <!--Sidans andra block-->
-      </vgr-page-block>
+      <vgr-grid>
+        <!--Sidan kan innehålla en eller flera griddar-->
+      </vgr-grid>
     </vgr-page-body>
   </vgr-page>`;
   constructor(private htmlEncoder: HtmlEncodeService) {

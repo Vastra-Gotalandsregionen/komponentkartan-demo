@@ -1,0 +1,57 @@
+<app-component-docs [componentName]="'Notification'">
+  <div class=" docs__overview ">
+    <p>
+      <code>&lt;vgr-notification&gt;</code><br>
+      Notifiering som ex. kan placeras i <a href="/grid-documentation">grid</a>.<br>
+    </p>
+    <p>
+      Man kan välja att en ikon automatiskt läggs till enligt standardmall för hur notifieringar ser ut.
+      Om man vill ha en egenkomponerad notifiering kan man göra detta gemom att deklarativt lägga till en vgr-icon
+      samt sätta ett giltig värde på [borderColor].
+      <br><br>
+    </p>
+
+    <p>
+      Förändras med tema:
+      <strong>nej</strong>
+    </p>
+  </div>
+  <div class="docs__examples ">
+    Standardnotifiering<br>
+    <code><strong>&lt;vgr-notification [type]="'error'" &gt;</strong>Ett felmeddelande.
+    <strong>&lt;/vgr-notification&gt;</strong></code>
+    <br>
+    <br>
+    Egenkomponerad<br>
+    <code><strong>&lt;vgr-notification [borderColor]="'secondary'" &gt;<br>
+     &nbsp;&nbsp;&lt;vgr-icon [icon]="'star'"&gt;&lt;/vgr-icon&gt;</strong>
+     Ett annat meddelande<br>
+    <strong>&lt;/vgr-notification&gt;</strong></code>
+  </div>
+  <div class="docs__api ">
+    <table class="property-table">
+      <tr>
+        <th>Namn</th>
+        <th style="width:600px">Beskrivning</th>
+        <th>Exempel</th>
+      </tr>
+      <tr>
+        <td>type : string</td>
+        <td>Styr vilken standardnotifiering man vill ha (ikon och färg som automatiskt läggs till).
+          Tillåtna värden är 'success', 'error' och 'comment'. 
+          standardnotifiering läggs ändast till om [type] har ett giltigt värde.</td>
+        <td>[type]="'error'"</td>
+      </tr>
+      <tr>
+        <td>borderColor : string</td>
+        <td>Om man vill lägga till en egenkomponerad notifiering måste man välja färg bordern manuellt. 
+          Tillåtna värden är 'text', 'success', 'error', 'error-secondary', 'primary', 'secondary', 'dimmed', 'light', 'disabled' .</td>
+        <td>[borderColor]="'disabled'"</td>
+      </tr>
+
+    </table>
+  </div>
+  <div class="docs__wcag ">
+    <i>Ej aktuellt.</i>
+  </div>
+</app-component-docs>
