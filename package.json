@@ -35,7 +35,7 @@
     "eslint": "^4.14.0",
     "rxjs": "^6.3.3",
     "smoothscroll-polyfill": "^0.4.3",
-    "vgr-komponentkartan": "^6.0.0-next1",
+    "vgr-komponentkartan": "^6.0.0-next2",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
