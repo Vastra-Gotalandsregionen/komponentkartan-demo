@@ -23,6 +23,70 @@
           </vgr-list-item-content>
         </vgr-list-item>
         <!-- END of Översikt -->
+        <!-- Start of Example -->
+        <vgr-list-item [expanded]="true">
+          <vgr-list-item-header>
+            <vgr-list-column width="20">
+              <h4>Exempel</h4>
+            </vgr-list-column>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+
+            <vgr-card>
+              <vgr-card-column>
+                <vgr-card-section [title]="'Belopp readonly (slim)'" [expanded]="true">
+                  <vgr-title-value-layout>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Bruttobelopp</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="1000" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Skattesats</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="32" [suffix]="'%'" [alignRight]="true" [readonly]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Nettobelopp</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true" [readonly]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                  </vgr-title-value-layout>
+                </vgr-card-section>
+              </vgr-card-column>
+              <vgr-card-column>
+                <vgr-card-section [title]="'Belopp'" [expanded]="true" class="card__right">
+                  <vgr-title-value-layout>
+                    <vgr-title-value>
+                      <vgr-title-value-heading>Bruttobelopp</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                    <vgr-title-value>
+                      <vgr-title-value-heading>Skattesats</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="32" [suffix]="'%'" [alignRight]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                    <vgr-title-value>
+                      <vgr-title-value-heading>Nettobelopp</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="32" [suffix]="'kr'" [alignRight]="true"></vgr-input>
+                      </vgr-title-value-container>
+                    </vgr-title-value>
+                  </vgr-title-value-layout>
+                </vgr-card-section>
+              </vgr-card-column>
+            </vgr-card>
+            <section [innerHTML]="htmlEncoder.prepareHighlightedSection(markupExample)"
+              highlight-js-content=".highlight"></section>
+          </vgr-list-item-content>
+        </vgr-list-item>
+        <!-- END of Example -->
         <!-- Start of API title-value -->
         <vgr-list-item>
           <vgr-list-item-header>API - title-value</vgr-list-item-header>
@@ -77,11 +141,13 @@
                 <th>Exempel</th>
               </tr>
               <tr>
-                  <td>width : number</td>
-                  <td>Bredd på <code>title-value-container</code> anges som proportioner i heltal, där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt. Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.	
-                  </td>
-                  <td>[width]="3"</td>
-                </tr>
+                <td>width : number</td>
+                <td>Bredd på <code>title-value-container</code> anges som proportioner i heltal, där siffran motsvarar
+                  kolumnens storlek i proportion till summan av alla kolumners storlekt. Varje kolumn måste ha en width
+                  satt och summan av width ska vara 100% av brädden.
+                </td>
+                <td>[width]="3"</td>
+              </tr>
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
