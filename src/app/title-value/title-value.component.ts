@@ -9,8 +9,8 @@ import { HtmlEncodeService } from '../html-encode.service';
 export class TitleValueComponent implements OnInit {
   markupExample = `<vgr-title-value-layout>
   <vgr-title-value>
-    <vgr-title-value-heading>Bruttobelopp</vgr-title-value-heading>
-    <vgr-title-value-container>
+    <vgr-title-value-heading [width]="1">Bruttobelopp</vgr-title-value-heading>
+    <vgr-title-value-container [width]="1">
       <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
     </vgr-title-value-container>
   </vgr-title-value>
