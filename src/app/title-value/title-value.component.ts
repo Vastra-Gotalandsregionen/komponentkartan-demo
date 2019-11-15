@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-title-value',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./title-value.component.scss']
 })
 export class TitleValueComponent implements OnInit {
+  markupExample = `<vgr-title-value-layout>
+  <vgr-title-value>
+    <vgr-title-value-heading [width]="1">Bruttobelopp</vgr-title-value-heading>
+    <vgr-title-value-container [width]="1">
+      <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
+    </vgr-title-value-container>
+  </vgr-title-value>
 
-  constructor() {}
+</vgr-title-value-layout>`;
 
-  ngOnInit() {}
+  constructor(private htmlEncoder: HtmlEncodeService) { }
+
+  ngOnInit() { }
 }
