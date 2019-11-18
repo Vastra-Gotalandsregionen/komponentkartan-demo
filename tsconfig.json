@@ -9,14 +9,16 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2015",
+    "target": "es5",
     "typeRoots": [
       "node_modules/@types",
       "vgr-komponentkartan.d"
     ],
     "lib": [
       "es2017",
-      "dom"
-    ]
+      "dom",
+      "es5"
+    ],
+    "baseUrl": "."
   }
 }

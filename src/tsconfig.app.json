@@ -8,5 +8,6 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "target": "es5"
 }
