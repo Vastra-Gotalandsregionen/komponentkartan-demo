@@ -7,7 +7,7 @@
         <vgr-list-header>
           <vgr-list-column-header [width]="20">Dokumentation för list</vgr-list-column-header>
         </vgr-list-header>
-        <vgr-list-item [expanded]="true">
+        <vgr-list-item [expanded]="true" [notification]="notification">
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>Översikt</h4>
@@ -16,9 +16,10 @@
           <vgr-list-item-content>
             <div class="content-overview">
               <p>
-                <strong>Denna komponet kommer på sikt utgå. 
-                 Använd helst vår nya <a href="/grid-documentation">grid</a>  i stället.</strong>
-                <br>
+                <a [routerLink]="'/grid-documentation'">Klicka här</a> för att gå till vår nya komponent.
+                <br><br>
+              </p>
+              <p>
                 <code>&lt;vgr-list&gt;</code> är en lista bestående av
                 <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex.
                 listor av
