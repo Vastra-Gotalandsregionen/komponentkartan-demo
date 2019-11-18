@@ -17,7 +17,7 @@ export class TitleValueComponent implements OnInit {
 
 </vgr-title-value-layout>`;
 
-  constructor(private htmlEncoder: HtmlEncodeService) { }
+  constructor(public htmlEncoder: HtmlEncodeService) { }
 
   ngOnInit() { }
 }
