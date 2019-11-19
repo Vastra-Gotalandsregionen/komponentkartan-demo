@@ -15,7 +15,7 @@ export class ListsComponent {
   notification: RowNotification = {
     icon: { name: 'exclamation-circle', color: 'error', solid: true },
     type: NotificationType.Permanent,
-    message: 'Använd vår nya komponent vgr-grid i stället då vgr- list är deprecated.',
+    message: 'Använd vår nya komponent vgr-grid i stället då vgr-list är deprecated.',
     done: true,
     removeWhenDone: false
   };

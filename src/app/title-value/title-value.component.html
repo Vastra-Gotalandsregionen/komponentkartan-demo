@@ -6,6 +6,20 @@
         <vgr-list-header>
           <vgr-list-column-header [width]="20">Dokumentation för Title-value</vgr-list-column-header>
         </vgr-list-header>
+        <vgr-list-item [expanded]="true" [notification]="notification">
+          <vgr-list-item-header>
+            <vgr-list-column width="20">
+              <h4>Breaking Change v.8.0.0</h4>
+            </vgr-list-column>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            <p>Nya API-guidelines ser ut som följande:</p>
+            <section [innerHTML]="htmlEncoder.prepareHighlightedSection(markupExample)"
+              highlight-js-content=".highlight"></section>
+          </vgr-list-item-content>
+        </vgr-list-item>
+
+
         <!-- Start of Översikt -->
         <vgr-list-item [expanded]="true">
           <vgr-list-item-header>
@@ -24,7 +38,7 @@
         </vgr-list-item>
         <!-- END of Översikt -->
         <!-- Start of Example -->
-        <vgr-list-item [expanded]="true">
+        <vgr-list-item>
           <vgr-list-item-header>
             <vgr-list-column width="20">
               <h4>Exempel</h4>

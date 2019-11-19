@@ -10,15 +10,26 @@
         <vgr-list-item [expanded]="true" [notification]="notification">
           <vgr-list-item-header>
             <vgr-list-column width="20">
-              <h4>Översikt</h4>
+              <h4>Deprecated v.8.0.0</h4>
             </vgr-list-column>
           </vgr-list-item-header>
           <vgr-list-item-content>
             <div class="content-overview">
               <p>
-                <a [routerLink]="'/grid-documentation'">Klicka här</a> för att gå till vår nya komponent.
-                <br><br>
+                <a [routerLink]="'/grid-documentation'">Klicka här</a> för att gå till vår nya komponent <code>vgr-grid</code>.
               </p>
+            </div>
+          </vgr-list-item-content>
+        </vgr-list-item>
+
+        <vgr-list-item>
+          <vgr-list-item-header>
+            <vgr-list-column width="20">
+              <h4>Översikt</h4>
+            </vgr-list-column>
+          </vgr-list-item-header>
+          <vgr-list-item-content>
+            <div class="content-overview">
               <p>
                 <code>&lt;vgr-list&gt;</code> är en lista bestående av
                 <code>&lt;vgr-list-item&gt;</code>. En lista med header och expanderbara rader, som används till ex.

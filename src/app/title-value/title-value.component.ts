@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
+import { RowNotification, NotificationType } from 'vgr-komponentkartan';
 
 @Component({
   selector: 'app-title-value',
@@ -14,8 +15,16 @@ export class TitleValueComponent implements OnInit {
       <vgr-input [value]="10000" [suffix]="'kr'" [alignRight]="true"></vgr-input>
     </vgr-title-value-container>
   </vgr-title-value>
-
 </vgr-title-value-layout>`;
+
+  notification: RowNotification = {
+    icon: { name: 'exclamation-circle', color: 'success', solid: true },
+    type: NotificationType.Permanent,
+    message: 'title-value är nu deklarativ, och använder sig av: title-value-heading & title-value-container',
+    done: true,
+    removeWhenDone: false
+  };
+
 
   constructor(public htmlEncoder: HtmlEncodeService) { }
 
