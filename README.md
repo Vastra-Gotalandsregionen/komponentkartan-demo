@@ -1,21 +1,18 @@
 # KomponentkartanDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
-
-Demo can be found here: https://vastra-gotalandsregionen.github.io/komponentkartan-demo/
+This project can be found here: [Demo](https://vastra-gotalandsregionen.github.io/komponentkartan-demo/)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-To publish site to github pages install this tool: 
-> `npm i -g angular-cli-ghpages`
-Then run follwing commands in terminal: 
-> `ng build --configuration=public`
-and then `ngh`.
+### To publish site to github pages.
 
 Make sure you have your Github credentials setup correctly before you run the command to push.
 > `git remote set-url origin https://<Username>:<password>@github.com/Vastra-Gotalandsregionen/komponentkartan-demo.git`
+
+Use release-command:
+> `npm run release-gh`
 
 ## Code scaffolding
 
