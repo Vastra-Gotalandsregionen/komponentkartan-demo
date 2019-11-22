@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-inputfields',
@@ -38,6 +39,12 @@ export class InputfieldsComponent implements OnInit {
     'control13': '',
     'control14': ''
   };
+  sizeExample = [
+
+    `<vgr-input [small]="true"></vgr-input>`,
+    `<vgr-input [small]="false"></vgr-input>`,
+    `<vgr-input [width]="'100%'"></vgr-input>`
+  ]
 
   validationMessages = {
     control1: {
@@ -76,7 +83,7 @@ export class InputfieldsComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public htmlEncoder: HtmlEncodeService) {
     this.cityName = 'Houstons';
     this.amount1 = 15000;
     this.amount2 = -25.5;
