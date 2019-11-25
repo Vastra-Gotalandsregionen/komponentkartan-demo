@@ -32,8 +32,8 @@ export class DropdownSelectDocumentationComponent {
     `<vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
   <vgr-dropdown-item *ngFor="let item of items">{{item}}</vgr-dropdown-item>
 </vgr-dropdown-select>`,
-    `<!-- Det blir en radbrytning i texten då den håller samma storlek som dropdownen. 
-    I detta fallet om man vet att man har långa texter kanske man skall sätta en 
+    `<!-- Det blir en radbrytning i texten då den håller samma storlek som dropdownen.
+    I detta fallet om man vet att man har långa texter kanske man skall sätta en
     egen storlek på dropdownen -->
 <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
   <vgr-dropdown-item *ngFor="let item of items">{{item}}</vgr-dropdown-item>
