@@ -44,7 +44,6 @@ import { ListexampleComponent } from './lists/examples/withnotification/listexam
 import { ListexamplewithrownotificationComponent } from './lists/examples/withrownotifications/listexamplewithrownotification.component';
 import { ListcodeexampleComponent } from './lists/examples/simple/listcodeexample.component';
 import { ListwithpaginationcodeexampleComponent } from './lists/examples/withpagination/listwithpaginationcodeexample.component';
-import { ListExampleWithActionButtonsComponent } from './lists/examples/withactionbuttons/listexamplewithactionbuttons.component';
 import { ReactiveformsexampleComponent } from './reactiveforms-example/reactiveforms-example.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { TitleValueComponent } from './title-value/title-value.component';
@@ -114,7 +113,6 @@ registerLocaleData(localeSv);
         SizesComponent,
         MenuComponent,
         ListcodeexampleComponent,
-        ListExampleWithActionButtonsComponent,
         ReactiveformsexampleComponent,
         ExpandableDivComponent,
         ListexamplewithexpandabledivComponent,

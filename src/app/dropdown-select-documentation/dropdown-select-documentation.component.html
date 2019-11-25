@@ -1,7 +1,7 @@
 <app-component-docs [componentName]="'Dropdown select'">
   <div class="docs__overview">
     <p>
-        <code>&lt;vgr-dropdown-select&gt; </code>
+      <code>&lt;vgr-dropdown-select&gt; </code>
     </p>
     <p>Dropdown select finns i två bredder, har en rad olika alternativ och följer temafärg.</p>
     <p>
@@ -33,133 +33,49 @@
     </p>
   </div>
   <div class="docs__examples">
-    <div style="display: flex">
-      <div style="margin-right: 20px">
-        <div>
-          Liten, 5 alternativ
-        </div>
-        <div>
-          <vgr-dropdown-select [small]="true" [deselectable]="true">
-            <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-      <div style="margin-right: 20px">
-        <div>
-          Stor, många alternativ
-        </div>
-        <div>
-          <vgr-dropdown-select>
-            <vgr-dropdown-item>Adam</vgr-dropdown-item>
-            <vgr-dropdown-item>Alva</vgr-dropdown-item>
-            <vgr-dropdown-item>Bea</vgr-dropdown-item>
-            <vgr-dropdown-item>Bertil</vgr-dropdown-item>
-            <vgr-dropdown-item>Cesar</vgr-dropdown-item>
-            <vgr-dropdown-item>Collin</vgr-dropdown-item>
-            <vgr-dropdown-item>David</vgr-dropdown-item>
-            <vgr-dropdown-item>Doris</vgr-dropdown-item>
-            <vgr-dropdown-item>Erika</vgr-dropdown-item>
-            <vgr-dropdown-item>Erik</vgr-dropdown-item>
-            <vgr-dropdown-item>Filip</vgr-dropdown-item>
-            <vgr-dropdown-item>Filippa</vgr-dropdown-item>
-            <vgr-dropdown-item>Gunilla</vgr-dropdown-item>
-            <vgr-dropdown-item>Gustav</vgr-dropdown-item>
-            <vgr-dropdown-item>Helena</vgr-dropdown-item>
-            <vgr-dropdown-item>Helge</vgr-dropdown-item>
-            <vgr-dropdown-item>Ivanka</vgr-dropdown-item>
-            <vgr-dropdown-item>Ivar</vgr-dropdown-item>
-            <vgr-dropdown-item>Jasmina</vgr-dropdown-item>
-            <vgr-dropdown-item>Johan</vgr-dropdown-item>
-            <vgr-dropdown-item>Kalle</vgr-dropdown-item>
-            <vgr-dropdown-item>Kim</vgr-dropdown-item>
-            <vgr-dropdown-item>Lovisa</vgr-dropdown-item>
-            <vgr-dropdown-item>Ludvig</vgr-dropdown-item>
-            <vgr-dropdown-item>Malin</vgr-dropdown-item>
-            <vgr-dropdown-item>Martin</vgr-dropdown-item>
-            <vgr-dropdown-item>Niklas</vgr-dropdown-item>
-            <vgr-dropdown-item>Nora</vgr-dropdown-item>
-            <vgr-dropdown-item>Ofelia</vgr-dropdown-item>
-            <vgr-dropdown-item>Olof</vgr-dropdown-item>
-            <vgr-dropdown-item>Paula</vgr-dropdown-item>
-            <vgr-dropdown-item>Petter</vgr-dropdown-item>
-            <vgr-dropdown-item>Qvintus</vgr-dropdown-item>
-            <vgr-dropdown-item>Rita</vgr-dropdown-item>
-            <vgr-dropdown-item>Rudolf</vgr-dropdown-item>
-            <vgr-dropdown-item>Sigurd</vgr-dropdown-item>
-            <vgr-dropdown-item>Siv</vgr-dropdown-item>
-            <vgr-dropdown-item>Tora</vgr-dropdown-item>
-            <vgr-dropdown-item>Tore</vgr-dropdown-item>
-            <vgr-dropdown-item>Urban</vgr-dropdown-item>
-            <vgr-dropdown-item>Ulla</vgr-dropdown-item>
-            <vgr-dropdown-item>Viktor</vgr-dropdown-item>
-            <vgr-dropdown-item>Vivvi</vgr-dropdown-item>
-            <vgr-dropdown-item>Wilhelm</vgr-dropdown-item>
-            <vgr-dropdown-item>Xerxes</vgr-dropdown-item>
-            <vgr-dropdown-item>Yngve</vgr-dropdown-item>
-            <vgr-dropdown-item>Zäta</vgr-dropdown-item>
-            <vgr-dropdown-item>Åke</vgr-dropdown-item>
-            <vgr-dropdown-item>Åsa</vgr-dropdown-item>
-            <vgr-dropdown-item>Ärlig</vgr-dropdown-item>
-            <vgr-dropdown-item>Östen</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-      <div style="margin-right: 20px">
-        <div>
-          Val av flera alternativ
-        </div>
-        <div>
-          <vgr-dropdown-select [multi]="true" [simpleLabel]="true">
-            <vgr-dropdown-item *ngFor="let item of items10">{{item}}</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-      <div>
-        <div>
-          Alternativ med extra information
-        </div>
-        <div>
-          <vgr-dropdown-select [multi]="true">
-            <vgr-dropdown-item *ngFor="let item of items50" [selectedLabel]="item">
-              <div>{{item}}</div>
-              <div style="font-style: italic">Information</div>
-            </vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-    </div>
-    <div style="display: flex; margin-top: 20px">
-      <div style="margin-right: 20px">
-        <div>
-          Aktiv
-        </div>
-        <div>
-          <vgr-dropdown-select [small]="true" [formControl]="form">
-            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-      <div style="margin-right: 20px">
-        <div>
-          Endast visning
-        </div>
-        <div>
-          <vgr-dropdown-select [small]="true" [readonly]="true" [formControl]="form">
-            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-      <div>
-        <div>
-          Inaktiv
-        </div>
-        <div>
-          <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
-            <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-          </vgr-dropdown-select>
-        </div>
-      </div>
-    </div>
+    <section>
+      <h2>Liten, 5 alternativ</h2>
+      <vgr-dropdown-select [small]="true" [deselectable]="true">
+        <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])" highlight-js-content=".highlight">
+      </section>
+      <h2>Stor, 50 alternativ</h2>
+      <vgr-dropdown-select>
+        <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])" highlight-js-content=".highlight">
+      </section>
+      <h2>Alternativ med extra information</h2>
+      <vgr-dropdown-select [multi]="true" [width]="'50%'">
+        <vgr-dropdown-item *ngFor="let item of items50" [selectedLabel]="item">
+          <div>{{item}}</div>
+          <div style="font-style: italic">Information</div>
+        </vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])" highlight-js-content=".highlight">
+      </section>
+      <h2>Aktiv</h2>
+      <vgr-dropdown-select [formControl]="form" width="100px">
+        <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])" highlight-js-content=".highlight">
+      </section>
+      <h2>Inaktiv</h2>
+      <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
+        <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])" highlight-js-content=".highlight">
+      </section>
+      <h2>Endast visning</h2>
+      <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
+        <vgr-dropdown-item [value]="itemValue">
+          {{itemLabel}}
+        </vgr-dropdown-item>
+      </vgr-dropdown-select>
+      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])" highlight-js-content=".highlight">
+      </section>
+    </section>
   </div>
   <div class="docs__api">
     <h2>DropdownSelect</h2>
@@ -170,22 +86,31 @@
         <th>Exempel</th>
       </tr>
       <tr>
+        <td>width: string</td>
+        <td>
+          Sätter storlek på komponenten, anges i enhetmått, e.g. px och %. Vid användning av width så skriver man över
+          användningen av <code>[small]</code>.
+          Default så sätts bredd baserat på small propertyn.
+        </td>
+        <td>[width]="'100%'"</td>
+      </tr>
+      <tr>
+        <td>small: boolean</td>
+        <td>Gör det valda alternativet kortare. Förvalt värde är
+          <code>false</code>.</td>
+        <td>[small]="true"</td>
+      </tr>
+      <tr>
         <td>value: any</td>
-        <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används. 
+        <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.
           Kan sättas till en array om flervalsläge är satt.</td>
         <td>[value]="someObject"</td>
-      </tr>      
+      </tr>
       <tr>
         <td>multi: boolean</td>
         <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
           <code>false</code>.</td>
         <td>[multi]="true"</td>
-      </tr>
-      <tr>
-        <td>small: string</td>
-        <td>Gör det valda alternativet kortare. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[small]="true"</td>
       </tr>
       <tr>
         <td>deselectable: boolean</td>
@@ -225,8 +150,8 @@
       </tr>
       <tr>
         <td>errorMessage: any</td>
-        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn. 
-            Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
+        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn.
+          Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
         </td>
         <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
       </tr>
@@ -245,9 +170,10 @@
       <tr>
         <td>selectedChanged: EventEmitter&lt;any&gt;</td>
         <td>Event som triggas när val ändras av användaren. Värdet är det nya valet. Detta är främst användbart när
-          kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera ett formulär.</td>
+          kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera ett formulär.
+        </td>
         <td>(selectedChanged)="doSomething($event)"</td>
-      </tr>   
+      </tr>
     </table>
     <br>
     <h2>DropdownItem</h2>
@@ -289,7 +215,8 @@
       dess innehåll.
     </p>
     <p>
-      Dropdownen är byggd att följa WCAG-kraven för listbox (<a href="https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox">https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox</a>).
+      Dropdownen är byggd att följa WCAG-kraven för listbox (<a
+        href="https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox">https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox</a>).
     </p>
     <p>
       Summerat innebär det:
