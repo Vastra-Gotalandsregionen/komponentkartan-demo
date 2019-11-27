@@ -10,10 +10,10 @@
       <br> - Två olika fasta storlekar på fältet (liten och stor).
       <br> - Visar suffix.
     </p>
-    <br>
-    <vgr-input [width]="'30%'"></vgr-input>
-    <vgr-input [width]="'70%'"></vgr-input>
-    <br>
+    <p>
+      <label>HSA-id: </label>
+      <vgr-input [readonly]="readonly" [width]="'300px'" value="SE2329999131-E000000011351"></vgr-input>
+    </p>
     <p>Förändras med tema:
       <strong>nej</strong>
     </p>
@@ -62,7 +62,7 @@
               [alignRight]="true" [small]="isSmall" [errorMessage]="validationMessages.control1"
               [showValidation]="form.controls.control1.touched"></vgr-input>
             <p>Belopp 1:
-            {{formatNumericValue(form.controls.control1.value)}}</p>
+              {{formatNumericValue(form.controls.control1.value)}}</p>
           </div>
           <div>
             Belopp 2 (2 decimaler)
@@ -173,7 +173,8 @@
       <tr>
         <td>width: string</td>
         <td>
-          Sätter storlek på komponenten, anges i enhetmått, e.g. px och %. Vid användning av width så skriver man över användningen av <code>[small]</code>.
+          Sätter storlek på komponenten, anges i enhetmått, e.g. px och %. Vid användning av width så skriver man över
+          användningen av <code>[small]</code>.
           Default så sätts bredd baserat på small propertyn.
         </td>
         <td>[width]="'100%'"</td>
