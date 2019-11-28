@@ -29,12 +29,12 @@
         <vgr-card-header>
           <div class="row-layout">
             <label>Enhet</label>
-            <label>{{selectedUnit}}</label>
+            <label>{{newUnit?.details.enhet}}</label>
           </div>
           <div class="flex-right">
             <vgr-button class="enhet-card__abort-button" (click)="onNewUnitCancel()" [buttonStyle]="'secondary'">Avbryt
             </vgr-button>
-            <vgr-button [buttonStyle]="'secondary'" (click)="onNewUnitSave()">Spara enhet</vgr-button>
+            <vgr-button [buttonStyle]="'secondary'" (click)="onNewUnitSave()">Spara enhet (mock)</vgr-button>
           </div>
         </vgr-card-header>
         <vgr-card-column>
@@ -170,11 +170,6 @@
                 </vgr-title-value-layout>
               </form>
               <vgr-title-value-layout>
-                <vgr-title-value [title]=" 'Leverantörsid RD*'" [slim]="newCardLocked">
-                  <vgr-input [width]="'100%'" formControlName="leverantorsid"
-                    [showValidation]="newUnitForm.controls.leverantorsid.touched || submitted"
-                    [readonly]="newCardLocked"></vgr-input>
-                </vgr-title-value>
                 <vgr-title-value [title]=" 'Kundreferens'" [slim]="newCardLocked">
                   <vgr-input [width]="'100%'" formControlName="kundreferens" [readonly]="newCardLocked"></vgr-input>
                 </vgr-title-value>
@@ -433,11 +428,6 @@
                         </vgr-title-value-layout>
                       </form>
                       <vgr-title-value-layout>
-                        <vgr-title-value [title]=" 'Leverantörsid RD*'" [slim]="cardLocked">
-                          <vgr-input [width]="'100%'" formControlName="leverantorsid"
-                            [showValidation]="editUnitForm.controls.leverantorsid.touched || submitted"
-                            [readonly]="cardLocked"></vgr-input>
-                        </vgr-title-value>
                         <vgr-title-value [title]=" 'Kundreferens'" [slim]="cardLocked">
                           <vgr-input [width]="'100%'" formControlName="kundreferens" [readonly]="cardLocked">
                           </vgr-input>
