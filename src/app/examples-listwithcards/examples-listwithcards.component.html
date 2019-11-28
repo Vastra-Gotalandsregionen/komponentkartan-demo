@@ -16,8 +16,8 @@
       [showCloseButton]="!addNewUnit && showActionPanel" [open]="showActionPanel" [title]="'Lägg till ny enhet'">
       <div *ngIf="!addNewUnit">
         <div class="row-layout">
-          <label style="width: 150px">Välj enhet</label>
-          <vgr-dropdown-select width="100%" [formControl]="unitCandidateForm">
+          <label>Välj enhet</label>
+          <vgr-dropdown-select [small]="false" [formControl]="unitCandidateForm">
             <vgr-dropdown-item *ngFor="let unit of unitCandidates" [value]="unit.hsaid">{{unit.name}}
             </vgr-dropdown-item>
           </vgr-dropdown-select>
@@ -28,7 +28,7 @@
       <vgr-card *ngIf="addNewUnit">
         <vgr-card-header>
           <div class="row-layout">
-            <label style="width:200px">Enhet</label>
+            <label>Enhet</label>
             <label>{{selectedUnit}}</label>
           </div>
           <div class="flex-right">
