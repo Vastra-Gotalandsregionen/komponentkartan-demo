@@ -59,47 +59,69 @@
           <vgr-list-item-content>
             <vgr-card>
               <vgr-card-header>
-                <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false"
-                  (cancel)="unlocked = false"></vgr-save-cancel>
+                <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true"
+                  (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
               </vgr-card-header>
               <vgr-card-column>
-                <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Personuppgifter'" [readonly]="!unlocked">
+                <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Personuppgifter'"
+                  [readonly]="!unlocked">
                   <vgr-title-value-layout>
-                    <vgr-title-value [title]="'Förnamn'" [slim]="!unlocked">
-                      <vgr-input [value]="'Per-Åke'" [readonly]="!unlocked"></vgr-input>
+                    <vgr-title-value [slim]="!unlocked">
+                      <vgr-title-value-heading>Förnamn</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'Per-Åke'" [readonly]="!unlocked" width="100%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Efternamn'" [slim]="!unlocked">
-                      <vgr-input [value]="'Berg'" [readonly]="!unlocked"></vgr-input>
+                    <vgr-title-value [slim]="!unlocked">
+                      <vgr-title-value-heading>Efternamn</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'Berg'" [readonly]="!unlocked" width="100%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Boende'" [slim]="!unlocked">
-                      <vgr-dropdown-select [readonly]="!unlocked">
-                        <vgr-dropdown-item>Hus</vgr-dropdown-item>
-                        <vgr-dropdown-item>Lägenhet</vgr-dropdown-item>
-                        <vgr-dropdown-item>Kartong</vgr-dropdown-item>
-                      </vgr-dropdown-select>
+                    <vgr-title-value [slim]="!unlocked">
+                      <vgr-title-value-heading>Boende</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-dropdown-select [readonly]="!unlocked" width="100%">
+                          <vgr-dropdown-item>Hus</vgr-dropdown-item>
+                          <vgr-dropdown-item>Lägenhet</vgr-dropdown-item>
+                          <vgr-dropdown-item>Kartong</vgr-dropdown-item>
+                        </vgr-dropdown-select>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Födelsedatum'" [slim]="!unlocked">
-                      <vgr-datepicker [selectedDate]="birthDate" [readonly]="!unlocked"></vgr-datepicker>
+                    <vgr-title-value [slim]="!unlocked">
+                      <vgr-title-value-heading>Födelsedatum</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-datepicker [selectedDate]="birthDate" [readonly]="!unlocked" width="100%"></vgr-datepicker>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Serienummer'" [slim]="!unlocked">
-                      <span>7a787b27-c2cc-441f-a732</span>
+                    <vgr-title-value [slim]="!unlocked">
+                      <vgr-title-value-heading>Serienummer</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'7a787b27-c2cc-441f-a732'" readonly="true" width="100%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
                 <vgr-card-section [expanded]="true" [title]="'Rubrik'" [subtitle]="'Adressuppgifter'">
                   <vgr-title-value-layout>
-
-                    <vgr-title-value [title]="'Kommun'" [slim]="true">
-                      <span>Vänersborg</span>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Kommun</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'Vänersborg'" readonly="true" width="100%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Besöksaddress'" [slim]="true">
-                      <span>Duellvägen
-                        <br>462 60
-                        <br>Vänersborg
-                      </span>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Besöksaddress</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'Duellvägen\n462 60\nVänersborg'" readonly="true" width="100%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
-                    <vgr-title-value [title]="'Geokod (PT90)'" [slim]="true">
-                      <span>x: 6471784</span>
+                    <vgr-title-value [slim]="true">
+                      <vgr-title-value-heading>Geokod (PT90)</vgr-title-value-heading>
+                      <vgr-title-value-container>
+                        <vgr-input [value]="'6471784'" [suffix]="':y'" [readonly]="!unlocked" width="50%"></vgr-input>
+                        <vgr-input [value]="'6471784'" [suffix]="':x'" [readonly]="!unlocked" width="50%"></vgr-input>
+                      </vgr-title-value-container>
                     </vgr-title-value>
                   </vgr-title-value-layout>
                 </vgr-card-section>
@@ -126,8 +148,8 @@
           <vgr-list-item-content>
             <vgr-card>
               <vgr-card-header>
-                <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true" (save)="unlocked = false"
-                  (cancel)="unlocked = false"></vgr-save-cancel>
+                <vgr-save-cancel class="flex-right" [secondary]="true" (unlock)="unlocked = true"
+                  (save)="unlocked = false" (cancel)="unlocked = false"></vgr-save-cancel>
               </vgr-card-header>
               <vgr-card-column>
                 <table style="width:100%;text-align:left">

@@ -5,13 +5,11 @@
   </vgr-page-header>
 
   <vgr-page-body>
-    <vgr-action-panel [open]="actionsVisible" [title]="'Action-panel'">
+    <vgr-action-panel [open]="actionsVisible" [title]="'Action-panel'" [showCloseButton]="false">
 
       <vgr-card>
         <vgr-card-header>
-          <div class="flex-right">
-            <vgr-button [buttonStyle]="'secondary'" (click)="actionsVisible=false">Stäng</vgr-button>
-          </div>
+          Skapa ny radnotifiering
         </vgr-card-header>
         <vgr-card-column>
           <vgr-card-section [title]="'Information'" expanded="true" [readonly]="readonly">
