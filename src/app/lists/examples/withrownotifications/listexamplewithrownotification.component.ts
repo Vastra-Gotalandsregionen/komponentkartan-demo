@@ -29,11 +29,11 @@ export class ListexamplewithrownotificationComponent {
       htmlEncoder.prepareHighlightedSection(this.examples.htmlAdvancedListMarkup);
 
     this.examplePeople = [
-      { id: '1', firstName: 'Adam', lastName: 'Andersson' } as ExamplePerson,
-      { id: '2', firstName: 'Bjarne', lastName: 'Bengtsson' } as ExamplePerson,
-      { id: '3', firstName: 'Carola', lastName: 'Claesson' } as ExamplePerson,
-      { id: '4', firstName: 'Daniella', lastName: 'Di Maria Marquez ' } as ExamplePerson,
-      { id: '5', firstName: 'Erik', lastName: '' } as ExamplePerson,
+      { id: '1', firstName: 'Adam', lastName: 'Andersson', expanded: false } as ExamplePerson,
+      { id: '2', firstName: 'Bjarne', lastName: 'Bengtsson', expanded: false } as ExamplePerson,
+      { id: '3', firstName: 'Carola', lastName: 'Claesson', expanded: true } as ExamplePerson,
+      { id: '4', firstName: 'Daniella', lastName: 'Di Maria Marquez', expanded: false } as ExamplePerson,
+      { id: '5', firstName: 'Erik', lastName: '', expanded: false } as ExamplePerson,
     ];
 
     this.peopleRows = this.examplePeople.map(x => new ExpandableRow<ExamplePerson, ExamplePerson>(x));
@@ -71,4 +71,5 @@ export interface ExamplePerson {
   id: string;
   firstName: string;
   lastName: string;
+  expanded: boolean;
 }
