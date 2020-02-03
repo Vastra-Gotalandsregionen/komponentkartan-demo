@@ -472,7 +472,15 @@
                       <vgr-title-value [slim]="cardLocked">
                         <vgr-title-value-heading>Geokod (PT90)</vgr-title-value-heading>
                         <vgr-title-value-container>
-                          <span>{{row.previewObject.details.geokod}}</span>
+                          <!-- <vgr-input>{{row.previewObject.details.geokod}}</vgr-input> -->
+
+                          <section class="row-layout row-layout--tight">
+                            <vgr-input [readonly]="cardLocked" [value]="row.previewObject.details.geokod.x" suffix=":x"
+                              [small]="true" [alignRight]="true" width="100%"></vgr-input>
+                            <vgr-input [readonly]="cardLocked" [value]="row.previewObject.details.geokod.y" suffix=":y"
+                              [small]="true" [alignRight]="true" width="100%"></vgr-input>
+                          </section>
+
                         </vgr-title-value-container>
                       </vgr-title-value>
                       <vgr-title-value [slim]="cardLocked">
