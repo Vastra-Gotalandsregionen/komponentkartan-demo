@@ -44,7 +44,7 @@ export class InputfieldsComponent implements OnInit {
     `<vgr-input [small]="true"></vgr-input>`,
     `<vgr-input [small]="false"></vgr-input>`,
     `<vgr-input [width]="'100%'"></vgr-input>`
-  ]
+  ];
 
   validationMessages = {
     control1: {
