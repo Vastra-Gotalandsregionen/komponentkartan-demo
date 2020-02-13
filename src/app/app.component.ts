@@ -31,6 +31,15 @@ export class KomponentkartanApplicationComponent implements OnInit {
         this.angularCliVersion = this.angularCliVersion ? this.angularCliVersion.replace('^', '') : this.angularCliVersion;
     }
 
+    changeTheme(theme) {
+        const root = document.getElementById('theme-root');
+        const colors = ['neutral', 'blue', 'red', 'green', 'pinkie'];
+
+        colors.map(color => root.classList.remove(`theme--${color}`));
+
+        root.classList.add(`theme--${theme}`);
+    }
+
     ngOnInit() {
         observableOf('Göte Borg').pipe(delay(1000)).subscribe(x => { this.userName = x; });
 

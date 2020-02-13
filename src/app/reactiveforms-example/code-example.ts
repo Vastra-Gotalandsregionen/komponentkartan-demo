@@ -337,9 +337,6 @@ function validateNumber(control: AbstractControl) {
         return null;
     }
     return { invalidNumber: true };
-}
-
-    
-    `;
+}`;
 }
 

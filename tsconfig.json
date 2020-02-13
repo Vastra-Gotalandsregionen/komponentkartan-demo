@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "downlevelIteration": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -14,7 +16,9 @@
     ],
     "lib": [
       "es2017",
-      "dom"
-    ]
+      "dom",
+      "es5"
+    ],
+    "baseUrl": "."
   }
 }

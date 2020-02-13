@@ -1,5 +1,5 @@
-import { Component, Output, ChangeDetectorRef } from '@angular/core';
-import { RowNotification, NotificationType, SortDirection, SortChangedArgs, ExpandableRow, ModalService } from 'vgr-komponentkartan';
+import { Component, } from '@angular/core';
+import { SortDirection, SortChangedArgs, ExpandableRow, ModalService } from 'vgr-komponentkartan';
 import { ExampleUnit } from './unit.model';
 import { UnitService } from './unitService';
 
@@ -24,7 +24,7 @@ export class ExamplesListwithlistsComponent {
   startdate: Date;
   enddate: Date;
 
-  constructor(private changeDetector: ChangeDetectorRef, private unitService: UnitService, public modalService: ModalService) {
+  constructor(private unitService: UnitService, public modalService: ModalService) {
     this.includeInactiveUnits = false;
     this.items = Array(3).fill(0).map((x, i) => i);
   }

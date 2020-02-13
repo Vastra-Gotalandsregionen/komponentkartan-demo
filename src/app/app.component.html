@@ -23,11 +23,11 @@
         <vgr-menu-item link="/expandablediv" text="Expandable div"></vgr-menu-item>
         <vgr-menu-item link="/filter-tag" text="Filter tag"></vgr-menu-item>
         <vgr-menu-item link="/filtertextbox" text="Filter textbox"></vgr-menu-item>
-        <vgr-menu-item link="/grid-documentation" text="Grid"></vgr-menu-item>        
+        <vgr-menu-item link="/grid-documentation" text="Grid"></vgr-menu-item>
         <vgr-menu-item link="/headers" text="Header/header menu"></vgr-menu-item>
         <vgr-menu-item link="/icons" text="Icon"></vgr-menu-item>
         <vgr-menu-item link="/inputFields" text="Input"></vgr-menu-item>
-        <vgr-menu-item link="/lists" text="List"></vgr-menu-item>
+        <vgr-menu-item link="/lists" text="List *deprecated*"></vgr-menu-item>
         <vgr-menu-item link="/loader" text="Loader"></vgr-menu-item>
         <vgr-menu-item link="/lockbutton" text="Lock button"></vgr-menu-item>
         <vgr-menu-item link="/menu" text="Menu"></vgr-menu-item>
@@ -49,12 +49,11 @@
         <vgr-menu-item link="/dummy" text="Inaktivt Menyval" [disabled]="true"></vgr-menu-item>
 
       </vgr-submenu>
-      <vgr-submenu text="Kodexempel">
+      <vgr-submenu text="Kodexempel" [expanded]="true">
         <vgr-menu-item link="/listexample-simple" text="Lista (enkel)"></vgr-menu-item>
         <vgr-menu-item link="/listexample-expandable-div" text="Lista (expandable div)"></vgr-menu-item>
         <vgr-menu-item link="/listexample-notification" text="Lista (notifiering)"></vgr-menu-item>
         <vgr-menu-item link="/listexample-notifications" text="Lista (med radnotifieringar)"></vgr-menu-item>
-        <vgr-menu-item link="/listexample-actionbuttons" text="Lista (checkbox & papperskorg)"></vgr-menu-item>
         <vgr-menu-item link="/listexample-pagination" text="Lista (med pagination)"></vgr-menu-item>
         <vgr-menu-item link="/reactiveformsexample" text="Reactive Forms"></vgr-menu-item>
       </vgr-submenu>
@@ -67,6 +66,12 @@
   </vgr-sidebar-menu>
   <vgr-header [systemText]="systemText" logoClass="demo-logo">
     <vgr-header-menu [userName]="userName" textColor="black" circleColor="#f9dede">
+      <vgr-submenu text="Tema">
+        <vgr-menu-item [isInternalLink]="false" text="Neutral" (click)="changeTheme('neutral')"></vgr-menu-item>
+        <vgr-menu-item [isInternalLink]="false" text="Blått" (click)="changeTheme('blue')"></vgr-menu-item>
+        <vgr-menu-item [isInternalLink]="false" text="Rött" (click)="changeTheme('red')"></vgr-menu-item>
+        <vgr-menu-item [isInternalLink]="false" text="Grönt" (click)="changeTheme('green')"></vgr-menu-item>
+      </vgr-submenu>
     </vgr-header-menu>
   </vgr-header>
   <router-outlet></router-outlet>

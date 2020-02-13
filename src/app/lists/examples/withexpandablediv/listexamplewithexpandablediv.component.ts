@@ -27,6 +27,7 @@ export class ListexamplewithexpandabledivComponent implements OnInit {
     }
     ngOnInit() {
         this.initExampleData();
+        this.onSortChanged({direction: SortDirection.Ascending, key: 'firstName'});
     }
 
     initExampleData() {

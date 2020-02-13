@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Examples } from '../examples';
 import { HtmlEncodeService } from '../../../html-encode.service';
 import { RowNotification, Notification } from 'vgr-komponentkartan';
