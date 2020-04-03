@@ -3,9 +3,9 @@
     <h3>Sök enheter</h3>
     <div class="control-group-wrapper">
       <div class="search-controls">
-        <vgr-filter-textbox (keyup.enter)="searchForUnits()"
-          (valueChanged)="filtertext = $event;noSearchResult = false;" (focusin)="noSearchResult = false">
-        </vgr-filter-textbox>
+        <vgr-input (keyup.enter)="searchForUnits()"
+          (input)="filtertext = $event.target.value; noSearchResult = false;" (focusin)="noSearchResult = false">
+        </vgr-input>
         <vgr-button (click)="searchForUnits()">Sök</vgr-button>
       </div>
       <div class="print-buttons">
