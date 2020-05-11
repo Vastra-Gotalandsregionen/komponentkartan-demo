@@ -26,7 +26,7 @@ export class SearchResultComponent implements OnInit {
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.htmlExample1 = htmlEncoder.prepareHighlightedSection(`<div class="search-result-wrapper">
-    <vgr-filter-textbox (keydown)="filterSearch($event)" [value]="filterBoxValue_e1"></vgr-filter-textbox>
+    <vgr-input type="search" (keydown)="filterSearch($event)" [value]="filterBoxValue_e1"></vgr-input>
     <vgr-search-result [items]="filteredItems" [visible]="dropdownVisible_e1"
     maxItems="15" [description]="searchDescription_e1" (itemClick)="setResult($event)"></vgr-search-result>
   </div>`, 'html');

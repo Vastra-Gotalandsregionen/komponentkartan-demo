@@ -1,5 +1,9 @@
 <app-component-docs [componentName]="'filter textbox'">
   <div class=" docs__overview ">
+    <div style="margin-bottom: 20px;">
+      <h4><vgr-icon [icon]="'exclamation-circle'" [size]="'lg'" [color]="'error'"></vgr-icon> Deprecated v.8.0.0</h4>
+      <a [routerLink]="'/inputFields'">Klicka här</a> för att gå till våran input-komponent som med property type="search" ersätter <code>vgr-filter-textbox</code>.
+    </div>
     <p>
       <code> &lt;vgr-filter-textbox&gt;</code> är ett fält som används för sökning/filtrering. Notera att fältet enbart håller värde
       och notifierar när det ändras. Sökning/filtrering hanteras externt.

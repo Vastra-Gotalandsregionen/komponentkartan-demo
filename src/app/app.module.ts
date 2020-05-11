@@ -21,7 +21,6 @@ import { UnitFilter2Pipe } from './examples-listwithlists/unitfilterpipe';
 import { KomponentkartanApplicationComponent } from './app.component';
 
 import { InputfieldsComponent } from './inputfields/inputfields.component';
-import { CityService } from './inputfields/cityservice';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColoursComponent } from './colours/colours.component';
@@ -150,7 +149,6 @@ registerLocaleData(localeSv);
     ],
     exports: [UnitFilterPipe],
     providers: [
-        CityService,
         HighlightJsService,
         HtmlEncodeService,
         UnitService,
