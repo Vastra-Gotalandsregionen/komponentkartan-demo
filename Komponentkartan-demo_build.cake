@@ -59,39 +59,6 @@ Task("Build-Frontend")
 
 	});
 
-Task("Deploy-Frontend")
-	.IsDependentOn("Validate-Arguments")
-	.WithCriteria(() => environment != "Local")
-	.IsDependentOn("Build-Frontend")
-	.Does(() =>
-{
-
-	var sourcePath =  MakeAbsolute(Directory("./dist/")).FullPath;
-	var destinationPath = environment + "-komponentkartan";
-	var username =  EnvironmentVariable("DeployUsername");
-	var password =  EnvironmentVariable("DeployPwd");
-
-		MsDeploy(new MsDeploySettings
-	{
-		Verb = Operation.Sync,
-		AllowUntrusted = true,
-		Source = new IisAppProvider
-		{
-			Direction = Direction.source,
-			Path = sourcePath
-		},
-		Destination = new IisAppProvider
-		{
-			Direction = Direction.dest,
-			Path = destinationPath,
-			WebManagementService = deployServer,
-			Username = username,
-			Password = password
-		}
-	});
-});
-
-Task("Default")
-	.IsDependentOn("Deploy-Frontend");
+Task("Default").IsDependentOn("Build-Frontend");
 
 RunTarget(target);
