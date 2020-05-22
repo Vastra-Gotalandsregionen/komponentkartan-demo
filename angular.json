@@ -49,10 +49,12 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "public": {
               "baseHref": "https://vastra-gotalandsregionen.github.io/komponentkartan-demo/",
@@ -71,12 +73,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
-
           }
         },
         "serve": {
@@ -96,7 +99,6 @@
             "browserTarget": "komponentkartan-demo:build"
           }
         },
-
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -111,7 +113,6 @@
         }
       }
     }
-
   },
   "defaultProject": "komponentkartan-demo",
   "schematics": {
@@ -122,5 +123,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
