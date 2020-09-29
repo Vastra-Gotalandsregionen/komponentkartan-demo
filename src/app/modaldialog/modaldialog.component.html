@@ -72,21 +72,29 @@
         <th>Exempel</th>
       </tr>
       <tr>
-        <td>openDialog(elementId: string)</td>
+        <td>outsideClick(e: MouseEvent)</td>
+        <td>
+          Event som triggas när du klickar utanför modalen.
+          Denna läggs på <code>&lt;vgr-modal&gt;</code>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>modalService.openDialog(elementId: string)</td>
         <td>Öppnar den modal dialog som har det element id som skickats in -
           <code>elementId</code>.
         </td>
         <td></td>
       </tr>
       <tr>
-        <td>closeDialog(elementId: string)</td>
+        <td>modalService.closeDialog(elementId: string)</td>
         <td>Stänger den modal dialog som har det element id som skickats in -
           <code>elementId</code>.
         </td>
         <td></td>
       </tr>
       <tr>
-        <td>updateDialog(elementId: string)</td>
+        <td>modalService.updateDialog(elementId: string)</td>
         <td>Uppdaterar vilka tabstop som finns i modalen (används om man ändrar innehållet i modalen efter att man öppnat den) -
           <code>elementId</code>.
         </td>
@@ -252,10 +260,11 @@
   </vgr-modal-footer>
 </vgr-modal>
 
-<vgr-modal id="myModalId">
+<vgr-modal id="myModalId"  (outsideClick)="modalService.closeDialog('myModalId')">
   <vgr-modal-header>En header från app</vgr-modal-header>
   <vgr-modal-content>
     <p>Ändringarna går förlorade om du inte sparar dem</p>
+    <p>Klickar du utanför så stängs modalen</p>
   </vgr-modal-content>
   <vgr-modal-footer class="buttons-right">
     <vgr-button [buttonStyle]="'secondary'" default="true" (click)="modalService.closeDialog('myModalId')">Avbryt</vgr-button>

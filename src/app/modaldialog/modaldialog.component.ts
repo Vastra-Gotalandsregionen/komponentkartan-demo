@@ -19,10 +19,11 @@ export class ModaldialogComponent implements OnInit {
   exampleCodeHtml = `
   <vgr-button (click)="modalService.openDialog('myModalId')">Open Modal</vgr-button>
 
-  <vgr-modal id="myModalId">
+  <vgr-modal id="myModalId" (outsideClick)="modalService.closeDialog('myModalId')">
   <vgr-modal-header>En header från app</vgr-modal-header>
   <vgr-modal-content>
     <p>Ändringarna går förlorade om du inte sparar dem</p>
+    <p>Klickar du utanför så stängs modalen</p>
   </vgr-modal-content>
   <vgr-modal-footer>
     <vgr-button [buttonStyle]="'secondary'" >Spara</vgr-button>
