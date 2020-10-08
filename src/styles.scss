@@ -71,8 +71,8 @@ code {
 
 .header--inline {
   .header {
-    position: relative;
-    z-index: auto;
+    position: relative !important;
+    z-index: auto !important;
   }
 }
 
