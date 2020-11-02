@@ -28,17 +28,18 @@
                   <vgr-button class="flex-right" [buttonStyle]="'secondary'">Åtgärd</vgr-button>
                 </vgr-card-header>
                 <vgr-card-column>
-                  <vgr-card-section [title]="'Rubrik'" [subtitle]="'vänster 1'">
+                  <vgr-card-section [title]="'Rubrik'" [subtitle]="'vänster 1 med färg'" [expanded]="true" backgroundColor="#f1eadc">
                     <span>Innehåll</span>
                   </vgr-card-section>
-                  <vgr-card-section [title]="'Rubrik'" [subtitle]="'vänster 2'">
+                  <vgr-card-section [title]="'Rubrik'" [subtitle]="'vänster 2 med färg'" backgroundColor="#f1eadc">
                     <span>Innehåll</span>
                   </vgr-card-section>
                 </vgr-card-column>
                 <vgr-card-column>
-                  <vgr-card-section class="card__right" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Höger 1'"
+                  <vgr-card-section class="card__right" [expanded]="true" [title]="'Rubrik'" [subtitle]="'Höger 1  med default färg, vit'"
                     [readonly]="false">
                     <div>Innehåll</div>
+                    <vgr-datepicker></vgr-datepicker>
                   </vgr-card-section>
                 </vgr-card-column>
               </vgr-card>
@@ -254,36 +255,42 @@
 
             <table class="property-table">
               <tr>
-                <th>Namn</th>
+                <th width="200px">Namn</th>
                 <th>Beskrivning</th>
                 <th>Exempel</th>
               </tr>
               <tr>
-                <td>expanded: boolean</td>
+                <td  width="200px">expanded: <strong>boolean</strong></td>
                 <td>Anger om sektionen är expanderad eller ej</td>
                 <td>[expanded]="true"</td>
               </tr>
               <tr>
-                <td>title: string</td>
+                <td  width="200px">title: <strong>string</strong></td>
                 <td>Sektionens rubrik</td>
                 <td>[title]="'Rubrik'"</td>
               </tr>
               <tr>
-                <td>subTitle: string</td>
+                <td  width="200px">subTitle: <strong>string</strong></td>
                 <td>Sektionens underrubrik</td>
                 <td>[subTitle]="'Underrubrik'"</td>
               </tr>
               <tr>
-                <td>truncateLength: number</td>
+                <td  width="200px">truncateLength: <strong>number</strong></td>
                 <td>Antalet tecken synas innan det trunkeras (default = 30)</td>
                 <td>[truncateLength]="50"</td>
               </tr>
               <tr>
-                <td>readonly: boolean</td>
+                <td  width="200px">backgroundColor: <strong>string</strong></td>
+                <td>Bakgrundsfärg på sektionen (default = '#FFFFFF')</td>
+                <td>[title]="'#FFFFFF'"</td>
+              </tr>
+              <tr>
+                <td  width="200px">readonly: <strong>boolean</strong></td>
                 <td>Anger om symbolen för redigeringsläge skall visas eller ej. False = visa. True = dölj. Default är
                   TRUE.</td>
                 <td>[readonly]="true"</td>
               </tr>
+
             </table>
           </vgr-list-item-content>
         </vgr-list-item>
