@@ -2,13 +2,7 @@
   <div class=" docs__overview ">
     <p>
       <code>&lt;vgr-notification&gt;</code><br>
-      Notifiering som ex. kan placeras i <a href="/grid-documentation">grid</a>.<br>
-    </p>
-    <p>
-      Man kan välja att en ikon automatiskt läggs till enligt standardmall för hur notifieringar ser ut.
-      Om man vill ha en egenkomponerad notifiering kan man göra detta gemom att deklarativt lägga till en vgr-icon
-      samt sätta ett giltig värde på [borderColor].
-      <br><br>
+      Notifiering som ex. kan placeras i <a href="/grid-documentation">grid</a> eller helt fristående.<br>
     </p>
 
     <p>
@@ -16,17 +10,56 @@
       <strong>nej</strong>
     </p>
   </div>
-  <div class="docs__examples ">
-    Standardnotifiering<br>
-    <code><strong>&lt;vgr-notification [type]="'error'" &gt;</strong>Ett felmeddelande.
-    <strong>&lt;/vgr-notification&gt;</strong></code>
-    <br>
-    <br>
-    Egenkomponerad<br>
-    <code><strong>&lt;vgr-notification [borderColor]="'secondary'" &gt;<br>
-     &nbsp;&nbsp;&lt;vgr-icon [icon]="'star'"&gt;&lt;/vgr-icon&gt;</strong>
-     Ett annat meddelande<br>
-    <strong>&lt;/vgr-notification&gt;</strong></code>
+  <div class="docs__examples">
+    
+    <h2>Standalone notifieringar</h2><br />
+
+    <vgr-notification [type]="'success'" [standalone]="true">En alert av typen success</vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'success'" [standalone]="true"&gt;</strong><br />
+      &nbsp;&nbsp;En alert av typen success<br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
+    <vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'">En alert av typen error med bredd satt</vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'"&gt;</strong><br />
+      &nbsp;&nbsp;En alert av typen error med bredd satt<br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
+    <vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'">En alert av typen warning med bredd och höjd satt</vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'"&gt;</strong><br />
+      &nbsp;&nbsp;En alert av typen warning med bredd och höjd satt<br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
+    <vgr-notification [type]="'info'" [standalone]="true">
+      <span>
+        <h2>Det här är bra info</h2>
+        <p>En alert av typen info</p>
+      </span>
+    </vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'info'" [standalone]="true"&gt;</strong><br />
+        <strong>&nbsp;&nbsp;&lt;span&gt;</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;</strong>Det här är bra info<strong>&lt;/h2&gt;</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</strong>En alert av typen info<strong>&lt;/p&gt;</strong><br />
+        <strong>&nbsp;&nbsp;&lt;/span&gt;</strong><br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
+    <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">En alert av typen error utan ikon</vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
+      &nbsp;&nbsp;En alert av typen error utan ikon<br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
+    <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">
+      <vgr-icon [solid]="true" color="error" icon="star"></vgr-icon> En alert av typen error med custom ikon
+    </vgr-notification>
+    <code>
+      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
+      <strong>&lt;vgr-icon [solid]="true" color="error" icon="star"&gt;&lt;/vgr-icon&gt;</strong> En alert av typen error med custom ikon<br />
+      <strong>&lt;/vgr-notification&gt;</strong><br />
+    </code><br />
   </div>
   <div class="docs__api ">
     <table class="property-table">
@@ -36,17 +69,30 @@
         <th>Exempel</th>
       </tr>
       <tr>
+        <td>standalone : boolean</td>
+        <td>Skall notifieringen använndas utanför vgr-grid</td>
+        <td>[standalone]="'true'"</td>
+      </tr>
+      <tr>
         <td>type : string</td>
-        <td>Styr vilken standardnotifiering man vill ha (ikon och färg som automatiskt läggs till).
-          Tillåtna värden är 'success', 'error' och 'comment'. 
-          standardnotifiering läggs ändast till om [type] har ett giltigt värde.</td>
+        <td>Styr vilken notifiering man vill ha (ikon och färg som automatiskt läggs till).
+          Tillåtna värden är 'success', 'error', 'warning', 'info' och 'comment'.</td>
         <td>[type]="'error'"</td>
       </tr>
       <tr>
-        <td>borderColor : string</td>
-        <td>Om man vill lägga till en egenkomponerad notifiering måste man välja färg bordern manuellt. 
-          Tillåtna värden är 'text', 'success', 'error', 'error-secondary', 'primary', 'secondary', 'dimmed', 'light', 'disabled' .</td>
-        <td>[borderColor]="'disabled'"</td>
+        <td>width : string</td>
+        <td>Sätter bredden på notifieringen</td>
+        <td>[width]="'300px'"</td>
+      </tr>
+      <tr>
+        <td>height : string</td>
+        <td>Sätter höjden på notifieringen. Det som sätts är min-height då den behöver kunna växa åt något håll ifall innehåll är för stort</td>
+        <td>[height]="'100px'"</td>
+      </tr>
+      <tr>
+        <td>noICon : boolean</td>
+        <td>Om man ej vill ha ikonen som annars följer med automatiskt när man anger type</td>
+        <td>[noICon]="'true'"</td>
       </tr>
 
     </table>
