@@ -10,7 +10,14 @@
             <strong>nej</strong>
         </p>
     </div>
+   
     <div class="docs__examples">
+        <div style="background-color: #f0f0f0;">
+            <vgr-checkbox [label]="'Default bakgrund'"></vgr-checkbox>
+            <vgr-checkbox [label]="'Transparant bakgrund'" [transparent]="true"></vgr-checkbox>
+            
+          </div>
+          <br>
         <div class="row-layout ">
             <div class="full ">
                 <div class="column-layout ">
@@ -55,6 +62,13 @@
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
                 <td>[disabled]=True</td>
+            </tr>
+            <tr>
+                <td>
+                    transparent : boolean
+                </td>
+                <td>true/false, defaultvärde false. Sätter om checkboxen skall ha en transparent bakgrund eller vara vit</td>
+                <td>[transparent]=True</td>
             </tr>
             <tr>
                 <td>
