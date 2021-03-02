@@ -44,6 +44,15 @@
           </div>
         </div>
       </div>
+      
+      <div style="background-color: #f0f0f0">
+        <h2>Transparent</h2>
+        <div>
+          <vgr-datepicker [disabled]="disabled" [readonly]="readonly" [transparent]="true"></vgr-datepicker>
+        </div>
+      </div>
+
+      
       <h2>Utan textinmatning</h2>
       <div style="display: flex; margin-bottom: 20px">
         <div style="margin-right: 20px">
@@ -140,6 +149,12 @@
           <td>Förhindrar interaktion. Förvalt värde är
             <code>false</code>.</td>
           <td>[disabled]="true"</td>
+        </tr>
+        <tr>
+          <td>transparent: boolean</td>
+          <td>Sätter om checkboxen skall ha en transparent bakgrund eller vara vit. Förvalt värde är
+            <code>false</code>.</td>
+          <td>[transparent]="true"</td>
         </tr>
         <tr>
           <td>showValidation: boolean</td>
