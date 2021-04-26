@@ -69,6 +69,16 @@
         <td>[activePage]="1"</td>
       </tr>
       <tr>
+        <td>showLoader : boolean</td>
+        <td>Visar en loader under headern när den är satt till true.</td>
+        <td>[showLoader]="true". Default värde är false.</td>
+      </tr>
+      <tr>
+        <td>ariaLabel : string</td>
+        <td>Beskrivande text som läses upp av skärmläsare.</td>
+        <td>[ariaLabel]="'Enhetslista'"</td>
+      </tr>
+      <tr>
         <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
         <td>Event som triggas när aktiv sida ändras.</td>
         <td>(pageChanged)="onPageChanged($event)"</td>
