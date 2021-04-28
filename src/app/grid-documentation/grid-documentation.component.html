@@ -31,6 +31,28 @@
     <code>&lt;vgr-grid&gt;</code><br>
     <br>
     <br>
+    <h2>Grid med stickyHeader, loader och ariaLabel.</h2>
+    <vgr-grid (pageChanged)="onPageChanged($event)" [pages]="pageCount" [toggleAnimation]="'none'"
+            [activePage]="activePage" [stickyHeader]="true" [showLoader]="loading" [ariaLabel]="'Grid med aria label'">
+      <vgr-grid-header>
+          <vgr-grid-header-column [width]="200">Förnamn</vgr-grid-header-column>
+          <vgr-grid-header-column [width]="200">Efternamn</vgr-grid-header-column>
+          <vgr-grid-header-column [width]="200">Status</vgr-grid-header-column>
+      </vgr-grid-header>
+      <vgr-grid-row *ngFor="let person of paginatedPeople">
+          <vgr-grid-column [width]="200">{{person.fornamn}}</vgr-grid-column>
+          <vgr-grid-column [width]="200">{{person.efternamn}}</vgr-grid-column>
+          <vgr-grid-column [width]="200">{{person.status}}</vgr-grid-column>
+          <vgr-grid-content>
+              <p>
+                Löksås ipsum så äng hav där både dock, både bland mot från upprätthållande sista, samtidigt ordningens dimma
+                och nu erfarenheter.
+                Är kan där och söka vid annat, där tidigare är som åker sällan det, räv helt precis ordningens omfångsrik.
+                Sjö oss där olika tre bäckasiner så när, faktor annat kom ska kanske därmed, häst tid tre äng kan dunge.
+              </p>
+            </vgr-grid-content>
+      </vgr-grid-row>
+    </vgr-grid>
   </div>
   <div class="docs__api">
 
