@@ -33,6 +33,7 @@ import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+import { TabButtonComponent } from './tab-button/tab-button.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
@@ -80,6 +81,7 @@ export const appRoutes: Routes = [
     { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },
     { path: 'togglebutton', component: ToggleButtonComponent },
+    { path: 'tabbutton', component: TabButtonComponent },
     { path: 'search-result', component: SearchResultComponent },
     { path: 'pagination-documentation', component: PaginationDocumentationComponent},
     { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },

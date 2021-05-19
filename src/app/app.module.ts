@@ -50,6 +50,7 @@ import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+import { TabButtonComponent } from './tab-button/tab-button.component';
 
 // Locale registration
 import { registerLocaleData } from '@angular/common';
@@ -100,6 +101,7 @@ registerLocaleData(localeSv);
         FilterTagComponent,
         RingWithTextComponent,
         ToggleButtonComponent,
+        TabButtonComponent,
         SearchResultComponent,
         PageHeaderDocumentationComponent,
         PageBlockDocumentationComponent,
