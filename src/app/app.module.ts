@@ -64,6 +64,7 @@ import { DropdownSelectDocumentationComponent } from './dropdown-select-document
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
 import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
+import { TabButtonModule } from './tab-button/tab-button.module';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -101,7 +102,6 @@ registerLocaleData(localeSv);
         FilterTagComponent,
         RingWithTextComponent,
         ToggleButtonComponent,
-        TabButtonComponent,
         SearchResultComponent,
         PageHeaderDocumentationComponent,
         PageBlockDocumentationComponent,
@@ -119,6 +119,7 @@ registerLocaleData(localeSv);
         FormsModule,
         ReactiveFormsModule,
         HighlightJsModule,
+        TabButtonModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [

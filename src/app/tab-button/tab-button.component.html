@@ -1,103 +1,18 @@
-<app-component-docs [componentName]="'Tab button'">
-    <div class="docs__overview">
-      <p>
-        <code>&lt;vgr-tab-button&gt;</code> är avsedd att användas för att sortera och växla mellan olika innehåll.
-        <br> I kombination med
-        <code>&lt;vgr-tab-button-group&gt;</code>&nbsp;kan tabbarna navigeras med piltangenterna.
-      </p>
-      <br>
-      <!-- <vgr-tab-button-group>
-        <vgr-tab-button>Av</vgr-tab-button>
-        <vgr-tab-button>På</vgr-tab-button>
-      </vgr-tab-button-group> -->
-      <br>
-      <p>Förändras med tema:
-        <strong>ja</strong>
-      </p>
-    </div>
-    <div class="docs__examples">
-      <!-- <vgr-tab-button [ariaLabel]="'Av och på tab button'" (click)="toggle()">{{ state ? 'På' : 'Av'}}</vgr-tab-button>&nbsp;
-      <vgr-tab-button [disabled]="true">Disabled</vgr-tab-button> -->
-      <br>
-      <br>
-      <div>
-        <!-- <vgr-tab-button-group [width]="'400px'">
-          <vgr-tab-button *ngFor="let state of states" [pressed]="state.state" (click)="toggleStates(state)">{{state.text}}</vgr-tab-button>
-        </vgr-tab-button-group> -->
-      </div>
-    </div>
-    <div class="docs__api">
-      <table class="property-table">
-        <tr>
-          <th>Namn</th>
-          <th>Beskrivning</th>
-          <th>Exempel</th>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <code>&lt;vgr-tab-button&gt;</code>
-          </td>
-        </tr>
-        <tr>
-          <td>disabled:&nbsp;boolean</td>
-          <td>Inaktivera tab button. Förvalt värde är
-            <code>false</code>.</td>
-          <td>[disabled]="true"</td>
-        </tr>
-        <tr>
-          <td>ariaLabel: string</td>
-          <td>Värde för
-            <code>aria-label</code>. Förvalt värde är "[text] tab button", där [text] är text content för
-            <code>&lt;vgr-tab-button&gt;</code>.</td>
-          <td>[ariaLabel]="En alternativ beskrivning."</td>
-        </tr>
-        <tr>
-          <td>active: boolean</td>
-          <td>Värde för <code>active</code>. Förvalt värde är <code>false</code>.</td>
-          <td>[active]="true"</td>
-        </tr>
-        <tr>
-            <td>tabId: string</td>
-            <td>Värde för <code>tabId</code>. Förvalt värde är content för <code>&lt;vgr-tab-button&gt;</code>.</td>
-            <td>[tabId]="true"</td>
-          </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>focus()</td>
-          <td>Metod för att flytta fokus till komponenten</td>
-          <td>this.myTabButton.focus()</td>
-        </tr> 
-        <tr>
-          <td>&nbsp;</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <code>&lt;vgr-tab-button-group&gt;</code>
-          </td>
-        </tr>
-        <tr>
-          <td>width:&nbsp;string</td>
-          <td>Värde för den totala bredd för alla segment i gruppen. Förvalt värde är "" vilket innebär fullbredd.</td>
-          <td>[width]="'200px'"</td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td></td>
-          <td></td>
-        </tr> 
-      </table>
-    </div>
-    <div class="docs__wcag">
-      <p>
-        <code>&lt;vgr-tab-button&gt;</code> har ett intern element av typen button och har alla dess WCAG egenskaper.  
-        Default sätts <code>attr.aria-label</code> till content för <code>&lt;vgr-tab-button&gt;</code>. 
-        Om input variabeln [disabled] sätts till <code>true</code> sätts även <code> aria.aria-disabled</code> till <code>true</code>
-      </p>
-    </div>
-  </app-component-docs>
+<vgr-page class="no-sort">
+  <vgr-page-header [title]="'Tab button'">
+    <vgr-checkbox [checked]="centrera" (checkedChanged)="centrera = !centrera" [label]="'Centrera tabbar i header'"></vgr-checkbox>
+    <vgr-tab-button-group [width]="'550px'" [id]="'sidor'" [alignCenter]="centrera" >
+
+
+      <vgr-tab-button *ngFor="let page of pages" [width]="'110px'" [active]="page.active"  [tabId]="page.text" (selectedChanged)="navigate(page.text)" >{{page.text}}</vgr-tab-button>
+      <vgr-tab-button   [disabled]="true">Disabled tab button</vgr-tab-button>
+    </vgr-tab-button-group>
+
+
+  </vgr-page-header>
+  <vgr-page-body>
+    <!-- Components before-->
+
+    <router-outlet></router-outlet>
+  </vgr-page-body>
+</vgr-page>

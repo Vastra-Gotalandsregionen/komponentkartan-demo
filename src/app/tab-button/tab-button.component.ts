@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab-button',
@@ -6,30 +8,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab-button.component.css']
 })
 export class TabButtonComponent implements OnInit {
-  active = false;
-  state = false;
-  states = [
-    { 'text': 'Favoriter', 'state': true },
-    { 'text': 'Avtal', 'state': false },
-    { 'text': 'Valda', 'state': false }
+  pages = [
+    { 'text': 'Favoriter' },
+    { 'text': 'Avtal' , 'active': true},
+    { 'text': 'Valda' }
   ];
-  constructor() { }
+  centrera = false;
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
+    // console.log('hello from app')
   }
 
-  toggle() {
-    this.state = !this.state;
-  }
+  navigate(id) {
 
-  toggleStates(state: any) {
-    this.states.forEach(element => {
-      element.state = false;
-      if (element.text === state.text) {
-        element.state = true;
+    const page = this.pages.filter(tab => tab.text === id)[0];
+    this.pages.forEach(element => {
+      element.active = false;
+      if (element.text === page.text) {
+        element.active = true;
       }
     });
 
+    switch(id) {
+      case 'Favoriter':
+        this.router.navigate( ['/favoriter'],  { skipLocationChange: true });
+        break;
+      case 'Valda':
+        this.router.navigate( ['/valda'],  { skipLocationChange: true });
+        break;
+        case 'Avtal':
+          this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
+          break;
+      default:
+        this.router.navigate(['/tab-button']);
+        break;
+    }
   }
-
 }
