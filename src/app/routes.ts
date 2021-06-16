@@ -43,6 +43,9 @@ import { DropdownSelectDocumentationComponent } from './dropdown-select-document
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
 import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
+import { TabStartComponent } from './tab-button/pages/tab-start.component';
+import { FavoriterComponent } from './tab-button/pages/favoriter.component';
+import { ValdaComponent } from './tab-button/pages/valda.component';
 
 export const appRoutes: Routes = [
 
@@ -87,5 +90,12 @@ export const appRoutes: Routes = [
     { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },
     { path: 'grid-documentation', component: GridDocumentationComponent },
     { path: 'notification-documentation', component: NotificationDocumentationComponent },
+    { path: '', component: TabButtonComponent,
+      children: [
+        { path: 'tab-start', component: TabStartComponent},
+        { path: 'favoriter', component: FavoriterComponent},
+        { path: 'valda', component: ValdaComponent}
+      ]
+    },
     { path: '**', redirectTo: '/' }
 ];
