@@ -52,7 +52,7 @@
           <span>Värde: {{ngModelValues[1]}}</span>
         </div>
         <div class="inputBlock">
-          <label for="ngmodel3">Högerstäld text med suffix (obligatorisk)</label>
+          <label for="ngmodel3">Högerställd text med suffix (obligatorisk)</label>
           <vgr-input [(ngModel)]="ngModelValues[2]" required="true" type="text" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="ngmodel3" suffix=":-" errorMessage="Fältet är obligatoriskt"></vgr-input>
           <span>Värde: {{ngModelValues[2]}}</span>
         </div>
@@ -72,17 +72,17 @@
           </div>
           <div class="inputBlock">
             <label for="rf2">Text (gilltig email)</label>
-            <vgr-input formControlName="rf2" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf2" [errorMessage]="validationMessages.rf2"></vgr-input>
+            <vgr-input formControlName="rf2" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf2" [errorMessage]="validationMessages.rf2" placeholder="namn@email.com"></vgr-input>
             <span>Värde: {{form.controls.rf1.value}}</span>
           </div>
           <div class="inputBlock">
             <label for="rf3">Ange en storstad i USA (asynkron validering)</label>
-            <vgr-input formControlName="rf3" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf3" [errorMessage]="validationMessages.rf3"></vgr-input>
+            <vgr-input formControlName="rf3" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf3" [errorMessage]="validationMessages.rf3" placeholder="Houston"></vgr-input>
             <span>Värde: {{form.controls.rf3.value}}</span>
           </div>
           <div class="inputBlock">
             <label for="rf4">Nummer (mellan 40 och 50)</label>
-            <vgr-input formControlName="rf4" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf4"  type="number" [errorMessage]="validationMessages.rf4"></vgr-input>
+            <vgr-input formControlName="rf4" [disabledControl]="disabled" [readonly]="readonly" [showValidation]="showErrors" idForLabel="rf4"  type="number" [errorMessage]="validationMessages.rf4" placeholder="32"></vgr-input>
             <span>Värde: {{form.controls.rf4.value}}</span>
           </div>
         </form>
@@ -228,7 +228,7 @@
         <td>focus()</td>
         <td>Metod för att flytta fokus till komponenten</td>
         <td>this.myInput.focus()</td>
-      </tr>          
+      </tr>
       <tr>
         <td>&nbsp;</td>
         <td></td>
@@ -248,7 +248,7 @@
         <td>click, keyup, keydown, change, input</td>
         <td>De vanliga eventsen för HTML-input bubblar vidare och går fint att använda sig av.</td>
         <td>(keyup)="handleKeyEvent($event)"</td>
-      </tr>   
+      </tr>
     </table>
   </div>
 
