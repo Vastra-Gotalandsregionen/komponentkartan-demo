@@ -46,6 +46,7 @@ import { NotificationDocumentationComponent } from './notification-documentation
 import { TabStartComponent } from './tab-button/pages/tab-start.component';
 import { FavoriterComponent } from './tab-button/pages/favoriter.component';
 import { ValdaComponent } from './tab-button/pages/valda.component';
+import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 
 export const appRoutes: Routes = [
 
@@ -90,6 +91,7 @@ export const appRoutes: Routes = [
     { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },
     { path: 'grid-documentation', component: GridDocumentationComponent },
     { path: 'notification-documentation', component: NotificationDocumentationComponent },
+    { path: 'combobox', component: ComboboxDocumentationComponent },
     { path: '', component: TabButtonComponent,
       children: [
         { path: 'tab-start', component: TabStartComponent},

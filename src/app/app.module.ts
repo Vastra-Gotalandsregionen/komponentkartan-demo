@@ -64,6 +64,7 @@ import { DropdownSelectDocumentationComponent } from './dropdown-select-document
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
 import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
+import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { TabButtonModule } from './tab-button/tab-button.module';
 registerLocaleData(localeSv);
 
@@ -110,8 +111,8 @@ registerLocaleData(localeSv);
         DropdownSelectDocumentationComponent,
         IconDocumentationComponent,
         GridDocumentationComponent,
-        NotificationDocumentationComponent
-
+        NotificationDocumentationComponent,
+        ComboboxDocumentationComponent
     ],
     imports: [
         KomponentkartanModule,
