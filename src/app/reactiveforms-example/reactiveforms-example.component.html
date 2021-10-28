@@ -11,35 +11,35 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_firstname">Förnamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="firstname" idForLabel="blur_firstname" [showValidation]="updateOnBlurForm.controls.firstname.touched"
+                  <vgr-input [width]="'100%'" formControlName="firstname" labelId="blur_firstname" [showValidation]="updateOnBlurForm.controls.firstname.touched"
                     [errorMessage]="validationMessages.firstname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_lastname">Efternamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="lastname" idForLabel="blur_lastname" [showValidation]="updateOnBlurForm.controls.lastname.touched"
+                  <vgr-input [width]="'100%'" formControlName="lastname" labelId="blur_lastname" [showValidation]="updateOnBlurForm.controls.lastname.touched"
                     [errorMessage]="validationMessages.lastname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_age">Ålder</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="age" idForLabel="blur_age" [showValidation]="updateOnBlurForm.controls.age.touched"
+                  <vgr-input [width]="'100%'" formControlName="age" labelId="blur_age" [showValidation]="updateOnBlurForm.controls.age.touched"
                     textAlign="right" [suffix]="'år'" [errorMessage]="validationMessages.age"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_email">E-post</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="email" idForLabel="blur_email" [showValidation]="updateOnBlurForm.controls.email.touched"
+                  <vgr-input [width]="'100%'" formControlName="email" labelId="blur_email" [showValidation]="updateOnBlurForm.controls.email.touched"
                     [errorMessage]="validationMessages.email"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_salary">Inkomst</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="salary" idForLabel="blur_salary" [showValidation]="updateOnBlurForm.controls.salary.touched"
+                  <vgr-input [width]="'100%'" formControlName="salary" labelId="blur_salary" [showValidation]="updateOnBlurForm.controls.salary.touched"
                     [errorMessage]="validationMessages.salary"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
@@ -104,7 +104,7 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="blur_textarea">Kommentar</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-textarea formControlName="textarea" idForLabel="blur_textarea"
+                  <vgr-textarea formControlName="textarea" labelId="blur_textarea"
                     [showValidation]="updateOnBlurForm.controls.textarea.touched">
                   </vgr-textarea>
                 </vgr-title-value-container>
@@ -121,7 +121,7 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_firstname">Förnamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="firstname" idForLabel="submit_firstname" [showValidation]="formSubmitted"
+                  <vgr-input [width]="'100%'" formControlName="firstname" labelId="submit_firstname" [showValidation]="formSubmitted"
                     [errorMessage]="validationMessages.firstname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
@@ -129,7 +129,7 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_lastname">Efternamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="lastname" idForLabel="submit_lastname" [showValidation]="formSubmitted"
+                  <vgr-input [width]="'100%'" formControlName="lastname" labelId="submit_lastname" [showValidation]="formSubmitted"
                     [errorMessage]="validationMessages.lastname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
@@ -137,21 +137,21 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_age">Ålder</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="age" idForLabel="submit_age" [showValidation]="formSubmitted" textAlign="right" [suffix]="'år'"
+                  <vgr-input [width]="'100%'" formControlName="age" labelId="submit_age" [showValidation]="formSubmitted" textAlign="right" [suffix]="'år'"
                     [errorMessage]="validationMessages.age"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_email">E-post</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="email" idForLabel="submit_email" [showValidation]="formSubmitted"
+                  <vgr-input [width]="'100%'" formControlName="email" labelId="submit_email" [showValidation]="formSubmitted"
                     [errorMessage]="validationMessages.email"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_salary">Inkomst</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="salary" idForLabel="submit_salary" [showValidation]="formSubmitted"
+                  <vgr-input [width]="'100%'" formControlName="salary" labelId="submit_salary" [showValidation]="formSubmitted"
                     [errorMessage]="validationMessages.salary"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
@@ -213,7 +213,7 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="submit_kommentar">Kommentar</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-textarea formControlName="textarea" idForLabel="submit_kommentar" [showValidation]="formSubmitted"></vgr-textarea>
+                  <vgr-textarea formControlName="textarea" labelId="submit_kommentar" [showValidation]="formSubmitted"></vgr-textarea>
                 </vgr-title-value-container>
               </vgr-title-value>
             </vgr-title-value-layout>
@@ -230,35 +230,35 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="change_firstname">Förnamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="firstname" idForLabel="change_firstname" [showValidation]="updateOnChangeForm.controls.firstname.dirty"
+                  <vgr-input [width]="'100%'" formControlName="firstname" labelId="change_firstname" [showValidation]="updateOnChangeForm.controls.firstname.dirty"
                     [errorMessage]="validationMessages.firstname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="change_lastname">Efternamn</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="lastname" idForLabel="change_lastname" [showValidation]="updateOnChangeForm.controls.lastname.dirty"
+                  <vgr-input [width]="'100%'" formControlName="lastname" labelId="change_lastname" [showValidation]="updateOnChangeForm.controls.lastname.dirty"
                     [errorMessage]="validationMessages.lastname"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="change_age">Ålder</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="age" idForLabel="change_age" [showValidation]="updateOnChangeForm.controls.age.dirty"
+                  <vgr-input [width]="'100%'" formControlName="age" labelId="change_age" [showValidation]="updateOnChangeForm.controls.age.dirty"
                     textAlign="right" [suffix]="'år'" [errorMessage]="validationMessages.age"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="change_email">E-post</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="email" idForLabel="change_email" [showValidation]="updateOnChangeForm.controls.email.dirty"
+                  <vgr-input [width]="'100%'" formControlName="email" labelId="change_email" [showValidation]="updateOnChangeForm.controls.email.dirty"
                     [errorMessage]="validationMessages.email"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
               <vgr-title-value>
                 <vgr-title-value-heading for="change_salary">Inkomst</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-input [width]="'100%'" formControlName="salary" idForLabel="change_salary" [showValidation]="updateOnChangeForm.controls.salary.dirty"
+                  <vgr-input [width]="'100%'" formControlName="salary" labelId="change_salary" [showValidation]="updateOnChangeForm.controls.salary.dirty"
                     [errorMessage]="validationMessages.salary"></vgr-input>
                 </vgr-title-value-container>
               </vgr-title-value>
@@ -323,7 +323,7 @@
               <vgr-title-value>
                 <vgr-title-value-heading for="change_textarea">Kommentar</vgr-title-value-heading>
                 <vgr-title-value-container>
-                  <vgr-textarea formControlName="textarea" idForLabel="change_textarea"
+                  <vgr-textarea formControlName="textarea" labelId="change_textarea"
                     [showValidation]="updateOnChangeForm.controls.textarea.dirty">
                   </vgr-textarea>
                 </vgr-title-value-container>
