@@ -1,5 +1,5 @@
 <app-component-docs [componentName]="'Combobox'">
-    <div class="docs__overview">  
+    <div class="docs__overview">
       <p>
         <code>&lt;vgr-combobox&gt; </code>
       </p>
@@ -14,8 +14,8 @@
       <strong>Detta händer automatiskt:</strong>
       <ul>
         <li>När textfältet har fokus kan förslag (autocomplete) börja visas på fyra sätt:</li>
-        <li>Användaren börjar skriva och listboxen öppnas. 
-          De alternativ som stämmer med texten i textfältet visas och det översta resultatet blir valt. 
+        <li>Användaren börjar skriva och listboxen öppnas.
+          De alternativ som stämmer med texten i textfältet visas och det översta resultatet blir valt.
           Om det inte finns något alternativ som matchar texten visas inte listboxen.</li>
         <li>Användaren trycker på knappen med pil på vilket öppnar listbox och första alternativet blir valt.</li>
         <li>Användaren trycker pil ner (eller pil upp) vilket öppnar listboxen och första alternativet (eller sista) blir valt.</li>
@@ -120,7 +120,7 @@
           <td>value: any</td>
           <td>Värde att binda till.</td>
           <td>[value]="object.code"</td>
-        </tr>        
+        </tr>
         <tr>
           <td>showValidation: boolean</td>
           <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
@@ -129,8 +129,8 @@
         </tr>
         <tr>
           <td>errorMessage: string</td>
-          <td>Text som visas vid valideringsfel. Man behöver använda sig av Reactive Forms eller NgModel för att deta skall synas. 
-            Vid ngModel skickar man in en sträng. Använder man Reactive Forms kan man antingen skicka in en sträng elelr ett objekt med felmedelandekoden som nyckel och en text. 
+          <td>Text som visas vid valideringsfel. Man behöver använda sig av Reactive Forms eller NgModel för att deta skall synas.
+            Vid ngModel skickar man in en sträng. Använder man Reactive Forms kan man antingen skicka in en sträng elelr ett objekt med felmedelandekoden som nyckel och en text.
             Man kan på detta sätt ha olika felmedelanden för olika valideringsfel.
             <code>false</code>.</td>
           <td>[errorMessage]="'Obligatorisk'"</td>
@@ -152,11 +152,16 @@
           <td>listAlignRight="false"</td>
         </tr>
         <tr>
+          <td>labelId: string</td>
+          <td>ID för det element som är rubrik. Används av skärmläsare.</td>
+          <td>[labelId]="'someLabelId'"</td>
+        </tr>
+        <tr>
           <td>placeholder: string</td>
           <td>Gör det valda alternativet kortare. Förvalt värde är
             <code>false</code>.</td>
           <td>[placeholder]="'Region'"</td>
-        </tr>        
+        </tr>
         <tr>
           <td>compareWith: (o1: any, o2: any) => boolean</td>
           <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
@@ -168,7 +173,7 @@
           <td>selectedChanged: EventEmitter&lt;any&gt;</td>
           <td>Event som triggas när val ändras av användaren. Värdet är det nya valet.</td>
           <td>(selectedChanged)="doSomething($event)"</td>
-        </tr>  
+        </tr>
         <tr>
           <td>focus()</td>
           <td>Metod man kan anropa för att programmatiskt kan sätta fokus på komponenten. </td>
@@ -214,7 +219,7 @@
       </p>
       <p>
         Comboboxen är byggd att följa WCAG-kraven för combobox (<a
-          href="https://www.w3.org/TR/wai-aria-practices/#combobox">https://www.w3.org/TR/wai-aria-practices/#combobox</a>). 
+          href="https://www.w3.org/TR/wai-aria-practices/#combobox">https://www.w3.org/TR/wai-aria-practices/#combobox</a>).
       </p>
       <p>
         Summerat innebär det:
@@ -233,4 +238,3 @@
       </vgr-combobox>
     </div>
   </app-component-docs>
-  
