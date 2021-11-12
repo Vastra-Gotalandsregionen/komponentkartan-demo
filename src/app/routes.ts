@@ -52,8 +52,8 @@ export const appRoutes: Routes = [
 
     { path: 'inputFields', component: InputfieldsComponent },
     { path: 'textareafield', component: TextareafieldComponent },
-    { path: 'icons-overview', component: IconsComponent },
-    { path: 'icons', component: IconDocumentationComponent },
+    { path: 'overviewicon', component: IconsComponent, pathMatch: 'full'},
+    { path: 'icons', component: IconDocumentationComponent, pathMatch: 'full'},
     { path: 'textbuttons', component: TextbuttonsComponent },
     { path: 'radioButtons', component: RadiobuttonsComponent },
     { path: 'checkbox', component: CheckboxComponent },
