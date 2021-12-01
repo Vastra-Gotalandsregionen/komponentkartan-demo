@@ -1,22 +1,44 @@
-<app-component-docs componentName="Grid">
-  <div class="docs__overview">
-    <p>
-      En tabell med header och expanderbara rader med är möjlighet till sortering och paginering.<br><br>
+<vgr-page class="no-sort">
+  <vgr-page-header title="Grid">
+  </vgr-page-header>
+  <vgr-page-body>
+      <vgr-grid [allowMultipleExpandedRows]="true">
+        <vgr-grid-header>
+          <vgr-grid-header-column [width]="20">Dokumentation för Grid</vgr-grid-header-column>
+        </vgr-grid-header>
+        <vgr-grid-row [expanded]="true">
+            <vgr-grid-column width="20">
+              <h4>Översikt</h4>
+            </vgr-grid-column>
+          <vgr-grid-content>
+            <div class="content-overview">
+              <p>
+                En tabell med header och expanderbara rader med är möjlighet till sortering och paginering.<br><br>
 
-      Man kan lägga till notifieringar på radnivå samt i toolaren ovanför headern.
-      Detta görs genom att deklarativt lägga till komponenten<code>vgr-notifiaction</code>.
+                Man kan lägga till notifieringar på radnivå samt i toolaren ovanför headern.
+                Detta görs genom att deklarativt lägga till komponenten<code>vgr-notifiaction</code>.
 
-    </p>
-    <p>
-      <code>&lt;vgr-grid&gt;</code><br>
-    </p>
-    <br>
-    <p> Förändras med tema:
-      <strong>nej</strong>
-    </p>
-  </div>
-  <div class="docs__examples ">
-    <p>Denna sida (och resten av dokumentationen) är uppbygd av &lt;vgr-grid&gt;. Nedan finns ett exempel på hur man sätter saman dess underkomponenter.</p>
+              </p>
+              <p>
+                <code>&lt;vgr-grid&gt;</code><br>
+              </p>
+              <br>
+              <p> Förändras med tema:
+                <strong>nej</strong>
+              </p>
+            </div>
+            <!-- Översikt -->
+          </vgr-grid-content>
+
+        </vgr-grid-row>
+        <vgr-grid-row [expanded]="false">
+
+            <vgr-grid-column width="20">
+              <h4>Exempel</h4>
+            </vgr-grid-column>
+
+          <vgr-grid-content>
+            <p>Denna sida (och resten av dokumentationen) är uppbygd av &lt;vgr-grid&gt;. Nedan finns ett exempel på hur man sätter saman dess underkomponenter.</p>
     <code>&lt;vgr-grid&gt;</code><br>
     &nbsp;&nbsp;<code>&lt;vgr-grid-header-toolbar&gt;</code>&nbsp;&nbsp;<code>&lt;vgr-grid-header-toolbar&gt;</code><br>
     &nbsp;&nbsp;<code>&lt;vgr-grid-header&gt;</code><br>
@@ -30,32 +52,18 @@
     &nbsp;&nbsp;<code>&lt;vgr-grid-row&gt;</code><br>
     <code>&lt;vgr-grid&gt;</code><br>
     <br>
-    <br>
-    <h2>Grid med stickyHeader, loader och ariaLabel.</h2>
-    <vgr-grid (pageChanged)="onPageChanged($event)" [pages]="pageCount" [toggleAnimation]="'none'"
-            [activePage]="activePage" [stickyHeader]="true" [showLoader]="loading" [ariaLabel]="'Grid med aria label'">
-      <vgr-grid-header>
-          <vgr-grid-header-column [width]="200">Förnamn</vgr-grid-header-column>
-          <vgr-grid-header-column [width]="200">Efternamn</vgr-grid-header-column>
-          <vgr-grid-header-column [width]="200">Status</vgr-grid-header-column>
-      </vgr-grid-header>
-      <vgr-grid-row *ngFor="let person of paginatedPeople">
-          <vgr-grid-column [width]="200">{{person.fornamn}}</vgr-grid-column>
-          <vgr-grid-column [width]="200">{{person.efternamn}}</vgr-grid-column>
-          <vgr-grid-column [width]="200">{{person.status}}</vgr-grid-column>
-          <vgr-grid-content>
-              <p>
-                Löksås ipsum så äng hav där både dock, både bland mot från upprätthållande sista, samtidigt ordningens dimma
-                och nu erfarenheter.
-                Är kan där och söka vid annat, där tidigare är som åker sällan det, räv helt precis ordningens omfångsrik.
-                Sjö oss där olika tre bäckasiner så när, faktor annat kom ska kanske därmed, häst tid tre äng kan dunge.
-              </p>
-            </vgr-grid-content>
-      </vgr-grid-row>
-    </vgr-grid>
-  </div>
-  <div class="docs__api">
 
+    <strong>OBS!! Ett aktivt exempel finns längre ner på sidan</strong>
+          </vgr-grid-content>
+        </vgr-grid-row>
+<vgr-grid-row [expanded]="false ">
+
+    <vgr-grid-column width="20">
+      <h4>API</h4>
+    </vgr-grid-column>
+
+  <vgr-grid-content>
+    <!-- API -->
     <h2><code>&lt;vgr-grid&gt;</code></h2>
     <table class="property-table">
       <tr>
@@ -271,62 +279,54 @@
 
     <h2><code>&lt;vgr-grid-content&gt;</code></h2>
     <p>Kan innehålla valfritt innehåll.</p>
-  </div>
-  <div class="docs__wcag ">
-    <p>
-      Navigering i griden:
-      <br>
-      <br> - Enter och Space: När fokus är på listradens header togglas listraden expanderad / kollapsad.
-      <br> - Nedåtpil: Om fokus ligger på en listrad eller en headerkolumn flyttar fokus till raden nedanför. Om fokus ligger på den
-      sista
-      raden flyttas fokus till den första raden.
-      <br> - Uppåtpil: Om fokus ligger på en listrad, flyttar fokus till raden ovanför. Om fokus ligger på
-      första raden,
-      flyttas fokus till den sista raden.
-      <br> - Home: När fokus ligger på en listrad, flyttar fokus till första raden.
-      <br> - End: När fokus ligger på en rad flyttar fokus till sista raden.
-    </p>
-  </div>
-</app-component-docs>
+          </vgr-grid-content>
+        </vgr-grid-row>
+        <vgr-grid-row [expanded]="false">
 
-
-
-<!-- <vgr-page class="no-sort">
-
-
-          </vgr-list-item-content>
-        </vgr-list-item>
-        <vgr-list-item>
-          <vgr-list-item-header>
-            <vgr-list-column width="20">
-              <h4>API - vgr-grid-content</h4>
-            </vgr-list-column>
-          </vgr-list-item-header>
-          <vgr-list-item-content>
-            <p>Kan innehålla valfritt innehåll.</p>
-          </vgr-list-item-content>
-        </vgr-list-item>
-        <vgr-list-item>
-          <vgr-list-item-header>
-            <vgr-list-column width="20">
-              <h4>API - vgr-notification</h4>
-            </vgr-list-column>
-          </vgr-list-item-header>
-          <vgr-list-item-content>
-            <p>vgr-notifiaction är en egen komponent som finns beskriven <a href="/notification-documentation">här</a> .</p>
-          </vgr-list-item-content>
-        </vgr-list-item>
-        <vgr-list-item>
-          <vgr-list-item-header>
-            <vgr-list-column width="20">
+            <vgr-grid-column width="20">
               <h4>Tillgänglighet</h4>
-            </vgr-list-column>
-          </vgr-list-item-header>
-          <vgr-list-item-content>
+            </vgr-grid-column>
 
-          </vgr-list-item-content>
-        </vgr-list-item>
-      </vgr-list>
-    </vgr-page-block>
+          <vgr-grid-content>
+            <p>
+              Navigering i griden:
+              <br>
+              <br> - Enter och Space: När fokus är på listradens header togglas listraden expanderad / kollapsad.
+              <br> - Nedåtpil: Om fokus ligger på en listrad eller en headerkolumn flyttar fokus till raden nedanför. Om fokus ligger på den
+              sista
+              raden flyttas fokus till den första raden.
+              <br> - Uppåtpil: Om fokus ligger på en listrad, flyttar fokus till raden ovanför. Om fokus ligger på
+              första raden,
+              flyttas fokus till den sista raden.
+              <br> - Home: När fokus ligger på en listrad, flyttar fokus till första raden.
+              <br> - End: När fokus ligger på en rad flyttar fokus till sista raden.
+            </p>
+          </vgr-grid-content>
+        </vgr-grid-row>
+      </vgr-grid>
+
+        <h2>Exempel - Grid med stickyHeader, loader och ariaLabel.</h2>
+    <vgr-grid (pageChanged)="onPageChanged($event)" [pages]="pageCount" [toggleAnimation]="'none'"
+            [activePage]="activePage" [stickyHeader]="true" [showLoader]="loading" [ariaLabel]="'Grid med aria label'">
+      <vgr-grid-header>
+          <vgr-grid-header-column [width]="200">Förnamn</vgr-grid-header-column>
+          <vgr-grid-header-column [width]="200">Efternamn</vgr-grid-header-column>
+          <vgr-grid-header-column [width]="200">Status</vgr-grid-header-column>
+      </vgr-grid-header>
+      <vgr-grid-row *ngFor="let person of paginatedPeople">
+          <vgr-grid-column [width]="200">{{person.fornamn}}</vgr-grid-column>
+          <vgr-grid-column [width]="200">{{person.efternamn}}</vgr-grid-column>
+          <vgr-grid-column [width]="200">{{person.status}}</vgr-grid-column>
+          <vgr-grid-content>
+              <p>
+                Löksås ipsum så äng hav där både dock, både bland mot från upprätthållande sista, samtidigt ordningens dimma
+                och nu erfarenheter.
+                Är kan där och söka vid annat, där tidigare är som åker sällan det, räv helt precis ordningens omfångsrik.
+                Sjö oss där olika tre bäckasiner så när, faktor annat kom ska kanske därmed, häst tid tre äng kan dunge.
+              </p>
+            </vgr-grid-content>
+      </vgr-grid-row>
+    </vgr-grid>
+
   </vgr-page-body>
-</vgr-page> -->
+</vgr-page>
