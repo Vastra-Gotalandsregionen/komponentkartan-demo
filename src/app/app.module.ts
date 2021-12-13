@@ -66,6 +66,7 @@ import { GridDocumentationComponent } from './grid-documentation/grid-documentat
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { TabButtonModule } from './tab-button/tab-button.module';
+import { RadiogroupComponent } from './radiogroup/radiogroup.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -112,7 +113,8 @@ registerLocaleData(localeSv);
         IconDocumentationComponent,
         GridDocumentationComponent,
         NotificationDocumentationComponent,
-        ComboboxDocumentationComponent
+        ComboboxDocumentationComponent,
+        RadiogroupComponent
     ],
     imports: [
         KomponentkartanModule,

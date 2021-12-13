@@ -47,6 +47,8 @@ import { TabStartComponent } from './tab-button/pages/tab-start.component';
 import { FavoriterComponent } from './tab-button/pages/favoriter.component';
 import { ValdaComponent } from './tab-button/pages/valda.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
+import {RadiogroupComponent} from './radiogroup/radiogroup.component'
+
 
 export const appRoutes: Routes = [
 
@@ -99,5 +101,6 @@ export const appRoutes: Routes = [
         { path: 'valda', component: ValdaComponent}
       ]
     },
+    { path: 'radiogroup', component: RadiogroupComponent },
     { path: '**', redirectTo: '/' }
 ];

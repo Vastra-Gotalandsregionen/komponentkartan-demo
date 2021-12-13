@@ -1,0 +1,172 @@
+<app-component-docs [componentName]="'Radiogroup'">
+    <div class="docs__overview">
+        <p>
+            <code>
+          &lt;vgr-radiobutton-group&gt;</code>
+        </p>
+        <br>
+        <p>En radiogroup innehåller flera radioknappar, där bara ett alternativ är valt åt gången, val kan vara förvalda
+            och/eller
+            inaktiva. Vid val av alternativ triggas eventet
+            <code>selectedChanged</code>. Man kan placera valfria objekt i sina items, eller bara sätta en text. Om man
+            lägger objekt i sina items så är
+            det bra att även sätta ett värde för sitt item så gruppen vet om detta.
+            <br>
+            <vgr-radiobutton-group>
+                <vgr-radiobutton-item [selected]="true" [value]="1">Alternativ 1</vgr-radiobutton-item>
+                <vgr-radiobutton-item [selected]="false" [value]="2">Alternativ 2</vgr-radiobutton-item>
+            </vgr-radiobutton-group>
+        </p>
+
+
+        <br>
+        <p> Förändras med tema:
+            <strong>nej</strong>
+        </p>
+    </div>
+    <div class="docs__examples">
+        <div>
+            <!--Disabled på group, overrides disabled på item vid true -->
+            <h2>Horisontell radiogrupp med möjlighet att disabla gruppen</h2>
+            <div>Välj vilken bil du helst tar till jobbet
+                <vgr-checkbox (checkedChanged)="groupDisabled = $event" label="Jag cyklar" [checked]="groupDisabled">
+                </vgr-checkbox>
+            </div>
+            <vgr-radiobutton-group (selectedChanged)="someCode()" [disabled]="groupDisabled">
+                <vgr-radiobutton-item [selected]="true" [disabled]="false">Subaru</vgr-radiobutton-item>
+                <vgr-radiobutton-item [selected]="false" [disabled]="true">Volvo</vgr-radiobutton-item>
+                <vgr-radiobutton-item [selected]="false" [disabled]="false">Toyota</vgr-radiobutton-item>
+            </vgr-radiobutton-group>
+
+
+
+            <hr>
+            <br>
+            <h2>Vertical radiogrupp (kontroll att två fält inte kan vara valda, ger felmeddelande) </h2>
+            <vgr-radiobutton-group #RadioGroup2 (selectedChanged)="someCode()" vertical="true" required="true">
+                <vgr-radiobutton-item [selected]="true">Det var bra</vgr-radiobutton-item>
+                <vgr-radiobutton-item [selected]="false">Det var inte bra</vgr-radiobutton-item>
+                <vgr-radiobutton-item [selected]="true">Det var verkligen inte bra</vgr-radiobutton-item>
+            </vgr-radiobutton-group>
+            <br>
+            <vgr-button (click)="rensaVal()">Rensa val</vgr-button>
+
+            <hr>
+            <br>
+            <h2>Radiogrupp utan förval och som är obligatorisk </h2>
+            <form [formGroup]="radioGroupForm">
+                <vgr-radiobutton-group formControlName="val" (selectedChanged)="someCode()" required="true">
+                    <vgr-radiobutton-item>Det var bra</vgr-radiobutton-item>
+                    <vgr-radiobutton-item>Det var inte bra</vgr-radiobutton-item>
+                    <vgr-radiobutton-item>Det var verkligen inte bra</vgr-radiobutton-item>
+                </vgr-radiobutton-group>
+                <label>Val: {{this.radioGroupForm.controls.val.value?.value}}</label>
+            </form>
+
+        </div>
+        <br> Under "kodexempel" finns fler exempel på hur radiogroup-komponenten kan användas i Angular Reactive Forms:
+        <br>
+        <a href="/reactiveformsexample">Reactive Forms exempel</a>
+    </div>
+    <div class="docs__api">
+        <h2>vgr-radiobutton-group</h2>
+        <hr>
+        <table class="property-table">
+            <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+            </tr>
+            <tr>
+                <td>
+
+                    formControlName : sträng
+                </td>
+                <td>Möjlighet att koppla ett form till gruppen</td>
+                <td>[formControlName]="'cars'"</td>
+            </tr>
+            <tr>
+                <td>
+                    disabled : boolean
+                </td>
+                <td>Sätter hela gruppen till disabled.Defaultvärde false</td>
+                <td>[disabled]="true"</td>
+            </tr>
+            <tr>
+                <td>showValidation</td>
+                <td>Talar om huruvida komponenten skall visa felmeddelanden. Default är true (visar felmeddelanden)</td>
+                <td>[showValidation]="false"</td>
+            </tr>
+            <tr>
+                <td>
+                    required : boolean
+                </td>
+                <td>Anger om radiogruppen är obligatorisk eller inte. Defaultvärde false (ej obligatorisk).</td>
+                <td>[required]="true"</td>
+            </tr>
+            <tr>
+                <td>
+                    vertical : boolean
+                </td>
+                <td>Anger om radiogruppen ska ha horisontell eller vertikal layout. Defaultvärde false (horisontellt).
+                </td>
+                <td>[vertical]="true"</td>
+            </tr>
+            <tr>
+                <td> selectedChanged : EventEmitter&lt;RadiobuttonItemComponent&gt;</td>
+                <td>Event som triggas när man väljer ett nytt alternativ i radiogruppen</td>
+                <td>(selectedChanged)="onSelectedRadioOptionChanged($event)"</td>
+            </tr>
+        </table>
+
+        <br>
+        <h2>vgr-radiobutton-item</h2>
+        <hr>
+        <table class="property-table">
+            <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+            </tr>
+            <tr>
+                <td>
+
+                    selected : boolean
+                </td>
+                <td>Om item är valt</td>
+                <td>[selected]="true"</td>
+            </tr>
+            <tr>
+                <td>
+                    disabled : boolean
+                </td>
+                <td>Om item är disabled. Defaultvärde false</td>
+                <td>[disabled]="true"</td>
+            </tr>
+            <tr>
+                <td>value: string | boolean </td>
+                <td>Talar om vilket värde valet har. Default är textcontent på innehållet man har</td>
+                <td>[value]="1"</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="docs__wcag">
+        <p>
+            <code>&lt;vgr-radiobutton-group&gt;</code> har en intern div vars roll är satt till radiogroup och sedan
+            innehåller den valfritt antal <code>&lt;vgr-radiobutton-item&gt;</code> som har sin roll satt till radio.
+            Förutom rollen så används attributen: attr.aria-checked (kryssad/ej ikryssad), attr.aria-disabled (om den är
+            tillgänglig, både på grupp och item nivå) och attr.aria-labelledby (pekning till
+            interna label i
+            <code>&lt;vgr-radiobutton-group&gt;</code>)
+
+        </p>
+        <br>
+        <p>
+            Vid tab in till radiogruppen så gäller nedan regler:
+            <br> - Om ingen av radioknapparna är valda så ställs in fokus på den första radioknappen i gruppen och den
+            väljs
+            <br> - Om en radioknapp är vald ställs fokus på den valda knappen
+        </p>
+    </div>
+</app-component-docs>
