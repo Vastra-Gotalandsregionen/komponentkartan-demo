@@ -38,19 +38,6 @@
                 <vgr-radiobutton-item [selected]="false" [disabled]="false">Toyota</vgr-radiobutton-item>
             </vgr-radiobutton-group>
 
-
-
-            <hr>
-            <br>
-            <h2>Vertical radiogrupp (kontroll att två fält inte kan vara valda, ger felmeddelande) </h2>
-            <vgr-radiobutton-group #RadioGroup2 (selectedChanged)="someCode()" vertical="true" required="true">
-                <vgr-radiobutton-item [selected]="true">Det var bra</vgr-radiobutton-item>
-                <vgr-radiobutton-item [selected]="false">Det var inte bra</vgr-radiobutton-item>
-                <vgr-radiobutton-item [selected]="true">Det var verkligen inte bra</vgr-radiobutton-item>
-            </vgr-radiobutton-group>
-            <br>
-            <vgr-button (click)="rensaVal()">Rensa val</vgr-button>
-
             <hr>
             <br>
             <h2>Radiogrupp utan förval och som är obligatorisk </h2>
@@ -63,12 +50,29 @@
                 <label>Val: {{this.radioGroupForm.controls.val.value?.value}}</label>
             </form>
 
+            <br>
+            <vgr-button (click)="rensaVal()">Rensa val</vgr-button>
+            <br>
+
         </div>
         <br> Under "kodexempel" finns fler exempel på hur radiogroup-komponenten kan användas i Angular Reactive Forms:
         <br>
         <a href="/reactiveformsexample">Reactive Forms exempel</a>
     </div>
     <div class="docs__api">
+
+      <p>Om man programmatiskt sätter mer än ett val som valt så ger det felmeddelande.
+        Radiogruppens bredd är satt till auto vilket gör att man styr bredden från elementet man lägger den i.
+        I nedanstående exempel så har man radiogruppen i en div som är satt till 50%</p><br>
+            <div style="width: 50%;">
+              <vgr-radiobutton-group #RadioGroup2 (selectedChanged)="someCode()" vertical="true" required="true">
+                  <vgr-radiobutton-item [selected]="true">Det var bra</vgr-radiobutton-item>
+                  <vgr-radiobutton-item [selected]="false">Det var inte bra</vgr-radiobutton-item>
+                  <vgr-radiobutton-item [selected]="true">Det var verkligen inte bra</vgr-radiobutton-item>
+              </vgr-radiobutton-group>
+            </div>
+            <br><br>
+
         <h2>vgr-radiobutton-group</h2>
         <hr>
         <table class="property-table">

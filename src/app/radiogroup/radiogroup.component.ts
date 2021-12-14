@@ -36,7 +36,7 @@ export class RadiogroupComponent implements OnInit {
   }
 
   rensaVal() {
-    this.radioGroup2.unSelectItems();
+    this.radioGroupForm.controls.val.reset();
   }
 
   // setFocus() {
