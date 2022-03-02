@@ -14,7 +14,6 @@ import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ClosebuttonComponent } from './closebutton/closebutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
-import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
@@ -57,7 +56,6 @@ export const appRoutes: Routes = [
     { path: 'overviewicon', component: IconsComponent, pathMatch: 'full'},
     { path: 'icons', component: IconDocumentationComponent, pathMatch: 'full'},
     { path: 'textbuttons', component: TextbuttonsComponent },
-    { path: 'radioButtons', component: RadiobuttonsComponent },
     { path: 'checkbox', component: CheckboxComponent },
     { path: 'closebutton', component: ClosebuttonComponent },
     { path: 'colours', component: ColoursComponent },

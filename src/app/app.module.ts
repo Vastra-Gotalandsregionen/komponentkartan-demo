@@ -10,7 +10,7 @@ import { appRoutes } from './routes';
 import { KomponentkartanModule } from 'vgr-komponentkartan';
 
 // Vendors
-import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+// import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
@@ -26,7 +26,7 @@ import { ClosebuttonComponent } from './closebutton/closebutton.component';
 
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
-import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
+
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
@@ -83,7 +83,6 @@ registerLocaleData(localeSv);
         LockbuttonComponent,
         ModaldialogComponent,
         PanelsComponent,
-        RadiobuttonsComponent,
         TextbuttonsComponent,
         LoaderComponent,
         StartComponent,
@@ -121,12 +120,12 @@ registerLocaleData(localeSv);
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        HighlightJsModule,
+        // HighlightJsModule,
         TabButtonModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [
-        HighlightJsService,
+        // HighlightJsService,
         HtmlEncodeService,
         {
             provide: LOCALE_ID, useValue: 'sv-SE'

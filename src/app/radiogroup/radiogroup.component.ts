@@ -16,6 +16,7 @@ export class RadiogroupComponent implements OnInit {
 
   groupDisabled: boolean = false;
   @ViewChild('RadioGroup2') radioGroup2: RadiobuttonGroupComponent;
+  radiogroupFormValue = '';
 
   constructor() { }
 
@@ -31,7 +32,16 @@ export class RadiogroupComponent implements OnInit {
     this.selectedOption = option;
   }
 
-  someCode() {
+  someCode(param, isFormControl = false) {
+    if (isFormControl) {
+      if (param) {
+        this.radiogroupFormValue = param.value;
+      } else {
+        this.radiogroupFormValue = '';
+      }
+
+      
+    }
     console.log('someCode')
   }
 

@@ -1,5 +1,9 @@
 <app-component-docs [componentName]="'Radiogroup'">
     <div class="docs__overview">
+        <vgr-notification [type]="'warning'" [standalone]="'true'">Med version => 9.1.0 så är  <code>
+            &lt;vgr-radio-group&gt;</code> utfasad och ersätts med denna
+        
+        </vgr-notification>
         <p>
             <code>
           &lt;vgr-radiobutton-group&gt;</code>
@@ -32,7 +36,7 @@
                 <vgr-checkbox (checkedChanged)="groupDisabled = $event" label="Jag cyklar" [checked]="groupDisabled">
                 </vgr-checkbox>
             </div>
-            <vgr-radiobutton-group (selectedChanged)="someCode()" [disabled]="groupDisabled">
+            <vgr-radiobutton-group (selectedChanged)="someCode($event)" [disabled]="groupDisabled">
                 <vgr-radiobutton-item [selected]="true" [disabled]="false">Subaru</vgr-radiobutton-item>
                 <vgr-radiobutton-item [selected]="false" [disabled]="true">Volvo</vgr-radiobutton-item>
                 <vgr-radiobutton-item [selected]="false" [disabled]="false">Toyota</vgr-radiobutton-item>
@@ -42,12 +46,12 @@
             <br>
             <h2>Radiogrupp utan förval och som är obligatorisk </h2>
             <form [formGroup]="radioGroupForm">
-                <vgr-radiobutton-group formControlName="val" (selectedChanged)="someCode()" required="true">
+                <vgr-radiobutton-group formControlName="val" (selectedChanged)="someCode($event, true)" required="true">
                     <vgr-radiobutton-item>Det var bra</vgr-radiobutton-item>
                     <vgr-radiobutton-item>Det var inte bra</vgr-radiobutton-item>
                     <vgr-radiobutton-item>Det var verkligen inte bra</vgr-radiobutton-item>
                 </vgr-radiobutton-group>
-                <label>Val: {{this.radioGroupForm.controls.val.value?.value}}</label>
+                <label>Val: {{radiogroupFormValue}}</label>
             </form>
 
             <br>
@@ -65,7 +69,7 @@
         Radiogruppens bredd är satt till auto vilket gör att man styr bredden från elementet man lägger den i.
         I nedanstående exempel så har man radiogruppen i en div som är satt till 50%</p><br>
             <div style="width: 50%;">
-              <vgr-radiobutton-group #RadioGroup2 (selectedChanged)="someCode()" vertical="true" required="true">
+              <vgr-radiobutton-group #RadioGroup2 (selectedChanged)="someCode($event)" vertical="true" required="true">
                   <vgr-radiobutton-item [selected]="true">Det var bra</vgr-radiobutton-item>
                   <vgr-radiobutton-item [selected]="false">Det var inte bra</vgr-radiobutton-item>
                   <vgr-radiobutton-item [selected]="true">Det var verkligen inte bra</vgr-radiobutton-item>
