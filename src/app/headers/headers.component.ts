@@ -33,11 +33,11 @@ export class HeadersComponent {
   overwriteExampleMarkup: string;
 
   constructor(public modalService: ModalService, htmlEncoder: HtmlEncodeService) {
-    this.exampleCodeSimpleMenyMarkup = htmlEncoder.prepareHighlightedSection(this.exampleCodeHeaderMenu, 'typescript');
-    this.standardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.standardExample, 'typescript');
-    this.systemExampleMarkup = htmlEncoder.prepareHighlightedSection(this.systemExample, 'typescript');
-    this.customExampleMarkup = htmlEncoder.prepareHighlightedSection(this.customExample, 'typescript');
-    this.overwriteExampleMarkup = htmlEncoder.prepareHighlightedSection(this.overwriteExample, 'typescript');
+    this.exampleCodeSimpleMenyMarkup = htmlEncoder.prepareHighlightedSection(this.exampleCodeHeaderMenu, 'HTML');
+    this.standardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.standardExample, 'HTML');
+    this.systemExampleMarkup = htmlEncoder.prepareHighlightedSection(this.systemExample, 'HTML');
+    this.customExampleMarkup = htmlEncoder.prepareHighlightedSection(this.customExample, 'HTML');
+    this.overwriteExampleMarkup = htmlEncoder.prepareHighlightedSection(this.overwriteExample, 'HTML');
   }
   openModalOnClick(elementId: string): void {
     this.modalService.openDialog(elementId);

@@ -15,8 +15,8 @@ export class PaginationDocumentationComponent {
     <vgr-pagination [pages]="pages" (pageChanged)="onPageChanged($event)"></vgr-pagination>
   </div>`;
 
-  constructor(private htmlEncoder: HtmlEncodeService) {
-    this.samplePagination = htmlEncoder.prepareHighlightedSection(this.samplePagination);
+  constructor(htmlEncoder: HtmlEncodeService) {
+    this.samplePagination = htmlEncoder.prepareHighlightedSection(this.samplePagination, 'HTML');
   }
 
   onPageChanged(page: number) {

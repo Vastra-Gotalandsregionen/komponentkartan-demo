@@ -74,7 +74,8 @@ import { GridDocumentationComponent } from './grid-documentation/grid-documentat
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { TabButtonModule } from './tab-button/tab-button.module';
-import { HighlightCodeDirective } from './directives/highlight-code.directive';
+import { HighlightCodeDirective } from './shared/directives/highlight-code.directive';
+import { SharedModule } from './shared/shared.module';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -121,8 +122,7 @@ registerLocaleData(localeSv);
         IconDocumentationComponent,
         GridDocumentationComponent,
         NotificationDocumentationComponent,
-        ComboboxDocumentationComponent,
-        HighlightCodeDirective
+        ComboboxDocumentationComponent
     ],
     imports: [
         KomponentkartanModule,
@@ -130,6 +130,7 @@ registerLocaleData(localeSv);
         FormsModule,
         ReactiveFormsModule,
         TabButtonModule,
+        SharedModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [

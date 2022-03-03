@@ -10,6 +10,7 @@ import { ValdaComponent } from './pages/valda.component';
 import { FavoriterComponent } from './pages/favoriter.component';
 import { TabStartComponent } from './pages/tab-start.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     KomponentkartanModule,
+    SharedModule,
     RouterModule.forChild(appRoutes)
   ],
   exports: [

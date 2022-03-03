@@ -25,14 +25,15 @@ export class TabStartComponent implements OnInit {
   <vgr-tab-button [width]="'110px'" [active]="!active2" [tabId]="'innehall'" (selectedChanged)="setActiveTab2($event)">Innehåll</vgr-tab-button>`;
 
   exampleCode2 = `<vgr-tab-button-group>
-  <vgr-tab-button> (selectedChanged)="setActivePanelText('Till vänster')"Till vänster</vgr-tab-button>
-  <vgr-tab-button> (selectedChanged)="setActivePanelText('I mitten')"I mitten</vgr-tab-button>
-  <vgr-tab-button> (selectedChanged)="setActivePanelText('Till höger')"Till höger</vgr-tab-button>
+  <vgr-tab-button (selectedChanged)="setActivePanelText('Till vänster')">Till vänster</vgr-tab-button>
+  <vgr-tab-button (selectedChanged)="setActivePanelText('I mitten')">I mitten</vgr-tab-button>
+  <vgr-tab-button (selectedChanged)="setActivePanelText('Till höger')">Till höger</vgr-tab-button>
   <vgr-panel-container>
-     <vgr-panel noborder="true" style="border: 1px solid grey">
-       <p></p>
-     </vgr-panel>
-   </vgr-panel-container>
+
+    <vgr-panel noborder="true" style="border: 1px solid grey">
+      <p>{{tabPressed}}</p>
+    </vgr-panel>
+  </vgr-panel-container>
 </vgr-tab-button-group>`
 
   constructor(public htmlEncoder: HtmlEncodeService) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-tab-button',
@@ -14,7 +15,19 @@ export class TabButtonComponent implements OnInit {
     { 'text': 'Valda' }
   ];
   centrera = false;
-  constructor(private router: Router) { }
+
+  exampleCodeMarkup;
+  exampleTest = `
+  <vgr-action-panel [showCloseButton]="true" (openChanged)="open=$event" [open]="open"
+    [title]="'Ett exempel på en action panel'">
+    <vgr-button>En knapp</vgr-button>
+    <p>Lite text...</p>
+  </vgr-action-panel>`;
+
+  constructor(private router: Router, public htmlEncoder: HtmlEncodeService) {
+    this.exampleCodeMarkup =
+      htmlEncoder.prepareHighlightedSection(this.exampleTest, 'HTML');
+  }
 
   ngOnInit() {
     this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
