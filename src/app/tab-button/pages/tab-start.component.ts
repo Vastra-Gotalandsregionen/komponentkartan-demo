@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HtmlEncodeService } from '../../html-encode.service';
 
 @Component({
   selector: 'vgr-tab-start',
@@ -19,9 +20,26 @@ export class TabStartComponent implements OnInit {
   activeTab2: any = 'inget än';
   tabPressed: string;
   panelColor: string;
-  constructor() { }
+
+  exampleCode = `<vgr-tab-button [width]="'110px'" [active]="active2" [tabId]="'oversikt'" (selectedChanged)="setActiveTab2($event)">Översikt</vgr-tab-button>
+  <vgr-tab-button [width]="'110px'" [active]="!active2" [tabId]="'innehall'" (selectedChanged)="setActiveTab2($event)">Innehåll</vgr-tab-button>`;
+
+  exampleCode2 = `<vgr-tab-button-group>
+  <vgr-tab-button> (selectedChanged)="setActivePanelText('Till vänster')"Till vänster</vgr-tab-button>
+  <vgr-tab-button> (selectedChanged)="setActivePanelText('I mitten')"I mitten</vgr-tab-button>
+  <vgr-tab-button> (selectedChanged)="setActivePanelText('Till höger')"Till höger</vgr-tab-button>
+  <vgr-panel-container>
+     <vgr-panel noborder="true" style="border: 1px solid grey">
+       <p></p>
+     </vgr-panel>
+   </vgr-panel-container>
+</vgr-tab-button-group>`
+
+  constructor(public htmlEncoder: HtmlEncodeService) {
+  }
 
   ngOnInit() {
+
   }
 
 

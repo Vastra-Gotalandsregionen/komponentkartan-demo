@@ -38,13 +38,13 @@
       <vgr-dropdown-select [small]="true" [deselectable]="true">
         <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])">
       </section>
       <h2>Stor, 50 alternativ</h2>
       <vgr-dropdown-select>
         <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])">
       </section>
       <h2>Alternativ med extra information</h2>
       <vgr-dropdown-select [multi]="true" [width]="'50%'">
@@ -53,19 +53,19 @@
           <div style="font-style: italic">Information</div>
         </vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])">
       </section>
       <h2>Aktiv</h2>
       <vgr-dropdown-select [formControl]="form" width="100px">
         <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])">
       </section>
       <h2>Inaktiv</h2>
       <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
         <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])">
       </section>
       <h2>Endast visning</h2>
       <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
@@ -73,7 +73,7 @@
           {{itemLabel}}
         </vgr-dropdown-item>
       </vgr-dropdown-select>
-      <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])" highlight-js-content=".highlight">
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])">
       </section>
     </section>
   </div>
@@ -183,7 +183,7 @@
         <td>focus()</td>
         <td>Metod för att flytta fokus till komponenten</td>
         <td>this.myDropdownSelect.focus()</td>
-      </tr>  
+      </tr>
     </table>
     <br>
     <h2>DropdownItem</h2>

@@ -16,14 +16,14 @@
       </vgr-expandable-div-header>
       <vgr-expandable-div-content>
         <p>
-          Ikoner bör användas i kombination med text i första hand, då ikoner kan vara svåra att tolka när de står själva. 
+          Ikoner bör användas i kombination med text i första hand, då ikoner kan vara svåra att tolka när de står själva.
           De bör alltså användas för att förstärka ett budskap snarare än att förmedla det. <br><br>
-          I vissa fall är det lämpligt att använda ikonen självstående, t.ex. för att förmedla en status såsom “granskad” eller “godkänd”. 
+          I vissa fall är det lämpligt att använda ikonen självstående, t.ex. för att förmedla en status såsom “granskad” eller “godkänd”.
           Det är rekommenderat att använda tooltip för att förtydliga vad ikonen betyder. <br><br>
-          Ikoner som förmedlar information behöver ha en hög kontrast mot sin bakgrund för att kunna läsas av användare som tittar på skärmen. 
-          Därför är det endast tillåtet att använda de primära färgerna i färgkartan på ikonerna. 
-          Undantaget är när ikonen ska reflektera ett inaktivt läge, då är det tillåtet att ha en lägre kontrast. 
-          Färgerna som är tillåtna begränsas av komponenten.           
+          Ikoner som förmedlar information behöver ha en hög kontrast mot sin bakgrund för att kunna läsas av användare som tittar på skärmen.
+          Därför är det endast tillåtet att använda de primära färgerna i färgkartan på ikonerna.
+          Undantaget är när ikonen ska reflektera ett inaktivt läge, då är det tillåtet att ha en lägre kontrast.
+          Färgerna som är tillåtna begränsas av komponenten.
         </p>
       </vgr-expandable-div-content>
     </vgr-expandable-div>
@@ -62,7 +62,7 @@
         </vgr-button>
       </div>
       <div>
-        <section [innerHTML]="buttonHtmlExample" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="buttonHtmlExample"></section>
       </div>
     </div>
   </div>
@@ -151,12 +151,12 @@
 
   <div class="docs__wcag">
     <p>
-      När ikonen används för att förstärka en text behöver skärmläsaren inte läsa upp ikonen, eftersom den är redundant. 
-      I de fall då ikonen används själv behöver aria-label sättas för att skärmläsaren ska kunna läsa upp den. 
+      När ikonen används för att förstärka en text behöver skärmläsaren inte läsa upp ikonen, eftersom den är redundant.
+      I de fall då ikonen används själv behöver aria-label sättas för att skärmläsaren ska kunna läsa upp den.
       <br><br>
-      Enligt WCAG 2.1 ska icke-textelement ha en hög kontrast mot sin bakgrund så att personer med nedsatt syn kan läsa och tolka dem. 
-      För att uppnå detta kriterie ska ikonerna endast ha färger med god kontrast mot bakgrunden. 
-      I Komponentkartans färgkarta är dessa färger de primära färgerna, success, fail och textfärgen. 
+      Enligt WCAG 2.1 ska icke-textelement ha en hög kontrast mot sin bakgrund så att personer med nedsatt syn kan läsa och tolka dem.
+      För att uppnå detta kriterie ska ikonerna endast ha färger med god kontrast mot bakgrunden.
+      I Komponentkartans färgkarta är dessa färger de primära färgerna, success, fail och textfärgen.
       <br><br>
       Mer information om kontrast finns på: <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">
         https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html</a>

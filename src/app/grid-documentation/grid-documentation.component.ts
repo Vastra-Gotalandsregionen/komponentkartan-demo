@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
   selector: 'app-grid-documentation',
@@ -23,6 +24,25 @@ export class GridDocumentationComponent {
   itemsPerPage = 3;
   paginatedPeople: any[] = [];
 
+  exampleCode = `<vgr-grid>
+  <vgr-grid-header-toolbar></vgr-grid-header-toolbar>
+  <vgr-grid-header>
+    <vgr-grid-header-column></vgr-grid-header-column>
+  </vgr-grid-header>
+  <vgr-grid-row>
+    <vgr-grid-column></vgr-grid-column>
+    <vgr-notification></vgr-notification>
+    <vgr-grid-content></vgr-grid-content>
+  </vgr-grid-row>
+</vgr-grid>`;
+
+  exampleCodeMarkup;
+
+  constructor(htmlEncoder: HtmlEncodeService) {
+    this.exampleCodeMarkup =
+      htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
+  }
+
   ngOnInit() {
     this.setPagingData(this.activePage);
   }
@@ -30,7 +50,7 @@ export class GridDocumentationComponent {
   onPageChanged(page: number) {
     this.setPagingData(page);
   }
-  
+
   setPagingData(page: number) {
     this.loading = true;
 

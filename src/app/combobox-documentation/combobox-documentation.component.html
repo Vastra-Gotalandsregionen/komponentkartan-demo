@@ -43,12 +43,12 @@
         <vgr-combobox [small]="true">
           <vgr-combobox-item *ngFor="let item of items5">{{item}}</vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])"></section>
         <h2>Stor, 50 alternativ</h2>
         <vgr-combobox>
           <vgr-combobox-item *ngFor="let item of items50">{{item}}</vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])"></section>
         <h2>Alternativ med extra information</h2>
         <vgr-combobox [width]="'50%'">
           <vgr-combobox-item *ngFor="let item of items50">
@@ -56,38 +56,38 @@
             <div style="font-style: italic">&nbsp;Information</div>
           </vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])"></section>
         <h2>Alternativ utan knapp för att expandera</h2>
         <vgr-combobox [showButton]="false">
           <vgr-combobox-item *ngFor="let item of items50" [selectedLabel]="item">
             <div>{{item}}</div>
           </vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])"></section>
         <h2>Alternativ med listbox som linjerar till höger</h2>
         <vgr-combobox [listAlignRight]="true" [width]="'40%'">
           <vgr-combobox-item *ngFor="let item of items50" [selectedLabel]="item">
             <div>{{item}}</div>
           </vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[6])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[6])"></section>
         <h2>Aktiv</h2>
         <vgr-combobox [formControl]="form">
           <vgr-combobox-item [value]="itemValue">{{itemLabel}}</vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])"></section>
         <h2>Inaktiv</h2>
         <vgr-combobox [disabled]="true" [formControl]="form">
           <vgr-combobox-item [value]="itemValue">{{itemLabel}}</vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])"></section>
         <h2>Endast visning</h2>
         <vgr-combobox [small]="false" [readonly]="true" [formControl]="form">
           <vgr-combobox-item [value]="itemValue">
             {{itemLabel}}
           </vgr-combobox-item>
         </vgr-combobox>
-        <section [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])" highlight-js-content=".highlight"></section>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])"></section>
       </section>
     </div>
     <div class="docs__api">

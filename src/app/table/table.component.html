@@ -7,7 +7,7 @@
       En vgr-table kan även innehålla en vgr-table i sig. Se förslag på användning under rubriken exempel.
     </p>
     <h5>Grundläggande struktur för en tabell:</h5>
-    <section [innerHTML]="htmlMarkup" hljsContent=".highlight"></section>
+    <section vgrHighlightCode [innerHTML]="htmlMarkup"></section>
     <p> Förändras med tema:
       <strong>ja</strong>
     </p>
@@ -173,7 +173,7 @@
         <td>focus()</td>
         <td>Metod för att flytta fokus till komponenten</td>
         <td>this.myTable.focus()</td>
-      </tr>       
+      </tr>
     </table>
     <br>
 

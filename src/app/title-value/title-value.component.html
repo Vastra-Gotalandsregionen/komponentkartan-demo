@@ -59,7 +59,7 @@
       </vgr-card-column>
     </vgr-card>
     <p>Nya API-guidelines ser ut som följande:</p>
-    <section [innerHTML]="htmlEncoder.prepareHighlightedSection(markupExample)" hljsContent=".highlight"></section>
+    <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(markupExample)"></section>
   </div>
   <div class="docs__api">
     <h2><code>&lt;vgr-title-value&gt;</code></h2>

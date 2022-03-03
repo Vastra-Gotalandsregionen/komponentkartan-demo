@@ -1,12 +1,12 @@
 <app-component-docs [componentName]="'Modal dialog'">
   <div class="docs__overview">
     <code>&lt;vgr-modal&gt;</code>
-    <p>En modal dialog visar ett meddelande för användaren och inväntar svar / kvittering. 
+    <p>En modal dialog visar ett meddelande för användaren och inväntar svar / kvittering.
       Under tiden som meddelandet visas är resten av applikationen inaktiverad.<br><br>
     </p>
     <p>
-        I modaler placeras knappar som alternativ för att gå vidare till höger och “avbryt” till vänster. 
-        Fokus alltid på det som ger minst skada om det är svårt att återkalla/vid säkerhetsfall. 
+        I modaler placeras knappar som alternativ för att gå vidare till höger och “avbryt” till vänster.
+        Fokus alltid på det som ger minst skada om det är svårt att återkalla/vid säkerhetsfall.
         Modaler bör endast användas när det är oåterkalleliga handlingar, allvarlig konsekvens om det blir fel eller vid automatiskt triggade handlingar.
     </p>
     <p>
@@ -46,9 +46,9 @@
     </div>
     <br>
     <h2>HTML</h2>
-    <section [innerHTML]="exampleCodeMarkup" highlight-js-content=".highlight"></section>
+    <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
     <h2>TypeScript</h2>
-    <section [innerHTML]="exampleCodeTypescript" highlight-js-content=".highlight"></section>
+    <section vgrHighlightCode [innerHTML]="exampleCodeTypescript"></section>
     <h2>Resultat</h2>
     <vgr-button (click)="modalService.openDialog('myModalId')">Open Modal</vgr-button>
     <br>
@@ -62,8 +62,8 @@
     <code>&lt;vgr-modal-content&gt;</code>
     och
     <code>&lt;vgr-modal-footer&gt;</code>. Den andra delen är en
-    <code>modalService</code> som injectas i de komponenter som vill visa en dialog. Bredden på dialogen kan i det lilla läget minst vara 450px och max 1080px 
-    alternativt i det stora läget minst 500px och max 1130px. För att sätta förvalt fokus på en 
+    <code>modalService</code> som injectas i de komponenter som vill visa en dialog. Bredden på dialogen kan i det lilla läget minst vara 450px och max 1080px
+    alternativt i det stora läget minst 500px och max 1130px. För att sätta förvalt fokus på en
     <code>&lt;vgr-button&gt;</code> i ett modalt fönster anges attributet <code>default=true</code> för knappen. För att visa en dialog, använd
     <code>modalService.openDialog()</code> och för att stänga dialogen, använd
     <code>modalService.closeDialog()</code>. Se nedan.

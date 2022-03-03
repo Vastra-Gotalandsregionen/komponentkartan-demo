@@ -10,7 +10,15 @@ import { appRoutes } from './routes';
 import { KomponentkartanModule } from 'vgr-komponentkartan';
 
 // Vendors
-import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+// import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import xml from 'highlight.js/lib/languages/xml';
+
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('xml', xml);
 
 // Domain
 import { KomponentkartanApplicationComponent } from './app.component';
@@ -66,6 +74,7 @@ import { GridDocumentationComponent } from './grid-documentation/grid-documentat
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { TabButtonModule } from './tab-button/tab-button.module';
+import { HighlightCodeDirective } from './directives/highlight-code.directive';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -112,19 +121,18 @@ registerLocaleData(localeSv);
         IconDocumentationComponent,
         GridDocumentationComponent,
         NotificationDocumentationComponent,
-        ComboboxDocumentationComponent
+        ComboboxDocumentationComponent,
+        HighlightCodeDirective
     ],
     imports: [
         KomponentkartanModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        HighlightJsModule,
         TabButtonModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [
-        HighlightJsService,
         HtmlEncodeService,
         {
             provide: LOCALE_ID, useValue: 'sv-SE'
