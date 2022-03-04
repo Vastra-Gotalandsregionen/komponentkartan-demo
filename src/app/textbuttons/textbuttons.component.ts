@@ -10,11 +10,16 @@ export class TextbuttonsComponent implements OnInit {
   buttonDisabled = true;
   buttonSecondaryDisabled = true;
   buttonDiscreetDisabled = true;
+  loadingState = true;
   constructor() {
     this.lastButtonPressed = '';
   }
 
   ngOnInit() {
+  }
+
+  toggleLoadingState() {
+    this.loadingState = !this.loadingState;
   }
 
 }
