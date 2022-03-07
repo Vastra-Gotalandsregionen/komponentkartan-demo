@@ -10,7 +10,6 @@ export class HighlightCodeDirective implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('nativeElement ', this.eltRef.nativeElement)
     hljs.highlightBlock(this.eltRef.nativeElement);
   }
 

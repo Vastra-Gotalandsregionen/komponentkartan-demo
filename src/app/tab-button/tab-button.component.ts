@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ModalService, TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -24,14 +25,13 @@ export class TabButtonComponent implements OnInit {
     <p>Lite text...</p>
   </vgr-action-panel>`;
 
-  constructor(private router: Router, public htmlEncoder: HtmlEncodeService) {
+  constructor(private router: Router, public htmlEncoder: HtmlEncodeService, public modalService: ModalService, private tabManagementService: TabManagementService) {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleTest, 'HTML');
   }
 
   ngOnInit() {
     this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
-    // console.log('hello from app')
   }
 
   navigate(id) {
@@ -43,13 +43,13 @@ export class TabButtonComponent implements OnInit {
         element.active = true;
       }
     });
-
-    switch(id) {
+    this.tabManagementService.navigationCancelled(false);
+    switch (id) {
       case 'Favoriter':
         this.router.navigate( ['/favoriter'],  { skipLocationChange: true });
         break;
       case 'Valda':
-        this.router.navigate( ['/valda'],  { skipLocationChange: true });
+        this.modalService.openDialog('modal1');
         break;
         case 'Avtal':
           this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
@@ -58,5 +58,20 @@ export class TabButtonComponent implements OnInit {
         this.router.navigate(['/tab-button']);
         break;
     }
+  }
+
+  lamnaTab() {
+    this.tabManagementService.navigationCancelled(false);
+    this.router.navigate( ['/valda'],  { skipLocationChange: true });
+    this.closeModal();
+  }
+
+  stannaPaTab() {
+    this.tabManagementService.navigationCancelled(true);
+    this.closeModal();
+  }
+
+  closeModal() {
+    this.modalService.closeDialog('modal1');
   }
 }

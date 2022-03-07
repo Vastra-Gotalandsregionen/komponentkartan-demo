@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-documentation.component.scss']
 })
 export class NotificationDocumentationComponent {
+  showAlert = false;
+  isAlertNotice = true;
 
+  onAlertNotice() {
+    this.isAlertNotice = true;
+    setTimeout(() => {
+      this.showAlert = true;
+    });
+  }
+
+  onClearClick() {
+    this.isAlertNotice = false;
+    setTimeout(() => {
+      this.showAlert = false;
+    });
+  }
 }

@@ -48,10 +48,23 @@
         <vgr-button [buttonStyle]="'discreet'" [disabled]="buttonDiscreetDisabled">{{buttonDiscreetDisabled ? 'Inaktiv'
           : 'Aktiv'}}</vgr-button>
       </div>
+
+      <div>Senaste knapptryck: {{lastButtonPressed}}</div>
+
+      <h2>Knappar med loadingState = true</h2>
+      <div>
+        <vgr-button [buttonStyle]="'primary'" [loadingState]="loadingState">OK</vgr-button>
+        <vgr-button [buttonStyle]="'secondary'" [disabled]="buttonDiscreetDisabled" [loadingState]="loadingState">Text</vgr-button>
+        <vgr-button [buttonStyle]="'discreet'" [loadingState]="loadingState">Text</vgr-button>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <vgr-button [buttonStyle]="'primary'" (click)="toggleLoadingState()">Toggla loadingState</vgr-button>
+      </div>
+
+
     </div>
-    <br>
-    <br>
-    <div>Senaste knapptryck: {{lastButtonPressed}}</div>
+   
   </div>
 
   <div class="docs__api">
@@ -70,6 +83,11 @@
         <td>disabled : boolean</td>
         <td>Inaktivera knapp</td>
         <td>[disabled]="true"</td>
+      </tr>
+      <tr>
+        <td>loadingState : boolean</td>
+        <td>Försätter knappen i ett laddningtillstånd</td>
+        <td>[loadingState]="true"</td>
       </tr>
       <tr>
         <td>click = new EventEmitter</td>
