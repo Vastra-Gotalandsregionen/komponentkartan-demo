@@ -32,7 +32,6 @@ export class TabButtonComponent implements OnInit {
 
   ngOnInit() {
     this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
-    // console.log('hello from app')
   }
 
   navigate(id) {
@@ -62,14 +61,12 @@ export class TabButtonComponent implements OnInit {
   }
 
   lamnaTab() {
-    console.log('lämna')
     this.tabManagementService.navigationCancelled(false);
     this.router.navigate( ['/valda'],  { skipLocationChange: true });
     this.closeModal();
   }
 
   stannaPaTab() {
-    console.log('stanna')
     this.tabManagementService.navigationCancelled(true);
     this.closeModal();
   }

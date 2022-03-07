@@ -1,9 +1,13 @@
 <app-component-docs [componentName]="'Notification'">
   <div class=" docs__overview ">
+    <vgr-notification  [standalone]="true" type="info"  style="margin-bottom: 30px;">
+      Ett informationsmeddelande
+    </vgr-notification>
     <p>
       <code>&lt;vgr-notification&gt;</code><br>
       Notifiering som ex. kan placeras i <a href="/grid-documentation">grid</a> eller helt fristående.<br>
     </p>
+    <br>
 
     <p>
       Förändras med tema:
@@ -11,7 +15,6 @@
     </p>
   </div>
   <div class="docs__examples">
-
     <h2>Standalone notifieringar</h2><br />
 
     <vgr-notification [type]="'success'" [standalone]="true">En alert av typen success</vgr-notification>
@@ -60,6 +63,21 @@
       <strong>&lt;vgr-icon [solid]="true" color="error" icon="star"&gt;&lt;/vgr-icon&gt;</strong> En alert av typen error med custom ikon<br />
       <strong>&lt;/vgr-notification&gt;</strong><br />
     </code><br />
+
+
+    <h2>Notifiering som läses direkt upp av en skärmläsare</h2><br />
+
+    <p>Tryck på knapparna nedan för att få fram en notifiering med alert som läses upp av eventuell screenreader</p>
+
+    <vgr-notification *ngIf="showAlert" [standalone]="true" type="error" [isAlertNotice]="isAlertNotice" style="margin-bottom: 30px;">
+      Ett felmeddelande!
+    </vgr-notification>
+
+    <vgr-button [disabled]="showAlert" (click)="onAlertNotice()">Ta fram notifiering</vgr-button>
+    <vgr-button [disabled]="!showAlert" (click)="onClearClick()">Rensa notifiering</vgr-button>
+
+    <br>
+
   </div>
   <div class="docs__api ">
     <table class="property-table">
@@ -95,9 +113,18 @@
         <td>[noICon]="'true'"</td>
       </tr>
 
+      <tr>
+        <td>isAlertNotice : boolean</td>
+        <td>Sätter man om man vill att notifieringen skall läsas upp direkt av en screenreader.
+          Denna skall användas med varsamhet då endast meddelanden av hög prioritet bör läsas upp och gå före ordningen av uppläsning på en sida.
+          Läs gärna denna artikel om du är osäker på om den skall användas <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role</a>.
+          <b>Obs!</b>När man använder ngIf för att ta bort ett meddelande med isAlertNotice så behöver man först ta bort isAlertNotice och sedan i en setTimeout ta bort notifieringen. Annars läses notifieringen upp både vid visande av notifieringen och vid borttagning av notifiering.
+          Default är false.</td>
+        <td>[isAlertNotice]="'true'"</td>
+      </tr>
     </table>
   </div>
   <div class="docs__wcag ">
-    <i>Ej aktuellt.</i>
+    <i>Genom att sätta isAlertNotice till true så triggar man att notifiering kommer läsas upp direkt av en screenreader utan att användaren behöver ha fokus på notifieringen</i>
   </div>
 </app-component-docs>
