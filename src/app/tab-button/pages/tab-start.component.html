@@ -141,6 +141,11 @@
             <th>Exempel</th>
           </tr>
           <tr>
+            <td>id: string</td>
+            <td>Kan sättas om man har fler tab-button-groups som man vill hålla koll på. Förvalt värde är en GUID.</td>
+            <td>[id]="'sidor'"</td>
+          </tr>
+          <tr>
             <td>alignCenter: boolean</td>
             <td>Boolean för att centrera tabbarna. Förvalt värde är
               <code>false</code>.</td>
@@ -156,6 +161,27 @@
             <td>focus()	</td>
             <td>Metod för att flytta fokus till komponenten.</td>
             <td>this.myTabButtonGroup.focus()</td>
+          </tr>
+        </table>
+        <br>
+        <h2>tabManagementService</h2>
+        <p>Service för att hantera möjligheten att avbryta en navigering. <br>
+          Exempelvis om man inte har sparat på sidan man är på och användaren väljer att stanna kvar istället för att gå vidare. <br>
+          Detta styrs i din kod där man tar in <code>tabManagementService</code> i constructorn. <br>
+          Därefter talar man om ifall navigationen ska gå vidare eller stanna kvar. <br>
+          Ex: <code>this.tabManagementService.navigationCancelled(true);</code>
+        </p>
+        <br>
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>navigationCancelled(cancelled:boolean)	</td>
+            <td>Metod för att tala om navigeringen ska cancelleras eller inte.</td>
+            <td>navigationCancelled(false)</td>
           </tr>
         </table>
       </vgr-grid-content>
