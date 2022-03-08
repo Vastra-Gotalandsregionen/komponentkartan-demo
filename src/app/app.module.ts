@@ -34,7 +34,7 @@ import { ClosebuttonComponent } from './closebutton/closebutton.component';
 
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
-import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
+
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
@@ -77,6 +77,7 @@ import { TabButtonModule } from './tab-button/tab-button.module';
 import { HighlightCodeDirective } from './shared/directives/highlight-code.directive';
 import { SharedModule } from './shared/shared.module';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component';
+import { RadiogroupComponent } from './radiogroup/radiogroup.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -93,7 +94,6 @@ registerLocaleData(localeSv);
         LockbuttonComponent,
         ModaldialogComponent,
         PanelsComponent,
-        RadiobuttonsComponent,
         TextbuttonsComponent,
         LoaderComponent,
         StartComponent,
@@ -124,7 +124,9 @@ registerLocaleData(localeSv);
         GridDocumentationComponent,
         NotificationDocumentationComponent,
         ComboboxDocumentationComponent,
-        EditableTableDocumentationComponent
+        EditableTableDocumentationComponent,
+        ComboboxDocumentationComponent,
+        RadiogroupComponent
     ],
     imports: [
         KomponentkartanModule,

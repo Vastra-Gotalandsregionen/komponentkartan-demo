@@ -14,7 +14,6 @@ import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ClosebuttonComponent } from './closebutton/closebutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
 import { PanelsComponent } from './panels/panels.component';
-import { RadiobuttonsComponent } from './radiobuttons/radiobuttons.component';
 import { TextbuttonsComponent } from './textbuttons/textbuttons.component';
 import { SavecancelComponent } from './savecancel/savecancel.component';
 import { BacktotopComponent } from './backtotop/backtotop.component';
@@ -48,6 +47,8 @@ import { FavoriterComponent } from './tab-button/pages/favoriter.component';
 import { ValdaComponent } from './tab-button/pages/valda.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component'
+import {RadiogroupComponent} from './radiogroup/radiogroup.component'
+
 
 export const appRoutes: Routes = [
 
@@ -56,7 +57,6 @@ export const appRoutes: Routes = [
     { path: 'overviewicon', component: IconsComponent, pathMatch: 'full'},
     { path: 'icons', component: IconDocumentationComponent, pathMatch: 'full'},
     { path: 'textbuttons', component: TextbuttonsComponent },
-    { path: 'radioButtons', component: RadiobuttonsComponent },
     { path: 'checkbox', component: CheckboxComponent },
     { path: 'closebutton', component: ClosebuttonComponent },
     { path: 'colours', component: ColoursComponent },
@@ -101,5 +101,6 @@ export const appRoutes: Routes = [
         { path: 'valda', component: ValdaComponent}
       ]
     },
+    { path: 'radiogroup', component: RadiogroupComponent },
     { path: '**', redirectTo: '/' }
 ];
