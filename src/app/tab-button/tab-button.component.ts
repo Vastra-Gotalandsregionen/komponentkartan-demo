@@ -31,7 +31,7 @@ export class TabButtonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
+    this.router.navigate( ['tabbutton/tab-start'],  { skipLocationChange: true });
   }
 
   navigate(id) {
@@ -46,23 +46,23 @@ export class TabButtonComponent implements OnInit {
     this.tabManagementService.navigationCancelled(false);
     switch (id) {
       case 'Favoriter':
-        this.router.navigate( ['/favoriter'],  { skipLocationChange: true });
+        this.router.navigate( ['tabbutton/favoriter'],  { skipLocationChange: true });
         break;
       case 'Valda':
         this.modalService.openDialog('modal1');
         break;
         case 'Avtal':
-          this.router.navigate( ['/tab-start'],  { skipLocationChange: true });
+          this.router.navigate( ['tabbutton/tab-start'],  { skipLocationChange: true });
           break;
       default:
-        this.router.navigate(['/tab-button']);
+        this.router.navigate(['/tabbutton']);
         break;
     }
   }
 
   lamnaTab() {
     this.tabManagementService.navigationCancelled(false);
-    this.router.navigate( ['/valda'],  { skipLocationChange: true });
+    this.router.navigate( ['tabbutton/valda'],  { skipLocationChange: true });
     this.closeModal();
   }
 

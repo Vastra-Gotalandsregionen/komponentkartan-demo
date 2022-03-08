@@ -69,7 +69,7 @@ export const appRoutes: Routes = [
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
     { path: 'backtotop', component: BacktotopComponent },
-    { path: '', component: StartComponent },
+    { path: 'start', component: StartComponent },
     { path: 'table', component: TableComponent },
     { path: 'theming', component: ThemingComponent },
     { path: 'titlevalue', component: TitleValueComponent },
@@ -79,14 +79,19 @@ export const appRoutes: Routes = [
     { path: 'pagebody', component: PageBodyDocumentationComponent },
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
-    { path: 'menu', component: MenuComponent },
+    {
+      path: 'menu', component: MenuComponent,
+      children: [{
+          path: ':id',
+          component: MenuComponent
+      }]
+    },
     { path: 'reactiveformsexample', component: ReactiveformsexampleComponent },
     { path: 'expandablediv', component: ExpandableDivComponent },
     { path: 'actionPanels', component: ActionPanelsComponent },
     { path: 'filter-tag', component: FilterTagComponent },
     { path: 'ring-with-text', component: RingWithTextComponent },
     { path: 'togglebutton', component: ToggleButtonComponent },
-    { path: 'tabbutton', component: TabButtonComponent },
     { path: 'search-result', component: SearchResultComponent },
     { path: 'pagination-documentation', component: PaginationDocumentationComponent},
     { path: 'dropdown-select', component: DropdownSelectDocumentationComponent },
@@ -94,7 +99,7 @@ export const appRoutes: Routes = [
     { path: 'notification-documentation', component: NotificationDocumentationComponent },
     { path: 'combobox', component: ComboboxDocumentationComponent },
     { path: 'editable-table', component: EditableTableDocumentationComponent },
-    { path: '', component: TabButtonComponent,
+    { path: 'tabbutton', component: TabButtonComponent,
       children: [
         { path: 'tab-start', component: TabStartComponent},
         { path: 'favoriter', component: FavoriterComponent},
@@ -102,5 +107,5 @@ export const appRoutes: Routes = [
       ]
     },
     { path: 'radiogroup', component: RadiogroupComponent },
-    { path: '**', redirectTo: '/' }
+    { path: '**', redirectTo: '/start' }
 ];
