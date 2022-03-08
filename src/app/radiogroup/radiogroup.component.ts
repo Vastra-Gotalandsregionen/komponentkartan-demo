@@ -40,9 +40,8 @@ export class RadiogroupComponent implements OnInit {
         this.radiogroupFormValue = '';
       }
 
-      
+
     }
-    console.log('someCode')
   }
 
   rensaVal() {
