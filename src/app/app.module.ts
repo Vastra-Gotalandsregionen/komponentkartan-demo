@@ -76,6 +76,7 @@ import { ComboboxDocumentationComponent } from './combobox-documentation/combobo
 import { TabButtonModule } from './tab-button/tab-button.module';
 import { HighlightCodeDirective } from './shared/directives/highlight-code.directive';
 import { SharedModule } from './shared/shared.module';
+import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -122,7 +123,8 @@ registerLocaleData(localeSv);
         IconDocumentationComponent,
         GridDocumentationComponent,
         NotificationDocumentationComponent,
-        ComboboxDocumentationComponent
+        ComboboxDocumentationComponent,
+        EditableTableDocumentationComponent
     ],
     imports: [
         KomponentkartanModule,
