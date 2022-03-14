@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { appRoutes } from '../routes';
 
 // Komponentkartan lib
 import { KomponentkartanModule } from 'vgr-komponentkartan';
@@ -11,6 +10,7 @@ import { FavoriterComponent } from './pages/favoriter.component';
 import { TabStartComponent } from './pages/tab-start.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { TabbuttonRoutingModule } from './tab-button-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     KomponentkartanModule,
     SharedModule,
-    RouterModule.forChild(appRoutes)
+    TabbuttonRoutingModule
   ],
   exports: [
     RouterModule

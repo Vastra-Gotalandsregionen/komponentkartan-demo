@@ -32,7 +32,6 @@ import { IconsComponent } from './icons/icons.component';
 import { ActionPanelsComponent } from './actionpanels/actionpanels.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
-import { TabButtonComponent } from './tab-button/tab-button.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
@@ -42,9 +41,6 @@ import { DropdownSelectDocumentationComponent } from './dropdown-select-document
 import { IconDocumentationComponent } from './icon-documentation/icon-documentation.component';
 import { GridDocumentationComponent } from './grid-documentation/grid-documentation.component';
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
-import { TabStartComponent } from './tab-button/pages/tab-start.component';
-import { FavoriterComponent } from './tab-button/pages/favoriter.component';
-import { ValdaComponent } from './tab-button/pages/valda.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component'
 import {RadiogroupComponent} from './radiogroup/radiogroup.component'
@@ -99,13 +95,10 @@ export const appRoutes: Routes = [
     { path: 'notification-documentation', component: NotificationDocumentationComponent },
     { path: 'combobox', component: ComboboxDocumentationComponent },
     { path: 'editable-table', component: EditableTableDocumentationComponent },
-    { path: 'tabbutton', component: TabButtonComponent,
-      children: [
-        { path: 'tab-start', component: TabStartComponent},
-        { path: 'favoriter', component: FavoriterComponent},
-        { path: 'valda', component: ValdaComponent}
-      ]
-    },
+    {
+      path: 'tab-button',
+      loadChildren: () => import('../app/tab-button/tab-button.module').then(m => m.TabButtonModule)
+  },
     { path: 'radiogroup', component: RadiogroupComponent },
     { path: '**', redirectTo: '/start' }
 ];
