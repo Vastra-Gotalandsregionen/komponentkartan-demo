@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HtmlEncodeService } from '../html-encode.service';
 // import { CheckboxComponentElement } from 'vgr-komponentkartan';
 
 
@@ -16,8 +17,22 @@ export class CheckboxComponent implements OnInit {
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
   // checkbox = new FormControl('', Validators.required);
+  exampleCode = `<h2>Exempel med form</h2>
+  <form [formGroup]="checkboxForm">
+      <vgr-checkbox-group formControlName="checkboxValues" [showValidation]="formSubmittedCheckboxGroup">
+          <vgr-checkbox [label]="'Med ledtext'"></vgr-checkbox>
+          <vgr-checkbox [disabled]="true" [label]="'Inaktiverad'"></vgr-checkbox>
+          <vgr-checkbox [label]="'Vald'"></vgr-checkbox>
+          <vgr-checkbox [label]="'Vald2'"></vgr-checkbox>
+      </vgr-checkbox-group>
+  </form>`;
 
-  constructor(private fb: FormBuilder) { }
+  exampleCodeMarkup;
+
+  constructor(private fb: FormBuilder, htmlEncoder: HtmlEncodeService) {
+    this.exampleCodeMarkup =
+      htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
+  }
 
   ngOnInit() {
     this.createForm();

@@ -13,8 +13,9 @@
     </div>
 
     <div class="docs__examples">
-
-
+      <h2>HTML</h2>
+      <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
+      <br><br>
       <div class="row-layout ">
           <div class="full ">
               <div class="column-layout ">
@@ -89,6 +90,51 @@
       <a href="/reactiveformsexample">Reactive Forms exempel</a>
   </div>
     <div class="docs__api">
+        <code>&lt;vgr-checkbox-group&gt;</code>
+        <table class="property-table">
+          <tr>
+              <th>Namn</th>
+              <th>Beskrivning</th>
+              <th>Exempel</th>
+          </tr>
+          <tr>
+              <td>
+                  disabled : boolean
+              </td>
+              <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+              <td>[disabled]="true"</td>
+          </tr>
+          <tr>
+              <td>
+                  showValidation : boolean </td>
+              <td>Här sätter man om man vill att validering ska vara aktivt eller inaktivt. Defaultvärde är true</td>
+              <td>
+                  [showValidation]="true"
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  required : boolean
+              </td>
+              <td>Här sätts om gruppen ska vara required eller inte. Defaultvärde är false</td>
+              <td>[required]="false"</td>
+          </tr>
+          <tr>
+              <td>
+                  vertical : boolean
+              </td>
+              <td>Kan sättas om man vill att checkboxarna ska visas vertikalt. Defaultvärde är false vilket innebär att de visas horisontellt.</td>
+              <td>[vertical]="false"</td>
+          </tr>
+          <tr>
+              <td>
+                  formControlName : string
+              </td>
+              <td>Om man använder sig av forms så kan man sätta formControlName med hjälp av denna property.</td>
+              <td>[formControlName]="'checkboxValues'"</td>
+          </tr>
+      </table><br><br>
+      <code>&lt;vgr-checkbox&gt;</code>
         <table class="property-table">
             <tr>
                 <th>Namn</th>
@@ -100,7 +146,7 @@
                     label : string </td>
                 <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
                 <td>
-                    [label]=" 'Inaktiverad' "
+                    [label]="'Inaktiverad'"
                 </td>
             </tr>
             <tr>
@@ -108,21 +154,21 @@
                     checked : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-                <td>[checked]=True</td>
+                <td>[checked]="true"</td>
             </tr>
             <tr>
                 <td>
                     disabled : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-                <td>[disabled]=True</td>
+                <td>[disabled]="true"</td>
             </tr>
             <tr>
                 <td>
                     transparent : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen skall ha en transparent bakgrund eller vara vit</td>
-                <td>[transparent]=True</td>
+                <td>[transparent]="true"</td>
             </tr>
             <tr>
                 <td>
