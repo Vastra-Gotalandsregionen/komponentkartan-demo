@@ -28,6 +28,9 @@ export class CheckboxComponent implements OnInit {
   </form>`;
 
   exampleCodeMarkup;
+  checkedChangedLabel: any;
+  checkedChangedChecked: any;
+  checkedChangedActivated: boolean;
 
   constructor(private fb: FormBuilder, htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =
@@ -64,8 +67,11 @@ export class CheckboxComponent implements OnInit {
     this.formSubmittedCheckboxGroup = false;
   }
 
-  changed(event: any) {
-    console.log(event)
+  changed(event: any){
+    this.checkedChangedActivated = true;
+    this.checkedChangedLabel = event.label;
+    this.checkedChangedChecked = event.checked;
+
   }
 
   // setFocus() {

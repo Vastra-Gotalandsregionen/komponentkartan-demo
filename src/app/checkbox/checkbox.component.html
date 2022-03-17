@@ -72,9 +72,13 @@
                           <vgr-checkbox [label]=" 'Vald' "></vgr-checkbox>
                           <vgr-checkbox [label]=" 'Vald2' "></vgr-checkbox>
                       </vgr-checkbox-group>
-                      <vgr-button style="margin-top: 10px; display: block; width: 50px;" type="submit" (click)="submitCheckboxForm()">Submit</vgr-button>
-                      <vgr-button style="margin-top: 10px; display: block; width: 50px;" (click)="resetCheckboxForm()">Reset Form</vgr-button>
+                      <div style="display: flex;">
+                        <vgr-button style="margin-top: 10px; margin-right: 5px; width: 7%;" type="submit" (click)="submitCheckboxForm()">Submit</vgr-button>
+                        <vgr-button style="margin-top: 10px; margin-left: 5px; width: 7%;" (click)="resetCheckboxForm()">Reset</vgr-button>
+                      </div>
                   </form>
+
+                  <label *ngIf="checkedChangedActivated">SelectedChanged event: Checkbox {{checkedChangedLabel}} är {{checkedChangedChecked ? ' vald' : ' inte vald'}}</label>
 
                   <label>Antal valda: {{checkboxForm.controls.checkboxValues.value?.length}}</label>
                   <ol>
@@ -135,7 +139,7 @@
           </tr>
           <tr>
             <td>
-                selectedChanged : EventEmitter&lt;boolean&gt;
+                selectedChanged : EventEmitter&lt;CheckboxComponent&gt;
             </td>
             <td>Event som triggas när man checkar i eller ur en checkbox i gruppen</td>
             <td>(selectedChanged)="onSelectedChanged($event) "</td>
@@ -179,7 +183,7 @@
             </tr>
             <tr>
                 <td>
-                    checkedChanged : EventEmitter&lt;boolean&gt;
+                    checkedChanged : EventEmitter&lt;any&gt;
                 </td>
                 <td>Event som triggas när man checkar i eller ur checkboxen</td>
                 <td>(checkedChanged)="onCheckedChanged($event) "</td>
