@@ -2,7 +2,7 @@
     <div class="docs__overview">
         <vgr-notification [type]="'warning'" [standalone]="'true'">Med version => 9.1.0 så är  <code>
             &lt;vgr-radio-group&gt;</code> utfasad och ersätts med denna
-        
+
         </vgr-notification>
         <p>
             <code>
@@ -33,7 +33,7 @@
             <!--Disabled på group, overrides disabled på item vid true -->
             <h2>Horisontell radiogrupp med möjlighet att disabla gruppen</h2>
             <div>Välj vilken bil du helst tar till jobbet
-                <vgr-checkbox (checkedChanged)="groupDisabled = $event" label="Jag cyklar" [checked]="groupDisabled">
+                <vgr-checkbox (checkedChanged)="groupDisabled = $event.checked" label="Jag cyklar" [checked]="groupDisabled">
                 </vgr-checkbox>
             </div>
             <vgr-radiobutton-group (selectedChanged)="someCode($event)" [disabled]="groupDisabled">

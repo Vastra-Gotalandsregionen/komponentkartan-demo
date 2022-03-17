@@ -16,6 +16,7 @@ export class CheckboxComponent implements OnInit {
   showValidFormText: boolean = false;
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
+  klarmarkerad = false;
   // checkbox = new FormControl('', Validators.required);
   exampleCode = `<h2>Exempel med form</h2>
   <form [formGroup]="checkboxForm">
