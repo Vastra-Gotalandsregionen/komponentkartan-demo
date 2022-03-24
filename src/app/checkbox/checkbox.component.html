@@ -1,40 +1,156 @@
 <app-component-docs [componentName]="'Checkbox'">
     <div class="docs__overview">
-        <p>
-            <code>
-        &lt;vgr-checkbox&gt;</code> har samma beteende som en kryssruta.</p>
-        <br>
-        <vgr-checkbox [label]="'Klicka på mig!'"></vgr-checkbox>
-        <br>
-        <p>Förändras med tema:
-            <strong>nej</strong>
-        </p>
-    </div>
-   
-    <div class="docs__examples">
-        <div style="background-color: #f0f0f0;">
-            <vgr-checkbox style="margin-right : 20px" [label]="'Default bakgrund'"></vgr-checkbox>
-            <vgr-checkbox [label]="'Transparant bakgrund'" [transparent]="true"></vgr-checkbox>
-            
-          </div>
-          <br>
-        <div class="row-layout ">
-            <div class="full ">
-                <div class="column-layout ">
-                    <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
-                    <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
-                    <vgr-checkbox [checked]="true" [label]=" 'Vald' "></vgr-checkbox>
-                    <vgr-checkbox [checked]="true" [disabled]="true" [label]=" 'Inaktiverad vald' "></vgr-checkbox>
-                </div>
+      <p>
+        <code>&lt;vgr-checkbox&gt;</code>
+        har samma beteende som en kryssruta.
+      </p>
+      <vgr-checkbox [label]="'Klicka på mig!'"></vgr-checkbox>
+      <vgr-checkbox [label]="'Mig kan du inte klicka på!'" disabled="true"></vgr-checkbox>
 
-            </div>
-        </div>
-        <br>
-        <br> Under "kodexempel" finns exempel på hur checkbox-komponenten kan användas i Angular Reactive Forms:
-        <br>
-        <a routerLink="/reactiveformsexample">Reactive Forms exempel</a>
+      <p>Förändras med tema:
+          <strong>nej</strong>
+      </p>
     </div>
+
+    <div class="docs__examples">
+      <h2>HTML</h2>
+      <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
+      <br><br>
+      <div class="row-layout ">
+          <div class="full ">
+              <div class="column-layout ">
+
+                  <h3><strong>Checkbox group (required = true)</strong></h3>
+                  <vgr-checkbox-group [required]="true">
+                      <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
+                      <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
+                      <vgr-checkbox [checked]="true" [label]=" 'Vald' " [required]="true"></vgr-checkbox>
+                      <vgr-checkbox [label]=" 'Vald2' "></vgr-checkbox>
+                  </vgr-checkbox-group>
+                  <hr class="hr_line" />
+                  <h3><strong>Checkbox group (required = false)</strong></h3>
+                  <vgr-checkbox-group [required]="false">
+                      <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
+                      <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
+                      <vgr-checkbox [checked]="true" [label]=" 'Vald' " [required]="true"></vgr-checkbox>
+                      <vgr-checkbox [label]=" 'Vald2' "></vgr-checkbox>
+                  </vgr-checkbox-group>
+                  <hr class="hr_line" />
+
+                  <h3><strong>Checkbox group (hela gruppen disabled)</strong></h3>
+                  <vgr-checkbox-group [required]="false" [disabled]="true">
+                      <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
+                      <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
+                      <vgr-checkbox [checked]="true" [label]=" 'Vald' " [required]="true"></vgr-checkbox>
+                      <vgr-checkbox [label]=" 'Vald2' "></vgr-checkbox>
+                  </vgr-checkbox-group>
+                  <hr class="hr_line" />
+                  <h3><strong>Checkbox single required</strong></h3>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut tristique libero. Proin non
+                      aliquet ligula.
+                  </p>
+                  <vgr-checkbox [label]=" 'Jag har läst och förstått texten' " [required]="true"></vgr-checkbox>
+                  <hr class="hr_line" />
+
+                  <h3><strong>Checkbox ngModel example</strong></h3>
+                    <vgr-checkbox [label]=" 'Jag har läst och förstått texten' " [(ngModel)]="klarmarkerad"></vgr-checkbox>
+                    <label>{{klarmarkerad}}</label>
+                    <hr class="hr_line" />
+
+                  <h3><strong>Checkbox single required in formcontrol</strong></h3>
+                  <p>
+                      Jag skall inte checka in dålig kod....
+                  </p>
+                  <form [formGroup]="form">
+                      <vgr-checkbox [label]=" 'Jag har läst och förstått texten' "
+                          formControlName="checkbox" [showValidation]="formSubmittedCheckbox"></vgr-checkbox>
+                      <vgr-button  type="submit" (click)="submitForm()" style="margin-top: 10px; display: block; width: 8%;">Submit</vgr-button><br>
+                      <vgr-notification *ngIf="form.valid" type="success" width="200px" [standalone]="true" style="margin-top: 10px;">Formuläret postat!</vgr-notification>
+                  </form>
+                  <hr class="hr_line" />
+                  <h3><strong>Checkbox group in formcontrol</strong></h3>
+                  <form [formGroup]="checkboxForm">
+                      <vgr-checkbox-group (selectedChanged)="changed($event)" formControlName="checkboxValues" [showValidation]="formSubmittedCheckboxGroup">
+                          <vgr-checkbox [label]=" 'Med ledtext' "></vgr-checkbox>
+                          <vgr-checkbox [disabled]="true" [label]=" 'Inaktiverad' "></vgr-checkbox>
+                          <vgr-checkbox [label]=" 'Vald' "></vgr-checkbox>
+                          <vgr-checkbox [label]=" 'Vald2' "></vgr-checkbox>
+                      </vgr-checkbox-group>
+                      <div style="display: flex;">
+                        <vgr-button style="margin-top: 10px; margin-right: 5px; width: 7%;" type="submit" (click)="submitCheckboxForm()">Submit</vgr-button>
+                        <vgr-button style="margin-top: 10px; margin-left: 5px; width: 7%;" (click)="resetCheckboxForm()">Reset</vgr-button>
+                      </div>
+                  </form>
+
+                  <label *ngIf="checkedChangedActivated">SelectedChanged event: Checkbox {{checkedChangedLabel}} är {{checkedChangedChecked ? ' vald' : ' inte vald'}}</label>
+
+                  <label>Antal valda: {{checkboxForm.controls.checkboxValues.value?.length}}</label>
+                  <ol>
+                      <li *ngFor="let item of checkboxForm.controls.checkboxValues.value">{{item}}</li>
+                  </ol>
+              </div>
+
+          </div>
+      </div>
+      <br>
+      <br> Under "kodexempel" finns exempel på hur checkbox-komponenten kan användas i Angular Reactive Forms:
+      <br>
+      <a href="/reactiveformsexample">Reactive Forms exempel</a>
+  </div>
     <div class="docs__api">
+        <code>&lt;vgr-checkbox-group&gt;</code>
+        <table class="property-table">
+          <tr>
+              <th>Namn</th>
+              <th>Beskrivning</th>
+              <th>Exempel</th>
+          </tr>
+          <tr>
+              <td>
+                  disabled : boolean
+              </td>
+              <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
+              <td>[disabled]="true"</td>
+          </tr>
+          <tr>
+              <td>
+                  showValidation : boolean </td>
+              <td>Här sätter man om man vill att validering ska vara aktivt eller inaktivt. Defaultvärde är true</td>
+              <td>
+                  [showValidation]="true"
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  required : boolean
+              </td>
+              <td>Här sätts om gruppen ska vara required eller inte. Defaultvärde är false</td>
+              <td>[required]="false"</td>
+          </tr>
+          <tr>
+              <td>
+                  vertical : boolean
+              </td>
+              <td>Kan sättas om man vill att checkboxarna ska visas vertikalt. Defaultvärde är false vilket innebär att de visas horisontellt.</td>
+              <td>[vertical]="false"</td>
+          </tr>
+          <tr>
+              <td>
+                  formControlName : string
+              </td>
+              <td>Om man använder sig av forms så kan man sätta formControlName med hjälp av denna property.</td>
+              <td>[formControlName]="'checkboxValues'"</td>
+          </tr>
+          <tr>
+            <td>
+                selectedChanged : EventEmitter&lt;CheckboxComponent&gt;
+            </td>
+            <td>Event som triggas när man checkar i eller ur en checkbox i gruppen</td>
+            <td>(selectedChanged)="onSelectedChanged($event) "</td>
+        </tr>
+      </table><br><br>
+      <code>&lt;vgr-checkbox&gt;</code>
         <table class="property-table">
             <tr>
                 <th>Namn</th>
@@ -46,7 +162,7 @@
                     label : string </td>
                 <td>Text som man vill sätta på checkboxen. Kan lämnas tom för att inte ha en ledtext</td>
                 <td>
-                    [label]=" 'Inaktiverad' "
+                    [label]="'Inaktiverad'"
                 </td>
             </tr>
             <tr>
@@ -54,25 +170,25 @@
                     checked : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen är vald eller inte</td>
-                <td>[checked]=True</td>
+                <td>[checked]="true"</td>
             </tr>
             <tr>
                 <td>
                     disabled : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen är inaktiverad eller inte</td>
-                <td>[disabled]=True</td>
+                <td>[disabled]="true"</td>
             </tr>
             <tr>
                 <td>
                     transparent : boolean
                 </td>
                 <td>true/false, defaultvärde false. Sätter om checkboxen skall ha en transparent bakgrund eller vara vit</td>
-                <td>[transparent]=True</td>
+                <td>[transparent]="true"</td>
             </tr>
             <tr>
                 <td>
-                    checkedChanged : EventEmitter&lt;boolean&gt;
+                    checkedChanged : EventEmitter&lt;any&gt;
                 </td>
                 <td>Event som triggas när man checkar i eller ur checkboxen</td>
                 <td>(checkedChanged)="onCheckedChanged($event) "</td>
@@ -86,7 +202,7 @@
                 <td>focus()</td>
                 <td>Metod för att flytta fokus till komponenten</td>
                 <td>this.myCheckbox.focus()</td>
-              </tr>    
+              </tr>
         </table>
     </div>
     <div class="docs__wcag">
