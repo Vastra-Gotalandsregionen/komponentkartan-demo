@@ -36,11 +36,43 @@
                 <vgr-checkbox (checkedChanged)="groupDisabled = $event.checked" label="Jag cyklar" [checked]="groupDisabled">
                 </vgr-checkbox>
             </div>
-            <vgr-radiobutton-group (selectedChanged)="someCode($event)" [disabled]="groupDisabled">
-                <vgr-radiobutton-item [selected]="true" [disabled]="false">Subaru</vgr-radiobutton-item>
-                <vgr-radiobutton-item [selected]="false" [disabled]="true">Volvo</vgr-radiobutton-item>
-                <vgr-radiobutton-item [selected]="false" [disabled]="false">Toyota</vgr-radiobutton-item>
+            <vgr-radiobutton-group (selectedChanged)="valjBil($event)" [disabled]="groupDisabled" [value]="selectedOption">
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Subaru
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="true">Volvo</vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">Toyota</vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Honda
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Seat
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Skoda
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> VW
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Porsche
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false" [selected]="true">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Ferrari
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Tesla
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Kia
+              </vgr-radiobutton-item>
+              <vgr-radiobutton-item [disabled]="false">
+                <vgr-icon icon="pen" [disabled]="groupDisabled" color="text" size="sm"></vgr-icon> Nissan
+              </vgr-radiobutton-item>
             </vgr-radiobutton-group>
+
+            <br>
+            <label>Vald bil: {{valdBil}}</label>
 
             <hr>
             <br>
