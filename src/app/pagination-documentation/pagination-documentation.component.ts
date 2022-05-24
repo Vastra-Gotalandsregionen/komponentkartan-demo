@@ -9,8 +9,6 @@ import { HtmlEncodeService } from '../html-encode.service';
 })
 export class PaginationDocumentationComponent {
 
-  pageCount = 10;
-  activePage = 1;
   samplePagination = `
   <div *ngIf="pages > 1">
     <vgr-pagination [pages]="pages" (pageChanged)="onPageChanged($event)"></vgr-pagination>

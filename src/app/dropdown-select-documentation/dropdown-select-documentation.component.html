@@ -75,6 +75,40 @@
       </vgr-dropdown-select>
       <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[5])">
       </section>
+      <h2>Exempel på olika justeringsalternativ av listboxen</h2>
+      <section style="display: flex; justify-content: space-between;">
+        <div>
+          <h3>Vänsterjusterad</h3>
+          <!--[topAlign]="true" [rightAlign]="true"-->
+          <vgr-dropdown-select [deselectable]="true">
+            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+        <div>
+          <h3>Högerjusterad</h3>
+          <vgr-dropdown-select [deselectable]="true">
+            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </section>
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[6])">
+      </section>
+      <section style="display: flex; justify-content: space-between;">
+        <div>
+          <h4>Vänsterjusterad och upptill</h4>
+          <vgr-dropdown-select [deselectable]="true">
+            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+        <div>
+          <h3>Högerjusterad och upptill</h3>
+          <vgr-dropdown-select [deselectable]="true">
+            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+          </vgr-dropdown-select>
+        </div>
+      </section>
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[7])">
+      </section>
     </section>
   </div>
   <div class="docs__api">
@@ -166,6 +200,18 @@
         <td>labelId: string</td>
         <td>ID för det element som är rubrik. Används av skärmläsare.</td>
         <td>[labelId]="'someLabelId'"</td>
+      </tr>
+      <tr>
+        <td>rightAlign: boolean</td>
+        <td>Möjlighet att högerjustera listboxen i de fall du har dropdownen placerad på högersida. Default värde är <code>false</code></td>
+        <td>[rightAlign]="true"</td>
+      </tr>
+      <tr>
+        <td>topAlign: boolean</td>
+        <td>Möjlighet att ha listboxen ovanför dropdownen.
+          I de fall du har dropdownen placerad på högersida och vill ha den på ovanför så kan du använda dig av rightAlign och topAlign kombinerat.
+          Default värde är <code>false</code></td>
+        <td>[topAlign]="true"</td>
       </tr>
       <tr>
         <td>selectedChanged: EventEmitter&lt;any&gt;</td>

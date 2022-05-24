@@ -37,7 +37,31 @@ export class DropdownSelectDocumentationComponent {
     egen storlek på dropdownen -->
 <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
   <vgr-dropdown-item *ngFor="let item of items">{{item}}</vgr-dropdown-item>
-</vgr-dropdown-select>`
+</vgr-dropdown-select>`,
+`<div>
+<h3>Vänsterjusterad</h3>
+<vgr-dropdown-select [deselectable]="true">
+  <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+</vgr-dropdown-select>
+</div>
+<div>
+<h3>Högerjusterad</h3>
+<vgr-dropdown-select [deselectable]="true" [rightAlign]="true">
+  <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+</vgr-dropdown-select>
+</div>`,
+`<div>
+<h4>Vänsterjusterad och upptill</h4>
+<vgr-dropdown-select [deselectable]="true" [topAlign]="true">
+  <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+</vgr-dropdown-select>
+</div>
+<div>
+<h3>Högerjusterad och upptill</h3>
+<vgr-dropdown-select [deselectable]="true" [topAlign]="true" [rightAlign]="true">
+  <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+</vgr-dropdown-select>
+</div>`
   ];
 
 

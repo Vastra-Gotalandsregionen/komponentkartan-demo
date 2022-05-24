@@ -6,9 +6,7 @@
       som används för att dela upp innehåll på flera sidor och navigera mellan dem.<br>
     </p>
     <br>
-    <div style="margin-top: 10px; margin-bottom: 10px;">
-      <vgr-pagination [pages]="10" (pageChanged)="onPageChanged($event)"></vgr-pagination>
-    </div>
+
     <!-- (lägg till som ny sektion) -->
     <vgr-expandable-div [expanded]="true">
       <vgr-expandable-div-header>
@@ -37,12 +35,15 @@
 
   <div class="docs__examples">
     <div class="column-layout">
-      <p><b>Kodexempel: </b></p>
+      <p><strong>Kodexempel: </strong>
+        <br>
+      Sida 3 och 10 har en modal som frågar om du vill lämna den sida du är på eller gå vidare
+      </p>
       <section vgrHighlightCode [innerHTML]="samplePagination"></section><br>
     </div>
-    <p>
-      <a routerLink="/listexample-pagination">Exempel på lista med paginering.</a>
-    </p>
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+      <vgr-pagination [pages]="10" (pageChanged)="onPageChanged($event)"></vgr-pagination>
+    </div>
   </div>
 
   <div class="docs__api">
