@@ -165,7 +165,7 @@
         </table>
         <br>
         <h2>tabManagementService</h2>
-        <p>Service för att hantera möjligheten att avbryta en navigering samt notifiera om ursprungssidan vid menyklick.</p> <br>
+        <p>Service för att hantera möjligheten att avbryta en navigering samt trigga tabbuppdatering vid menyklick.</p> <br>
           <p>Exempelvis om man inte har sparat på sidan man är på och användaren väljer att stanna kvar istället för att gå vidare. <br>
           Detta styrs i din kod där man tar in <code>tabManagementService</code> i constructorn. <br>
           Därefter talar man om ifall navigationen ska gå vidare eller stanna kvar. <br>
@@ -173,7 +173,7 @@
         </p>
         <br>
         <p>
-          Man kan även använda servicen för att i constructorn notifiera om att sidan ska gå tillbaka till sin ursprungliga tabb när man står på sidan (men är på en annan tabb än den ursprungliga) och har klickat på menyn. <br>
+          Man kan även använda servicen för att i constructorn notifiera om att sidan ska gå tillbaka till sin default tabb när man står på sidan (men är på en annan tabb än den angetts som default) och har klickat på menyn. <br>
           Ex: <code>this.tabManagementService.tabChangeRequested(&#123; tabId: 'Avtal' &#125;, 'sidor')</code>
         </p>
         <br>
@@ -187,6 +187,11 @@
             <td>navigationCancelled(cancelled:boolean)	</td>
             <td>Metod för att tala om navigeringen ska cancelleras eller inte.</td>
             <td>navigationCancelled(false)</td>
+          </tr>
+          <tr>
+            <td>tabChangeRequested(tab: string, id: string)</td>
+            <td>Metod för att trigga tabbuppdatering vid förändring via kod. <br> <code>tab</code> är objektet för tabben och <code>id</code> är tabb gruppens identifiering.</td>
+            <td>tabChangeRequested(&#123; tabId: 'Avtal' &#125;, 'sidor')</td>
           </tr>
         </table>
       </vgr-grid-content>
