@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../../html-encode.service';
 
 @Component({
@@ -36,7 +37,8 @@ export class TabStartComponent implements OnInit {
   </vgr-panel-container>
 </vgr-tab-button-group>`
 
-  constructor(public htmlEncoder: HtmlEncodeService) {
+  constructor(public htmlEncoder: HtmlEncodeService, private tabManagementService: TabManagementService) {
+    this.tabManagementService.tabChangeRequested({ tabId: 'Avtal' }, 'sidor')
   }
 
   ngOnInit() {
