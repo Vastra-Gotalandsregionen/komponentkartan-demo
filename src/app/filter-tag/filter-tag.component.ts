@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, AbstractControl } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, AbstractControl } from '@angular/forms';
 import { Guid } from 'vgr-komponentkartan';
 
 interface FilterTag {
@@ -39,16 +39,16 @@ export class FilterTagComponent implements OnInit {
   ];
   advancedFilteredValues = this.advancedExampleValues.slice();
   advancedFilterTags: FilterTag[] = [];
-  advancedSearchForm: FormGroup;
+  advancedSearchForm: UntypedFormGroup;
 
   /*****/
 
   ngOnInit() {
-    this.advancedSearchForm = new FormGroup({
-      name: new FormControl(),
-      minimumAge: new FormControl(),
-      women: new FormControl(),
-      men: new FormControl()
+    this.advancedSearchForm = new UntypedFormGroup({
+      name: new UntypedFormControl(),
+      minimumAge: new UntypedFormControl(),
+      women: new UntypedFormControl(),
+      men: new UntypedFormControl()
     }, { updateOn: 'blur' });
   }
 

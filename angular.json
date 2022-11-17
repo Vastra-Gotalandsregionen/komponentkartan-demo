@@ -104,7 +104,6 @@
       }
     }
   },
-  "defaultProject": "komponentkartan-demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

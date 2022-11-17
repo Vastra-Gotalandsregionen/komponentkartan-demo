@@ -1,7 +1,7 @@
 
 import {map} from 'rxjs/operators';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { CityService } from './cityservice';
 
 import { Subject } from 'rxjs';
@@ -14,7 +14,7 @@ import { InputComponent } from 'vgr-komponentkartan';
 })
 export class InputfieldsComponent implements OnInit, OnDestroy {
   @ViewChild('myInput', { read: InputComponent }) myInput: InputComponent;
-  form: FormGroup;
+  form: UntypedFormGroup;
   disabled = false;
   readonly = false;
   showErrors = true;
@@ -40,7 +40,7 @@ export class InputfieldsComponent implements OnInit, OnDestroy {
     }
   };
 
-  constructor(private fb: FormBuilder) {  }
+  constructor(private fb: UntypedFormBuilder) {  }
 
   ngOnInit() {
     this.createForm();

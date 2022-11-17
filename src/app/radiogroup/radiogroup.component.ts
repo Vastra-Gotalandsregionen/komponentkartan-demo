@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NotificationType, RadiobuttonGroupComponent } from 'vgr-komponentkartan';
 
 @Component({
@@ -12,7 +12,7 @@ export class RadiogroupComponent implements OnInit {
   notificationTypes = NotificationType;
 
   radiogroupVal: string;
-  radioGroupForm: FormGroup;
+  radioGroupForm: UntypedFormGroup;
 
   groupDisabled: boolean = false;
   @ViewChild('RadioGroup2') radioGroup2: RadiobuttonGroupComponent;
@@ -23,8 +23,8 @@ export class RadiogroupComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.radioGroupForm = new FormGroup({
-      val: new FormControl('Det var inte bra')
+    this.radioGroupForm = new UntypedFormGroup({
+      val: new UntypedFormControl('Det var inte bra')
     }, { updateOn: 'change' });
 
     this.selectedOption = 'Toyota';

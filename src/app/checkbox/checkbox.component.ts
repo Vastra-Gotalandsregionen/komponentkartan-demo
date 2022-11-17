@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 // import { CheckboxComponentElement } from 'vgr-komponentkartan';
 
@@ -11,8 +11,8 @@ import { HtmlEncodeService } from '../html-encode.service';
 })
 export class CheckboxComponent implements OnInit {
   // @ViewChild('myCheckbox', { read: CheckboxComponentElement }) myCheckbox: CheckboxComponentElement;
-  form: FormGroup;
-  checkboxForm: FormGroup;
+  form: UntypedFormGroup;
+  checkboxForm: UntypedFormGroup;
   showValidFormText: boolean = false;
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
@@ -33,7 +33,7 @@ export class CheckboxComponent implements OnInit {
   checkedChangedChecked: any;
   checkedChangedActivated: boolean;
 
-  constructor(private fb: FormBuilder, htmlEncoder: HtmlEncodeService) {
+  constructor(private fb: UntypedFormBuilder, htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
   }
