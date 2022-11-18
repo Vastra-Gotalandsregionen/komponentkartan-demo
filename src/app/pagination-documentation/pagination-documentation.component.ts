@@ -19,7 +19,6 @@ export class PaginationDocumentationComponent {
   }
 
   onPageChanged(e) {
-    console.log(e)
     if (e === 3 || e === 10) {
       this.modalService.openDialog('modal1');
     } else {

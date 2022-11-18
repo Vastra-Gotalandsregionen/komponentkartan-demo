@@ -41,8 +41,6 @@ export class RadiogroupComponent implements OnInit {
     } else {
       this.valdBil = this.selectedOption;
     }
-
-    console.log( this.selectedOption)
   }
 
   someCode(param, isFormControl = false) {
