@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-datepicker',
@@ -9,7 +9,7 @@ import { UntypedFormControl } from '@angular/forms';
 export class DatepickerComponent {
   disabled = false;
   readonly = false;
-  form = new UntypedFormControl();
+  form = new FormControl();
   minDate = new Date(2017, 4, 10);
   maxDate = new Date(2018, 4, 10);
   today = new Date();

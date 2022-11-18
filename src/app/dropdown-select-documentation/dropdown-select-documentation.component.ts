@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class DropdownSelectDocumentationComponent {
   items5: string[];
   items10: string[];
   items50: string[];
-  form: UntypedFormControl;
+  form: FormControl;
   itemLabel = 'Ett långt alternativ som skrivs ut i helhet';
   itemValue = 1;
 
@@ -69,7 +69,7 @@ export class DropdownSelectDocumentationComponent {
     this.items5 = this.getItems(5);
     this.items10 = this.getItems(10);
     this.items50 = this.getItems(50);
-    this.form = new UntypedFormControl(this.itemValue);
+    this.form = new FormControl(this.itemValue);
   }
 
   getItems(length: number): string[] {

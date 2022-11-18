@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modaldialog',
@@ -9,8 +9,8 @@ import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms
   styleUrls: ['./modaldialog.component.scss']
 })
 export class ModaldialogComponent implements OnInit {
-  vardvalForm: UntypedFormGroup;
-  vardvalForm2: UntypedFormGroup;
+  vardvalForm: FormGroup;
+  vardvalForm2: FormGroup;
   vardval1Answer: string;
   vardval2Answer: string;
   validateOnSubmit: boolean;
@@ -40,7 +40,7 @@ export class ModaldialogComponent implements OnInit {
 
   exampleCodeMarkup: string;
   exampleCodeTypescript: string;
-  form: UntypedFormGroup;
+  form: FormGroup;
 
   constructor(public modalService: ModalService, htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =
@@ -100,16 +100,16 @@ export class ModaldialogComponent implements OnInit {
   }
 
   createForms() {
-    this.vardvalForm = new UntypedFormGroup({
-      vardval: new UntypedFormControl(null, { validators: [Validators.required] }),
+    this.vardvalForm = new FormGroup({
+      vardval: new FormControl(null, { validators: [Validators.required] }),
     }, { updateOn: 'change' });
 
-    this.vardvalForm2 = new UntypedFormGroup({
-      vardval: new UntypedFormControl(null, { validators: [Validators.required] }),
+    this.vardvalForm2 = new FormGroup({
+      vardval: new FormControl(null, { validators: [Validators.required] }),
     }, { updateOn: 'change' });
 
-    this.form = new UntypedFormGroup({
-      textarea: new UntypedFormControl('', { validators: [Validators.required] })
+    this.form = new FormGroup({
+      textarea: new FormControl('', { validators: [Validators.required] })
     }, { updateOn: 'blur' });
   }
 
