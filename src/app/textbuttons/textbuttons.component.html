@@ -4,8 +4,8 @@
     <p>
       <code>&lt;vgr-button&gt; </code>
       finns i tre olika utföranden, primär, sekundär och diskret.<br><br>
-      Primär - visar den action du “borde” ta, troligaste valet.<br>   
-      Sekundär - för mindre troligt alternativ som ändå måste finnas.<br> 
+      Primär - visar den action du “borde” ta, troligaste valet.<br>
+      Sekundär - för mindre troligt alternativ som ändå måste finnas.<br>
       Diskret - används i samma syfte som sekundär
         men när man vill ha mindre visuellt fokus. (Likt
         <a href="https://material.io/design/components/buttons.html#hierarchy-placement">
@@ -53,9 +53,9 @@
 
       <h2>Knappar med loadingState = true</h2>
       <div>
-        <vgr-button [buttonStyle]="'primary'" [loadingState]="loadingState">OK</vgr-button>
-        <vgr-button [buttonStyle]="'secondary'" [disabled]="buttonDiscreetDisabled" [loadingState]="loadingState">Text</vgr-button>
-        <vgr-button [buttonStyle]="'discreet'" [loadingState]="loadingState">Text</vgr-button>
+        <vgr-button [buttonStyle]="'primary'" [loadingState]="loadingState" (click)="testarLogg()">OK</vgr-button>
+        <vgr-button [buttonStyle]="'secondary'" [disabled]="buttonDiscreetDisabled" [loadingState]="loadingState" (click)="testarLogg()">Text</vgr-button>
+        <vgr-button [buttonStyle]="'discreet'" [loadingState]="loadingState" (click)="testarLogg()">Text</vgr-button>
       </div>
 
       <div style="margin-top: 20px;">
@@ -64,7 +64,7 @@
 
 
     </div>
-   
+
   </div>
 
   <div class="docs__api">

@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
-// import { CheckboxComponentElement } from 'vgr-komponentkartan';
 
 
 @Component({
@@ -10,14 +9,12 @@ import { HtmlEncodeService } from '../html-encode.service';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent implements OnInit {
-  // @ViewChild('myCheckbox', { read: CheckboxComponentElement }) myCheckbox: CheckboxComponentElement;
   form: FormGroup;
   checkboxForm: FormGroup;
   showValidFormText: boolean = false;
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
   klarmarkerad = false;
-  // checkbox = new FormControl('', Validators.required);
   exampleCode = `<h2>Exempel med form</h2>
   <form [formGroup]="checkboxForm">
       <vgr-checkbox-group (selectedChanged)="changed($event)" formControlName="checkboxValues" [showValidation]="formSubmittedCheckboxGroup">
@@ -59,9 +56,6 @@ export class CheckboxComponent implements OnInit {
 
   submitCheckboxForm() {
     this.formSubmittedCheckboxGroup = true;
-    // this.checkboxForm.controls.checkboxValues.markAsTouched();
-    // Do nothing...
-    // this.checkboxForm.reset();
   }
 
   resetCheckboxForm() {
@@ -74,9 +68,4 @@ export class CheckboxComponent implements OnInit {
     this.checkedChangedChecked = event.checked;
 
   }
-
-  // setFocus() {
-  //   this.myCheckbox.focus();
-  // }
-
 }

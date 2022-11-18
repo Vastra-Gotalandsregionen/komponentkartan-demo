@@ -22,4 +22,8 @@ export class TextbuttonsComponent implements OnInit {
     this.loadingState = !this.loadingState;
   }
 
+  testarLogg() {
+    console.log('KLICKAD PÅ!')
+  }
+
 }

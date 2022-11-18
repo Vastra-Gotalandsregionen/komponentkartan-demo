@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, AbstractControl } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Guid } from 'vgr-komponentkartan';
 
 interface FilterTag {

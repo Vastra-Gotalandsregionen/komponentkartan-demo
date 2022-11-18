@@ -1,7 +1,7 @@
 
 import {map} from 'rxjs/operators';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import { Validators, AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
 import { CityService } from './cityservice';
 
 import { Subject } from 'rxjs';
@@ -19,7 +19,7 @@ export class InputfieldsComponent implements OnInit, OnDestroy {
   readonly = false;
   showErrors = true;
 
-  private ngUnsubscribe = new Subject();
+  private ngUnsubscribe: any = new Subject();
 
 
   ngModelValues = ['', 125, '', 22];

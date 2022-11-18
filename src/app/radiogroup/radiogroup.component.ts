@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NotificationType, RadiobuttonGroupComponent } from 'vgr-komponentkartan';
 
 @Component({
@@ -41,8 +41,6 @@ export class RadiogroupComponent implements OnInit {
     } else {
       this.valdBil = this.selectedOption;
     }
-
-    console.log( this.selectedOption)
   }
 
   someCode(param, isFormControl = false) {

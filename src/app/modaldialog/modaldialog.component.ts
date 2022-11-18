@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modaldialog',

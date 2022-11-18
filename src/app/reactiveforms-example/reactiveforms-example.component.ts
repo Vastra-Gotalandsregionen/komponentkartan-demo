@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { Validators, AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { SelectableItem } from 'vgr-komponentkartan';
 import { Examples } from './code-example';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Validators, FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
