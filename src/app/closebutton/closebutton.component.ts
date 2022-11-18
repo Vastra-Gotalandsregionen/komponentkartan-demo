@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-closebutton',
   templateUrl: './closebutton.component.html',
 })
-export class ClosebuttonComponent implements OnInit {
+export class ClosebuttonComponent {
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

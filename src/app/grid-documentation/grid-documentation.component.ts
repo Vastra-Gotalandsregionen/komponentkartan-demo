@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './grid-documentation.component.html',
   styleUrls: ['./grid-documentation.component.scss']
 })
-export class GridDocumentationComponent {
+export class GridDocumentationComponent implements OnInit {
 
   people: any[] = [
     { fornamn: 'Arvid', efternamn: 'Johansson', status: 'klar', belopp: 300, expanded: false, checked: false },

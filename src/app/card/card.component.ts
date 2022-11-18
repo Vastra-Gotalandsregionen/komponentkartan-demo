@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { RowNotification, NotificationType } from 'vgr-komponentkartan';
 
@@ -7,7 +7,7 @@ import { RowNotification, NotificationType } from 'vgr-komponentkartan';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   cardExampleMarkup: string;
   cardExampleMarkup2: string;
@@ -86,8 +86,6 @@ export class CardComponent implements OnInit {
     this.cardExampleMarkup = htmlEncoder.prepareHighlightedSection(this.cardExample);
     this.cardExampleMarkup2 = htmlEncoder.prepareHighlightedSection(this.cardExample2);
     this.birthDate = new Date(1976, 5, 17);
-  }
-  ngOnInit() {
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 declare var require: any;
 
 
@@ -7,13 +7,10 @@ declare var require: any;
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss']
 })
-export class StartComponent implements OnInit {
+export class StartComponent {
 
   constructor() {
 
-  }
-
-  ngOnInit() {
   }
 
 }

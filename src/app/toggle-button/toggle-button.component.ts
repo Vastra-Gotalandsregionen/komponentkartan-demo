@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toggle-button',
   templateUrl: './toggle-button.component.html',
   styleUrls: ['./toggle-button.component.css']
 })
-export class ToggleButtonComponent implements OnInit {
+export class ToggleButtonComponent {
   active = false;
   state = false;
   states = [
@@ -14,9 +14,6 @@ export class ToggleButtonComponent implements OnInit {
     { 'text': 'Valda', 'state': false }
   ];
   constructor() { }
-
-  ngOnInit() {
-  }
 
   toggle() {
     this.state = !this.state;

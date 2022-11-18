@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './expandable-div.component.html',
   styleUrls: ['./expandable-div.component.scss']
 })
-export class ExpandableDivComponent implements OnInit {
+export class ExpandableDivComponent {
 
   exampleCode = `<vgr-expandable-div [expanded]="false" (expandedChanged)="onExpandedChanged($event)">
   <vgr-expandable-div-header>
@@ -23,9 +23,6 @@ export class ExpandableDivComponent implements OnInit {
   constructor(htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
-  }
-
-  ngOnInit() {
   }
   onExpandedChanged(flag: Boolean) { }
 }

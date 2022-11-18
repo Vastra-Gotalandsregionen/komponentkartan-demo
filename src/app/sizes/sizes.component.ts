@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 @Component({
   selector: 'app-sizes',
   templateUrl: './sizes.component.html',
   styleUrls: ['./sizes.component.scss']
 })
-export class SizesComponent implements OnInit {
+export class SizesComponent {
 
   mediaQueryCode = `
   // Importera _settings.sizes.scss från komponentkartan.
@@ -34,9 +34,6 @@ export class SizesComponent implements OnInit {
   mediaQueryExample: string;
   constructor(htmlEncoder: HtmlEncodeService) {
     this.mediaQueryExample = htmlEncoder.prepareHighlightedSection(this.mediaQueryCode, 'scss');
-  }
-
-  ngOnInit() {
   }
 
 }

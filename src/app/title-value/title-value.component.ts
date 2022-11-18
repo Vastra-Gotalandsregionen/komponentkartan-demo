@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { RowNotification, NotificationType } from 'vgr-komponentkartan';
 
@@ -7,7 +7,7 @@ import { RowNotification, NotificationType } from 'vgr-komponentkartan';
   templateUrl: './title-value.component.html',
   styleUrls: ['./title-value.component.scss']
 })
-export class TitleValueComponent implements OnInit {
+export class TitleValueComponent {
   markupExample = `
   <div>
     <vgr-title-value-layout>
@@ -30,6 +30,4 @@ export class TitleValueComponent implements OnInit {
 
 
   constructor(public htmlEncoder: HtmlEncodeService) { }
-
-  ngOnInit() { }
 }

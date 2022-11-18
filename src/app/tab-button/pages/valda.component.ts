@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'vgr-valda',
   templateUrl: './valda.component.html'
 })
-export class ValdaComponent implements OnInit {
+export class ValdaComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './icons.component.html',
   styleUrls: ['./icons.component.scss']
 })
-export class IconsComponent implements OnInit {
+export class IconsComponent {
   html = `<div class="vgr-icon-edit"></div>`;
   code = `row.notifyOnCollapse(row.previewObject.enhet + ' sparades', { name: 'check-circle', color: 'success' });`;
   code2 = `this.row.notification = {
@@ -26,9 +26,6 @@ export class IconsComponent implements OnInit {
     this.iconExamplesTS = htmlEncoder.prepareHighlightedSection(this.code, 'typescript');
     this.iconExamplesTS2 = htmlEncoder.prepareHighlightedSection(this.code2, 'typescript');
     this.iconExamplesHTML = htmlEncoder.prepareHighlightedSection(this.html, 'html');
-  }
-
-  ngOnInit() {
   }
 
 }

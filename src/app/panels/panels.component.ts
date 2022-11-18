@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 const htmlMarkup = `
@@ -43,15 +43,12 @@ const htmlMarkup = `
   templateUrl: './panels.component.html',
   styleUrls: ['./panels.component.scss']
 })
-export class PanelsComponent implements OnInit {
+export class PanelsComponent {
   htmlMarkup: string;
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.htmlMarkup =
       htmlEncoder.prepareHighlightedSection(htmlMarkup);
-  }
-
-  ngOnInit() {
   }
 
 }

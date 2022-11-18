@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-textbuttons',
   templateUrl: './textbuttons.component.html',
   styleUrls: ['./textbuttons.component.scss']
 })
-export class TextbuttonsComponent implements OnInit {
+export class TextbuttonsComponent {
   lastButtonPressed: string;
   buttonDisabled = true;
   buttonSecondaryDisabled = true;
@@ -13,9 +13,6 @@ export class TextbuttonsComponent implements OnInit {
   loadingState = true;
   constructor() {
     this.lastButtonPressed = '';
-  }
-
-  ngOnInit() {
   }
 
   toggleLoadingState() {

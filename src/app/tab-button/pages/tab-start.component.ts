@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../../html-encode.service';
 
@@ -8,7 +7,7 @@ import { HtmlEncodeService } from '../../html-encode.service';
   templateUrl: './tab-start.component.html',
   styleUrls: ['./tab-start.component.css']
 })
-export class TabStartComponent implements OnInit {
+export class TabStartComponent {
   active = true;
   active2 = true;
 
@@ -40,11 +39,6 @@ export class TabStartComponent implements OnInit {
   constructor(public htmlEncoder: HtmlEncodeService, private tabManagementService: TabManagementService) {
     this.tabManagementService.tabChangeRequested({ tabId: 'Avtal' }, 'sidor')
   }
-
-  ngOnInit() {
-
-  }
-
 
   printLog(id) {
     this.activeTab = id;

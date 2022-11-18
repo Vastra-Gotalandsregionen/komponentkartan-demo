@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 
@@ -8,7 +8,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
 
   htmlTableStructureMarkup = `
   <vgr-table>
@@ -33,8 +33,5 @@ export class TableComponent implements OnInit {
     this.htmlMarkup =
     htmlEncoder.prepareHighlightedSection(this.htmlTableStructureMarkup);
    }
-
-  ngOnInit() {
-  }
 
 }

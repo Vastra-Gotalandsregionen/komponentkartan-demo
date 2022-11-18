@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-colours',
   templateUrl: './colours.component.html',
   styleUrls: ['./colours.component.scss']
 })
-export class ColoursComponent implements OnInit {
+export class ColoursComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

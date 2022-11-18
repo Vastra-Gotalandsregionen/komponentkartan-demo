@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchResultItem } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -7,7 +7,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.scss']
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent {
 
   items: SearchResultItem[] = this.getDemoItems(55);
   items_e2: SearchResultItem[] = this.getDemoItems(13, true);
@@ -91,10 +91,6 @@ export class SearchResultComponent implements OnInit {
 
   openDropdown() {
     this.dropdownVisible = true;
-  }
-
-  ngOnInit() {
-
   }
 
 }

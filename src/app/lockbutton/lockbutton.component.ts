@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-lockbutton',
   templateUrl: './lockbutton.component.html',
   styleUrls: ['./lockbutton.component.scss']
 })
-export class LockbuttonComponent implements OnInit {
+export class LockbuttonComponent {
   lockMessage: string;
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
