@@ -19,7 +19,7 @@ export class InputfieldsComponent implements OnInit, OnDestroy {
   readonly = false;
   showErrors = true;
 
-  private ngUnsubscribe = new Subject();
+  private ngUnsubscribe: any = new Subject();
 
 
   ngModelValues = ['', 125, '', 22];
