@@ -189,7 +189,11 @@
         <td>Anger höjden på tabellen (om innehållet i tabellen överskrider den angivna höjden så visas en scroll). Höjden MÅSTE anges i px.</td>
         <td>[height]="'500px'"</td>
       </tr>
-
+      <tr>
+        <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
+        <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
+        <td>(sortChanged)="onSortChanged($event)"</td>
+      </tr>
       <br>
       <strong><code>&lt;vgr-editable-table-header-column&gt;</code></strong><br><br>
       <tr>
@@ -207,11 +211,7 @@
         <td>Nyckel för vad man skall sortera på</td>
         <td>[sortKey]="'Namn'"</td>
       </tr>
-      <tr>
-        <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
-        <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
-        <td>(sortChanged)="onSortChanged($event)"</td>
-      </tr>
+
     </table>
   </div>
   <div class="docs__wcag ">
