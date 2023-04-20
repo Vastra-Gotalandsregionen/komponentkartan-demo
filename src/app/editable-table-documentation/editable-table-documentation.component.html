@@ -3,7 +3,8 @@
     <p>
       <code>&lt;vgr-editable-table&gt;</code> är en tabell som kan redigeras.
       Du kan placera andra redigerbara komponenter i tabellen som kan låsas/låsas upp.
-      Man kan även lägga till rader dynamiskt i tabellen och sätta en fast höjd på den (då får man en scroll). <br> <br>
+      Man kan även lägga till rader dynamiskt i tabellen och sätta en fast höjd på den (då får man en scroll).
+      Från och med version 10.1.0 av komponentkartan kan man även lägga till sortering på kolumnerna.  <br> <br>
       Exempel på redigerbar tabell med scroll och utan scroll hittar du under exempel-fliken nedan:
     </p>
 
@@ -200,6 +201,16 @@
         <td>align: string</td>
         <td>Anger om tabellen ska vara vänsterjusterad, högerjusterad eller centrerad. Default är left. Accepterade värden är left, right och center.</td>
         <td>[align]="'center'"</td>
+      </tr>
+      <tr>
+        <td>sortKey: string</td>
+        <td>Nyckel för vad man skall sortera på</td>
+        <td>[sortKey]="'Namn'"</td>
+      </tr>
+      <tr>
+        <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
+        <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
+        <td>(sortChanged)="onSortChanged($event)"</td>
       </tr>
     </table>
   </div>
