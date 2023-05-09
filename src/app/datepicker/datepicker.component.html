@@ -36,6 +36,11 @@
           <div>
             <vgr-datepicker [minZoom]="'m'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
           </div>
+
+        <div style="margin-top: 10px;">Månad med displayformat satt</div>
+          <div>
+            <vgr-datepicker [minZoom]="'m'" [displayFormat]="'yyyy-MM-dd'" [disabled]="disabled" [readonly]="readonly"></vgr-datepicker>
+          </div>
         </div>
         <div>
           <div>År</div>
@@ -118,6 +123,15 @@
           <td>selectedDate: Date</td>
           <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.</td>
           <td>[value]="someDate"</td>
+        </tr>
+        <tr>
+          <td>displayFormat: string</td>
+          <td>Styr vilket format som datumet syns i när man valt ett datum. Sätter man inget här så blir det default format beroende på vilken zoom nivå man valt.</td>
+          <td>[value]="'yyyy-MM-dd'" <br>
+            minzoom, d => 'yyyy-MM-dd' <br>
+            minzoom, m => 'MMM yyyy' <br>
+            minzoom, y => 'yyyy'
+          </td>
         </tr>
         <tr>
           <td>minZoom: string</td>
