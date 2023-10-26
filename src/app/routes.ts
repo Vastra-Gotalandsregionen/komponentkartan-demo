@@ -44,6 +44,7 @@ import { NotificationDocumentationComponent } from './notification-documentation
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component'
 import {RadiogroupComponent} from './radiogroup/radiogroup.component'
+import { SelectablelistDocumentationComponent } from './selectablelist-documentation/selectablelist-documentation.component';
 
 
 export const appRoutes: Routes = [
@@ -100,5 +101,6 @@ export const appRoutes: Routes = [
       loadChildren: () => import('../app/tab-button/tab-button.module').then(m => m.TabButtonModule)
   },
     { path: 'radiogroup', component: RadiogroupComponent },
+    { path: 'selectablelist', component: SelectablelistDocumentationComponent },
     { path: '**', redirectTo: '/start' }
 ];
