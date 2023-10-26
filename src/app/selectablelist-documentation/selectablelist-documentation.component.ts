@@ -6,7 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
   templateUrl: './selectablelist-documentation.component.html',
   styleUrls: ['./selectablelist-documentation.component.scss']
 })
-export class SelectablelistDocumentationComponent implements OnInit {
+export class SelectablelistDocumentationComponent {
 
   justeringar = [
     {
@@ -84,9 +84,6 @@ export class SelectablelistDocumentationComponent implements OnInit {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
    }
-
-  ngOnInit(): void {
-  }
 
   onSelectablelistChanged(event) {
     console.log(event)
