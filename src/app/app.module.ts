@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from './routes';
 
 // Komponentkartan
-import { KomponentkartanModule } from 'vgr-komponentkartan';
+import { KomponentkartanModule, SelectablelistComponent } from 'vgr-komponentkartan';
 
 // Vendors
 // import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
@@ -59,10 +59,6 @@ import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { TabButtonComponent } from './tab-button/tab-button.component';
-
-// Locale registration
-import { registerLocaleData } from '@angular/common';
-import localeSv from '@angular/common/locales/sv';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
@@ -78,6 +74,11 @@ import { HighlightCodeDirective } from './shared/directives/highlight-code.direc
 import { SharedModule } from './shared/shared.module';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component';
 import { RadiogroupComponent } from './radiogroup/radiogroup.component';
+
+// Locale registration
+import { registerLocaleData } from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
+import { SelectablelistDocumentationComponent } from './selectablelist-documentation/selectablelist-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -126,7 +127,8 @@ registerLocaleData(localeSv);
         ComboboxDocumentationComponent,
         EditableTableDocumentationComponent,
         ComboboxDocumentationComponent,
-        RadiogroupComponent
+        RadiogroupComponent,
+        SelectablelistDocumentationComponent
     ],
     imports: [
         KomponentkartanModule,
