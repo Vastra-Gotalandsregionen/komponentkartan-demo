@@ -87,18 +87,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "komponentkartan-demo:build"
+            "buildTarget": "komponentkartan-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "komponentkartan-demo:build:production"
+              "buildTarget": "komponentkartan-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "komponentkartan-demo:build"
+            "buildTarget": "komponentkartan-demo:build"
           }
         },
         "lint": {
