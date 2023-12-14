@@ -35,7 +35,7 @@
     "rxjs": "^7.5.7",
     "smoothscroll-polyfill": "^0.4.3",
     "tslib": "^2.3.1",
-    "vgr-komponentkartan": "^10.3.0",
+    "vgr-komponentkartan": "^10.4.0-beta",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
