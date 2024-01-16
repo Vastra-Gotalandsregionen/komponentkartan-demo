@@ -65,7 +65,7 @@ export const appRoutes: Routes = [
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
     { path: 'savecancel', component: SavecancelComponent },
-    { path: 'backtotop', component: BacktotopComponent },
+    { path: 'scrolltotop', component: BacktotopComponent },
     { path: 'start', component: StartComponent },
     { path: 'table', component: TableComponent },
     { path: 'theming', component: ThemingComponent },
