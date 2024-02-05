@@ -18,7 +18,7 @@
       <vgr-button (click)="addToList()">Lägg till fler rader</vgr-button>
       <vgr-button (click)="removeFromList()">Ta bort rader</vgr-button>
     </div>
-    <vgr-selectablelist [id]="'s1'" [active]="true" (selectedChanged)="onSelectablelistChanged($event)" [maxHeight]="220">
+    <vgr-selectablelist [id]="'s1'" [active]="true" (selectedChanged)="onSelectablelistChanged($event)" [maxHeight]="220" [setFirstSelectable]="true">
       <vgr-selectablelist-header>
           <vgr-selectablelist-header-column><strong>Utbetalning avser</strong>
           </vgr-selectablelist-header-column>
@@ -57,6 +57,11 @@
         <td>active: boolean</td>
         <td>Talar om huruvida tabellen är aktiverad eller inte. Default värde är <code>false</code>.</td>
         <td>[active]="true"</td>
+      </tr>
+      <tr>
+        <td>setFirstSelectable: boolean</td>
+        <td>Talar om huruvida första posten i tabellen automatiskt skall väljas när tabellen är i aktivt läge. Default värde är <code>true</code>.</td>
+        <td>[setFirstSelectable]="true"</td>
       </tr>
       <tr>
         <td>useScrollbar: boolean</td>

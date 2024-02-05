@@ -61,7 +61,7 @@ export class SelectablelistDocumentationComponent {
     }
   ]
 
-  exampleCode = `<vgr-selectablelist [id]="'test'" [active]="true (selectedChanged)="onSelectablelistChanged($event)">
+  exampleCode = `<vgr-selectablelist [id]="'test'" [active]="true" [setFirstSelectable]="true" (selectedChanged)="onSelectablelistChanged($event)">
       <vgr-selectablelist-header>
           <vgr-selectablelist-header-column><strong>Utbetalning avser</strong>
           </vgr-selectablelist-header-column>
