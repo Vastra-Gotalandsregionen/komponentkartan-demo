@@ -62,11 +62,13 @@
       <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[3])">
       </section>
       <h2>Inaktiv</h2>
-      <vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
+      <vgr-dropdown-select [small]="true" [formControl]="form1">
         <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-      </vgr-dropdown-select>
-      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])">
-      </section>
+        </vgr-dropdown-select>
+        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])">
+        </section>
+        <p style="font-size: 13px; font-style: italic;">Disabled sätts i formcontrolen när en formcontrol används</p>
+        <p style="font-size: 13px; font-style: italic;">{{'Ex: this.form1 = new FormControl({ value: this.itemValue, disabled: true });'}}</p>
       <h2>Endast visning</h2>
       <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
         <vgr-dropdown-item [value]="itemValue">

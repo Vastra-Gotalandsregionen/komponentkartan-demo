@@ -12,6 +12,7 @@ export class DropdownSelectDocumentationComponent {
   items10: string[];
   items50: string[];
   form: FormControl;
+  form1: FormControl;
   itemLabel = 'Ett långt alternativ som skrivs ut i helhet';
   itemValue = 1;
 
@@ -29,7 +30,7 @@ export class DropdownSelectDocumentationComponent {
   <vgr-dropdown-item *ngFor="let item of items">{{item}}</vgr-dropdown-item>
 </vgr-dropdown-select>
 `,
-    `<vgr-dropdown-select [small]="true" [disabled]="true" [formControl]="form">
+    `<vgr-dropdown-select [small]="true" [formControl]="form1">
   <vgr-dropdown-item *ngFor="let item of items">{{item}}</vgr-dropdown-item>
 </vgr-dropdown-select>`,
     `<!-- Det blir en radbrytning i texten då den håller samma storlek som dropdownen.
@@ -70,6 +71,7 @@ export class DropdownSelectDocumentationComponent {
     this.items10 = this.getItems(10);
     this.items50 = this.getItems(50);
     this.form = new FormControl(this.itemValue);
+    this.form1 = new FormControl({ value: this.itemValue, disabled: true });
   }
 
   getItems(length: number): string[] {
