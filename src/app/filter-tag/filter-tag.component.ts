@@ -87,10 +87,10 @@ export class FilterTagComponent implements OnInit {
     }
   }
 
-  disableFilters() {
-    this.disabled = !this.disabled;
-    this.filters.forEach(x => x.disabled = this.disabled);
-  }
+  // disableFilters() {
+  //   this.disabled = !this.disabled;
+  //   this.filters.forEach(x => x.disabled = this.disabled);
+  // }
 
   /********** Advanced example withe reactive forms  **********/
 
