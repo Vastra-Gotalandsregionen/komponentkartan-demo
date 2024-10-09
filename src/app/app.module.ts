@@ -79,6 +79,7 @@ import { RadiogroupComponent } from './radiogroup/radiogroup.component';
 import { registerLocaleData } from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
 import { SelectablelistDocumentationComponent } from './selectablelist-documentation/selectablelist-documentation.component';
+import { PipesDocumentationComponent } from './pipes-documentation/pipes-documentation.component';
 registerLocaleData(localeSv);
 
 @NgModule({
@@ -128,7 +129,8 @@ registerLocaleData(localeSv);
         EditableTableDocumentationComponent,
         ComboboxDocumentationComponent,
         RadiogroupComponent,
-        SelectablelistDocumentationComponent
+        SelectablelistDocumentationComponent,
+        PipesDocumentationComponent
     ],
     imports: [
         KomponentkartanModule,

@@ -45,6 +45,7 @@ import { ComboboxDocumentationComponent } from './combobox-documentation/combobo
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component'
 import {RadiogroupComponent} from './radiogroup/radiogroup.component'
 import { SelectablelistDocumentationComponent } from './selectablelist-documentation/selectablelist-documentation.component';
+import { PipesDocumentationComponent } from './pipes-documentation/pipes-documentation.component';
 
 
 export const appRoutes: Routes = [
@@ -76,6 +77,7 @@ export const appRoutes: Routes = [
     { path: 'pagebody', component: PageBodyDocumentationComponent },
     { path: 'card', component: CardComponent },
     { path: 'sizes', component: SizesComponent },
+    { path: 'pipes', component: PipesDocumentationComponent },
     {
       path: 'menu', component: MenuComponent,
       children: [{
