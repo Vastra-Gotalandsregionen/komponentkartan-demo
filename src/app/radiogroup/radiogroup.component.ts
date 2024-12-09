@@ -3,9 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { NotificationType, RadiobuttonGroupComponent } from 'vgr-komponentkartan';
 
 @Component({
-  selector: 'app-radiogroup',
-  templateUrl: './radiogroup.component.html',
-  styleUrls: ['./radiogroup.component.scss']
+    selector: 'app-radiogroup',
+    templateUrl: './radiogroup.component.html',
+    styleUrls: ['./radiogroup.component.scss'],
+    standalone: false
 })
 export class RadiogroupComponent implements OnInit {
   selectedOption: string;

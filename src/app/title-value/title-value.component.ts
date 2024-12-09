@@ -3,9 +3,10 @@ import { HtmlEncodeService } from '../html-encode.service';
 import { RowNotification, NotificationType } from 'vgr-komponentkartan';
 
 @Component({
-  selector: 'app-title-value',
-  templateUrl: './title-value.component.html',
-  styleUrls: ['./title-value.component.scss']
+    selector: 'app-title-value',
+    templateUrl: './title-value.component.html',
+    styleUrls: ['./title-value.component.scss'],
+    standalone: false
 })
 export class TitleValueComponent {
   markupExample = `

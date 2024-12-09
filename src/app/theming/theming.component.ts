@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { SelectableItem, ModalService } from 'vgr-komponentkartan';
 
 @Component({
-  selector: 'app-theming',
-  templateUrl: './theming.component.html',
-  styleUrls: ['./theming.component.scss']
+    selector: 'app-theming',
+    templateUrl: './theming.component.html',
+    styleUrls: ['./theming.component.scss'],
+    standalone: false
 })
 export class ThemingComponent implements OnInit {
 

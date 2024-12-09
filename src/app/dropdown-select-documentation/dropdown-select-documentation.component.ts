@@ -3,8 +3,9 @@ import { FormControl } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-dropdown-select-documentation',
-  templateUrl: './dropdown-select-documentation.component.html'
+    selector: 'app-dropdown-select-documentation',
+    templateUrl: './dropdown-select-documentation.component.html',
+    standalone: false
 })
 export class DropdownSelectDocumentationComponent {
 

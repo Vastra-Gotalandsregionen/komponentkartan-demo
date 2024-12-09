@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-grid-documentation',
-  templateUrl: './grid-documentation.component.html',
-  styleUrls: ['./grid-documentation.component.scss']
+    selector: 'app-grid-documentation',
+    templateUrl: './grid-documentation.component.html',
+    styleUrls: ['./grid-documentation.component.scss'],
+    standalone: false
 })
 export class GridDocumentationComponent implements OnInit {
 

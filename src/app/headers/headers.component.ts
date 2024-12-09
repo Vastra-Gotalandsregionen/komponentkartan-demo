@@ -3,9 +3,10 @@ import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
 
 @Component({
-  selector: 'app-headers',
-  templateUrl: './headers.component.html',
-  styleUrls: ['./headers.component.scss']
+    selector: 'app-headers',
+    templateUrl: './headers.component.html',
+    styleUrls: ['./headers.component.scss'],
+    standalone: false
 })
 
 

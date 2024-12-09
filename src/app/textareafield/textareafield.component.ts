@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-textareafield',
-  templateUrl: './textareafield.component.html',
-  styleUrls: ['./textareafield.component.css']
+    selector: 'app-textareafield',
+    templateUrl: './textareafield.component.html',
+    styleUrls: ['./textareafield.component.css'],
+    standalone: false
 })
 export class TextareafieldComponent implements OnInit {
   isReadonly = true;

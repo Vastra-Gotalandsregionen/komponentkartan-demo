@@ -4,8 +4,9 @@ import { ComboboxComponent } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-combobox-documentation',
-  templateUrl: './combobox-documentation.component.html'
+    selector: 'app-combobox-documentation',
+    templateUrl: './combobox-documentation.component.html',
+    standalone: false
 })
 export class ComboboxDocumentationComponent {
   @ViewChild('myCombobox', { read: ComboboxComponent }) myCombobox: ComboboxComponent;

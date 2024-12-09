@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-page-header-documentation',
-  templateUrl: './page-header-documentation.component.html'
+    selector: 'app-page-header-documentation',
+    templateUrl: './page-header-documentation.component.html',
+    standalone: false
 })
 export class PageHeaderDocumentationComponent {
   samplePageHeader = `
