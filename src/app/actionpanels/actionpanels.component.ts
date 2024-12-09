@@ -3,8 +3,9 @@ import { HtmlEncodeService } from '../html-encode.service';
 
 
 @Component({
-  selector: 'app-action-panel',
-  templateUrl: './actionpanels.component.html'
+    selector: 'app-action-panel',
+    templateUrl: './actionpanels.component.html',
+    standalone: false
 })
 export class ActionPanelsComponent {
 

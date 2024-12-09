@@ -7,7 +7,8 @@ import { Examples } from './code-example';
 @Component({
     selector: 'app-reactiveformscodeexample',
     templateUrl: './reactiveforms-example.component.html',
-    styleUrls: ['./reactiveforms-example.component.scss']
+    styleUrls: ['./reactiveforms-example.component.scss'],
+    standalone: false
 })
 export class ReactiveformsexampleComponent implements OnInit {
   radioOptions1: SelectableItem<number>[];

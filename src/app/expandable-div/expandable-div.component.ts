@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-expandable-div',
-  templateUrl: './expandable-div.component.html',
-  styleUrls: ['./expandable-div.component.scss']
+    selector: 'app-expandable-div',
+    templateUrl: './expandable-div.component.html',
+    styleUrls: ['./expandable-div.component.scss'],
+    standalone: false
 })
 export class ExpandableDivComponent {
 

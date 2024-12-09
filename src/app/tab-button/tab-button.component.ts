@@ -5,9 +5,10 @@ import { ModalService, TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-tab-button',
-  templateUrl: './tab-button.component.html',
-  styleUrls: ['./tab-button.component.css']
+    selector: 'app-tab-button',
+    templateUrl: './tab-button.component.html',
+    styleUrls: ['./tab-button.component.css'],
+    standalone: false
 })
 export class TabButtonComponent implements OnInit {
   pages = [

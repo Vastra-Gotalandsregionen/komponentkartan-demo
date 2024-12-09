@@ -3,9 +3,10 @@ import { Validators, FormArray, FormBuilder, FormControl, FormGroup } from '@ang
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-editable-table-documentation',
-  templateUrl: './editable-table-documentation.component.html',
-  styleUrls: ['./editable-table-documentation.component.scss']
+    selector: 'app-editable-table-documentation',
+    templateUrl: './editable-table-documentation.component.html',
+    styleUrls: ['./editable-table-documentation.component.scss'],
+    standalone: false
 })
 export class EditableTableDocumentationComponent {
   data3 = [];

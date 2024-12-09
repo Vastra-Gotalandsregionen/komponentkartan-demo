@@ -6,7 +6,8 @@ declare var require: any;
 
 @Component({
     selector: 'app-komponentkartan',
-    templateUrl: 'app.component.html'
+    templateUrl: 'app.component.html',
+    standalone: false
 })
 
 export class KomponentkartanApplicationComponent implements OnInit {

@@ -3,9 +3,10 @@ import { SearchResultItem } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss']
+    selector: 'app-search-result',
+    templateUrl: './search-result.component.html',
+    styleUrls: ['./search-result.component.scss'],
+    standalone: false
 })
 export class SearchResultComponent {
 

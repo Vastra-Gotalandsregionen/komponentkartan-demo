@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-textbuttons',
-  templateUrl: './textbuttons.component.html',
-  styleUrls: ['./textbuttons.component.scss']
+    selector: 'app-textbuttons',
+    templateUrl: './textbuttons.component.html',
+    styleUrls: ['./textbuttons.component.scss'],
+    standalone: false
 })
 export class TextbuttonsComponent {
   lastButtonPressed: string;

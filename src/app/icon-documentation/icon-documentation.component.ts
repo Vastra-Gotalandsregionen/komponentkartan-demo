@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
-  selector: 'app-icon-documentation.component',
-  templateUrl: './icon-documentation.component.html',
-  styleUrls: ['./icon-documentation.component.scss']
+    selector: 'app-icon-documentation.component',
+    templateUrl: './icon-documentation.component.html',
+    styleUrls: ['./icon-documentation.component.scss'],
+    standalone: false
 })
 export class IconDocumentationComponent {
   fav = false;

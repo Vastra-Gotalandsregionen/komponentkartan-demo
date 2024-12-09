@@ -3,9 +3,10 @@ import { TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../../html-encode.service';
 
 @Component({
-  selector: 'vgr-tab-start',
-  templateUrl: './tab-start.component.html',
-  styleUrls: ['./tab-start.component.css']
+    selector: 'vgr-tab-start',
+    templateUrl: './tab-start.component.html',
+    styleUrls: ['./tab-start.component.css'],
+    standalone: false
 })
 export class TabStartComponent {
   active = true;
