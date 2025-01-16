@@ -10,7 +10,7 @@ export class SizesComponent {
 
   mediaQueryCode = `
   // Importera _settings.sizes.scss från komponentkartan.
-  @import '../../../node_modules/vgr-komponentkartan/assets/partials/_settings.sizes.scss';
+  @use '../../../node_modules/vgr-komponentkartan/assets/partials/_settings.sizes.scss' as size;
 
   // Sätt default-storlek utan media query. Detta är den lilla storleken.
   .sizeInfo {
@@ -23,7 +23,7 @@ export class SizesComponent {
   }
 
   // Definiera media query baserat på variabel för stor storlek.
-  @media screen and (min-width: $desktop-width--medium) {
+  @media screen and (min-width: size.$desktop-width--medium) {
     .sizeInfo {
       &:after {
         content: "Stor";
