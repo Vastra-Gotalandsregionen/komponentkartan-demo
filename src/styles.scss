@@ -1,5 +1,5 @@
-@import 'partials/_settings.colors.scss';
-@import "partials/_settings.sizes.scss";
+@use 'partials/_settings.colors.scss' as color;
+@use "partials/_settings.sizes.scss" as size;
 .input-fields {
   li {
     list-style-type: circle;
@@ -43,7 +43,7 @@ code {
   padding: 3px;
   font-size: 13px;
   &.css {
-    color: $primary-color--red;
+    color: color.$primary-color--red;
   }
 }
 
@@ -84,24 +84,24 @@ code {
 .demo-logo {
   &:after {
     content: "Demo";
-    color: $text-color--light;
+    color: color.$text-color--light;
     font-size: 26px;
   }
 }
 
 .komponentkarta-components {
-  background-color: $background-color--content;
+  background-color: color.$background-color--content;
   position: relative;
   top: 97px;
   display: flex;
   flex-direction: column;
-  padding-bottom: $margin--regular;
-  padding-top: $margin--fat;
+  padding-bottom: size.$margin--regular;
+  padding-top: size.$margin--fat;
   transition: top 0.5s ease;
 }
 
 .komponentkarta-component {
-  margin-top: $margin--fat;
+  margin-top: size.$margin--fat;
 }
 
 .komponentkarta-component__code {
@@ -114,9 +114,9 @@ code {
 
 .class-description {
   position: absolute;
-  background: $background-color--default;
+  background: color.$background-color--default;
   border-radius: 5px;
-  border: 1px solid $border-color--light;
+  border: 1px solid color.$border-color--light;
   font-family: Courier New, Courier, monospace;
   color: black;
   display: block;
@@ -127,14 +127,14 @@ code {
   padding-right: 3px;
   padding-left: 3px;
   padding-left: 3px;
-  left: $margin--fat;
+  left: size.$margin--fat;
 }
 
 .markup-example {
-  background: $background-color--default;
+  background: color.$background-color--default;
   font-family: Consolas, Courier New, Courier, monospace;
   font-size: 12px;
-  border: 2px solid $border-color;
+  border: 2px solid color.$border-color;
   border-radius: 3px;
   padding: 4px;
 }
@@ -143,11 +143,11 @@ code {
   display: block;
   width: 600px;
   height: 50px;
-  padding-left: $margin--slim;
-  padding-right: $margin--slim;
+  padding-left: size.$margin--slim;
+  padding-right: size.$margin--slim;
   margin-top: 0px;
   &::first-child {
-      margin-top: $margin--slim;
+      margin-top: size.$margin--slim;
   }
 }
 
@@ -160,8 +160,8 @@ code {
 }
 
 .control-example {
-  border: 1px solid $border-color;
-  padding: $margin--slim;
+  border: 1px solid color.$border-color;
+  padding: size.$margin--slim;
   width: 300px;
 }
 
@@ -206,7 +206,7 @@ h4.font-example:after {
   content: "Liten text: 13 px, regular, radavstånd 1.5, #151515";
 }
 
-@media screen and (min-width: $desktop-width--medium) {
+@media screen and (min-width: size.$desktop-width--medium) {
   .formatmall__header {
       &:after {
           content: " (1459px - )";

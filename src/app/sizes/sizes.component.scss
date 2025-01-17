@@ -1,4 +1,5 @@
-@import 'partials/_settings.sizes.scss';
+@use 'partials/_settings.sizes.scss' as size;
+
 .sizeInfo {
   &:after {
     content: "Liten";
@@ -8,7 +9,7 @@
   }
 }
 
-@media screen and (min-width: $desktop-width--medium) {
+@media screen and (min-width: size.$desktop-width--medium) {
   .sizeInfo {
     &:after {
       content: "Stor";
