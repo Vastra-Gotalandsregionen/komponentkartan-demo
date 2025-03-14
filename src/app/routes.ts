@@ -10,6 +10,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { FormattemplateComponent } from './formattemplate/formattemplate.component';
 import { HeadersComponent } from './headers/headers.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { LockbuttonComponent } from './lockbutton/lockbutton.component';
 import { ClosebuttonComponent } from './closebutton/closebutton.component';
 import { ModaldialogComponent } from './modaldialog/modaldialog.component';
@@ -62,6 +63,7 @@ export const appRoutes: Routes = [
     { path: 'formattemplate', component: FormattemplateComponent },
     { path: 'headers', component: HeadersComponent },
     { path: 'loader', component: LoaderComponent },
+    { path: 'skeleton-loader', component: SkeletonLoaderComponent },
     { path: 'lockbutton', component: LockbuttonComponent },
     { path: 'panels', component: PanelsComponent },
     { path: 'modaldialog', component: ModaldialogComponent },
