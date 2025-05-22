@@ -131,11 +131,11 @@
         <vgr-table-row-column [width]="3" [align]="'right'">Row Column</vgr-table-row-column>
       </vgr-table-row>
     </vgr-table>
-    <vgr-table [expandable]="false">
+    <vgr-table [expandable]="false" [percentLayout]="true">
       <vgr-table-header>
-        <vgr-table-header-column [width]="10">Ej</vgr-table-header-column>
-        <vgr-table-header-column [width]="5">Expanderbar</vgr-table-header-column>
-        <vgr-table-header-column [width]="3" [align]="'right'">Header</vgr-table-header-column>
+        <vgr-table-header-column [width]="50">Ej</vgr-table-header-column>
+        <vgr-table-header-column [width]="25">Expanderbar</vgr-table-header-column>
+        <vgr-table-header-column [width]="18" [align]="'right'">Header</vgr-table-header-column>
       </vgr-table-header>
     </vgr-table>
   </div>
@@ -157,6 +157,11 @@
         <td>Genom att sätta [expandable]="false" på tabellen så kan kan raden inte expanderas och har ingen
           chevron.</td>
         <td>[expandable]="false"</td>
+      </tr>
+      <tr>
+        <td>percentLayout: boolean</td>
+        <td>Anger om du som användare vill ange kolumnbredder i procent istället för default värdet som baseras på en 20 kolumns layout.</td>
+        <td>[percentLayout]="true"</td>
       </tr>
       <tr>
         <td>expandedChanged: EventEmitter&lt;boolean&gt;
@@ -199,9 +204,8 @@
       </tr>
       <tr>
         <td>width : number</td>
-        <td>vgr-table är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av
-          width ska
-          vara 20 för vgr-table.
+        <td>vgr-table är baserad på en 20 kolumns layout om du inte har angett att vill ha det i procent (genom propertien "percentLayout"). Varje kolumn måste ha en width satt och summan av
+          width ska vara 20 för vgr-table eller 100 (med percentLayout).
         </td>
         <td>
           [width]="20"
@@ -242,9 +246,8 @@
       </tr>
       <tr>
         <td>width : number</td>
-        <td>vgr-table är baserad på en 20 kolumns layout. Varje kolumn måste ha en width satt och summan av
-          width ska
-          vara 20 för vgr-table.
+        <td>vgr-table är baserad på en 20 kolumns layout om du inte har angett att vill ha det i procent (genom propertien "percentLayout"). Varje kolumn måste ha en width satt och summan av
+          width ska vara 20 för vgr-table eller 100 (med percentLayout).
         </td>
         <td>
           [width]="20"
