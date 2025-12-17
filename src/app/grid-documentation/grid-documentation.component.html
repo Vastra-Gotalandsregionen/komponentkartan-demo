@@ -2,27 +2,27 @@
   <vgr-page-header title="Grid">
   </vgr-page-header>
   <vgr-page-body>
-      <vgr-grid [allowMultipleExpandedRows]="true">
-        <vgr-grid-header>
-          <vgr-grid-header-column [width]="20">Dokumentation för Grid</vgr-grid-header-column>
-        </vgr-grid-header>
-        <vgr-grid-row [expanded]="true">
-            <vgr-grid-column width="20">
-              <h4>Översikt</h4>
-            </vgr-grid-column>
-          <vgr-grid-content>
-            <div class="content-overview">
-              <p>
-                En tabell med header och expanderbara rader med är möjlighet till sortering och paginering.<br><br>
+    <vgr-grid [allowMultipleExpandedRows]="true">
+      <vgr-grid-header>
+        <vgr-grid-header-column [width]="20">Dokumentation för Grid</vgr-grid-header-column>
+      </vgr-grid-header>
+      <vgr-grid-row [expanded]="true">
+        <vgr-grid-column width="20">
+          <h4>Översikt</h4>
+        </vgr-grid-column>
+        <vgr-grid-content>
+          <div class="content-overview">
+            <p>
+              En tabell med header och expanderbara rader med är möjlighet till sortering och paginering.<br><br>
 
-                Man kan lägga till notifieringar på radnivå samt i toolaren ovanför headern.
-                Detta görs genom att deklarativt lägga till komponenten<code>vgr-notifiaction</code>.
+              Man kan lägga till notifieringar på radnivå samt i toolaren ovanför headern.
+              Detta görs genom att deklarativt lägga till komponenten<code>vgr-notifiaction</code>.
 
-              </p>
-              <p>
-                <code>&lt;vgr-grid&gt;</code><br>
-              </p>
-              <br>
+            </p>
+            <p>
+              <code>&lt;vgr-grid&gt;</code><br>
+            </p>
+            <br>
               <p> Förändras med tema:
                 <strong>nej</strong>
               </p>
@@ -33,295 +33,297 @@
         </vgr-grid-row>
         <vgr-grid-row [expanded]="false">
 
-            <vgr-grid-column width="20">
-              <h4>Exempel</h4>
-            </vgr-grid-column>
+          <vgr-grid-column width="20">
+            <h4>Exempel</h4>
+          </vgr-grid-column>
 
           <vgr-grid-content>
             <p>Denna sida (och resten av dokumentationen) är uppbyggd av &lt;vgr-grid&gt;. Nedan finns ett exempel på hur man sätter samman dess underkomponenter.</p>
             <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
-    <br>
-    <br>
-
-    <strong>OBS!! Ett aktivt exempel finns längre ner på sidan</strong>
-          </vgr-grid-content>
-        </vgr-grid-row>
-<vgr-grid-row [expanded]="false ">
-
-    <vgr-grid-column width="20">
-      <h4>API</h4>
-    </vgr-grid-column>
-
-  <vgr-grid-content>
-    <!-- API -->
-    <h2><code>&lt;vgr-grid&gt;</code></h2>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>allowMultipleExpandedRows : boolean</td>
-        <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
-        <td>[allowMultipleExpandedRows]="true"</td>
-      </tr>
-      <tr>
-        <td>stickyHeader : boolean</td>
-        <td>Kan man sätta om headern skall vara sticky, default är false.</td>
-        <td>[stickyHeader]="true"</td>
-      </tr>
-      <tr>
-        <td>zebraLayout : boolean</td>
-        <td>Kan man sätta om man vill att griden ska ha olika färg på varannan rad (Zebra-randigt). Default är false.</td>
-        <td>[zebraLayout]="true"</td>
-      </tr>
-      <tr>
-        <td>toggleAnimation: string</td>
-        <td>Anger hastigheten på anmimationen för expanderad och kollapsa innehållet.
-          Tillåtna värden 'none' | 'slow' | 'medium' | 'fast', default är 'medium' </td>
-        <td>[toggleAnimation]="'slow'"</td>
-      </tr>
-      <tr>
-        <td>pages : number</td>
-        <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större.
-          Paginering visas endast om värdet är strörre än ett.</td>
-        <td>[pages]="10"</td>
-      </tr>
-      <tr>
-        <td>activePage : number</td>
-        <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
-        <td>[activePage]="1"</td>
-      </tr>
-      <tr>
-        <td>showLoader : boolean</td>
-        <td>Visar en loader under headern när den är satt till true.</td>
-        <td>[showLoader]="true". Default värde är false.</td>
-      </tr>
-      <tr>
-        <td>ariaLabel : string</td>
-        <td>Beskrivande text som läses upp av skärmläsare.</td>
-        <td>[ariaLabel]="'Enhetslista'"</td>
-      </tr>
-      <tr>
-        <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
-        <td>Event som triggas när aktiv sida ändras.</td>
-        <td>(pageChanged)="onPageChanged($event)"</td>
-      </tr>
-    </table>
-    <br>
-
-    <h2><code>&lt;vgr-grid-header-toolbar&gt;</code></h2>
-    <p>Kan innehålla valfritt innehåll. Innehållet blir sticky om stickyHeader är true.</p>
-
-    <h2><code>&lt;vgr-grid-header&gt;</code></h2>
-    <p>Innehåller ett antal vgr-grid-header-column element.</p>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th style="width:600px">Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
-        <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
-        <td>(sortChanged)="onSortChanged($event)"</td>
-      </tr>
-    </table>
-    <br>
-
-    <h2><code>&lt;vgr-gridheader-column&gt;</code></h2>
-    <p>Kan innehålla valfritt innehåll.</p>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th style="width:600px">Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>width : number</td>
-        <td>
-          Kolumners bredd anges som proportioner i heltal,
-          där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
-          Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
-        </td>
-        <td>
-          [width]="200"
-        </td>
-      </tr>
-      <tr>
-        <td>align : string</td>
-        <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och
-          center.
-          <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
-        </td>
-        <td>
-          [align]="'right'"
-        </td>
-      </tr>
-      <tr>
-        <td>sortKey : string</td>
-        <td>Nyckel som används för att identifiera kolumnen vid sorteringsevent.</td>
-        <td>[sortKey]="'firstName'"</td>
-      </tr>
-      <tr>
-        <td>sortDirection : GridSortDirection</td>
-        <td>Anger åt vilket håll kolumnen sorteras vid initiering
-          <code>GridSortDirection.None</code>, default - ingen sortering
-          <code>GridSortDirection.Ascending</code> sortera stigande
-          <code>GridSortDirection.Descending</code> sortera fallande
-        </td>
-        <td>[sortDirection]="sortDirection.Ascending"
-          <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
-          enum som en
-          property. T.ex:
-          <code>sortDirection = GridSortDirection</code>
-        </td>
-      </tr>
-      <tr>
-        <td>sortChanged : EventEmitter&lt;SortDirection&gt;</td>
-        <td>Event som triggas när sortering sker i kolumnen</td>
-        <td>(sortChanged)="onSortChanged($event)"</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>focus()</td>
-        <td>Metod för att flytta fokus till komponenten</td>
-        <td>this.myGridHeaderColumn.focus()</td>
-      </tr>
-    </table>
-    <br>
-
-    <h2><code>&lt;vgr-grid-row&gt;</code></h2>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th style="width:600px">Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>expanded : boolean</td>
-        <td>Anger om raden skall vara expanderad eller inte.</td>
-        <td>[expanded]="false"</td>
-      </tr>
-      <tr>
-        <td>preventCollapse : boolean</td>
-        <td>Anger om raden tillåts att kollapsa.</td>
-        <td>[preventCollapse]="true"</td>
-      </tr>
-      <tr>
-        <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
-        <td>Event som triggas när raden expanderar</td>
-        <td>(expandedChanged)="onExpandedChanged($event)"</td>
-      </tr>
-      <tr>
-        <td>expandPrevented : EventEmitter&lt;boolean&gt;</td>
-        <td>Event som triggas när raden försöker expandera men hindras</td>
-        <td>(expandPrevented)="onExpandPrevented($event)"</td>
-      </tr>
-      <tr>
-        <td>collapsePrevented : EventEmitter&lt;boolean&gt;</td>
-        <td>Event som triggas när raden försöker kollapsa men hindras</td>
-        <td>(collapsePrevented)="onCollapsePrevented($event)"</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>focus()</td>
-        <td>Metod för att flytta fokus till komponenten</td>
-        <td>this.myGridRow.focus()</td>
-      </tr>
-    </table>
-    <br>
-
-    <h2><code>&lt;vgr-grid-column&gt;</code></h2>
-    <p>Kan innehålla valfritt innehåll.</p>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th style="width:600px">Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>width : number</td>
-        <td>Kolumners bredd anges som proportioner i heltal,
-          där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
-          Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
-        </td>
-        <td>
-          [width]="18"
-        </td>
-      </tr>
-      <tr>
-        <td>align : string</td>
-        <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och
-          center.
-          <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
-        </td>
-        <td>
-          [align]="'right'"
-        </td>
-      </tr>
-    </table>
-    <br>
-
-    <h2><code>&lt;vgr-grid-content&gt;</code></h2>
-    <p>Kan innehålla valfritt innehåll.</p>
-          </vgr-grid-content>
-        </vgr-grid-row>
-        <vgr-grid-row [expanded]="false">
-
-            <vgr-grid-column width="20">
-              <h4>Tillgänglighet</h4>
-            </vgr-grid-column>
-
-          <vgr-grid-content>
-            <p>
-              Navigering i griden:
+            <br>
               <br>
-              <br> - Enter och Space: När fokus är på listradens header togglas listraden expanderad / kollapsad.
-              <br> - Nedåtpil: Om fokus ligger på en listrad eller en headerkolumn flyttar fokus till raden nedanför. Om fokus ligger på den
-              sista
-              raden flyttas fokus till den första raden.
-              <br> - Uppåtpil: Om fokus ligger på en listrad, flyttar fokus till raden ovanför. Om fokus ligger på
-              första raden,
-              flyttas fokus till den sista raden.
-              <br> - Home: När fokus ligger på en listrad, flyttar fokus till första raden.
-              <br> - End: När fokus ligger på en rad flyttar fokus till sista raden.
-            </p>
-          </vgr-grid-content>
-        </vgr-grid-row>
-      </vgr-grid>
 
-        <h2>Exempel - Grid med stickyHeader, loader och ariaLabel.</h2>
-    <vgr-grid (pageChanged)="onPageChanged($event)" [pages]="pageCount" [toggleAnimation]="'none'"
-            [activePage]="activePage" [stickyHeader]="true" [showLoader]="loading" [ariaLabel]="'Grid med aria label'">
-      <vgr-grid-header>
-          <vgr-grid-header-column [width]="200">Förnamn</vgr-grid-header-column>
-          <vgr-grid-header-column [width]="200">Efternamn</vgr-grid-header-column>
-          <vgr-grid-header-column [width]="200">Status</vgr-grid-header-column>
-      </vgr-grid-header>
-      <vgr-grid-row *ngFor="let person of paginatedPeople">
-          <vgr-grid-column [width]="200">{{person.fornamn}}</vgr-grid-column>
-          <vgr-grid-column [width]="200">{{person.efternamn}}</vgr-grid-column>
-          <vgr-grid-column [width]="200">{{person.status}}</vgr-grid-column>
-          <vgr-grid-content>
-              <p>
-                Löksås ipsum så äng hav där både dock, både bland mot från upprätthållande sista, samtidigt ordningens dimma
-                och nu erfarenheter.
-                Är kan där och söka vid annat, där tidigare är som åker sällan det, räv helt precis ordningens omfångsrik.
-                Sjö oss där olika tre bäckasiner så när, faktor annat kom ska kanske därmed, häst tid tre äng kan dunge.
-              </p>
-            </vgr-grid-content>
-      </vgr-grid-row>
-    </vgr-grid>
+                <strong>OBS!! Ett aktivt exempel finns längre ner på sidan</strong>
+              </vgr-grid-content>
+            </vgr-grid-row>
+            <vgr-grid-row [expanded]="false ">
 
-  </vgr-page-body>
-</vgr-page>
+              <vgr-grid-column width="20">
+                <h4>API</h4>
+              </vgr-grid-column>
+
+              <vgr-grid-content>
+                <!-- API -->
+                <h2><code>&lt;vgr-grid&gt;</code></h2>
+                <table class="property-table">
+                  <tr>
+                    <th>Namn</th>
+                    <th>Beskrivning</th>
+                    <th>Exempel</th>
+                  </tr>
+                  <tr>
+                    <td>allowMultipleExpandedRows : boolean</td>
+                    <td>Om flera rader skall kunna vara expanderade samtidigt, default är false.</td>
+                    <td>[allowMultipleExpandedRows]="true"</td>
+                  </tr>
+                  <tr>
+                    <td>stickyHeader : boolean</td>
+                    <td>Kan man sätta om headern skall vara sticky, default är false.</td>
+                    <td>[stickyHeader]="true"</td>
+                  </tr>
+                  <tr>
+                    <td>zebraLayout : boolean</td>
+                    <td>Kan man sätta om man vill att griden ska ha olika färg på varannan rad (Zebra-randigt). Default är false.</td>
+                    <td>[zebraLayout]="true"</td>
+                  </tr>
+                  <tr>
+                    <td>toggleAnimation: string</td>
+                    <td>Anger hastigheten på anmimationen för expanderad och kollapsa innehållet.
+                    Tillåtna värden 'none' | 'slow' | 'medium' | 'fast', default är 'medium' </td>
+                    <td>[toggleAnimation]="'slow'"</td>
+                  </tr>
+                  <tr>
+                    <td>pages : number</td>
+                    <td>Om paginering ska visas anges antal sidor som ska hanteras. Giltigt värde är ett eller större.
+                    Paginering visas endast om värdet är strörre än ett.</td>
+                    <td>[pages]="10"</td>
+                  </tr>
+                  <tr>
+                    <td>activePage : number</td>
+                    <td>Styr aktiv sida om paginering är vald ([pages] är satt). Giltigt värde är ett till [pages].</td>
+                    <td>[activePage]="1"</td>
+                  </tr>
+                  <tr>
+                    <td>showLoader : boolean</td>
+                    <td>Visar en loader under headern när den är satt till true.</td>
+                    <td>[showLoader]="true". Default värde är false.</td>
+                  </tr>
+                  <tr>
+                    <td>ariaLabel : string</td>
+                    <td>Beskrivande text som läses upp av skärmläsare.</td>
+                    <td>[ariaLabel]="'Enhetslista'"</td>
+                  </tr>
+                  <tr>
+                    <td>pageChanged :<br> EventEmitter &lt;number&gt;</td>
+                    <td>Event som triggas när aktiv sida ändras.</td>
+                    <td>(pageChanged)="onPageChanged($event)"</td>
+                  </tr>
+                </table>
+                <br>
+
+                  <h2><code>&lt;vgr-grid-header-toolbar&gt;</code></h2>
+                  <p>Kan innehålla valfritt innehåll. Innehållet blir sticky om stickyHeader är true.</p>
+
+                  <h2><code>&lt;vgr-grid-header&gt;</code></h2>
+                  <p>Innehåller ett antal vgr-grid-header-column element.</p>
+                  <table class="property-table">
+                    <tr>
+                      <th>Namn</th>
+                      <th style="width:600px">Beskrivning</th>
+                      <th>Exempel</th>
+                    </tr>
+                    <tr>
+                      <td>sortChanged : EventEmitter&lt;SortChangedArgs&gt;</td>
+                      <td>Event som triggas när sortering sker i någon av headerns kolumner</td>
+                      <td>(sortChanged)="onSortChanged($event)"</td>
+                    </tr>
+                  </table>
+                  <br>
+
+                    <h2><code>&lt;vgr-gridheader-column&gt;</code></h2>
+                    <p>Kan innehålla valfritt innehåll.</p>
+                    <table class="property-table">
+                      <tr>
+                        <th>Namn</th>
+                        <th style="width:600px">Beskrivning</th>
+                        <th>Exempel</th>
+                      </tr>
+                      <tr>
+                        <td>width : number</td>
+                        <td>
+                          Kolumners bredd anges som proportioner i heltal,
+                          där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
+                          Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
+                        </td>
+                        <td>
+                          [width]="200"
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>align : string</td>
+                        <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och
+                          center.
+                          <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
+                          </td>
+                          <td>
+                            [align]="'right'"
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>sortKey : string</td>
+                          <td>Nyckel som används för att identifiera kolumnen vid sorteringsevent.</td>
+                          <td>[sortKey]="'firstName'"</td>
+                        </tr>
+                        <tr>
+                          <td>sortDirection : GridSortDirection</td>
+                          <td>Anger åt vilket håll kolumnen sorteras vid initiering
+                            <code>GridSortDirection.None</code>, default - ingen sortering
+                            <code>GridSortDirection.Ascending</code> sortera stigande
+                            <code>GridSortDirection.Descending</code> sortera fallande
+                          </td>
+                          <td>[sortDirection]="sortDirection.Ascending"
+                            <strong>OBS!</strong> För att binda till enums i html, måste en rad till i .ts-filen som deklarerar
+                            enum som en
+                            property. T.ex:
+                            <code>sortDirection = GridSortDirection</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>sortChanged : EventEmitter&lt;SortDirection&gt;</td>
+                          <td>Event som triggas när sortering sker i kolumnen</td>
+                          <td>(sortChanged)="onSortChanged($event)"</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>focus()</td>
+                          <td>Metod för att flytta fokus till komponenten</td>
+                          <td>this.myGridHeaderColumn.focus()</td>
+                        </tr>
+                      </table>
+                      <br>
+
+                        <h2><code>&lt;vgr-grid-row&gt;</code></h2>
+                        <table class="property-table">
+                          <tr>
+                            <th>Namn</th>
+                            <th style="width:600px">Beskrivning</th>
+                            <th>Exempel</th>
+                          </tr>
+                          <tr>
+                            <td>expanded : boolean</td>
+                            <td>Anger om raden skall vara expanderad eller inte.</td>
+                            <td>[expanded]="false"</td>
+                          </tr>
+                          <tr>
+                            <td>preventCollapse : boolean</td>
+                            <td>Anger om raden tillåts att kollapsa.</td>
+                            <td>[preventCollapse]="true"</td>
+                          </tr>
+                          <tr>
+                            <td>expandedChanged : EventEmitter&lt;boolean&gt;</td>
+                            <td>Event som triggas när raden expanderar</td>
+                            <td>(expandedChanged)="onExpandedChanged($event)"</td>
+                          </tr>
+                          <tr>
+                            <td>expandPrevented : EventEmitter&lt;boolean&gt;</td>
+                            <td>Event som triggas när raden försöker expandera men hindras</td>
+                            <td>(expandPrevented)="onExpandPrevented($event)"</td>
+                          </tr>
+                          <tr>
+                            <td>collapsePrevented : EventEmitter&lt;boolean&gt;</td>
+                            <td>Event som triggas när raden försöker kollapsa men hindras</td>
+                            <td>(collapsePrevented)="onCollapsePrevented($event)"</td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>focus()</td>
+                            <td>Metod för att flytta fokus till komponenten</td>
+                            <td>this.myGridRow.focus()</td>
+                          </tr>
+                        </table>
+                        <br>
+
+                          <h2><code>&lt;vgr-grid-column&gt;</code></h2>
+                          <p>Kan innehålla valfritt innehåll.</p>
+                          <table class="property-table">
+                            <tr>
+                              <th>Namn</th>
+                              <th style="width:600px">Beskrivning</th>
+                              <th>Exempel</th>
+                            </tr>
+                            <tr>
+                              <td>width : number</td>
+                              <td>Kolumners bredd anges som proportioner i heltal,
+                                där siffran motsvarar kolumnens storlek i proportion till summan av alla kolumners storlekt.
+                                Varje kolumn måste ha en width satt och summan av width ska vara 100% av brädden.
+                              </td>
+                              <td>
+                                [width]="18"
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>align : string</td>
+                              <td>Man kan sätta en alignment på kolumnerna. Defaultvärde är left. Giltiga värden är right, left och
+                                center.
+                                <br>Om man sätter ett felaktigt värde så sätts defaultvärdet
+                                </td>
+                                <td>
+                                  [align]="'right'"
+                                </td>
+                              </tr>
+                            </table>
+                            <br>
+
+                              <h2><code>&lt;vgr-grid-content&gt;</code></h2>
+                              <p>Kan innehålla valfritt innehåll.</p>
+                            </vgr-grid-content>
+                          </vgr-grid-row>
+                          <vgr-grid-row [expanded]="false">
+
+                            <vgr-grid-column width="20">
+                              <h4>Tillgänglighet</h4>
+                            </vgr-grid-column>
+
+                            <vgr-grid-content>
+                              <p>
+                                Navigering i griden:
+                                <br>
+                                  <br> - Enter och Space: När fokus är på listradens header togglas listraden expanderad / kollapsad.
+                                    <br> - Nedåtpil: Om fokus ligger på en listrad eller en headerkolumn flyttar fokus till raden nedanför. Om fokus ligger på den
+                                      sista
+                                      raden flyttas fokus till den första raden.
+                                      <br> - Uppåtpil: Om fokus ligger på en listrad, flyttar fokus till raden ovanför. Om fokus ligger på
+                                        första raden,
+                                        flyttas fokus till den sista raden.
+                                        <br> - Home: När fokus ligger på en listrad, flyttar fokus till första raden.
+                                          <br> - End: När fokus ligger på en rad flyttar fokus till sista raden.
+                                          </p>
+                                        </vgr-grid-content>
+                                      </vgr-grid-row>
+                                    </vgr-grid>
+
+                                    <h2>Exempel - Grid med stickyHeader, loader och ariaLabel.</h2>
+                                    <vgr-grid (pageChanged)="onPageChanged($event)" [pages]="pageCount" [toggleAnimation]="'none'"
+                                      [activePage]="activePage" [stickyHeader]="true" [showLoader]="loading" [ariaLabel]="'Grid med aria label'">
+                                      <vgr-grid-header>
+                                        <vgr-grid-header-column [width]="200">Förnamn</vgr-grid-header-column>
+                                        <vgr-grid-header-column [width]="200">Efternamn</vgr-grid-header-column>
+                                        <vgr-grid-header-column [width]="200">Status</vgr-grid-header-column>
+                                      </vgr-grid-header>
+                                      @for (person of paginatedPeople; track person) {
+                                        <vgr-grid-row>
+                                          <vgr-grid-column [width]="200">{{person.fornamn}}</vgr-grid-column>
+                                          <vgr-grid-column [width]="200">{{person.efternamn}}</vgr-grid-column>
+                                          <vgr-grid-column [width]="200">{{person.status}}</vgr-grid-column>
+                                          <vgr-grid-content>
+                                            <p>
+                                              Löksås ipsum så äng hav där både dock, både bland mot från upprätthållande sista, samtidigt ordningens dimma
+                                              och nu erfarenheter.
+                                              Är kan där och söka vid annat, där tidigare är som åker sällan det, räv helt precis ordningens omfångsrik.
+                                              Sjö oss där olika tre bäckasiner så när, faktor annat kom ska kanske därmed, häst tid tre äng kan dunge.
+                                            </p>
+                                          </vgr-grid-content>
+                                        </vgr-grid-row>
+                                      }
+                                    </vgr-grid>
+
+                                  </vgr-page-body>
+                                </vgr-page>
