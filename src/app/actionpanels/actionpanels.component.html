@@ -14,52 +14,60 @@
       nedan:
     </p>
     <br>
-    <vgr-button *ngIf="open1" (click)="open1 = !open1">Stäng panel 1</vgr-button>
-    <vgr-button *ngIf="!open1" (click)="open1 = !open1">Öppna panel 1</vgr-button>
-    <br>
-    <br>
-    <vgr-button *ngIf="open2" (click)="open2 = !open2">Stäng panel 2</vgr-button>
-    <vgr-button *ngIf="!open2" (click)="open2 = !open2">Öppna panel 2</vgr-button>
-    <br>
-    <p>Förändras med tema:
-      <strong>ja</strong>
-    </p>
-  </div>
-  <div class="docs__examples ">
-    <h2>HTML</h2>
-    <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
-  </div>
-  <div class="docs__api">
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>title: string</td>
-        <td>Anger action panelens titel.</td>
-        <td>[title]="'En titel'"</td>
-      </tr>
-      <tr>
-        <td>open: boolean</td>
-        <td>Anger om panelen ska vara öppen eller stängd.</td>
-        <td>[open]="true"</td>
-      </tr>
-      <tr>
-        <td>showCloseButton: boolean</td>
-        <td>Anger huruvida en stänga-knapp ska visas i övre högra hörnet av panelen. Default är false.</td>
-        <td>[showCloseButton]="true"</td>
-      </tr>
-    </table>
-  </div>
-  <div class="docs__wcag ">
-    <i>Ej aktuellt.</i>
-  </div>
-  <div class="docs__after">
-    <vgr-action-panel [open]="open2" [title]="'Ett exempel på en annan action panel'" (openChanged)="open2 = $event">
-      <vgr-button>En knapp</vgr-button>
-      <p>Lite text ...</p>
-    </vgr-action-panel>
-  </div>
-</app-component-docs>
+      @if (open1) {
+        <vgr-button (click)="open1 = !open1">Stäng panel 1</vgr-button>
+      }
+      @if (!open1) {
+        <vgr-button (click)="open1 = !open1">Öppna panel 1</vgr-button>
+      }
+      <br>
+        <br>
+          @if (open2) {
+            <vgr-button (click)="open2 = !open2">Stäng panel 2</vgr-button>
+          }
+          @if (!open2) {
+            <vgr-button (click)="open2 = !open2">Öppna panel 2</vgr-button>
+          }
+          <br>
+            <p>Förändras med tema:
+              <strong>ja</strong>
+            </p>
+          </div>
+          <div class="docs__examples ">
+            <h2>HTML</h2>
+            <section vgrHighlightCode [innerHTML]="exampleCodeMarkup"></section>
+          </div>
+          <div class="docs__api">
+            <table class="property-table">
+              <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Exempel</th>
+              </tr>
+              <tr>
+                <td>title: string</td>
+                <td>Anger action panelens titel.</td>
+                <td>[title]="'En titel'"</td>
+              </tr>
+              <tr>
+                <td>open: boolean</td>
+                <td>Anger om panelen ska vara öppen eller stängd.</td>
+                <td>[open]="true"</td>
+              </tr>
+              <tr>
+                <td>showCloseButton: boolean</td>
+                <td>Anger huruvida en stänga-knapp ska visas i övre högra hörnet av panelen. Default är false.</td>
+                <td>[showCloseButton]="true"</td>
+              </tr>
+            </table>
+          </div>
+          <div class="docs__wcag ">
+            <i>Ej aktuellt.</i>
+          </div>
+          <div class="docs__after">
+            <vgr-action-panel [open]="open2" [title]="'Ett exempel på en annan action panel'" (openChanged)="open2 = $event">
+              <vgr-button>En knapp</vgr-button>
+              <p>Lite text ...</p>
+            </vgr-action-panel>
+          </div>
+        </app-component-docs>

@@ -13,11 +13,6 @@
       "node_modules/@types",
       "vgr-komponentkartan.d"
     ],
-    "lib": [
-      "es2017",
-      "dom",
-      "es5"
-    ],
     "baseUrl": ".",
     "useDefineForClassFields": false
   }

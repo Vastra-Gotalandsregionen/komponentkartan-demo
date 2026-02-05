@@ -9,122 +9,124 @@
     </p>
     <br>
 
-    <p>
-      Förändras med tema:
-      <strong>nej</strong>
-    </p>
-  </div>
-  <div class="docs__examples">
-    <h2>Standalone notifieringar</h2><br />
+      <p>
+        Förändras med tema:
+        <strong>nej</strong>
+      </p>
+    </div>
+    <div class="docs__examples">
+      <h2>Standalone notifieringar</h2><br />
 
-    <vgr-notification [type]="'success'" [standalone]="true">En alert av typen success</vgr-notification>
-    <code vgrHighlightCode>
-      <strong>&lt;vgr-notification [type]="'success'" [standalone]="true"&gt;</strong><br />
-      &nbsp;&nbsp;En alert av typen success<br />
-      <strong>&lt;/vgr-notification&gt;</strong><br />
-    </code><br />
-    <vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'">En alert av typen error med bredd satt</vgr-notification>
-    <code vgrHighlightCode>
-      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'"&gt;</strong><br />
-      &nbsp;&nbsp;En alert av typen error med bredd satt<br />
-      <strong>&lt;/vgr-notification&gt;</strong><br />
-    </code><br />
-    <vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'">En alert av typen warning med bredd och höjd satt</vgr-notification>
-    <code vgrHighlightCode>
-      <strong>&lt;vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'"&gt;</strong><br />
-      &nbsp;&nbsp;En alert av typen warning med bredd och höjd satt<br />
-      <strong>&lt;/vgr-notification&gt;</strong><br />
-    </code><br />
-    <vgr-notification [type]="'info'" [standalone]="true">
-      <span>
-        <h2>Det här är bra info</h2>
-        <p>En alert av typen info</p>
-      </span>
-    </vgr-notification>
-    <code vgrHighlightCode>
-      &lt;vgr-notification [type]="'info'" [standalone]="true"&gt;<br/>
+      <vgr-notification [type]="'success'" [standalone]="true">En alert av typen success</vgr-notification>
+      <code vgrHighlightCode>
+        <strong>&lt;vgr-notification [type]="'success'" [standalone]="true"&gt;</strong><br />
+        &nbsp;&nbsp;En alert av typen success<br />
+        <strong>&lt;/vgr-notification&gt;</strong><br />
+      </code><br />
+      <vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'">En alert av typen error med bredd satt</vgr-notification>
+      <code vgrHighlightCode>
+        <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [width]="'300px'"&gt;</strong><br />
+        &nbsp;&nbsp;En alert av typen error med bredd satt<br />
+        <strong>&lt;/vgr-notification&gt;</strong><br />
+      </code><br />
+      <vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'">En alert av typen warning med bredd och höjd satt</vgr-notification>
+      <code vgrHighlightCode>
+        <strong>&lt;vgr-notification [type]="'warning'" [standalone]="true" [width]="'500px'" [height]="'150px'"&gt;</strong><br />
+        &nbsp;&nbsp;En alert av typen warning med bredd och höjd satt<br />
+        <strong>&lt;/vgr-notification&gt;</strong><br />
+      </code><br />
+      <vgr-notification [type]="'info'" [standalone]="true">
+        <span>
+          <h2>Det här är bra info</h2>
+          <p>En alert av typen info</p>
+        </span>
+      </vgr-notification>
+      <code vgrHighlightCode>
+        &lt;vgr-notification [type]="'info'" [standalone]="true"&gt;<br/>
         &nbsp;&nbsp;&lt;span&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Det här är bra info&lt;/h2&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;En alert av typen info&lt;/p&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Det här är bra info&lt;/h2&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;En alert av typen info&lt;/p&gt;<br/>
         &nbsp;&nbsp;&lt;/span&gt;<br/>
-      &lt;/vgr-notification&gt;<br/>
-    </code><br />
-    <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">En alert av typen error utan ikon</vgr-notification>
-    <code vgrHighlightCode>
-      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
-      &nbsp;&nbsp;En alert av typen error utan ikon<br />
-      <strong>&lt;/vgr-notification&gt;</strong><br />
-    </code><br />
-    <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">
-      <vgr-icon [solid]="true" color="error" icon="star"></vgr-icon> En alert av typen error med custom ikon
-    </vgr-notification>
-    <code vgrHighlightCode>
-      <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
-      <strong>&lt;vgr-icon [solid]="true" color="error" icon="star"&gt;&lt;/vgr-icon&gt;</strong> En alert av typen error med custom ikon<br />
-      <strong>&lt;/vgr-notification&gt;</strong><br />
-    </code><br />
+        &lt;/vgr-notification&gt;<br/>
+      </code><br />
+      <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">En alert av typen error utan ikon</vgr-notification>
+      <code vgrHighlightCode>
+        <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
+        &nbsp;&nbsp;En alert av typen error utan ikon<br />
+        <strong>&lt;/vgr-notification&gt;</strong><br />
+      </code><br />
+      <vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true">
+        <vgr-icon [solid]="true" color="error" icon="star"></vgr-icon> En alert av typen error med custom ikon
+      </vgr-notification>
+      <code vgrHighlightCode>
+        <strong>&lt;vgr-notification [type]="'error'" [standalone]="true" [noIcon]="true"&gt;</strong><br />
+        <strong>&lt;vgr-icon [solid]="true" color="error" icon="star"&gt;&lt;/vgr-icon&gt;</strong> En alert av typen error med custom ikon<br />
+        <strong>&lt;/vgr-notification&gt;</strong><br />
+      </code><br />
 
 
-    <h2>Notifiering som läses direkt upp av en skärmläsare</h2><br />
+      <h2>Notifiering som läses direkt upp av en skärmläsare</h2><br />
 
-    <p>Tryck på knapparna nedan för att få fram en notifiering med alert som läses upp av eventuell screenreader</p>
+      <p>Tryck på knapparna nedan för att få fram en notifiering med alert som läses upp av eventuell screenreader</p>
 
-    <vgr-notification *ngIf="showAlert" [standalone]="true" type="error" [isAlertNotice]="isAlertNotice" style="margin-bottom: 30px;">
-      Ett felmeddelande!
-    </vgr-notification>
+      @if (showAlert) {
+        <vgr-notification [standalone]="true" type="error" [isAlertNotice]="isAlertNotice" style="margin-bottom: 30px;">
+          Ett felmeddelande!
+        </vgr-notification>
+      }
 
-    <vgr-button [disabled]="showAlert" (click)="onAlertNotice()">Ta fram notifiering</vgr-button>
-    <vgr-button [disabled]="!showAlert" (click)="onClearClick()">Rensa notifiering</vgr-button>
+      <vgr-button [disabled]="showAlert" (click)="onAlertNotice()">Ta fram notifiering</vgr-button>
+      <vgr-button [disabled]="!showAlert" (click)="onClearClick()">Rensa notifiering</vgr-button>
 
-    <br>
+      <br>
 
-  </div>
-  <div class="docs__api ">
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th style="width:600px">Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>standalone : boolean</td>
-        <td>Skall notifieringen använndas utanför vgr-grid</td>
-        <td>[standalone]="'true'"</td>
-      </tr>
-      <tr>
-        <td>type : string</td>
-        <td>Styr vilken notifiering man vill ha (ikon och färg som automatiskt läggs till).
-          Tillåtna värden är 'success', 'error', 'warning', 'info' och 'comment'.</td>
-        <td>[type]="'error'"</td>
-      </tr>
-      <tr>
-        <td>width : string</td>
-        <td>Sätter bredden på notifieringen</td>
-        <td>[width]="'300px'"</td>
-      </tr>
-      <tr>
-        <td>height : string</td>
-        <td>Sätter höjden på notifieringen. Det som sätts är min-height då den behöver kunna växa åt något håll ifall innehåll är för stort</td>
-        <td>[height]="'100px'"</td>
-      </tr>
-      <tr>
-        <td>noICon : boolean</td>
-        <td>Om man ej vill ha ikonen som annars följer med automatiskt när man anger type</td>
-        <td>[noICon]="'true'"</td>
-      </tr>
+      </div>
+      <div class="docs__api ">
+        <table class="property-table">
+          <tr>
+            <th>Namn</th>
+            <th style="width:600px">Beskrivning</th>
+            <th>Exempel</th>
+          </tr>
+          <tr>
+            <td>standalone : boolean</td>
+            <td>Skall notifieringen använndas utanför vgr-grid</td>
+            <td>[standalone]="'true'"</td>
+          </tr>
+          <tr>
+            <td>type : string</td>
+            <td>Styr vilken notifiering man vill ha (ikon och färg som automatiskt läggs till).
+            Tillåtna värden är 'success', 'error', 'warning', 'info' och 'comment'.</td>
+            <td>[type]="'error'"</td>
+          </tr>
+          <tr>
+            <td>width : string</td>
+            <td>Sätter bredden på notifieringen</td>
+            <td>[width]="'300px'"</td>
+          </tr>
+          <tr>
+            <td>height : string</td>
+            <td>Sätter höjden på notifieringen. Det som sätts är min-height då den behöver kunna växa åt något håll ifall innehåll är för stort</td>
+            <td>[height]="'100px'"</td>
+          </tr>
+          <tr>
+            <td>noICon : boolean</td>
+            <td>Om man ej vill ha ikonen som annars följer med automatiskt när man anger type</td>
+            <td>[noICon]="'true'"</td>
+          </tr>
 
-      <tr>
-        <td>isAlertNotice : boolean</td>
-        <td>Sätter man om man vill att notifieringen skall läsas upp direkt av en screenreader.
-          Denna skall användas med varsamhet då endast meddelanden av hög prioritet bör läsas upp och gå före ordningen av uppläsning på en sida.
-          Läs gärna denna artikel om du är osäker på om den skall användas <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role</a>.
-          <b>Obs!</b>När man använder ngIf för att ta bort ett meddelande med isAlertNotice så behöver man först ta bort isAlertNotice och sedan i en setTimeout ta bort notifieringen. Annars läses notifieringen upp både vid visande av notifieringen och vid borttagning av notifiering.
-          Default är false.</td>
-        <td>[isAlertNotice]="'true'"</td>
-      </tr>
-    </table>
-  </div>
-  <div class="docs__wcag ">
-    <i>Genom att sätta isAlertNotice till true så triggar man att notifiering kommer läsas upp direkt av en screenreader utan att användaren behöver ha fokus på notifieringen</i>
-  </div>
-</app-component-docs>
+          <tr>
+            <td>isAlertNotice : boolean</td>
+            <td>Sätter man om man vill att notifieringen skall läsas upp direkt av en screenreader.
+              Denna skall användas med varsamhet då endast meddelanden av hög prioritet bör läsas upp och gå före ordningen av uppläsning på en sida.
+              Läs gärna denna artikel om du är osäker på om den skall användas <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role</a>.
+              <b>Obs!</b>När man använder ngIf för att ta bort ett meddelande med isAlertNotice så behöver man först ta bort isAlertNotice och sedan i en setTimeout ta bort notifieringen. Annars läses notifieringen upp både vid visande av notifieringen och vid borttagning av notifiering.
+            Default är false.</td>
+            <td>[isAlertNotice]="'true'"</td>
+          </tr>
+        </table>
+      </div>
+      <div class="docs__wcag ">
+        <i>Genom att sätta isAlertNotice till true så triggar man att notifiering kommer läsas upp direkt av en screenreader utan att användaren behöver ha fokus på notifieringen</i>
+      </div>
+    </app-component-docs>

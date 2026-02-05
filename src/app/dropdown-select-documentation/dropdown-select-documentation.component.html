@@ -14,7 +14,7 @@
     <p>Detta händer automatiskt:</p>
     <ul>
       <li>Scroll visas när listan blir för lång (ca. 8 alternativ). Den krymper för att passa antalet alternativ, om de
-        är få.</li>
+      är få.</li>
       <li>Sökfält för filtrering visas vid över 20 val.</li>
       <li>Om alternativets text är lång, bryts texten på flera rader.</li>
     </ul>
@@ -23,9 +23,9 @@
       <li>Val av ett alternativ åt gången eller flera (multiselect).</li>
       <li>Visning av valda alternativ antingen i klartext eller antal valda alternativ. Om klartext väljs, skapas en
         lista av alla valda alternativ som är synlig i sin helhet i tooltip på hover. Om det är lämpligt att ställa in
-        en annan visningstext för den listan, går det att lägga in per alternativ.</li>
+      en annan visningstext för den listan, går det att lägga in per alternativ.</li>
       <li>Alternativen kan utformas så som är lämpligt för det specifika fallet. T.ex. kan varje alternativ kan ha
-        flera informationsbitar, om en stödinformation behövs för att göra valet.</li>
+      flera informationsbitar, om en stödinformation behövs för att göra valet.</li>
       <li>Texten som visas innan val gjorts kan ställas in fritt.</li>
     </ul>
     <p> Förändras med tema:
@@ -36,22 +36,28 @@
     <section>
       <h2>Liten, 5 alternativ</h2>
       <vgr-dropdown-select [small]="true" [deselectable]="true">
-        <vgr-dropdown-item *ngFor="let item of items5">{{item}}</vgr-dropdown-item>
+        @for (item of items5; track item) {
+          <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+        }
       </vgr-dropdown-select>
       <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[0])">
       </section>
       <h2>Stor, 50 alternativ</h2>
       <vgr-dropdown-select>
-        <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+        @for (item of items50; track item) {
+          <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+        }
       </vgr-dropdown-select>
       <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[1])">
       </section>
       <h2>Alternativ med extra information</h2>
       <vgr-dropdown-select [multi]="true" [width]="'50%'">
-        <vgr-dropdown-item *ngFor="let item of items50" [selectedLabel]="item">
-          <div>{{item}}</div>
-          <div style="font-style: italic">Information</div>
-        </vgr-dropdown-item>
+        @for (item of items50; track item) {
+          <vgr-dropdown-item [selectedLabel]="item">
+            <div>{{item}}</div>
+            <div style="font-style: italic">Information</div>
+          </vgr-dropdown-item>
+        }
       </vgr-dropdown-select>
       <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[2])">
       </section>
@@ -64,11 +70,11 @@
       <h2>Inaktiv</h2>
       <vgr-dropdown-select [small]="true" [formControl]="form1">
         <vgr-dropdown-item [value]="itemValue">{{itemLabel}}</vgr-dropdown-item>
-        </vgr-dropdown-select>
-        <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])">
-        </section>
-        <p style="font-size: 13px; font-style: italic;">Disabled sätts i formcontrolen när en formcontrol används</p>
-        <p style="font-size: 13px; font-style: italic;">{{'Ex: this.form1 = new FormControl({ value: this.itemValue, disabled: true });'}}</p>
+      </vgr-dropdown-select>
+      <section vgrHighlightCode [innerHTML]="htmlEncoder.prepareHighlightedSection(examples[4])">
+      </section>
+      <p style="font-size: 13px; font-style: italic;">Disabled sätts i formcontrolen när en formcontrol används</p>
+      <p style="font-size: 13px; font-style: italic;">{{'Ex: this.form1 = new FormControl({ value: this.itemValue, disabled: true });'}}</p>
       <h2>Endast visning</h2>
       <vgr-dropdown-select [small]="false" [readonly]="true" [formControl]="form">
         <vgr-dropdown-item [value]="itemValue">
@@ -83,13 +89,17 @@
           <h3>Vänsterjusterad</h3>
           <!--[topAlign]="true" [rightAlign]="true"-->
           <vgr-dropdown-select [deselectable]="true">
-            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+            @for (item of items50; track item) {
+              <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+            }
           </vgr-dropdown-select>
         </div>
         <div>
           <h3>Högerjusterad</h3>
           <vgr-dropdown-select [deselectable]="true" [rightAlign]="true">
-            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+            @for (item of items50; track item) {
+              <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+            }
           </vgr-dropdown-select>
         </div>
       </section>
@@ -99,13 +109,17 @@
         <div>
           <h4>Vänsterjusterad och upptill</h4>
           <vgr-dropdown-select [deselectable]="true" [topAlign]="true">
-            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+            @for (item of items50; track item) {
+              <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+            }
           </vgr-dropdown-select>
         </div>
         <div>
           <h3>Högerjusterad och upptill</h3>
           <vgr-dropdown-select [deselectable]="true" [topAlign]="true" [rightAlign]="true">
-            <vgr-dropdown-item *ngFor="let item of items50">{{item}}</vgr-dropdown-item>
+            @for (item of items50; track item) {
+              <vgr-dropdown-item>{{item}}</vgr-dropdown-item>
+            }
           </vgr-dropdown-select>
         </div>
       </section>
@@ -134,180 +148,180 @@
         <td>small: boolean</td>
         <td>Gör det valda alternativet kortare. Förvalt värde är
           <code>false</code>.</td>
-        <td>[small]="true"</td>
-      </tr>
-      <tr>
-        <td>value: any</td>
-        <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.
+          <td>[small]="true"</td>
+        </tr>
+        <tr>
+          <td>value: any</td>
+          <td>Värdet på kontrollen. Gör det möjligt att programmatiskt styra värdet när form control inte används.
           Kan sättas till en array om flervalsläge är satt.</td>
-        <td>[value]="someObject"</td>
-      </tr>
-      <tr>
-        <td>multi: boolean</td>
-        <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[multi]="true"</td>
-      </tr>
-      <tr>
-        <td>deselectable: boolean</td>
-        <td>Visar en knapp som gör det möjligt att återställa till inget val efter att ett val gjorts. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[deselectable]="true"</td>
-      </tr>
-      <tr>
-        <td>simpleLabel: boolean</td>
-        <td>Gör texten för valda alternativ kortare vid multi. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[simpleLabel]="true"</td>
-      </tr>
-      <tr>
-        <td>noItemSelectedLabel: string</td>
-        <td>Ändrar texten som visas då inget val gjorts. Förvalt värde är
-          <code>Välj</code>.</td>
-        <td>[noItemSelectedLabel]="'Gör ett val'"</td>
-      </tr>
-      <tr>
-        <td>readonly: boolean</td>
-        <td>Gör att textfält med valt värde visas. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[readonly]="true"</td>
-      </tr>
-      <tr>
-        <td>disabled: boolean</td>
-        <td>Förhindrar interaktion. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[disabled]="true"</td>
-      </tr>
-      <tr>
-        <td>showValidation: boolean</td>
-        <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[showValidation]="true"</td>
-      </tr>
-      <tr>
-        <td>errorMessage: any</td>
-        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn.
-          Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
-        </td>
-        <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
-      </tr>
-      <tr>
-        <td>compareWith: (o1: any, o2: any) => boolean</td>
-        <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
-          värden, till exempel då de hämtas via ett fjärranrop till servern och detta upprepas. Förvalt värde jämför
-          med vanlig equality.</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>labelId: string</td>
-        <td>ID för det element som är rubrik. Används av skärmläsare.</td>
-        <td>[labelId]="'someLabelId'"</td>
-      </tr>
-      <tr>
-        <td>rightAlign: boolean</td>
-        <td>Möjlighet att högerjustera listboxen i de fall du har dropdownen placerad på högersida. Default värde är <code>false</code></td>
-        <td>[rightAlign]="true"</td>
-      </tr>
-      <tr>
-        <td>topAlign: boolean</td>
-        <td>Möjlighet att ha listboxen ovanför dropdownen.
-          I de fall du har dropdownen placerad på högersida och vill ha den på ovanför så kan du använda dig av rightAlign och topAlign kombinerat.
-          Default värde är <code>false</code></td>
-        <td>[topAlign]="true"</td>
-      </tr>
-      <tr>
-        <td>selectedChanged: EventEmitter&lt;any&gt;</td>
-        <td>Event som triggas när val ändras av användaren. Värdet är det nya valet. Detta är främst användbart när
-          kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera ett formulär.
-        </td>
-        <td>(selectedChanged)="doSomething($event)"</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>focus()</td>
-        <td>Metod för att flytta fokus till komponenten</td>
-        <td>this.myDropdownSelect.focus()</td>
-      </tr>
-    </table>
-    <br>
-    <h2>DropdownItem</h2>
-    <table class="property-table">
-      <tr>
-        <th>Namn</th>
-        <th>Beskrivning</th>
-        <th>Exempel</th>
-      </tr>
-      <tr>
-        <td>selectedLabel: string</td>
-        <td>Ger möjlighet att visa en annan text när alternativet är valt.</td>
-        <td>[selectedLabel]="'Ett kortare namn'"</td>
-      </tr>
-      <tr>
-        <td>value: any</td>
-        <td>Värdet som sätts på kontrollen när alternativet väljs.</td>
-        <td>[value]="someObject"</td>
-      </tr>
-      <tr>
-        <td>default: boolean</td>
-        <td>Ger möjlighet att låta alternativet vara förvalt utan att använda reactive forms. Detta är främst
-          användbart när kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera
-          ett formulär. Förvalt värde är
-          <code>false</code>.</td>
-        <td>[default]="true"</td>
-      </tr>
-    </table>
-  </div>
-  <div class="docs__wcag">
-    <p>
-      Viktigt att tänka på, är att lägga in en tydlig etikett som skärmläsare kan läsa upp när dropdownen kommer i
-      fokus. Smartast är att sätta en rubrik över dropdownen och sedan programmatiskt använda den som etikett för
-      dropdownen.
-    </p>
-    <p>
-      Det är bra om alternativen i en dropdowns lista är tydligt urskiljbara och att de inledande tecknen är
-      signifikanta. Det gör det lättare att hitta. Fundera över hur användarna letar i listan när du gör design för
-      dess innehåll.
-    </p>
-    <p>
-      Dropdownen är byggd att följa WCAG-kraven för listbox (<a
-        href="https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox">https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox</a>).
-    </p>
-    <p>
-      Summerat innebär det:
-    </p>
-    <ul>
-      <li>När dropdownen är i fokus, öppnas listan med Enter eller pil upp/ner.</li>
-      <li>Enter väljer ett fokuserat alternativ och stänger listan.</li>
-      <li>Esc stänger listan utan att göra ett val. Pil upp och ner bläddrar i listan.</li>
-      <li>Om en teckentangent, eller en snabb följd av tecken trycks in, fokuseras det första alternativet med den
-        angivna teckenkombinationen.</li>
-      <li>Home respektive End går till listans första respektive sista alternativ.</li>
-    </ul>
-    <p>
-      För multi-select gäller också att:
-    </p>
-    <ul>
-      <li>Mellanslag kryssar för ett fokuserat alternativ utan att stänga listan.</li>
-      <li>Ctrl + A kryssar för alla alternativ.</li>
-    </ul>
-    <div id="label">Frukt</div>
-    <vgr-dropdown-select [labelId]="'label'">
-      <vgr-dropdown-item> Äpple</vgr-dropdown-item>
-      <vgr-dropdown-item> Banan</vgr-dropdown-item>
-      <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
-    </vgr-dropdown-select>
-    <p>
-      Ett alternativ, som är mindre bra, är att lägga in en tydlig defaulttext i dropdownens ruta. Det får dock följden
-      att etikett saknas när ett alternativ är valt.
-    </p>
-    <vgr-dropdown-select [noItemSelectedLabel]="'Välj frukt'">
-      <vgr-dropdown-item> Äpple</vgr-dropdown-item>
-      <vgr-dropdown-item> Banan</vgr-dropdown-item>
-      <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
-    </vgr-dropdown-select>
-  </div>
-</app-component-docs>
+          <td>[value]="someObject"</td>
+        </tr>
+        <tr>
+          <td>multi: boolean</td>
+          <td>Ger möjlighet att välja fler än ett val. Förvalt värde är
+            <code>false</code>.</td>
+            <td>[multi]="true"</td>
+          </tr>
+          <tr>
+            <td>deselectable: boolean</td>
+            <td>Visar en knapp som gör det möjligt att återställa till inget val efter att ett val gjorts. Förvalt värde är
+              <code>false</code>.</td>
+              <td>[deselectable]="true"</td>
+            </tr>
+            <tr>
+              <td>simpleLabel: boolean</td>
+              <td>Gör texten för valda alternativ kortare vid multi. Förvalt värde är
+                <code>false</code>.</td>
+                <td>[simpleLabel]="true"</td>
+              </tr>
+              <tr>
+                <td>noItemSelectedLabel: string</td>
+                <td>Ändrar texten som visas då inget val gjorts. Förvalt värde är
+                  <code>Välj</code>.</td>
+                  <td>[noItemSelectedLabel]="'Gör ett val'"</td>
+                </tr>
+                <tr>
+                  <td>readonly: boolean</td>
+                  <td>Gör att textfält med valt värde visas. Förvalt värde är
+                    <code>false</code>.</td>
+                    <td>[readonly]="true"</td>
+                  </tr>
+                  <tr>
+                    <td>disabled: boolean</td>
+                    <td>Förhindrar interaktion. Förvalt värde är
+                      <code>false</code>.</td>
+                      <td>[disabled]="true"</td>
+                    </tr>
+                    <tr>
+                      <td>showValidation: boolean</td>
+                      <td>Anger om valideringsfel ska visas eller ej. Förvalt värde är
+                        <code>false</code>.</td>
+                        <td>[showValidation]="true"</td>
+                      </tr>
+                      <tr>
+                        <td>errorMessage: any</td>
+                        <td>Meddelande som skall visas vid valideringsfel. Nyckel för meddelandet skall vara valideringens namn.
+                          Valideringen required har redan det förvalda värdet "Obligatoriskt". Detta kan ändras.
+                        </td>
+                        <td>[errorMessage]="&#123; required: 'Du måste välja ett värde.' &#125;"</td>
+                      </tr>
+                      <tr>
+                        <td>compareWith: (o1: any, o2: any) => boolean</td>
+                        <td>Möjlighet att ändra hur items jämförs. Detta är användbart om items sätts om till nya, men motsvarande
+                          värden, till exempel då de hämtas via ett fjärranrop till servern och detta upprepas. Förvalt värde jämför
+                        med vanlig equality.</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>labelId: string</td>
+                        <td>ID för det element som är rubrik. Används av skärmläsare.</td>
+                        <td>[labelId]="'someLabelId'"</td>
+                      </tr>
+                      <tr>
+                        <td>rightAlign: boolean</td>
+                        <td>Möjlighet att högerjustera listboxen i de fall du har dropdownen placerad på högersida. Default värde är <code>false</code></td>
+                        <td>[rightAlign]="true"</td>
+                      </tr>
+                      <tr>
+                        <td>topAlign: boolean</td>
+                        <td>Möjlighet att ha listboxen ovanför dropdownen.
+                          I de fall du har dropdownen placerad på högersida och vill ha den på ovanför så kan du använda dig av rightAlign och topAlign kombinerat.
+                          Default värde är <code>false</code></td>
+                          <td>[topAlign]="true"</td>
+                        </tr>
+                        <tr>
+                          <td>selectedChanged: EventEmitter&lt;any&gt;</td>
+                          <td>Event som triggas när val ändras av användaren. Värdet är det nya valet. Detta är främst användbart när
+                            kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera ett formulär.
+                          </td>
+                          <td>(selectedChanged)="doSomething($event)"</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>focus()</td>
+                          <td>Metod för att flytta fokus till komponenten</td>
+                          <td>this.myDropdownSelect.focus()</td>
+                        </tr>
+                      </table>
+                      <br>
+                        <h2>DropdownItem</h2>
+                        <table class="property-table">
+                          <tr>
+                            <th>Namn</th>
+                            <th>Beskrivning</th>
+                            <th>Exempel</th>
+                          </tr>
+                          <tr>
+                            <td>selectedLabel: string</td>
+                            <td>Ger möjlighet att visa en annan text när alternativet är valt.</td>
+                            <td>[selectedLabel]="'Ett kortare namn'"</td>
+                          </tr>
+                          <tr>
+                            <td>value: any</td>
+                            <td>Värdet som sätts på kontrollen när alternativet väljs.</td>
+                            <td>[value]="someObject"</td>
+                          </tr>
+                          <tr>
+                            <td>default: boolean</td>
+                            <td>Ger möjlighet att låta alternativet vara förvalt utan att använda reactive forms. Detta är främst
+                              användbart när kontrollen används som ett sätt att styra flödet i en applikation, snarare än för att populera
+                              ett formulär. Förvalt värde är
+                              <code>false</code>.</td>
+                              <td>[default]="true"</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="docs__wcag">
+                          <p>
+                            Viktigt att tänka på, är att lägga in en tydlig etikett som skärmläsare kan läsa upp när dropdownen kommer i
+                            fokus. Smartast är att sätta en rubrik över dropdownen och sedan programmatiskt använda den som etikett för
+                            dropdownen.
+                          </p>
+                          <p>
+                            Det är bra om alternativen i en dropdowns lista är tydligt urskiljbara och att de inledande tecknen är
+                            signifikanta. Det gör det lättare att hitta. Fundera över hur användarna letar i listan när du gör design för
+                            dess innehåll.
+                          </p>
+                          <p>
+                            Dropdownen är byggd att följa WCAG-kraven för listbox (<a
+                          href="https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox">https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox</a>).
+                        </p>
+                        <p>
+                          Summerat innebär det:
+                        </p>
+                        <ul>
+                          <li>När dropdownen är i fokus, öppnas listan med Enter eller pil upp/ner.</li>
+                          <li>Enter väljer ett fokuserat alternativ och stänger listan.</li>
+                          <li>Esc stänger listan utan att göra ett val. Pil upp och ner bläddrar i listan.</li>
+                          <li>Om en teckentangent, eller en snabb följd av tecken trycks in, fokuseras det första alternativet med den
+                          angivna teckenkombinationen.</li>
+                          <li>Home respektive End går till listans första respektive sista alternativ.</li>
+                        </ul>
+                        <p>
+                          För multi-select gäller också att:
+                        </p>
+                        <ul>
+                          <li>Mellanslag kryssar för ett fokuserat alternativ utan att stänga listan.</li>
+                          <li>Ctrl + A kryssar för alla alternativ.</li>
+                        </ul>
+                        <div id="label">Frukt</div>
+                        <vgr-dropdown-select [labelId]="'label'">
+                          <vgr-dropdown-item> Äpple</vgr-dropdown-item>
+                          <vgr-dropdown-item> Banan</vgr-dropdown-item>
+                          <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
+                        </vgr-dropdown-select>
+                        <p>
+                          Ett alternativ, som är mindre bra, är att lägga in en tydlig defaulttext i dropdownens ruta. Det får dock följden
+                          att etikett saknas när ett alternativ är valt.
+                        </p>
+                        <vgr-dropdown-select [noItemSelectedLabel]="'Välj frukt'">
+                          <vgr-dropdown-item> Äpple</vgr-dropdown-item>
+                          <vgr-dropdown-item> Banan</vgr-dropdown-item>
+                          <vgr-dropdown-item> Apelsin</vgr-dropdown-item>
+                        </vgr-dropdown-select>
+                      </div>
+                    </app-component-docs>
