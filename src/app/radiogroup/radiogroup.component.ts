@@ -16,7 +16,7 @@ export class RadiogroupComponent implements OnInit {
   radiogroupVal: string;
   radioGroupForm: FormGroup;
 
-  groupDisabled: boolean = false;
+  groupDisabled = false;
   @ViewChild('RadioGroup2') radioGroup2: RadiobuttonGroupComponent;
   radiogroupFormValue = '';
 

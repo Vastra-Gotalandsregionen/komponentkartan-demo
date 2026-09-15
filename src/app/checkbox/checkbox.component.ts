@@ -13,7 +13,7 @@ import { HtmlEncodeService } from '../html-encode.service';
 export class CheckboxComponent implements OnInit {
   form: FormGroup;
   checkboxForm: FormGroup;
-  showValidFormText: boolean = false;
+  showValidFormText = false;
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
   klarmarkerad = false;

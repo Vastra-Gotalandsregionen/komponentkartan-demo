@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
@@ -80,7 +80,7 @@ export class SelectablelistDocumentationComponent {
         </vgr-selectablelist-column>
       </vgr-selectablelist-row>
   </vgr-selectablelist>`;
-  exampleCodeMarkup: string = '';
+  exampleCodeMarkup = '';
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =

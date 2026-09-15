@@ -1,4 +1,4 @@
-import { Component, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
 

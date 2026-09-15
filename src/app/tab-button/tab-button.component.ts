@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import { ModalService, TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -36,7 +35,7 @@ export class TabButtonComponent implements OnInit {
     this.router.navigate( ['tab-button/tab-start'],  { skipLocationChange: true });
   }
 
-  navigate(id) {
+  navigate(id: any) {
 
     const page = this.pages.filter(tab => tab.text === id)[0];
     this.pages.forEach(element => {

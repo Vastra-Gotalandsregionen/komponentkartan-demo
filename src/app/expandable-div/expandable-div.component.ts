@@ -54,7 +54,7 @@ export class ExpandableDivComponent {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
   }
-  onExpandedChanged(flag: Boolean) { }
-  onExpandedChanged1(flag: Boolean) { }
-  onExpandedChanged2(flag: Boolean) { }
+  onExpandedChanged(flag: boolean) { }
+  onExpandedChanged1(flag: boolean) { }
+  onExpandedChanged2(flag: boolean) { }
 }

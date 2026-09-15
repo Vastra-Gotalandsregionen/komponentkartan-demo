@@ -41,7 +41,7 @@ export class SearchResultComponent {
 </div>`, 'html');
   }
 
-  private getDemoItems(numberOfItems: number, addSecondRow: boolean = false): SearchResultItem[] {
+  private getDemoItems(numberOfItems: number, addSecondRow = false): SearchResultItem[] {
     const items: SearchResultItem[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
       const name = Math.random() > 0.7 ? `${i} - Min mottagning har ett jättelångt namn` : `${i} - Min mottagning`;

@@ -58,7 +58,7 @@ export class InputfieldsComponent implements OnInit, OnDestroy {
       rf1: ['', [Validators.pattern('^[A-Z,Å,Ä,Ö]{3}$'), Validators.required]],
       rf2: ['', Validators.email],
       rf3: ['', Validators.required, validateAsyncCityName()],
-      rf4: [,[Validators.min(40), Validators.max(50)]]
+      rf4: [[Validators.min(40), Validators.max(50)]]
     });
   }
 }

@@ -1,13 +1,13 @@
 // Core
-import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { appRoutes } from './routes';
 
 // Komponentkartan
-import { KomponentkartanModule, SelectablelistComponent } from 'vgr-komponentkartan';
+import { KomponentkartanModule } from 'vgr-komponentkartan';
 
 // Vendors
 // import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
@@ -58,7 +58,6 @@ import { IconsComponent } from './icons/icons.component';
 import { TableComponent } from './table/table.component';
 import { RingWithTextComponent } from './ring-with-text/ring-with-text.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
-import { TabButtonComponent } from './tab-button/tab-button.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageHeaderDocumentationComponent } from './page-header-documentation/page-header-documentation.component';
 import { PageBlockDocumentationComponent } from './page-block-documentation/page-block-documentation.component';
@@ -70,7 +69,6 @@ import { GridDocumentationComponent } from './grid-documentation/grid-documentat
 import { NotificationDocumentationComponent } from './notification-documentation/notification-documentation.component';
 import { ComboboxDocumentationComponent } from './combobox-documentation/combobox-documentation.component';
 import { TabButtonModule } from './tab-button/tab-button.module';
-import { HighlightCodeDirective } from './shared/directives/highlight-code.directive';
 import { SharedModule } from './shared/shared.module';
 import { EditableTableDocumentationComponent } from './editable-table-documentation/editable-table-documentation.component';
 import { RadiogroupComponent } from './radiogroup/radiogroup.component';

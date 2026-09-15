@@ -48,7 +48,7 @@ export class SkeletonLoaderComponent {
 
   exampleCodeMarkup;
 
-  exampleLoading: boolean = true;
+  exampleLoading = true;
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =
