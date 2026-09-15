@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Validators, FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
     selector: 'app-editable-table-documentation',
     templateUrl: './editable-table-documentation.component.html',
     styleUrls: ['./editable-table-documentation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EditableTableDocumentationComponent {

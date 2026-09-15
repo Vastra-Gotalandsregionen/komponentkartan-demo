@@ -1,6 +1,6 @@
 
 import {map} from 'rxjs/operators';
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Validators, AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
 import { CityService } from './cityservice';
 
@@ -11,6 +11,7 @@ import { InputComponent } from 'vgr-komponentkartan';
     selector: 'app-inputfields',
     templateUrl: './inputfields.component.html',
     styleUrls: ['./inputfields.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class InputfieldsComponent implements OnInit, OnDestroy {

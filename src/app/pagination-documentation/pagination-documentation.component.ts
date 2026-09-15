@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ModalService, PaginationManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
     selector: 'app-pagination-documentation',
     templateUrl: './pagination-documentation.component.html',
     styleUrls: ['./pagination-documentation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PaginationDocumentationComponent {

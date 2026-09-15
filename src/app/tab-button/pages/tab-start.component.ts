@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TabManagementService } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../../html-encode.service';
 
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../../html-encode.service';
     selector: 'vgr-tab-start',
     templateUrl: './tab-start.component.html',
     styleUrls: ['./tab-start.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TabStartComponent {

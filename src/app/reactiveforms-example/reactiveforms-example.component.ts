@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { Validators, AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { SelectableItem } from 'vgr-komponentkartan';
@@ -8,6 +8,7 @@ import { Examples } from './code-example';
     selector: 'app-reactiveformscodeexample',
     templateUrl: './reactiveforms-example.component.html',
     styleUrls: ['./reactiveforms-example.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ReactiveformsexampleComponent implements OnInit {
