@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotificationType, RadiobuttonGroupComponent } from 'vgr-komponentkartan';
 
@@ -6,6 +6,7 @@ import { NotificationType, RadiobuttonGroupComponent } from 'vgr-komponentkartan
     selector: 'app-radiogroup',
     templateUrl: './radiogroup.component.html',
     styleUrls: ['./radiogroup.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RadiogroupComponent implements OnInit {
@@ -15,7 +16,7 @@ export class RadiogroupComponent implements OnInit {
   radiogroupVal: string;
   radioGroupForm: FormGroup;
 
-  groupDisabled: boolean = false;
+  groupDisabled = false;
   @ViewChild('RadioGroup2') radioGroup2: RadiobuttonGroupComponent;
   radiogroupFormValue = '';
 

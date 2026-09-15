@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SelectableItem, ModalService } from 'vgr-komponentkartan';
 
 @Component({
     selector: 'app-theming',
     templateUrl: './theming.component.html',
     styleUrls: ['./theming.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ThemingComponent implements OnInit {

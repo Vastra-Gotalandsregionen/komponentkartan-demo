@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
 
@@ -6,6 +6,7 @@ import { ModalService } from 'vgr-komponentkartan';
     selector: 'app-headers',
     templateUrl: './headers.component.html',
     styleUrls: ['./headers.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

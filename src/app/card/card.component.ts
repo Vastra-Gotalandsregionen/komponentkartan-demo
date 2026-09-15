@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { RowNotification, NotificationType } from 'vgr-komponentkartan';
 
@@ -6,6 +6,7 @@ import { RowNotification, NotificationType } from 'vgr-komponentkartan';
     selector: 'app-card',
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CardComponent {

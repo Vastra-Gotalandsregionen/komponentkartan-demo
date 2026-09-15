@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ComboboxComponent } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
 @Component({
     selector: 'app-combobox-documentation',
     templateUrl: './combobox-documentation.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ComboboxDocumentationComponent {

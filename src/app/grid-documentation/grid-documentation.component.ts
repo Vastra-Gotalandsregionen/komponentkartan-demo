@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
     selector: 'app-grid-documentation',
     templateUrl: './grid-documentation.component.html',
     styleUrls: ['./grid-documentation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class GridDocumentationComponent implements OnInit {

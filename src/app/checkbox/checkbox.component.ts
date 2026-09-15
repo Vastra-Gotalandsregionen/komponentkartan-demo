@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -7,12 +7,13 @@ import { HtmlEncodeService } from '../html-encode.service';
     selector: 'app-checkbox',
     templateUrl: './checkbox.component.html',
     styleUrls: ['./checkbox.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CheckboxComponent implements OnInit {
   form: FormGroup;
   checkboxForm: FormGroup;
-  showValidFormText: boolean = false;
+  showValidFormText = false;
   formSubmittedCheckboxGroup: boolean;
   formSubmittedCheckbox: boolean;
   klarmarkerad = false;

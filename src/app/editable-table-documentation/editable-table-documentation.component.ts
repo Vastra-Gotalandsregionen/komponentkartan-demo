@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Validators, FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
     selector: 'app-editable-table-documentation',
     templateUrl: './editable-table-documentation.component.html',
     styleUrls: ['./editable-table-documentation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EditableTableDocumentationComponent {
@@ -458,7 +459,7 @@ export class EditableTableDocumentationComponent {
     this.myData = this.myForm.get('myFormArray') as FormArray;
     this.myData.clear;
     this.data2.forEach(data => {
-      let date = new Date();
+      const date = new Date();
       date.setDate(new Date(+data.datum.substring(0,4), +data.datum.substring(5,7), +data.datum.substring(9,10)).getDate());
       const g =  this.fb.group({
         datum: new FormControl(date),

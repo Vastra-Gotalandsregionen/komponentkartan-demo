@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
     selector: 'vgr-selectablelist-documentation',
     templateUrl: './selectablelist-documentation.component.html',
     styleUrls: ['./selectablelist-documentation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SelectablelistDocumentationComponent {
@@ -79,7 +80,7 @@ export class SelectablelistDocumentationComponent {
         </vgr-selectablelist-column>
       </vgr-selectablelist-row>
   </vgr-selectablelist>`;
-  exampleCodeMarkup: string = '';
+  exampleCodeMarkup = '';
 
   constructor(htmlEncoder: HtmlEncodeService) {
     this.exampleCodeMarkup =

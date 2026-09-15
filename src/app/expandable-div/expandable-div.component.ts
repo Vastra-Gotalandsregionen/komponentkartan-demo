@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 
 @Component({
     selector: 'app-expandable-div',
     templateUrl: './expandable-div.component.html',
     styleUrls: ['./expandable-div.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ExpandableDivComponent {
@@ -53,7 +54,7 @@ export class ExpandableDivComponent {
     this.exampleCodeMarkup =
       htmlEncoder.prepareHighlightedSection(this.exampleCode, 'HTML');
   }
-  onExpandedChanged(flag: Boolean) { }
-  onExpandedChanged1(flag: Boolean) { }
-  onExpandedChanged2(flag: Boolean) { }
+  onExpandedChanged(flag: boolean) { }
+  onExpandedChanged1(flag: boolean) { }
+  onExpandedChanged2(flag: boolean) { }
 }

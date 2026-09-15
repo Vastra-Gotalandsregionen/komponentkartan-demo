@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, ElementRef } from '@angular/core';
-declare var hljs: any;
+declare let hljs: any;
 
 @Directive({
     selector: '[vgrHighlightCode]',

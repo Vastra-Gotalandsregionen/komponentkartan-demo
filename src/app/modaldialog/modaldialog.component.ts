@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlEncodeService } from '../html-encode.service';
 import { ModalService } from 'vgr-komponentkartan';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
@@ -7,6 +7,7 @@ import { Validators, FormControl, FormGroup } from '@angular/forms';
     selector: 'app-modaldialog',
     templateUrl: './modaldialog.component.html',
     styleUrls: ['./modaldialog.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ModaldialogComponent implements OnInit {

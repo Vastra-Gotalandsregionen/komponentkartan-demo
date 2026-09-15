@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SearchResultItem } from 'vgr-komponentkartan';
 import { HtmlEncodeService } from '../html-encode.service';
 
@@ -6,6 +6,7 @@ import { HtmlEncodeService } from '../html-encode.service';
     selector: 'app-search-result',
     templateUrl: './search-result.component.html',
     styleUrls: ['./search-result.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SearchResultComponent {
@@ -40,7 +41,7 @@ export class SearchResultComponent {
 </div>`, 'html');
   }
 
-  private getDemoItems(numberOfItems: number, addSecondRow: boolean = false): SearchResultItem[] {
+  private getDemoItems(numberOfItems: number, addSecondRow = false): SearchResultItem[] {
     const items: SearchResultItem[] = [];
     for (let i = 1; i <= numberOfItems; i++) {
       const name = Math.random() > 0.7 ? `${i} - Min mottagning har ett jättelångt namn` : `${i} - Min mottagning`;
