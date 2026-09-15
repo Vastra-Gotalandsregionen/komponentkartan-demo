@@ -54,13 +54,11 @@
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
     "angular-cli-ghpages": "^0.6.0",
-    "codelyzer": "^6.0.0",
     "eslint": "^9.16.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "ng-packagr": "^21.0.1",
     "ts-node": "~3.2.0",
-    "tslint": "~6.1.0",
     "typescript": "^5.9.3"
   }
 }
