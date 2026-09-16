@@ -12,7 +12,7 @@
     "install-demo": "npm install vgr-komponentkartan@demo --save",
     "install-dev": "npm install vgr-komponentkartan@dev --save",
     "reinstall-demo": "npm uninstall vgr-komponentkartan && npm install vgr-komponentkartan@demo",
-    "release-gh": "ng build --configuration=public && ngh"
+    "release-gh": "ng build --configuration=public && ngh --dir=dist/browser"
   },
   "private": true,
   "dependencies": {
