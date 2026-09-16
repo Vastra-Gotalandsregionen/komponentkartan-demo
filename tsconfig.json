@@ -8,13 +8,11 @@
     "declaration": false,
     "moduleResolution": "bundler",
     "experimentalDecorators": true,
-    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types",
       "vgr-komponentkartan.d"
     ],
     "baseUrl": ".",
-    "useDefineForClassFields": false,
     "strict": false,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
